@@ -7,7 +7,7 @@ deployment_name="nwmis"
 deployment_version_label="nwmis-version"
 github_project="nwmis"
 notification="zulip"
-zulip_stream="RTMIS"
+zulip_stream="NWMIS"
 
 docker run \
        --rm \

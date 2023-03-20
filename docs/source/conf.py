@@ -20,7 +20,7 @@ import sphinx_rtd_theme
 
 # -- Project information -----------------------------------------------------
 
-project = 'RTMIS'
+project = 'NWMIS'
 copyright = '2022, Akvo'
 author = 'Akvo'
 

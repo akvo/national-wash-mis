@@ -1,4 +1,4 @@
-# RTMIS
+# NWMIS
 
 [![Build Status](https://akvo.semaphoreci.com/badges/national-wash-mis/branches/main.svg?style=shields)](https://akvo.semaphoreci.com/projects/national-wash-mis) [![Repo Size](https://img.shields.io/github/repo-size/akvo/national-wash-mis)](https://img.shields.io/github/repo-size/akvo/national-wash-mis) [![Languages](https://img.shields.io/github/languages/count/akvo/national-wash-mis)](https://img.shields.io/github/languages/count/akvo/national-wash-mis) [![Issues](https://img.shields.io/github/issues/akvo/national-wash-mis)](https://img.shields.io/github/issues/akvo/national-wash-mis) [![Last Commit](https://img.shields.io/github/last-commit/akvo/national-wash-mis/main)](https://img.shields.io/github/last-commit/akvo/national-wash-mis/main) [![Coverage Status](https://coveralls.io/repos/github/akvo/national-wash-mis/badge.svg)](https://coveralls.io/github/akvo/national-wash-mis) [![Coverage Status](https://img.shields.io/readthedocs/national-wash-mis?label=read%20the%20docs)](https://national-wash-mis.readthedocs.io/en/latest)
 

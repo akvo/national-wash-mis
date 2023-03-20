@@ -12,7 +12,7 @@ const uiText = {
     ),
     welcomeDesc: (
       <Fragment>
-        Real Time Management Information System (RTMIS)
+        Real Time Management Information System (NWMIS)
         <br />
         Updated sanitation and hygiene estimates across Kenya
       </Fragment>
@@ -60,7 +60,7 @@ const uiText = {
         url: "https://washdata.org/how-we-work/about-jmp#:~:text=Background,hygiene%20(WASH)%20since%201990",
       },
       {
-        text: "CLTS RTMIS",
+        text: "CLTS NWMIS",
         url: " http://wash.health.go.ke/clts/index.jsp",
       },
       {
