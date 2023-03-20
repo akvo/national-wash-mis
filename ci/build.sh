@@ -6,19 +6,6 @@ set -exuo pipefail
 [[ "${CI_BRANCH}" ==  "gh-pages" ]] && { echo "GH Pages update. Skip all"; exit 0; }
 [[ -n "${CI_TAG:=}" ]] && { echo "Skip build"; exit 0; }
 
-## RESTORE IMAGE CACHE
-IMAGE_CACHE_LIST=$(grep image ./docker-compose.yml \
-    | sort -u | sed 's/image\://g' \
-    | sed 's/^ *//g')
-mkdir -p ./ci/images
-
-while IFS= read -r IMAGE_CACHE; do
-    IMAGE_CACHE_LOC="./ci/images/${IMAGE_CACHE//\//-}.tar"
-    if [ -f "${IMAGE_CACHE_LOC}" ]; then
-        docker load -i "${IMAGE_CACHE_LOC}"
-    fi
-done <<< "${IMAGE_CACHE_LIST}"
-
 if grep -q .yml .gitignore; then
     echo "ERROR: .gitignore contains other docker-compose file"
     exit 1
@@ -55,7 +42,7 @@ then
     exit 1
 fi
 
-image_prefix="eu.gcr.io/akvo-lumen/rtmis"
+image_prefix="eu.gcr.io/akvo-lumen/nwmis"
 
 dc () {
     docker-compose \
@@ -116,8 +103,8 @@ worker_build() {
 update_dbdocs() {
     if [[ "${CI_BRANCH}" ==  "main" || "${CI_BRANCH}" ==  "develop" ]]; then
         npm install -g dbdocs
-        # dbdocs build doc/dbml/schema.dbml --project rtmis
-        dbdocs build backend/db.dbml --project "rtmis-$CI_BRANCH"
+        # dbdocs build doc/dbml/schema.dbml --project nwmis
+        dbdocs build backend/db.dbml --project "nwmis-$CI_BRANCH"
     fi
 }
 
@@ -147,12 +134,3 @@ if [[ ${FRONTEND_CHANGES} == 1 && ${BACKEND_CHANGES} == 1 ]]; then
       exit 1
     fi
 fi
-
-## STORE IMAGE CACHE
-while IFS= read -r IMAGE_CACHE; do
-    IMAGE_CACHE_LOC="./ci/images/${IMAGE_CACHE//\//-}.tar"
-    if [[ ! -f "${IMAGE_CACHE_LOC}" ]]; then
-        docker save -o "${IMAGE_CACHE_LOC}" "${IMAGE_CACHE}"
-    fi
-done <<< "${IMAGE_CACHE_LIST}"
-## END STORE IMAGE CACHE

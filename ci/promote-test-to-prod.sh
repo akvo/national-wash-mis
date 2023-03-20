@@ -3,11 +3,11 @@
 
 set -euo pipefail
 
-deployment_name="rtmis"
-deployment_version_label="rtmis-version"
-github_project="rtmis"
+deployment_name="nwmis"
+deployment_version_label="nwmis-version"
+github_project="nwmis"
 notification="zulip"
-zulip_stream="RTMIS"
+zulip_stream="NWMIS"
 
 docker run \
        --rm \

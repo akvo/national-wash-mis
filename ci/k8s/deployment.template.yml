@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: rtmis
+  name: nwmis
 spec:
   replicas: 1
   strategy:
@@ -12,19 +12,19 @@ spec:
     type: RollingUpdate
   selector:
     matchLabels:
-      run: rtmis
+      run: nwmis
   template:
     metadata:
       labels:
-        run: rtmis
-        rtmis-version: "${CI_COMMIT}"
+        run: nwmis
+        nwmis-version: "${CI_COMMIT}"
       annotations:
         prometheus.io/scrape: 'true'
         prometheus.io/port: '3000'
     spec:
       containers:
         - name: frontend
-          image: eu.gcr.io/akvo-lumen/rtmis/frontend:${CI_COMMIT}
+          image: eu.gcr.io/akvo-lumen/nwmis/frontend:${CI_COMMIT}
           ports:
             - containerPort: 80
           resources:
@@ -66,72 +66,72 @@ spec:
             - name: GOOGLE_SQL_COMPUTE_ZONE
               valueFrom:
                 configMapKeyRef:
-                  name: rtmis
+                  name: nwmis
                   key: google-sql-compute-zone
             - name: GOOGLE_SQL_DB_INSTANCE
               valueFrom:
                 configMapKeyRef:
-                  name: rtmis
+                  name: nwmis
                   key: google-sql-db-instance
             - name: GOOGLE_PROJECT
               valueFrom:
                 configMapKeyRef:
-                  name: rtmis
+                  name: nwmis
                   key: google-project
           volumeMounts:
-            - name: rtmis-secrets
+            - name: nwmis-secrets
               mountPath: "/secrets/cloudsql/credentials.json"
-              subPath: rtmis-service-account.json
+              subPath: nwmis-service-account.json
               readOnly: true
         - name: backend
-          image: eu.gcr.io/akvo-lumen/rtmis/backend:${CI_COMMIT}
+          image: eu.gcr.io/akvo-lumen/nwmis/backend:${CI_COMMIT}
           ports:
             - containerPort: 8000
           env:
             - name: DB_SCHEMA
               valueFrom:
                 secretKeyRef:
-                  name: rtmis
+                  name: nwmis
                   key: db-schema
             - name: DB_USER
               valueFrom:
                 secretKeyRef:
-                  name: rtmis
+                  name: nwmis
                   key: db-user
             - name: DB_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: rtmis
+                  name: nwmis
                   key: db-password
             - name: DB_HOST
               valueFrom:
                 secretKeyRef:
-                  name: rtmis
+                  name: nwmis
                   key: db-host
             - name: DJANGO_SECRET
               valueFrom:
                 secretKeyRef:
-                  name: rtmis
+                  name: nwmis
                   key: django-secret
             - name: MAILJET_APIKEY
               valueFrom:
                 secretKeyRef:
-                  name: rtmis
+                  name: nwmis
                   key: mailjet-apikey
             - name: MAILJET_SECRET
               valueFrom:
                 secretKeyRef:
-                  name: rtmis
+                  name: nwmis
                   key: mailjet-secret
             - name: EMAIL_FROM
               valueFrom:
                 secretKeyRef:
-                  name: rtmis
+                  name: nwmis
                   key: email-from
             - name: WEBDOMAIN
               valueFrom:
                 secretKeyRef:
-                  name: rtmis
+                  name: nwmis
                   key: webdomain
             - name: PROD
               value: "TRUE"
@@ -148,9 +148,9 @@ spec:
               port: 8000
             initialDelaySeconds: 30
           volumeMounts:
-            - name: rtmis-secrets
+            - name: nwmis-secrets
               mountPath: /secrets/credentials.json
-              subPath: rtmis-service-account.json
+              subPath: nwmis-service-account.json
               readOnly: true
           resources:
             requests:
@@ -160,59 +160,59 @@ spec:
               cpu: "1000m"
               memory: "1024Mi"
         - name: worker
-          image: eu.gcr.io/akvo-lumen/rtmis/worker:${CI_COMMIT}
+          image: eu.gcr.io/akvo-lumen/nwmis/worker:${CI_COMMIT}
           env:
             - name: DB_SCHEMA
               valueFrom:
                 secretKeyRef:
-                  name: rtmis
+                  name: nwmis
                   key: db-schema
             - name: DB_USER
               valueFrom:
                 secretKeyRef:
-                  name: rtmis
+                  name: nwmis
                   key: db-user
             - name: DB_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: rtmis
+                  name: nwmis
                   key: db-password
             - name: DB_HOST
               valueFrom:
                 secretKeyRef:
-                  name: rtmis
+                  name: nwmis
                   key: db-host
             - name: DJANGO_SECRET
               valueFrom:
                 secretKeyRef:
-                  name: rtmis
+                  name: nwmis
                   key: django-secret
             - name: MAILJET_APIKEY
               valueFrom:
                 secretKeyRef:
-                  name: rtmis
+                  name: nwmis
                   key: mailjet-apikey
             - name: MAILJET_SECRET
               valueFrom:
                 secretKeyRef:
-                  name: rtmis
+                  name: nwmis
                   key: mailjet-secret
             - name: EMAIL_FROM
               valueFrom:
                 secretKeyRef:
-                  name: rtmis
+                  name: nwmis
                   key: email-from
             - name: WEBDOMAIN
               valueFrom:
                 secretKeyRef:
-                  name: rtmis
+                  name: nwmis
                   key: webdomain
             - name: GOOGLE_APPLICATION_CREDENTIALS
               value: /secrets/credentials.json
           volumeMounts:
-            - name: rtmis-secrets
+            - name: nwmis-secrets
               mountPath: /secrets/credentials.json
-              subPath: rtmis-service-account.json
+              subPath: nwmis-service-account.json
               readOnly: true
           resources:
             requests:
@@ -222,6 +222,6 @@ spec:
               cpu: "500m"
               memory: "1024Mi"
       volumes:
-        - name: rtmis-secrets
+        - name: nwmis-secrets
           secret:
-            secretName: rtmis
+            secretName: nwmis

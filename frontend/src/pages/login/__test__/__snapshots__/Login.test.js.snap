@@ -48,7 +48,7 @@ exports[`Login and Registration test if the login form exists: LoginPage 1`] = `
                 and Hygiene (RUSH)
               </h1>
               <h2>
-                Real Time Management Information System (RTMIS)
+                Real Time Management Information System (NWMIS)
                 <br />
                 Updated sanitation and hygiene estimates across Kenya
               </h2>
@@ -337,7 +337,7 @@ exports[`Login and Registration test if the registration form exists: Registrati
                 and Hygiene (RUSH)
               </h1>
               <h2>
-                Real Time Management Information System (RTMIS)
+                Real Time Management Information System (NWMIS)
                 <br />
                 Updated sanitation and hygiene estimates across Kenya
               </h2>

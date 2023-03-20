@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -exuo pipefail
 
+echo "SKIP DEPLOY"
+exit 0
+
 [[ "${CI_BRANCH}" !=  "main" && ! "${CI_TAG:=}" =~ promote.* ]] && { echo "Branch different than main and not a tag. Skip deploy"; exit 0; }
 [[ "${CI_PULL_REQUEST}" ==  "true" ]] && { echo "Pull request. Skip deploy"; exit 0; }
 
@@ -14,7 +17,7 @@ auth () {
 }
 
 push_image () {
-    prefix="eu.gcr.io/akvo-lumen/rtmis"
+    prefix="eu.gcr.io/akvo-lumen/nwmis"
     docker push "${prefix}/${1}:${CI_COMMIT}"
 }
 

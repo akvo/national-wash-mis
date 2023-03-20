@@ -49,7 +49,7 @@ class StorageTestCase(TestCase):
         uploaded_file = storage.upload(file=filename,
                                        public=True,
                                        folder="test")
-        storage_path = f"https://storage.googleapis.com/rtmis/{bucket_folder}"
+        storage_path = f"https://storage.googleapis.com/nwmis/{bucket_folder}"
         output_file = "{}/test/{}".format(storage_path, filename)
         self.assertEqual(uploaded_file, output_file)
         response = requests.get(output_file)
