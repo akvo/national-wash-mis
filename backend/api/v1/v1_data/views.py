@@ -53,7 +53,7 @@ from api.v1.v1_forms.models import Forms, Questions, \
 from api.v1.v1_profile.models import Administration, Levels
 from api.v1.v1_users.models import SystemUser
 from api.v1.v1_profile.constants import UserRoleTypes
-from rtmis.settings import REST_FRAMEWORK
+from nwmis.settings import REST_FRAMEWORK
 from utils.custom_permissions import IsSuperAdmin, IsAdmin, IsApprover, \
         IsSubmitter, PublicGet
 from utils.custom_serializer_fields import validate_serializers_message

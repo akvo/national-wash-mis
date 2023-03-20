@@ -1,7 +1,7 @@
 import json
 import os
 
-from rtmis.settings import PROD
+from nwmis.settings import PROD
 from django.core.management import BaseCommand
 from django.core.cache import cache
 

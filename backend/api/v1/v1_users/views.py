@@ -42,7 +42,7 @@ from api.v1.v1_users.functions import check_form_approval_assigned, \
 from api.v1.v1_forms.models import Forms
 # from api.v1.v1_data.models import PendingDataBatch, \
 #     PendingDataApproval, FormData
-from rtmis.settings import REST_FRAMEWORK
+from nwmis.settings import REST_FRAMEWORK
 from utils.custom_permissions import IsSuperAdmin, IsAdmin
 from utils.custom_serializer_fields import validate_serializers_message
 from utils.default_serializers import DefaultResponseSerializer

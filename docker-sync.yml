@@ -1,5 +1,5 @@
 ---
 version: "3.9"
 syncs:
-  rtmis-docker-sync:
+  nwmis-docker-sync:
     src: "./frontend/node_modules"

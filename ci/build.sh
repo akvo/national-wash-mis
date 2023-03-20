@@ -55,7 +55,7 @@ then
     exit 1
 fi
 
-image_prefix="eu.gcr.io/akvo-lumen/rtmis"
+image_prefix="eu.gcr.io/akvo-lumen/nwmis"
 
 dc () {
     docker-compose \
@@ -116,8 +116,8 @@ worker_build() {
 update_dbdocs() {
     if [[ "${CI_BRANCH}" ==  "main" || "${CI_BRANCH}" ==  "develop" ]]; then
         npm install -g dbdocs
-        # dbdocs build doc/dbml/schema.dbml --project rtmis
-        dbdocs build backend/db.dbml --project "rtmis-$CI_BRANCH"
+        # dbdocs build doc/dbml/schema.dbml --project nwmis
+        dbdocs build backend/db.dbml --project "nwmis-$CI_BRANCH"
     fi
 }
 

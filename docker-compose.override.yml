@@ -14,20 +14,20 @@ services:
     network_mode: service:mainnetwork
   worker:
     volumes:
-      - ../akvo-config/k8s-secrets/test/rtmis:/credentials/:ro
+      - ../akvo-config/k8s-secrets/test/nwmis:/credentials/:ro
     environment:
-      - GOOGLE_APPLICATION_CREDENTIALS=/credentials/rtmis-service-account.json
+      - GOOGLE_APPLICATION_CREDENTIALS=/credentials/nwmis-service-account.json
       - MAILJET_APIKEY=$MAILJET_APIKEY
       - MAILJET_SECRET=$MAILJET_SECRET
-      - WEBDOMAIN=https://rtmis.akvotest.org
+      - WEBDOMAIN=https://nwmis.akvotest.org
   backend:
     volumes:
-      - ../akvo-config/k8s-secrets/test/rtmis:/credentials/:ro
+      - ../akvo-config/k8s-secrets/test/nwmis:/credentials/:ro
     environment:
-      - GOOGLE_APPLICATION_CREDENTIALS=/credentials/rtmis-service-account.json
+      - GOOGLE_APPLICATION_CREDENTIALS=/credentials/nwmis-service-account.json
       - MAILJET_APIKEY=$MAILJET_APIKEY
       - MAILJET_SECRET=$MAILJET_SECRET
-      - WEBDOMAIN=https://rtmis.akvotest.org
+      - WEBDOMAIN=https://nwmis.akvotest.org
     network_mode: service:mainnetwork
   pgadmin:
     image: dpage/pgadmin4:5.7

@@ -1,4 +1,4 @@
-Project rtmis {
+Project nwmis {
   database_type: 'PostgreSQL'
   Note: '''
     # RTMIS
