@@ -1,11 +1,12 @@
 import os
 from pathlib import Path
 from django.test import TestCase
+from nwmis.settings import MASTER_DATA
 from django.test.utils import override_settings
 
 from api.v1.v1_profile.management.commands import administration_seeder
 
-config_path = "source/config/config.min.js"
+config_path = f"{MASTER_DATA}/config/config.min.js"
 
 
 @override_settings(USE_TZ=False)
