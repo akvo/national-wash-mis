@@ -10,6 +10,7 @@ services:
     environment:
       - DB_USER=akvo
       - DB_PASSWORD=password
+      - DB_HOST=db
       - DJANGO_SECRET=ci-secret
       # env vars for coveralls
       - COVERALLS_REPO_TOKEN=${COVERALLS_REPO_TOKEN:-}
