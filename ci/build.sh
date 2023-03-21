@@ -103,7 +103,7 @@ worker_build() {
 update_dbdocs() {
     if [[ "${CI_BRANCH}" ==  "main" || "${CI_BRANCH}" ==  "develop" ]]; then
         npm install -g dbdocs
-        dbdocs build backend/db.dbml --project "nwmis-$CI_BRANCH"
+        dbdocs build backend/db.dbml --project "national-wash-mis-$CI_BRANCH"
     fi
 }
 
