@@ -1,7 +1,7 @@
 import json
 import os
 
-from nwmis.settings import PROD
+from nwmis.settings import PROD, MASTER_DATA
 from django.core.management import BaseCommand
 from django.core.cache import cache
 
@@ -32,15 +32,15 @@ class Command(BaseCommand):
         TEST = options.get("test")
         JSON_FILE = options.get("file")
         # for JMP attribute seeder
-        jmp_criteria_config_source = './source/config/visualisation.json'
+        criteria_config_source = f"{MASTER_DATA}/config/visualisation.json"
         if TEST:
-            jmp_criteria_config_source = './source/config/vis-example.json'
-        jmp_criteria_json = open(jmp_criteria_config_source, 'r')
+            criteria_config_source = f"{MASTER_DATA}/config/vis-example.json"
+        jmp_criteria_json = open(criteria_config_source, 'r')
         jmp_criteria_json = json.load(jmp_criteria_json)
         # Form source
-        source_folder = './source/forms/'
+        source_folder = f"{MASTER_DATA}/forms"
         source_files = [
-            f"{source_folder}{json_file}"
+            f"{source_folder}/{json_file}"
             for json_file in os.listdir(source_folder)
         ]
         source_files = list(

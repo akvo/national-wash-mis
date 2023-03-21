@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nwmis
+  name: ${INSTANCE_NAME}
 spec:
   replicas: 1
   strategy:
@@ -12,19 +12,19 @@ spec:
     type: RollingUpdate
   selector:
     matchLabels:
-      run: nwmis
+      run: ${INSTANCE_NAME}
   template:
     metadata:
       labels:
-        run: nwmis
-        nwmis-version: "${CI_COMMIT}"
+        run: ${INSTANCE_NAME}
+        ${INSTANCE_NAME}-version: "${CI_COMMIT}"
       annotations:
         prometheus.io/scrape: 'true'
         prometheus.io/port: '3000'
     spec:
       containers:
         - name: frontend
-          image: eu.gcr.io/akvo-lumen/nwmis/frontend:${CI_COMMIT}
+          image: eu.gcr.io/akvo-lumen/national-wash-mis/frontend:${CI_COMMIT}
           ports:
             - containerPort: 80
           resources:
@@ -34,105 +34,61 @@ spec:
             limits:
               cpu: "200m"
               memory: "64Mi"
-        - name: cloud-sql-proxy
-          resources:
-            requests:
-              cpu: "100m"
-              memory: "256Mi"
-            limits:
-              cpu: "1000m"
-              memory: "768Mi"
-          # https://cloud.google.com/sql/docs/mysql/connect-kubernetes-engine#run_the_as_a_sidecar
-          # It is recommended to use the latest version of the Cloud SQL proxy
-          # Make sure to update on a regular schedule!
-          image: eu.gcr.io/cloudsql-docker/gce-proxy:1.30.1
-          command:
-            - "/cloud_sql_proxy"
-
-            # By default, the proxy will write all logs to stderr. In some
-            # environments, anything printed to stderr is consider an error. To
-            # disable this behavior and write all logs to stdout (except errors
-            # which will still go to stderr), use:
-            - "-log_debug_stdout"
-
-            - "-instances=$(GOOGLE_PROJECT):$(GOOGLE_SQL_COMPUTE_ZONE):$(GOOGLE_SQL_DB_INSTANCE)=tcp:5432"
-            - "-credential_file=/secrets/cloudsql/credentials.json"
-          securityContext:
-            # The default Cloud SQL proxy image runs as the
-            # "nonroot" user and group (uid: 65532) by default.
-            runAsNonRoot: true
-          # https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
-          env:
-            - name: GOOGLE_SQL_COMPUTE_ZONE
-              valueFrom:
-                configMapKeyRef:
-                  name: nwmis
-                  key: google-sql-compute-zone
-            - name: GOOGLE_SQL_DB_INSTANCE
-              valueFrom:
-                configMapKeyRef:
-                  name: nwmis
-                  key: google-sql-db-instance
-            - name: GOOGLE_PROJECT
-              valueFrom:
-                configMapKeyRef:
-                  name: nwmis
-                  key: google-project
-          volumeMounts:
-            - name: nwmis-secrets
-              mountPath: "/secrets/cloudsql/credentials.json"
-              subPath: nwmis-service-account.json
-              readOnly: true
         - name: backend
-          image: eu.gcr.io/akvo-lumen/nwmis/backend:${CI_COMMIT}
+          image: eu.gcr.io/akvo-lumen/national-wash-mis/backend:${CI_COMMIT}
           ports:
             - containerPort: 8000
           env:
             - name: DB_SCHEMA
               valueFrom:
                 secretKeyRef:
-                  name: nwmis
+                  name: ${INSTANCE_NAME}
                   key: db-schema
             - name: DB_USER
               valueFrom:
                 secretKeyRef:
-                  name: nwmis
+                  name: ${INSTANCE_NAME}
                   key: db-user
             - name: DB_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: nwmis
+                  name: ${INSTANCE_NAME}
                   key: db-password
             - name: DB_HOST
               valueFrom:
                 secretKeyRef:
-                  name: nwmis
+                  name: ${INSTANCE_NAME}
                   key: db-host
             - name: DJANGO_SECRET
               valueFrom:
                 secretKeyRef:
-                  name: nwmis
+                  name: ${INSTANCE_NAME}
                   key: django-secret
             - name: MAILJET_APIKEY
               valueFrom:
                 secretKeyRef:
-                  name: nwmis
+                  name: ${INSTANCE_NAME}
                   key: mailjet-apikey
             - name: MAILJET_SECRET
               valueFrom:
                 secretKeyRef:
-                  name: nwmis
+                  name: ${INSTANCE_NAME}
                   key: mailjet-secret
             - name: EMAIL_FROM
               valueFrom:
                 secretKeyRef:
-                  name: nwmis
+                  name: ${INSTANCE_NAME}
                   key: email-from
             - name: WEBDOMAIN
               valueFrom:
                 secretKeyRef:
-                  name: nwmis
+                  name: ${INSTANCE_NAME}
                   key: webdomain
+            - name: NWMIS_INSTANCE
+              valueFrom:
+                secretKeyRef:
+                  name: ${INSTANCE_NAME}
+                  key: instance
             - name: PROD
               value: "TRUE"
             - name: GOOGLE_APPLICATION_CREDENTIALS
@@ -148,7 +104,7 @@ spec:
               port: 8000
             initialDelaySeconds: 30
           volumeMounts:
-            - name: nwmis-secrets
+            - name: ${INSTANCE_NAME}-secrets
               mountPath: /secrets/credentials.json
               subPath: nwmis-service-account.json
               readOnly: true
@@ -160,57 +116,62 @@ spec:
               cpu: "1000m"
               memory: "1024Mi"
         - name: worker
-          image: eu.gcr.io/akvo-lumen/nwmis/worker:${CI_COMMIT}
+          image: eu.gcr.io/akvo-lumen/national-wash-mis/worker:${CI_COMMIT}
           env:
             - name: DB_SCHEMA
               valueFrom:
                 secretKeyRef:
-                  name: nwmis
+                  name: ${INSTANCE_NAME}
                   key: db-schema
             - name: DB_USER
               valueFrom:
                 secretKeyRef:
-                  name: nwmis
+                  name: ${INSTANCE_NAME}
                   key: db-user
             - name: DB_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: nwmis
+                  name: ${INSTANCE_NAME}
                   key: db-password
             - name: DB_HOST
               valueFrom:
                 secretKeyRef:
-                  name: nwmis
+                  name: ${INSTANCE_NAME}
                   key: db-host
             - name: DJANGO_SECRET
               valueFrom:
                 secretKeyRef:
-                  name: nwmis
+                  name: ${INSTANCE_NAME}
                   key: django-secret
             - name: MAILJET_APIKEY
               valueFrom:
                 secretKeyRef:
-                  name: nwmis
+                  name: ${INSTANCE_NAME}
                   key: mailjet-apikey
             - name: MAILJET_SECRET
               valueFrom:
                 secretKeyRef:
-                  name: nwmis
+                  name: ${INSTANCE_NAME}
                   key: mailjet-secret
             - name: EMAIL_FROM
               valueFrom:
                 secretKeyRef:
-                  name: nwmis
+                  name: ${INSTANCE_NAME}
                   key: email-from
             - name: WEBDOMAIN
               valueFrom:
                 secretKeyRef:
-                  name: nwmis
+                  name: ${INSTANCE_NAME}
                   key: webdomain
+            - name: NWMIS_INSTANCE
+              valueFrom:
+                secretKeyRef:
+                  name: ${INSTANCE_NAME}
+                  key: instance
             - name: GOOGLE_APPLICATION_CREDENTIALS
               value: /secrets/credentials.json
           volumeMounts:
-            - name: nwmis-secrets
+            - name: ${INSTANCE_NAME}-secrets
               mountPath: /secrets/credentials.json
               subPath: nwmis-service-account.json
               readOnly: true
@@ -222,6 +183,6 @@ spec:
               cpu: "500m"
               memory: "1024Mi"
       volumes:
-        - name: nwmis-secrets
+        - name: ${INSTANCE_NAME}-secrets
           secret:
-            secretName: nwmis
+            secretName: ${INSTANCE_NAME}

@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta, time
 
 import pandas as pd
+from nwmis.settings import MASTER_DATA
 from django.core.management import BaseCommand
 from django.utils import timezone
 from django.utils.timezone import make_aware
@@ -108,38 +109,43 @@ def seed_data(form, fake_geo, level_names, repeat, test):
                     parent_id=level_id,
                     level=Levels.objects.filter(level=level[1]).first(),
                     name=geo[level_name]).first()
-                if form.type == FormTypes.national:
-                    access_obj = Access.objects
-                    access_super_admin = access_obj.filter(
-                        role=UserRoleTypes.super_admin).first()
-                    access_admin = access_obj.filter(
-                        role=UserRoleTypes.admin).order_by('?').first()
-                    for access in [access_super_admin, access_admin]:
-                        administration = Administration.objects.filter(
-                            pk=access.administration.id).first()
-                        data_name = "{0} - {1}".format(
-                            administration.name, created.strftime("%B %Y"))
-                        national_data = FormData.objects.create(
-                            name=data_name,
+                try:
+                    if form.type == FormTypes.national:
+                        access_obj = Access.objects
+                        access_super_admin = access_obj.filter(
+                            role=UserRoleTypes.super_admin).first()
+                        access_admin = access_obj.filter(
+                            role=UserRoleTypes.admin).order_by('?').first()
+                        for access in [access_super_admin, access_admin]:
+                            administration = Administration.objects.filter(
+                                pk=access.administration.id).first()
+                            data_name = "{0} - {1}".format(
+                                administration.name, created.strftime("%B %Y"))
+                            national_data = FormData.objects.create(
+                                name=data_name,
+                                geo=geo_value,
+                                form=form,
+                                administration=administration,
+                                created_by=access.user)
+                            national_data.created = make_aware(created)
+                            level_id = administration.id
+                            national_data.save()
+                            add_fake_answers(national_data, form.type)
+                    else:
+                        data = FormData.objects.create(
+                            name=fake.pystr_format(),
                             geo=geo_value,
                             form=form,
                             administration=administration,
-                            created_by=access.user)
-                        national_data.created = make_aware(created)
+                            created_by=SystemUser.objects.order_by('?').first()
+                        )
+                        data.created = make_aware(created)
                         level_id = administration.id
-                        national_data.save()
-                        add_fake_answers(national_data, form.type)
-                else:
-                    data = FormData.objects.create(
-                        name=fake.pystr_format(),
-                        geo=geo_value,
-                        form=form,
-                        administration=administration,
-                        created_by=SystemUser.objects.order_by('?').first())
-                    data.created = make_aware(created)
-                    level_id = administration.id
-                    data.save()
-                    add_fake_answers(data, form.type)
+                        data.save()
+                        add_fake_answers(data, form.type)
+                # TODO: REMOVE EXCEPTION
+                except Exception:
+                    pass
         else:
             level = Levels.objects.order_by('-id').first()
             test_data = FormData.objects.create(
@@ -170,8 +176,8 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         test = options.get("test")
-        # FormData.objects.all().delete()
-        fake_geo = pd.read_csv("./source/kenya_random_points.csv")
+        FormData.objects.all().delete()
+        fake_geo = pd.read_csv(f"{MASTER_DATA}/random_points.csv")
         fake_geo = fake_geo.sample(frac=1).reset_index(drop=True)
         level_names = list(
             filter(lambda x: True if "NAME_" in x else False, list(fake_geo)))

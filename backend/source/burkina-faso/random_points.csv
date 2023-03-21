@@ -1,0 +1,703 @@
+id,NAME_0,NAME_1,NAME_2,NAME_3,X,Y
+1,Burkina Faso,Boucle du Mouhoun,Balé,Bagassi,11.8079780414032,-3.31157800298269
+2,Burkina Faso,Boucle du Mouhoun,Balé,Bagassi,11.7263482482767,-3.32727612040484
+3,Burkina Faso,Boucle du Mouhoun,Balé,Bana,11.9679563562083,-3.47162490432022
+4,Burkina Faso,Boucle du Mouhoun,Balé,Bana,11.9131826013326,-3.35235861244749
+5,Burkina Faso,Boucle du Mouhoun,Balé,Boromo,11.7071380668127,-2.87075002144762
+6,Burkina Faso,Boucle du Mouhoun,Balé,Boromo,11.5794685301938,-2.92379839302665
+7,Burkina Faso,Boucle du Mouhoun,Balé,Fara,11.4865998080796,-2.81231959676878
+8,Burkina Faso,Boucle du Mouhoun,Balé,Fara,11.3560316014525,-2.69694946929553
+9,Burkina Faso,Boucle du Mouhoun,Balé,Oury,12.0171081253773,-3.0425376970795
+10,Burkina Faso,Boucle du Mouhoun,Balé,Oury,11.972877684855,-3.12317145844951
+11,Burkina Faso,Boucle du Mouhoun,Balé,Pa,11.6492478641044,-3.33285191621372
+12,Burkina Faso,Boucle du Mouhoun,Balé,Pa,11.6131859635692,-3.27003014598748
+13,Burkina Faso,Boucle du Mouhoun,Balé,Pompoï,11.8266310139485,-3.17553878389613
+14,Burkina Faso,Boucle du Mouhoun,Balé,Pompoï,11.8927898909455,-3.27400639568468
+15,Burkina Faso,Boucle du Mouhoun,Balé,Poura,11.6075375001945,-2.77728168437637
+16,Burkina Faso,Boucle du Mouhoun,Balé,Poura,11.6475275939673,-2.74806445813975
+17,Burkina Faso,Boucle du Mouhoun,Balé,Siby,11.8593158607436,-2.92644502170737
+18,Burkina Faso,Boucle du Mouhoun,Balé,Siby,11.8451483145347,-2.95984252275461
+19,Burkina Faso,Boucle du Mouhoun,Balé,Yaho,11.9064302080036,-3.48411069574995
+20,Burkina Faso,Boucle du Mouhoun,Balé,Yaho,11.8307247481206,-3.4169228874178
+21,Burkina Faso,Boucle du Mouhoun,Banwa,Balavé,12.3401493683959,-4.15440480829249
+22,Burkina Faso,Boucle du Mouhoun,Banwa,Balavé,12.445244762953,-4.20929276006293
+23,Burkina Faso,Boucle du Mouhoun,Banwa,Kouka,11.7878336424319,-4.36399296691236
+24,Burkina Faso,Boucle du Mouhoun,Banwa,Kouka,11.966842678332,-4.31845626543496
+25,Burkina Faso,Boucle du Mouhoun,Banwa,Sami,12.2302654103523,-4.50201160121597
+26,Burkina Faso,Boucle du Mouhoun,Banwa,Sami,12.091796301837,-4.56187337982737
+27,Burkina Faso,Boucle du Mouhoun,Banwa,Sanaba,12.4299643599355,-3.68125398911138
+28,Burkina Faso,Boucle du Mouhoun,Banwa,Sanaba,12.3243270505153,-3.74072262543717
+29,Burkina Faso,Boucle du Mouhoun,Banwa,Solenzo,12.2333247026725,-4.14394885441964
+30,Burkina Faso,Boucle du Mouhoun,Banwa,Solenzo,12.1154976953731,-4.0184101726476
+31,Burkina Faso,Boucle du Mouhoun,Banwa,Tansila,12.6019041492952,-4.40338614139542
+32,Burkina Faso,Boucle du Mouhoun,Banwa,Tansila,12.683820516369,-4.17119656923336
+33,Burkina Faso,Boucle du Mouhoun,Kossi,Barani,13.0983635600145,-3.91541416581716
+34,Burkina Faso,Boucle du Mouhoun,Kossi,Barani,12.9965603631754,-3.59141887041216
+35,Burkina Faso,Boucle du Mouhoun,Kossi,Bomborokuy,12.8856770076244,-3.98906237899393
+36,Burkina Faso,Boucle du Mouhoun,Kossi,Bomborokuy,12.9061774485981,-4.02448963759365
+37,Burkina Faso,Boucle du Mouhoun,Kossi,Bourasso,12.5644315130274,-3.70154483034291
+38,Burkina Faso,Boucle du Mouhoun,Kossi,Bourasso,12.6176007372547,-3.86452901368605
+39,Burkina Faso,Boucle du Mouhoun,Kossi,Djibasso,13.3248573075758,-4.1161636509387
+40,Burkina Faso,Boucle du Mouhoun,Kossi,Djibasso,13.1874074625759,-4.2121357234464
+41,Burkina Faso,Boucle du Mouhoun,Kossi,Dokuy,12.6657942083518,-4.09113216252593
+42,Burkina Faso,Boucle du Mouhoun,Kossi,Dokuy,12.4518595099533,-4.02528456411672
+43,Burkina Faso,Boucle du Mouhoun,Kossi,Doumbala,12.9812533920626,-4.11152515659183
+44,Burkina Faso,Boucle du Mouhoun,Kossi,Doumbala,12.7238361459401,-4.1599487274172
+45,Burkina Faso,Boucle du Mouhoun,Kossi,Kombori,13.4230919326885,-3.95845359532673
+46,Burkina Faso,Boucle du Mouhoun,Kossi,Kombori,13.4349944912737,-3.98930213869317
+47,Burkina Faso,Boucle du Mouhoun,Kossi,Madouba,13.1437629025686,-4.22478667664925
+48,Burkina Faso,Boucle du Mouhoun,Kossi,Madouba,13.1200339929568,-4.2394289222249
+49,Burkina Faso,Boucle du Mouhoun,Kossi,Nouna,12.7375823807733,-3.80737362878937
+50,Burkina Faso,Boucle du Mouhoun,Kossi,Nouna,12.7952936982917,-3.66162741194938
+51,Burkina Faso,Boucle du Mouhoun,Kossi,Sono,12.9060166537094,-3.50558599366792
+52,Burkina Faso,Boucle du Mouhoun,Kossi,Sono,12.9751806316071,-3.49167961057339
+53,Burkina Faso,Boucle du Mouhoun,Mouhoun,Bondokuy,11.7601849024778,-3.8389370471339
+54,Burkina Faso,Boucle du Mouhoun,Mouhoun,Bondokuy,11.8499971732713,-3.61196193793415
+55,Burkina Faso,Boucle du Mouhoun,Mouhoun,Dedougou,12.4492216702423,-3.46825840959091
+56,Burkina Faso,Boucle du Mouhoun,Mouhoun,Dedougou,12.4296999426056,-3.51551115394728
+57,Burkina Faso,Boucle du Mouhoun,Mouhoun,Douroula,12.5456993440369,-3.33846551730691
+58,Burkina Faso,Boucle du Mouhoun,Mouhoun,Douroula,12.6400177636588,-3.40704443310336
+59,Burkina Faso,Boucle du Mouhoun,Mouhoun,Kona,12.0414467077577,-3.52749620398719
+60,Burkina Faso,Boucle du Mouhoun,Mouhoun,Kona,12.2641934092666,-3.40695421597833
+61,Burkina Faso,Boucle du Mouhoun,Mouhoun,Ouarkoye,12.0787425385983,-3.80430309526019
+62,Burkina Faso,Boucle du Mouhoun,Mouhoun,Ouarkoye,12.1069006808605,-3.84007634145614
+63,Burkina Faso,Boucle du Mouhoun,Mouhoun,Safane,12.1040483954245,-3.2819092239776
+64,Burkina Faso,Boucle du Mouhoun,Mouhoun,Safane,12.0779445740494,-3.31253029790154
+65,Burkina Faso,Boucle du Mouhoun,Mouhoun,Tchériba,12.3653910145092,-3.12830792862686
+66,Burkina Faso,Boucle du Mouhoun,Mouhoun,Tchériba,12.2327510362183,-2.87532502318404
+67,Burkina Faso,Boucle du Mouhoun,Nayala,Gassan,12.8778867076763,-3.19093708987901
+68,Burkina Faso,Boucle du Mouhoun,Nayala,Gassan,12.807611051535,-3.37649908943118
+69,Burkina Faso,Boucle du Mouhoun,Nayala,Gossina,12.5259704504508,-2.74411066046951
+70,Burkina Faso,Boucle du Mouhoun,Nayala,Gossina,12.4596277618548,-2.88827804680651
+71,Burkina Faso,Boucle du Mouhoun,Nayala,Kougny,12.6324106121384,-3.01761508984254
+72,Burkina Faso,Boucle du Mouhoun,Nayala,Kougny,12.7331247625127,-3.15088184019194
+73,Burkina Faso,Boucle du Mouhoun,Nayala,Toma,12.5921690763607,-2.95039766724012
+74,Burkina Faso,Boucle du Mouhoun,Nayala,Toma,12.692625366646,-2.84089647652734
+75,Burkina Faso,Boucle du Mouhoun,Nayala,Yaba,12.9239303081579,-2.76879204126215
+76,Burkina Faso,Boucle du Mouhoun,Nayala,Yaba,12.8197452075985,-2.84345976218841
+77,Burkina Faso,Boucle du Mouhoun,Nayala,Ye,12.4129809562556,-2.99497211389725
+78,Burkina Faso,Boucle du Mouhoun,Nayala,Ye,12.5725542206581,-3.21033934166373
+79,Burkina Faso,Boucle du Mouhoun,Sourou,Di,13.1803314923827,-3.33582566597261
+80,Burkina Faso,Boucle du Mouhoun,Sourou,Di,13.1531451117277,-3.43755084896138
+81,Burkina Faso,Boucle du Mouhoun,Sourou,Gomboro,13.4719736241762,-2.92709449668587
+82,Burkina Faso,Boucle du Mouhoun,Sourou,Gomboro,13.4047819656116,-2.94597769708638
+83,Burkina Faso,Boucle du Mouhoun,Sourou,Kassoum,13.0485733875823,-3.23402675491641
+84,Burkina Faso,Boucle du Mouhoun,Sourou,Kassoum,12.9987615622156,-3.36490320049955
+85,Burkina Faso,Boucle du Mouhoun,Sourou,Kiembara,13.2905823720078,-2.66630619375016
+86,Burkina Faso,Boucle du Mouhoun,Sourou,Kiembara,13.267979405486,-2.90808179803396
+87,Burkina Faso,Boucle du Mouhoun,Sourou,Lanfièra,12.8452307571719,-3.41832527731385
+88,Burkina Faso,Boucle du Mouhoun,Sourou,Lanfièra,12.855402056948,-3.40422810337677
+89,Burkina Faso,Boucle du Mouhoun,Sourou,Lankouè,13.2998936172217,-2.5962782903099
+90,Burkina Faso,Boucle du Mouhoun,Sourou,Lankouè,13.2211684371153,-2.52072528028016
+91,Burkina Faso,Boucle du Mouhoun,Sourou,Toeni,13.429713798797,-3.05679721944284
+92,Burkina Faso,Boucle du Mouhoun,Sourou,Toeni,13.600368485862,-3.21613984440591
+93,Burkina Faso,Boucle du Mouhoun,Sourou,Tougan,13.1920845046624,-3.18742505431844
+94,Burkina Faso,Boucle du Mouhoun,Sourou,Tougan,13.2332877842467,-3.07442930292098
+95,Burkina Faso,Cascades,Comoé,Banfora,10.4321027853828,-4.75984890408762
+96,Burkina Faso,Cascades,Comoé,Banfora,10.5080102891708,-4.70013060246616
+97,Burkina Faso,Cascades,Comoé,Beregadougou,10.7787850429763,-4.72238526782571
+98,Burkina Faso,Cascades,Comoé,Beregadougou,10.7802563022992,-4.59950986057182
+99,Burkina Faso,Cascades,Comoé,Mangodara,9.80167975202008,-4.20247356828811
+100,Burkina Faso,Cascades,Comoé,Mangodara,9.90128672210734,-4.21059001157165
+101,Burkina Faso,Cascades,Comoé,Moussodougou,10.810441001167,-4.79531458190064
+102,Burkina Faso,Cascades,Comoé,Moussodougou,10.7856212421618,-4.87437323003089
+103,Burkina Faso,Cascades,Comoé,Niangoloko,9.87460030966214,-4.7946519042837
+104,Burkina Faso,Cascades,Comoé,Niangoloko,10.2426196157592,-4.640417066397
+105,Burkina Faso,Cascades,Comoé,Ouo,10.5936597529153,-3.74948189019673
+106,Burkina Faso,Cascades,Comoé,Ouo,10.4205989269727,-3.82426161603694
+107,Burkina Faso,Cascades,Comoé,Sidéradougou,10.1790357345544,-4.11838748589118
+108,Burkina Faso,Cascades,Comoé,Sidéradougou,10.7317475942641,-4.29228962690905
+109,Burkina Faso,Cascades,Comoé,Soubakaniédougou,10.4068965892001,-4.9381865169764
+110,Burkina Faso,Cascades,Comoé,Soubakaniédougou,10.4330081555379,-4.95445060988855
+111,Burkina Faso,Cascades,Comoé,Tiéfora,10.3718074094975,-4.57632817334475
+112,Burkina Faso,Cascades,Comoé,Tiéfora,10.6570457794837,-4.58152728107564
+113,Burkina Faso,Cascades,Léraba,Dakoro,10.3610012922685,-5.20290318694792
+114,Burkina Faso,Cascades,Léraba,Dakoro,10.3448062884063,-5.13377986354262
+115,Burkina Faso,Cascades,Léraba,Douna,10.7060759310085,-5.09397685234161
+116,Burkina Faso,Cascades,Léraba,Douna,10.5786376789181,-5.07639428640339
+117,Burkina Faso,Cascades,Léraba,Kankalaba,10.8400765044198,-5.29720008697403
+118,Burkina Faso,Cascades,Léraba,Kankalaba,10.748895994663,-5.25796517215251
+119,Burkina Faso,Cascades,Léraba,Loumana,10.6614399282077,-5.38240480226535
+120,Burkina Faso,Cascades,Léraba,Loumana,10.5545550108448,-5.28878953441164
+121,Burkina Faso,Cascades,Léraba,Niankorodougou,10.4234539428614,-5.36858100939279
+122,Burkina Faso,Cascades,Léraba,Niankorodougou,10.4435892482081,-5.23086239917478
+123,Burkina Faso,Cascades,Léraba,Oueleni,10.924735265375,-5.30249728179244
+124,Burkina Faso,Cascades,Léraba,Oueleni,10.8681938236471,-5.43321024536717
+125,Burkina Faso,Cascades,Léraba,Sindou,10.687824040553,-5.20754712633851
+126,Burkina Faso,Cascades,Léraba,Sindou,10.6940660144267,-5.18396948115366
+127,Burkina Faso,Cascades,Léraba,Wolonkoto,10.7785979545797,-5.0042140277496
+128,Burkina Faso,Cascades,Léraba,Wolonkoto,10.6827379160875,-4.99387614521148
+129,Burkina Faso,Centre,Kadiogo,Komki-Ipala,12.1287226347606,-1.76045792929822
+130,Burkina Faso,Centre,Kadiogo,Komki-Ipala,12.2208705846225,-1.67773566622172
+131,Burkina Faso,Centre,Kadiogo,Komsilga,12.1389825218713,-1.62737960248328
+132,Burkina Faso,Centre,Kadiogo,Komsilga,12.0695343892597,-1.68847583921867
+133,Burkina Faso,Centre,Kadiogo,Koubri,12.2458199001438,-1.13312043678299
+134,Burkina Faso,Centre,Kadiogo,Koubri,12.2228113548084,-1.34398717536926
+135,Burkina Faso,Centre,Kadiogo,Ouagadougou,12.3299049285132,-1.64342657525235
+136,Burkina Faso,Centre,Kadiogo,Ouagadougou,12.4438992102371,-1.4928421973757
+137,Burkina Faso,Centre,Kadiogo,Pabre,12.58075063487,-1.66931658103637
+138,Burkina Faso,Centre,Kadiogo,Pabre,12.4653974139301,-1.61326898594247
+139,Burkina Faso,Centre,Kadiogo,Saaba,12.4010010452508,-1.35143792101917
+140,Burkina Faso,Centre,Kadiogo,Saaba,12.3013974068905,-1.373332726196
+141,Burkina Faso,Centre,Kadiogo,Tanghin-Dassouri,12.325885256322,-1.73623333656599
+142,Burkina Faso,Centre,Kadiogo,Tanghin-Dassouri,12.2610682818162,-1.78172027868702
+143,Burkina Faso,Centre-Est,Boulgou,Bagre,11.5127225339596,-0.562749838677586
+144,Burkina Faso,Centre-Est,Boulgou,Bagre,11.6235014249568,-0.619493920385694
+145,Burkina Faso,Centre-Est,Boulgou,Bane,11.5954409983808,-0.353482184993952
+146,Burkina Faso,Centre-Est,Boulgou,Bane,11.5555886905315,-0.366216218595755
+147,Burkina Faso,Centre-Est,Boulgou,Beguedo,11.7752739938523,-0.712455745829607
+148,Burkina Faso,Centre-Est,Boulgou,Beguedo,11.7819951323721,-0.719867337679057
+149,Burkina Faso,Centre-Est,Boulgou,Bissiga,11.8300545350101,-0.055908997733456
+150,Burkina Faso,Centre-Est,Boulgou,Bissiga,11.7924244286795,-0.057910765953117
+151,Burkina Faso,Centre-Est,Boulgou,Bittou,11.2954100136626,-0.439653434782367
+152,Burkina Faso,Centre-Est,Boulgou,Bittou,11.1366675319808,-0.28796520581159
+153,Burkina Faso,Centre-Est,Boulgou,Boussouma,11.7415428215563,-0.720280211778935
+154,Burkina Faso,Centre-Est,Boulgou,Boussouma,11.7234785574742,-0.716827287167426
+155,Burkina Faso,Centre-Est,Boulgou,Garango,11.9187749572401,-0.560560377584241
+156,Burkina Faso,Centre-Est,Boulgou,Garango,11.7581327028533,-0.565836125165824
+157,Burkina Faso,Centre-Est,Boulgou,Komtoega,11.8435406851536,-0.611376418994647
+158,Burkina Faso,Centre-Est,Boulgou,Komtoega,11.9044135464025,-0.675557854630241
+159,Burkina Faso,Centre-Est,Boulgou,Niaogho,11.6489742729046,-0.827265052975629
+160,Burkina Faso,Centre-Est,Boulgou,Niaogho,11.7727166147116,-0.829630649672403
+161,Burkina Faso,Centre-Est,Boulgou,Tenkodogo,11.7995818287775,-0.191558615255787
+162,Burkina Faso,Centre-Est,Boulgou,Tenkodogo,11.7898101318661,-0.428835605133872
+163,Burkina Faso,Centre-Est,Boulgou,Zabré,11.2934690603725,-0.663185455501174
+164,Burkina Faso,Centre-Est,Boulgou,Zabré,11.1256569716709,-0.453175796436724
+165,Burkina Faso,Centre-Est,Boulgou,Zoaga,11.0733956868113,-0.622480492181529
+166,Burkina Faso,Centre-Est,Boulgou,Zoaga,11.0027354666779,-0.599256929623214
+167,Burkina Faso,Centre-Est,Boulgou,Zonsé,11.3836177444697,-0.605234696499735
+168,Burkina Faso,Centre-Est,Boulgou,Zonsé,11.351965266242,-0.651174595123291
+169,Burkina Faso,Centre-Est,Koulpélogo,Comin-Yanga,11.6806177023076,0.04078928290123
+170,Burkina Faso,Centre-Est,Koulpélogo,Comin-Yanga,11.6478839154358,0.045439949565396
+171,Burkina Faso,Centre-Est,Koulpélogo,Dourtenga,11.5815738300233,-0.005305035348733
+172,Burkina Faso,Centre-Est,Koulpélogo,Dourtenga,11.5906185744783,-0.015023877912386
+173,Burkina Faso,Centre-Est,Koulpélogo,Lalgaye,11.4522354249194,-0.142367152653517
+174,Burkina Faso,Centre-Est,Koulpélogo,Lalgaye,11.7228717167049,-0.063208446790329
+175,Burkina Faso,Centre-Est,Koulpélogo,Ouargaye,11.3797659368513,-0.022121325506751
+176,Burkina Faso,Centre-Est,Koulpélogo,Ouargaye,11.5496914086166,0.056249941446058
+177,Burkina Faso,Centre-Est,Koulpélogo,Sangha,11.0776791321826,0.194703706736046
+178,Burkina Faso,Centre-Est,Koulpélogo,Sangha,11.0857324043066,0.205218820063787
+179,Burkina Faso,Centre-Est,Koulpélogo,Soudougui,11.6178190503829,0.443226572784594
+180,Burkina Faso,Centre-Est,Koulpélogo,Soudougui,11.3795867229653,0.359342496359938
+181,Burkina Faso,Centre-Est,Koulpélogo,Yargatenga,11.3226720566897,0.029859744913158
+182,Burkina Faso,Centre-Est,Koulpélogo,Yargatenga,11.171624582791,0.048510015299961
+183,Burkina Faso,Centre-Est,Koulpélogo,Yondé,11.5251132830198,0.243139952514288
+184,Burkina Faso,Centre-Est,Koulpélogo,Yondé,11.3253667692573,0.179273608746048
+185,Burkina Faso,Centre-Est,Kouritenga,Andemtenga,12.4177647699811,-0.203237610199965
+186,Burkina Faso,Centre-Est,Kouritenga,Andemtenga,12.410046529086,-0.392301149501254
+187,Burkina Faso,Centre-Est,Kouritenga,Baskouré,12.1874695017848,-0.216681822794607
+188,Burkina Faso,Centre-Est,Kouritenga,Baskouré,12.1451308717964,-0.219091714551215
+189,Burkina Faso,Centre-Est,Kouritenga,Dialgaye,12.0194850109597,-0.417762683516835
+190,Burkina Faso,Centre-Est,Kouritenga,Dialgaye,11.996045001396,-0.35690912941426
+191,Burkina Faso,Centre-Est,Kouritenga,Gounghin,12.0501812457096,-0.143114086060316
+192,Burkina Faso,Centre-Est,Kouritenga,Gounghin,12.067884408422,-0.137078214683267
+193,Burkina Faso,Centre-Est,Kouritenga,Kando,12.4815067615216,-0.52741005393835
+194,Burkina Faso,Centre-Est,Kouritenga,Kando,12.3983562546637,-0.458570452785868
+195,Burkina Faso,Centre-Est,Kouritenga,Koupéla,12.0742159264026,-0.329569580550798
+196,Burkina Faso,Centre-Est,Kouritenga,Koupéla,12.1277062848493,-0.313807389369507
+197,Burkina Faso,Centre-Est,Kouritenga,Pouytenga,12.2513489238019,-0.371304070391836
+198,Burkina Faso,Centre-Est,Kouritenga,Pouytenga,12.1980170706963,-0.451493812408957
+199,Burkina Faso,Centre-Est,Kouritenga,Tensobentenga,12.0143695330794,-0.225866743246246
+200,Burkina Faso,Centre-Est,Kouritenga,Tensobentenga,11.9904831688628,-0.238529245457588
+201,Burkina Faso,Centre-Est,Kouritenga,Yargo,12.0592153433411,-0.268434984264667
+202,Burkina Faso,Centre-Est,Kouritenga,Yargo,12.1021704719452,-0.2307057988465
+203,Burkina Faso,Centre-Nord,Bam,Bourzanga,13.6327920363433,-1.38278775727257
+204,Burkina Faso,Centre-Nord,Bam,Bourzanga,13.6078904670286,-1.47538777919966
+205,Burkina Faso,Centre-Nord,Bam,Guibare,13.0879513575924,-1.66744119843198
+206,Burkina Faso,Centre-Nord,Bam,Guibare,13.0660962373274,-1.59953342643584
+207,Burkina Faso,Centre-Nord,Bam,Kongoussi,13.4662287812258,-1.69856518019804
+208,Burkina Faso,Centre-Nord,Bam,Kongoussi,13.4456061329076,-1.6781554851997
+209,Burkina Faso,Centre-Nord,Bam,Nassere,13.2962757988415,-1.31789771829061
+210,Burkina Faso,Centre-Nord,Bam,Nassere,13.3105646895495,-1.35389492199144
+211,Burkina Faso,Centre-Nord,Bam,Rollo,13.636417132313,-1.87562558847236
+212,Burkina Faso,Centre-Nord,Bam,Rollo,13.5325378492659,-1.71804769975747
+213,Burkina Faso,Centre-Nord,Bam,Rouko,13.1933233987405,-1.61915119114385
+214,Burkina Faso,Centre-Nord,Bam,Rouko,13.1752050428332,-1.67512199120943
+215,Burkina Faso,Centre-Nord,Bam,Sabce,13.124649838101,-1.54472260209341
+216,Burkina Faso,Centre-Nord,Bam,Sabce,13.235143425619,-1.57846024075742
+217,Burkina Faso,Centre-Nord,Bam,Tikare,13.5027079845762,-1.84398390756761
+218,Burkina Faso,Centre-Nord,Bam,Tikare,13.2715896799464,-1.6597477856033
+219,Burkina Faso,Centre-Nord,Bam,Zimtenga,13.4489834945349,-1.51496290075603
+220,Burkina Faso,Centre-Nord,Bam,Zimtenga,13.546513492551,-1.51798976684641
+221,Burkina Faso,Centre-Nord,Namentenga,Boala,12.9600087736969,-0.640711602395697
+222,Burkina Faso,Centre-Nord,Namentenga,Boala,12.8939809486061,-0.701991840626771
+223,Burkina Faso,Centre-Nord,Namentenga,Boulsa,12.7468854375375,-0.492435769984971
+224,Burkina Faso,Centre-Nord,Namentenga,Boulsa,12.8314376676014,-0.594964307495417
+225,Burkina Faso,Centre-Nord,Namentenga,Bouroum,13.5108236597974,-0.594880328018217
+226,Burkina Faso,Centre-Nord,Namentenga,Bouroum,13.5107334933172,-0.679457011908477
+227,Burkina Faso,Centre-Nord,Namentenga,Dargo,12.5996100799377,-0.283501716954727
+228,Burkina Faso,Centre-Nord,Namentenga,Dargo,12.6755294585505,-0.225125224575022
+229,Burkina Faso,Centre-Nord,Namentenga,Nagbingou,13.4444523285604,-0.51407060280869
+230,Burkina Faso,Centre-Nord,Namentenga,Nagbingou,13.4732692778636,-0.566644668960377
+231,Burkina Faso,Centre-Nord,Namentenga,Tougouri,13.3187411778759,-0.401874135519037
+232,Burkina Faso,Centre-Nord,Namentenga,Tougouri,13.0931751215517,-0.652245116598047
+233,Burkina Faso,Centre-Nord,Namentenga,Yalgo,13.6114394875613,-0.316081772631802
+234,Burkina Faso,Centre-Nord,Namentenga,Yalgo,13.5952270283672,-0.325891360519265
+235,Burkina Faso,Centre-Nord,Namentenga,Zeguedeguin,12.9186556077886,-0.381443595735737
+236,Burkina Faso,Centre-Nord,Namentenga,Zeguedeguin,12.9040043995518,-0.396805189697587
+237,Burkina Faso,Centre-Nord,Sanmatenga,Barsalogho,13.2632224182884,-1.18446624380764
+238,Burkina Faso,Centre-Nord,Sanmatenga,Barsalogho,13.4885311913471,-0.991767155716162
+239,Burkina Faso,Centre-Nord,Sanmatenga,Boussouma,12.8490156079617,-0.954119401373822
+240,Burkina Faso,Centre-Nord,Sanmatenga,Boussouma,12.9536068273039,-1.18669927767073
+241,Burkina Faso,Centre-Nord,Sanmatenga,Dablo,13.6159158331801,-1.17177828339638
+242,Burkina Faso,Centre-Nord,Sanmatenga,Dablo,13.7412315753804,-1.28929071819169
+243,Burkina Faso,Centre-Nord,Sanmatenga,Kaya,13.1502089773034,-1.05937673891035
+244,Burkina Faso,Centre-Nord,Sanmatenga,Kaya,13.1247936465903,-1.02222676383276
+245,Burkina Faso,Centre-Nord,Sanmatenga,Korsimoro,12.8817214783884,-1.35850101002892
+246,Burkina Faso,Centre-Nord,Sanmatenga,Korsimoro,12.9647489608334,-1.3181066287402
+247,Burkina Faso,Centre-Nord,Sanmatenga,Mane,13.105884073028,-1.42598229210063
+248,Burkina Faso,Centre-Nord,Sanmatenga,Mane,13.0076908051541,-1.44707591814876
+249,Burkina Faso,Centre-Nord,Sanmatenga,Namissiguima,13.4217415368271,-1.3534545114973
+250,Burkina Faso,Centre-Nord,Sanmatenga,Namissiguima,13.56412092319,-1.24887940749343
+251,Burkina Faso,Centre-Nord,Sanmatenga,Pensa,13.7933351387691,-0.805541067299159
+252,Burkina Faso,Centre-Nord,Sanmatenga,Pensa,13.5878666522817,-0.893362489774571
+253,Burkina Faso,Centre-Nord,Sanmatenga,Pibaore,12.8079016035549,-0.721141634090711
+254,Burkina Faso,Centre-Nord,Sanmatenga,Pibaore,12.852743358779,-0.803060189383449
+255,Burkina Faso,Centre-Nord,Sanmatenga,Pissila,13.277722029561,-0.963141324857616
+256,Burkina Faso,Centre-Nord,Sanmatenga,Pissila,13.3271426962181,-0.684280248849101
+257,Burkina Faso,Centre-Nord,Sanmatenga,Ziga,12.7158058291721,-0.946497080843186
+258,Burkina Faso,Centre-Nord,Sanmatenga,Ziga,12.7076990960131,-0.960736611458932
+259,Burkina Faso,Centre-Ouest,Boulkiemdé,Bingo,12.2855184259123,-1.80160574984775
+260,Burkina Faso,Centre-Ouest,Boulkiemdé,Bingo,12.2913519433956,-1.87717606731223
+261,Burkina Faso,Centre-Ouest,Boulkiemdé,Imasgho,12.3996186270634,-2.31100753914913
+262,Burkina Faso,Centre-Ouest,Boulkiemdé,Imasgho,12.4516643320793,-2.2814651758437
+263,Burkina Faso,Centre-Ouest,Boulkiemdé,Kindi,12.3357563530894,-2.11403310219355
+264,Burkina Faso,Centre-Ouest,Boulkiemdé,Kindi,12.4698057570063,-2.12180329645711
+265,Burkina Faso,Centre-Ouest,Boulkiemdé,Kokologho,12.2056426070331,-1.92855645504492
+266,Burkina Faso,Centre-Ouest,Boulkiemdé,Kokologho,12.1619478880234,-1.9064449903574
+267,Burkina Faso,Centre-Ouest,Boulkiemdé,Koudougou,12.3596697574433,-2.33252421037029
+268,Burkina Faso,Centre-Ouest,Boulkiemdé,Koudougou,12.3949696997578,-2.31991407658011
+269,Burkina Faso,Centre-Ouest,Boulkiemdé,Nandiala,12.3228617829631,-2.19441461776951
+270,Burkina Faso,Centre-Ouest,Boulkiemdé,Nandiala,12.448121518891,-2.15605073281983
+271,Burkina Faso,Centre-Ouest,Boulkiemdé,Nanoro,12.6728999012966,-2.26945155677811
+272,Burkina Faso,Centre-Ouest,Boulkiemdé,Nanoro,12.6458542929484,-2.07806179923491
+273,Burkina Faso,Centre-Ouest,Boulkiemdé,Pella,12.5824287390305,-1.99083051662846
+274,Burkina Faso,Centre-Ouest,Boulkiemdé,Pella,12.6006818895076,-2.10982114260683
+275,Burkina Faso,Centre-Ouest,Boulkiemdé,Poa,12.2379092153416,-2.01756704391373
+276,Burkina Faso,Centre-Ouest,Boulkiemdé,Poa,12.2143317131102,-2.15430004786016
+277,Burkina Faso,Centre-Ouest,Boulkiemdé,Ramongo,12.1982635291539,-2.23290591998322
+278,Burkina Faso,Centre-Ouest,Boulkiemdé,Ramongo,12.1981520576429,-2.17004887334171
+279,Burkina Faso,Centre-Ouest,Boulkiemdé,Sabou,12.0694949647655,-2.12517164740386
+280,Burkina Faso,Centre-Ouest,Boulkiemdé,Sabou,12.0456583191732,-2.28043272727142
+281,Burkina Faso,Centre-Ouest,Boulkiemdé,Sigle,12.4672816603912,-1.82227595007494
+282,Burkina Faso,Centre-Ouest,Boulkiemdé,Sigle,12.4998056827609,-1.88951316361015
+283,Burkina Faso,Centre-Ouest,Boulkiemdé,Soaw,12.5092408414166,-2.15144240868663
+284,Burkina Faso,Centre-Ouest,Boulkiemdé,Soaw,12.5236899843169,-2.16117038061075
+285,Burkina Faso,Centre-Ouest,Boulkiemdé,Sourgou,12.0491745078691,-2.32025595908081
+286,Burkina Faso,Centre-Ouest,Boulkiemdé,Sourgou,12.0801039786163,-2.48889282613894
+287,Burkina Faso,Centre-Ouest,Boulkiemdé,Thyou,12.0032888042698,-2.23385352923521
+288,Burkina Faso,Centre-Ouest,Boulkiemdé,Thyou,12.0301667505996,-2.19476962468208
+289,Burkina Faso,Centre-Ouest,Sanguié,Dassa,12.4221336984797,-2.66573115053771
+290,Burkina Faso,Centre-Ouest,Sanguié,Dassa,12.4851886477694,-2.68146449377537
+291,Burkina Faso,Centre-Ouest,Sanguié,Didyr,12.5082532765416,-2.63211496524114
+292,Burkina Faso,Centre-Ouest,Sanguié,Didyr,12.5307742103681,-2.60332648629268
+293,Burkina Faso,Centre-Ouest,Sanguié,Godyr,12.7930852871979,-2.5867848958919
+294,Burkina Faso,Centre-Ouest,Sanguié,Godyr,12.7147768818088,-2.56951725007022
+295,Burkina Faso,Centre-Ouest,Sanguié,Kordie,12.6354898946922,-2.33463941958195
+296,Burkina Faso,Centre-Ouest,Sanguié,Kordie,12.607693471796,-2.45996523365547
+297,Burkina Faso,Centre-Ouest,Sanguié,Kyon,12.3851103843447,-2.69266724002876
+298,Burkina Faso,Centre-Ouest,Sanguié,Kyon,12.3773655948573,-2.6985926516499
+299,Burkina Faso,Centre-Ouest,Sanguié,Pouni,11.9023177810231,-2.38183599645684
+300,Burkina Faso,Centre-Ouest,Sanguié,Pouni,11.9034427314505,-2.46531368218895
+301,Burkina Faso,Centre-Ouest,Sanguié,Réo,12.4462822562589,-2.47582716322642
+302,Burkina Faso,Centre-Ouest,Sanguié,Réo,12.4472222538654,-2.46946202359491
+303,Burkina Faso,Centre-Ouest,Sanguié,Tenado,12.1868422593942,-2.5401855474326
+304,Burkina Faso,Centre-Ouest,Sanguié,Tenado,12.262745970244,-2.75339088775858
+305,Burkina Faso,Centre-Ouest,Sanguié,Zamo,11.9124662344076,-2.83350766580973
+306,Burkina Faso,Centre-Ouest,Sanguié,Zamo,12.0811669608085,-2.79627721338914
+307,Burkina Faso,Centre-Ouest,Sanguié,Zawara,11.6725128737472,-2.70427045747732
+308,Burkina Faso,Centre-Ouest,Sanguié,Zawara,11.8007254205827,-2.64018928782832
+309,Burkina Faso,Centre-Ouest,Sissili,Bieha,11.2742155286681,-1.69207682277065
+310,Burkina Faso,Centre-Ouest,Sissili,Bieha,11.0807770993648,-1.71006421091177
+311,Burkina Faso,Centre-Ouest,Sissili,Boura,11.0838784012349,-2.44529665638999
+312,Burkina Faso,Centre-Ouest,Sissili,Boura,11.2280380962396,-2.37011286222599
+313,Burkina Faso,Centre-Ouest,Sissili,Leo,11.1169717636563,-2.04067349110699
+314,Burkina Faso,Centre-Ouest,Sissili,Leo,11.0231109361283,-2.0094996303634
+315,Burkina Faso,Centre-Ouest,Sissili,Nebielianayou,11.8494145793691,-2.33918862919896
+316,Burkina Faso,Centre-Ouest,Sissili,Nebielianayou,11.7781435400219,-2.31295165701925
+317,Burkina Faso,Centre-Ouest,Sissili,Niabouri,11.2939706550019,-2.59912789652569
+318,Burkina Faso,Centre-Ouest,Sissili,Niabouri,11.3069135747589,-2.54359447004612
+319,Burkina Faso,Centre-Ouest,Sissili,Silly,11.729905342857,-2.51180167795879
+320,Burkina Faso,Centre-Ouest,Sissili,Silly,11.4524067696009,-2.55571528303046
+321,Burkina Faso,Centre-Ouest,Sissili,Tô,11.2620504917805,-2.11993944251814
+322,Burkina Faso,Centre-Ouest,Sissili,Tô,11.3818948899738,-2.41725365230096
+323,Burkina Faso,Centre-Ouest,Ziro,Bakata,11.6780298760495,-1.85828731718491
+324,Burkina Faso,Centre-Ouest,Ziro,Bakata,11.9022741684691,-1.81120370696024
+325,Burkina Faso,Centre-Ouest,Ziro,Bougnounou,11.7413586222872,-2.02245502538149
+326,Burkina Faso,Centre-Ouest,Ziro,Bougnounou,11.8203046896741,-2.0934265553913
+327,Burkina Faso,Centre-Ouest,Ziro,Cassou,11.6238417375166,-1.97030474195465
+328,Burkina Faso,Centre-Ouest,Ziro,Cassou,11.5711401111633,-2.06333606351022
+329,Burkina Faso,Centre-Ouest,Ziro,Dalo,11.8026388413539,-2.23175691602768
+330,Burkina Faso,Centre-Ouest,Ziro,Dalo,11.7264660031475,-2.09585195952431
+331,Burkina Faso,Centre-Ouest,Ziro,Gao,11.6983688826468,-2.2962232876626
+332,Burkina Faso,Centre-Ouest,Ziro,Gao,11.6317452757391,-2.21464879219726
+333,Burkina Faso,Centre-Ouest,Ziro,Sapouy,11.8399046545141,-1.73215623683913
+334,Burkina Faso,Centre-Ouest,Ziro,Sapouy,11.4944276328903,-1.91913029025647
+335,Burkina Faso,Centre-Sud,Bazèga,Doulougou,12.0554695233713,-1.37967144187016
+336,Burkina Faso,Centre-Sud,Bazèga,Doulougou,11.7919500244423,-1.55091217514535
+337,Burkina Faso,Centre-Sud,Bazèga,Gaongo,12.0847707320894,-1.04641590098395
+338,Burkina Faso,Centre-Sud,Bazèga,Gaongo,12.1567583292725,-1.1076794117541
+339,Burkina Faso,Centre-Sud,Bazèga,Ipelce,11.8270142368444,-1.62782480580196
+340,Burkina Faso,Centre-Sud,Bazèga,Ipelce,11.9032719439951,-1.59504920444496
+341,Burkina Faso,Centre-Sud,Bazèga,Kayao,11.9595292205644,-1.74937358006598
+342,Burkina Faso,Centre-Sud,Bazèga,Kayao,12.0111914415958,-1.86191188944169
+343,Burkina Faso,Centre-Sud,Bazèga,Kombissiri,11.9624341147053,-1.40295672810722
+344,Burkina Faso,Centre-Sud,Bazèga,Kombissiri,11.8706611727134,-1.44862422672736
+345,Burkina Faso,Centre-Sud,Bazèga,Sapone,12.0335301911875,-1.54588569067658
+346,Burkina Faso,Centre-Sud,Bazèga,Sapone,12.1167184115844,-1.54090718012646
+347,Burkina Faso,Centre-Sud,Bazèga,Toece,11.726806001833,-1.42398263224117
+348,Burkina Faso,Centre-Sud,Bazèga,Toece,11.6841039151554,-1.43488827707289
+349,Burkina Faso,Centre-Sud,Nahouri,Guiaro,11.2947723304111,-1.57629028354091
+350,Burkina Faso,Centre-Sud,Nahouri,Guiaro,11.1541263214445,-1.62753998362318
+351,Burkina Faso,Centre-Sud,Nahouri,Pô,11.0480444842457,-1.37696456803126
+352,Burkina Faso,Centre-Sud,Nahouri,Pô,11.3235776217791,-1.1848929039704
+353,Burkina Faso,Centre-Sud,Nahouri,Tiébélé,11.1227974816659,-0.828107063682073
+354,Burkina Faso,Centre-Sud,Nahouri,Tiébélé,11.1614635831273,-0.835573533820836
+355,Burkina Faso,Centre-Sud,Nahouri,Zecco,11.0119189298861,-0.873298259082779
+356,Burkina Faso,Centre-Sud,Nahouri,Zecco,11.0550598997152,-0.85024218215873
+357,Burkina Faso,Centre-Sud,Nahouri,Ziou,11.0273872003199,-0.753763613663687
+358,Burkina Faso,Centre-Sud,Nahouri,Ziou,11.0933287069329,-0.772556349009856
+359,Burkina Faso,Centre-Sud,Zoundwéogo,Bere,11.841794238704,-1.02414509632486
+360,Burkina Faso,Centre-Sud,Zoundwéogo,Bere,11.88755576258,-1.13127226014324
+361,Burkina Faso,Centre-Sud,Zoundwéogo,Binde,11.8310501610991,-0.889481389047374
+362,Burkina Faso,Centre-Sud,Zoundwéogo,Binde,11.7500442538205,-1.00594467088127
+363,Burkina Faso,Centre-Sud,Zoundwéogo,Gogo,11.346844486497,-0.974194155364782
+364,Burkina Faso,Centre-Sud,Zoundwéogo,Gogo,11.3662390572318,-0.98381301491354
+365,Burkina Faso,Centre-Sud,Zoundwéogo,Gomboussougou,11.2195574986136,-0.815451579924258
+366,Burkina Faso,Centre-Sud,Zoundwéogo,Gomboussougou,11.4555013788772,-0.776150175119102
+367,Burkina Faso,Centre-Sud,Zoundwéogo,Guiba,11.7396564081961,-1.13239312046529
+368,Burkina Faso,Centre-Sud,Zoundwéogo,Guiba,11.6161184290118,-1.14597933075372
+369,Burkina Faso,Centre-Sud,Zoundwéogo,Manga,11.7047556027093,-1.10252224198444
+370,Burkina Faso,Centre-Sud,Zoundwéogo,Manga,11.6639408361943,-0.975785249932103
+371,Burkina Faso,Centre-Sud,Zoundwéogo,Nobere,11.5399561758356,-1.16843618856985
+372,Burkina Faso,Centre-Sud,Zoundwéogo,Nobere,11.778323076285,-1.23101427377915
+373,Burkina Faso,Est,Gnagna,Bilanga,12.2906026536342,-0.166654918931366
+374,Burkina Faso,Est,Gnagna,Bilanga,12.7293334304361,0.226604180930948
+375,Burkina Faso,Est,Gnagna,Bogandé,13.0327324703477,-0.134769779816789
+376,Burkina Faso,Est,Gnagna,Bogandé,13.0512077313507,-0.081158705936746
+377,Burkina Faso,Est,Gnagna,Koalla,13.5111166118806,-0.080634407690322
+378,Burkina Faso,Est,Gnagna,Koalla,13.4744114971718,0.070815362126993
+379,Burkina Faso,Est,Gnagna,Liptougou,13.1260634436269,0.172174216217352
+380,Burkina Faso,Est,Gnagna,Liptougou,13.3004706897368,0.15122669525897
+381,Burkina Faso,Est,Gnagna,Mani,13.263554348116,-0.205743080786199
+382,Burkina Faso,Est,Gnagna,Mani,13.2838909168135,-0.218541282868609
+383,Burkina Faso,Est,Gnagna,Piéla,12.6829960687934,-0.019536173503672
+384,Burkina Faso,Est,Gnagna,Piéla,12.6331047627801,-0.164302399311985
+385,Burkina Faso,Est,Gnagna,Thion,13.0037410624771,-0.296521466991806
+386,Burkina Faso,Est,Gnagna,Thion,13.0210398256212,-0.315406261918989
+387,Burkina Faso,Est,Gourma,Diabo,12.0007687965727,-0.047189965960379
+388,Burkina Faso,Est,Gourma,Diabo,11.9698485504795,0.004421607104584
+389,Burkina Faso,Est,Gourma,Diapangou,12.2289464255034,0.193488103105435
+390,Burkina Faso,Est,Gourma,Diapangou,12.1244329144178,0.09323863043944
+391,Burkina Faso,Est,Gourma,Fada N'gourma,11.8267136471535,0.362103514579855
+392,Burkina Faso,Est,Gourma,Fada N'gourma,11.8010721260614,0.631825704720839
+393,Burkina Faso,Est,Gourma,Matiacoali,12.3715704499078,0.753680337636014
+394,Burkina Faso,Est,Gourma,Matiacoali,12.0982276139817,1.16091996254037
+395,Burkina Faso,Est,Gourma,Tibga,12.3362538753722,0.101675808441232
+396,Burkina Faso,Est,Gourma,Tibga,12.2283482613932,-0.01263750932591
+397,Burkina Faso,Est,Gourma,Yamba,12.2685261901733,0.447281091932646
+398,Burkina Faso,Est,Gourma,Yamba,12.4060888282076,0.365191277969554
+399,Burkina Faso,Est,Komandjoari,Bartiébougou,12.9319362993615,0.726270025585602
+400,Burkina Faso,Est,Komandjoari,Bartiébougou,12.8987845800241,0.915021063602677
+401,Burkina Faso,Est,Komandjoari,Foutouri,12.6333897680558,0.925212740523181
+402,Burkina Faso,Est,Komandjoari,Foutouri,12.9300075934318,1.14242207776837
+403,Burkina Faso,Est,Komandjoari,Gayéri,12.6013010173442,0.689078936274015
+404,Burkina Faso,Est,Komandjoari,Gayéri,12.6847463954951,0.540970409180472
+405,Burkina Faso,Est,Kompienga,Kompienga,11.1748750177246,0.557720473133845
+406,Burkina Faso,Est,Kompienga,Kompienga,11.0478118052816,0.45229527525391
+407,Burkina Faso,Est,Kompienga,Madjoari,11.3710420312711,1.26603528947652
+408,Burkina Faso,Est,Kompienga,Madjoari,11.4121704436909,1.3391665848163
+409,Burkina Faso,Est,Kompienga,Pama,11.762513151076,0.803950768187216
+410,Burkina Faso,Est,Kompienga,Pama,11.6972892726172,0.889768050157039
+411,Burkina Faso,Est,Tapoa,Botou,12.3892022926439,1.88814090838764
+412,Burkina Faso,Est,Tapoa,Botou,12.5607208328122,2.04127366872176
+413,Burkina Faso,Est,Tapoa,Diapaga,11.9690711882056,2.06523696518783
+414,Burkina Faso,Est,Tapoa,Diapaga,11.7991363382337,2.26899322011385
+415,Burkina Faso,Est,Tapoa,Kantchari,12.3779588937709,1.41596510425659
+416,Burkina Faso,Est,Tapoa,Kantchari,12.6208453873869,1.36308104770634
+417,Burkina Faso,Est,Tapoa,Logobou,11.6520517745908,1.56651901646056
+418,Burkina Faso,Est,Tapoa,Logobou,11.5630346271244,2.02739549562849
+419,Burkina Faso,Est,Tapoa,Namounou,11.8604002027498,1.72525957842864
+420,Burkina Faso,Est,Tapoa,Namounou,11.8489109605749,1.63984608057844
+421,Burkina Faso,Est,Tapoa,Partiaga,11.8627057217731,1.46084871585762
+422,Burkina Faso,Est,Tapoa,Partiaga,11.8714023159028,1.53741036041475
+423,Burkina Faso,Est,Tapoa,Tambaga,11.6875948495346,1.56580918692649
+424,Burkina Faso,Est,Tapoa,Tambaga,11.6625055434889,1.55563954039587
+425,Burkina Faso,Est,Tapoa,Tansarga,11.6990674137794,1.97142339188973
+426,Burkina Faso,Est,Tapoa,Tansarga,11.7967302018411,1.82902157729729
+427,Burkina Faso,Haut-Bassins,Houet,Bama,11.5507735187691,-4.28249939949594
+428,Burkina Faso,Haut-Bassins,Houet,Bama,11.5555838583052,-4.41058528486166
+429,Burkina Faso,Haut-Bassins,Houet,Bobo-Dioulasso,11.0400427885589,-4.30679397352887
+430,Burkina Faso,Haut-Bassins,Houet,Bobo-Dioulasso,11.1612831959527,-4.57683591722927
+431,Burkina Faso,Haut-Bassins,Houet,Dandé,11.6531613266673,-4.514191740582
+432,Burkina Faso,Haut-Bassins,Houet,Dandé,11.5460529218505,-4.53364403511686
+433,Burkina Faso,Haut-Bassins,Houet,Faramana,12.0367250690176,-4.58023698860398
+434,Burkina Faso,Haut-Bassins,Houet,Faramana,12.0079431845389,-4.51008230601977
+435,Burkina Faso,Haut-Bassins,Houet,Fo,11.9805904401266,-4.58380815664117
+436,Burkina Faso,Haut-Bassins,Houet,Fo,11.9630721805258,-4.51766989628748
+437,Burkina Faso,Haut-Bassins,Houet,Karankasso-Sambla,11.3493236007671,-4.63348520137993
+438,Burkina Faso,Haut-Bassins,Houet,Karankasso-Sambla,11.1731997810315,-4.67415077732357
+439,Burkina Faso,Haut-Bassins,Houet,Karankasso-Vigué,10.9113578416649,-4.03196174104912
+440,Burkina Faso,Haut-Bassins,Houet,Karankasso-Vigué,11.0656510700164,-3.72336148013648
+441,Burkina Faso,Haut-Bassins,Houet,Koundougou,11.6912853158778,-4.57535096044204
+442,Burkina Faso,Haut-Bassins,Houet,Koundougou,11.7049744553455,-4.37533475737904
+443,Burkina Faso,Haut-Bassins,Houet,Lena,11.3026915888211,-3.86271603659499
+444,Burkina Faso,Haut-Bassins,Houet,Lena,11.3554684234036,-3.86528488539948
+445,Burkina Faso,Haut-Bassins,Houet,Padéma,11.8445027809936,-4.18313692195336
+446,Burkina Faso,Haut-Bassins,Houet,Padéma,11.7251960937121,-4.26663524905827
+447,Burkina Faso,Haut-Bassins,Houet,Peni,10.8882071330753,-4.47315178539565
+448,Burkina Faso,Haut-Bassins,Houet,Peni,10.9519546971681,-4.34087700349117
+449,Burkina Faso,Haut-Bassins,Houet,Satiri,11.4941433291562,-4.10286152033555
+450,Burkina Faso,Haut-Bassins,Houet,Satiri,11.6695019141943,-4.06435632357634
+451,Burkina Faso,Haut-Bassins,Houet,Toussiana,10.9125952417857,-4.60976411527705
+452,Burkina Faso,Haut-Bassins,Houet,Toussiana,10.8473354995713,-4.72268085396252
+453,Burkina Faso,Haut-Bassins,Kénédougou,Banzon,11.2508994981421,-4.90360098075784
+454,Burkina Faso,Haut-Bassins,Kénédougou,Banzon,11.2597702642456,-4.88318312170575
+455,Burkina Faso,Haut-Bassins,Kénédougou,Djigouera,11.1284336475468,-4.88912467483815
+456,Burkina Faso,Haut-Bassins,Kénédougou,Djigouera,11.1372907306727,-4.93147355081625
+457,Burkina Faso,Haut-Bassins,Kénédougou,Kangala,11.0597043198808,-5.2088761263555
+458,Burkina Faso,Haut-Bassins,Kénédougou,Kangala,10.9291827030883,-5.27267378123265
+459,Burkina Faso,Haut-Bassins,Kénédougou,Kayan,11.9347878216585,-4.68529427392395
+460,Burkina Faso,Haut-Bassins,Kénédougou,Kayan,11.7783112297021,-4.76001445907478
+461,Burkina Faso,Haut-Bassins,Kénédougou,Koloko,11.2984552602291,-5.1909281104865
+462,Burkina Faso,Haut-Bassins,Kénédougou,Koloko,11.1360812046354,-5.3054861849882
+463,Burkina Faso,Haut-Bassins,Kénédougou,Kourinion,10.8938582282478,-4.84689304382272
+464,Burkina Faso,Haut-Bassins,Kénédougou,Kourinion,11.0423395026147,-4.76136307865053
+465,Burkina Faso,Haut-Bassins,Kénédougou,Kourouma,11.6324597121013,-4.87074329158696
+466,Burkina Faso,Haut-Bassins,Kénédougou,Kourouma,11.6004866135624,-4.69933266469554
+467,Burkina Faso,Haut-Bassins,Kénédougou,Morolaba,11.95580489761,-5.01728333665939
+468,Burkina Faso,Haut-Bassins,Kénédougou,Morolaba,11.8289832642386,-5.39584482170045
+469,Burkina Faso,Haut-Bassins,Kénédougou,N'dorola,12.0031941113827,-4.84449615922644
+470,Burkina Faso,Haut-Bassins,Kénédougou,N'dorola,11.9524852913481,-4.84234648023196
+471,Burkina Faso,Haut-Bassins,Kénédougou,Orodara,10.9330009258581,-5.06410369545353
+472,Burkina Faso,Haut-Bassins,Kénédougou,Orodara,10.8963831158113,-5.01844823190815
+473,Burkina Faso,Haut-Bassins,Kénédougou,Samogohiri,11.0909140045804,-5.07363908711414
+474,Burkina Faso,Haut-Bassins,Kénédougou,Samogohiri,10.8722647686308,-5.02531956251068
+475,Burkina Faso,Haut-Bassins,Kénédougou,Samorogouan,11.2934347206235,-4.9849521615859
+476,Burkina Faso,Haut-Bassins,Kénédougou,Samorogouan,11.313516485474,-4.82467697997164
+477,Burkina Faso,Haut-Bassins,Kénédougou,Sindo,11.5170805971715,-5.11965551280193
+478,Burkina Faso,Haut-Bassins,Kénédougou,Sindo,11.5891964019467,-5.13425984224675
+479,Burkina Faso,Haut-Bassins,Tuy,Bekuy,11.598590617403,-3.8264772420859
+480,Burkina Faso,Haut-Bassins,Tuy,Bekuy,11.6758181848898,-3.8527027962122
+481,Burkina Faso,Haut-Bassins,Tuy,Bereba,11.5188877211101,-3.79798628006905
+482,Burkina Faso,Haut-Bassins,Tuy,Bereba,11.7302933362258,-3.65673754403656
+483,Burkina Faso,Haut-Bassins,Tuy,Boni,11.5779595155453,-3.41696867694845
+484,Burkina Faso,Haut-Bassins,Tuy,Boni,11.5555797198732,-3.40763543864787
+485,Burkina Faso,Haut-Bassins,Tuy,Founzan,11.3671868511746,-3.30395514902527
+486,Burkina Faso,Haut-Bassins,Tuy,Founzan,11.3401753594841,-3.34507029875303
+487,Burkina Faso,Haut-Bassins,Tuy,Houndé,11.5239262213102,-3.55899460988809
+488,Burkina Faso,Haut-Bassins,Tuy,Houndé,11.5969534437307,-3.52345812109517
+489,Burkina Faso,Haut-Bassins,Tuy,Koti,11.4931459200269,-2.84623996027925
+490,Burkina Faso,Haut-Bassins,Tuy,Koti,11.5753820626839,-3.05085900303476
+491,Burkina Faso,Haut-Bassins,Tuy,Koumbia,11.2668301742455,-3.52351794929003
+492,Burkina Faso,Haut-Bassins,Tuy,Koumbia,11.1819495885095,-3.78571000446336
+493,Burkina Faso,Nord,Loroum,Banh,14.0280222479855,-2.33961661446483
+494,Burkina Faso,Nord,Loroum,Banh,14.2403540619237,-2.35082261296467
+495,Burkina Faso,Nord,Loroum,Ouindigui,13.7638784119179,-1.76982310599917
+496,Burkina Faso,Nord,Loroum,Ouindigui,13.7465009225452,-1.89319011390224
+497,Burkina Faso,Nord,Loroum,Solle,14.0569030037944,-2.19904422387398
+498,Burkina Faso,Nord,Loroum,Solle,14.0820068836966,-2.10536507517315
+499,Burkina Faso,Nord,Loroum,Titao,13.9806462275277,-2.06209220240584
+500,Burkina Faso,Nord,Loroum,Titao,13.8970828155951,-2.2424848913668
+501,Burkina Faso,Nord,Passoré,Arbolle,12.8258569198553,-1.897460801497
+502,Burkina Faso,Nord,Passoré,Arbolle,12.7199559040847,-1.98610581456115
+503,Burkina Faso,Nord,Passoré,Bagare,12.887487978143,-2.69604902843805
+504,Burkina Faso,Nord,Passoré,Bagare,12.896769785762,-2.58731190619439
+505,Burkina Faso,Nord,Passoré,Bokin,13.0400392756358,-1.63633348145042
+506,Burkina Faso,Nord,Passoré,Bokin,12.995406439923,-1.63377415066683
+507,Burkina Faso,Nord,Passoré,Gomponsom,12.9648483870384,-2.16373159394709
+508,Burkina Faso,Nord,Passoré,Gomponsom,12.996205827274,-2.18661890048482
+509,Burkina Faso,Nord,Passoré,Kirsi,12.9803965781689,-1.91483708469009
+510,Burkina Faso,Nord,Passoré,Kirsi,12.9825970481134,-2.0315028158155
+511,Burkina Faso,Nord,Passoré,Lâ-Todin,12.8902073872467,-2.49140064695103
+512,Burkina Faso,Nord,Passoré,Lâ-Todin,12.7898494548444,-2.39870370407345
+513,Burkina Faso,Nord,Passoré,Pilimpikou,12.7399246082102,-2.12984785388817
+514,Burkina Faso,Nord,Passoré,Pilimpikou,12.750681771577,-2.17371995225025
+515,Burkina Faso,Nord,Passoré,Samba,12.662841568373,-2.46484426491427
+516,Burkina Faso,Nord,Passoré,Samba,12.7492007490325,-2.34587911388084
+517,Burkina Faso,Nord,Passoré,Yako,12.7720233965812,-2.29185347633459
+518,Burkina Faso,Nord,Passoré,Yako,12.8783475649733,-2.3972742441226
+519,Burkina Faso,Nord,Yatenga,Barga,13.7928897461834,-2.23980752599036
+520,Burkina Faso,Nord,Yatenga,Barga,13.8219602134619,-2.32981927193684
+521,Burkina Faso,Nord,Yatenga,Kaïn,14.0937787843804,-2.75410793203674
+522,Burkina Faso,Nord,Yatenga,Kaïn,13.8173492761464,-2.84379959433626
+523,Burkina Faso,Nord,Yatenga,Kalsaka,13.0368249802495,-2.06187889527219
+524,Burkina Faso,Nord,Yatenga,Kalsaka,13.2459319828632,-2.0562579238619
+525,Burkina Faso,Nord,Yatenga,Kossouka,13.3949352714315,-1.86656983689412
+526,Burkina Faso,Nord,Yatenga,Kossouka,13.3654930889998,-1.8726416940685
+527,Burkina Faso,Nord,Yatenga,Koumbri,13.9132030801953,-2.3614351339767
+528,Burkina Faso,Nord,Yatenga,Koumbri,13.8928856899055,-2.34967286933741
+529,Burkina Faso,Nord,Yatenga,Namissiguima,13.5813303735852,-2.30613019169976
+530,Burkina Faso,Nord,Yatenga,Namissiguima,13.7071223088193,-2.26988570110475
+531,Burkina Faso,Nord,Yatenga,Ouahigouya,13.6835570073449,-2.40411691464336
+532,Burkina Faso,Nord,Yatenga,Ouahigouya,13.6187360449988,-2.48304440060165
+533,Burkina Faso,Nord,Yatenga,Oula,13.4921667497469,-2.23985203223834
+534,Burkina Faso,Nord,Yatenga,Oula,13.4934782712908,-2.26438920529196
+535,Burkina Faso,Nord,Yatenga,Rambo,13.2578920302792,-1.87536552665576
+536,Burkina Faso,Nord,Yatenga,Rambo,13.2350993790482,-1.82788503590627
+537,Burkina Faso,Nord,Yatenga,Seguenega,13.5428075010182,-1.89170661709568
+538,Burkina Faso,Nord,Yatenga,Seguenega,13.5448884505892,-1.9554385941647
+539,Burkina Faso,Nord,Yatenga,Tangaye,13.6522502354415,-2.59057564305646
+540,Burkina Faso,Nord,Yatenga,Tangaye,13.5557717169668,-2.62064435492473
+541,Burkina Faso,Nord,Yatenga,Thiou,13.7790239709207,-2.7578517381253
+542,Burkina Faso,Nord,Yatenga,Thiou,13.8656129069967,-2.56836019945759
+543,Burkina Faso,Nord,Yatenga,Zogore,13.4040090431888,-2.51656311023084
+544,Burkina Faso,Nord,Yatenga,Zogore,13.436976788819,-2.49473141047442
+545,Burkina Faso,Nord,Zondoma,Bassi,13.3125288787783,-2.15858203821476
+546,Burkina Faso,Nord,Zondoma,Bassi,13.3277031886666,-2.27741721175705
+547,Burkina Faso,Nord,Zondoma,Boussou,12.9967233694311,-2.51409450523302
+548,Burkina Faso,Nord,Zondoma,Boussou,13.1708057330334,-2.53292586319334
+549,Burkina Faso,Nord,Zondoma,Gourcy,13.251244597859,-2.35164784165047
+550,Burkina Faso,Nord,Zondoma,Gourcy,13.2657285611206,-2.32543274203239
+551,Burkina Faso,Nord,Zondoma,Léba,13.3441008683779,-2.3769607790318
+552,Burkina Faso,Nord,Zondoma,Léba,13.4186269507021,-2.43929073296526
+553,Burkina Faso,Nord,Zondoma,Tougo,13.2092840023576,-2.10121452664432
+554,Burkina Faso,Nord,Zondoma,Tougo,13.0930014865521,-2.15291401585316
+555,Burkina Faso,Plateau-Central,Ganzourgou,Boudry,12.0891052033247,-0.617713700364336
+556,Burkina Faso,Plateau-Central,Ganzourgou,Boudry,11.9955734762635,-0.914986336260259
+557,Burkina Faso,Plateau-Central,Ganzourgou,Kogho,12.6298105178931,-0.72329859570931
+558,Burkina Faso,Plateau-Central,Ganzourgou,Kogho,12.683246919664,-0.717919239654502
+559,Burkina Faso,Plateau-Central,Ganzourgou,Méguet,12.4092254437946,-0.73135243538083
+560,Burkina Faso,Plateau-Central,Ganzourgou,Méguet,12.4335620434231,-0.700344631882587
+561,Burkina Faso,Plateau-Central,Ganzourgou,Mogtédo,12.1163906370595,-0.978220029388226
+562,Burkina Faso,Plateau-Central,Ganzourgou,Mogtédo,12.2727561529261,-1.03003157060008
+563,Burkina Faso,Plateau-Central,Ganzourgou,Salogo,12.5286553472967,-0.674943813946846
+564,Burkina Faso,Plateau-Central,Ganzourgou,Salogo,12.5712396577043,-0.808171966644185
+565,Burkina Faso,Plateau-Central,Ganzourgou,Zam,12.350972169468,-0.802366900892168
+566,Burkina Faso,Plateau-Central,Ganzourgou,Zam,12.4272751230301,-0.985055197508629
+567,Burkina Faso,Plateau-Central,Ganzourgou,Zorgho,12.2455278173902,-0.551084142822431
+568,Burkina Faso,Plateau-Central,Ganzourgou,Zorgho,12.3200325012532,-0.584661142106047
+569,Burkina Faso,Plateau-Central,Ganzourgou,Zoungou,12.1002697474405,-0.521643972091095
+570,Burkina Faso,Plateau-Central,Ganzourgou,Zoungou,12.1402476943586,-0.447817541709695
+571,Burkina Faso,Plateau-Central,Kourwéogo,Boussé,12.6636461339284,-1.6138914037105
+572,Burkina Faso,Plateau-Central,Kourwéogo,Boussé,12.696148629032,-1.77075055351968
+573,Burkina Faso,Plateau-Central,Kourwéogo,Laye,12.5711740383158,-1.79375368715357
+574,Burkina Faso,Plateau-Central,Kourwéogo,Laye,12.5711089135838,-1.77011275852612
+575,Burkina Faso,Plateau-Central,Kourwéogo,Niou,12.8879230369026,-1.74876982736196
+576,Burkina Faso,Plateau-Central,Kourwéogo,Niou,12.8349832498149,-1.83268056794587
+577,Burkina Faso,Plateau-Central,Kourwéogo,Sourgoubila,12.4536206787518,-1.99624253675952
+578,Burkina Faso,Plateau-Central,Kourwéogo,Sourgoubila,12.4036015312519,-1.9223716486685
+579,Burkina Faso,Plateau-Central,Kourwéogo,Toéghin,12.7232428524633,-1.74077117139691
+580,Burkina Faso,Plateau-Central,Kourwéogo,Toéghin,12.8688111824912,-1.67753969056886
+581,Burkina Faso,Plateau-Central,Oubritenga,Absouya,12.632727138565,-0.975481296010305
+582,Burkina Faso,Plateau-Central,Oubritenga,Absouya,12.5203441248784,-0.92320186075448
+583,Burkina Faso,Plateau-Central,Oubritenga,Dapélogo,12.693754163206,-1.59766598817112
+584,Burkina Faso,Plateau-Central,Oubritenga,Dapélogo,12.6745985805749,-1.57707658462257
+585,Burkina Faso,Plateau-Central,Oubritenga,Loumbila,12.5750906251179,-1.42914297019784
+586,Burkina Faso,Plateau-Central,Oubritenga,Loumbila,12.5570219760521,-1.43546753560054
+587,Burkina Faso,Plateau-Central,Oubritenga,Nagreongo,12.4091944178181,-1.15504784264484
+588,Burkina Faso,Plateau-Central,Oubritenga,Nagreongo,12.4499297928116,-1.08049377454417
+589,Burkina Faso,Plateau-Central,Oubritenga,Ourgou-Manega,12.8656591752511,-1.52137660595432
+590,Burkina Faso,Plateau-Central,Oubritenga,Ourgou-Manega,12.7674217093611,-1.50360691633318
+591,Burkina Faso,Plateau-Central,Oubritenga,Ziniare,12.635527898294,-1.31378772743165
+592,Burkina Faso,Plateau-Central,Oubritenga,Ziniare,12.5172565742087,-1.30671673409367
+593,Burkina Faso,Plateau-Central,Oubritenga,Zitenga,12.7919283772377,-1.18239166939023
+594,Burkina Faso,Plateau-Central,Oubritenga,Zitenga,12.8458659050711,-1.40231121636281
+595,Burkina Faso,Sahel,Oudalan,Deou,14.4642507025708,-0.546286990045269
+596,Burkina Faso,Sahel,Oudalan,Deou,14.7273489094569,-0.666822075484953
+597,Burkina Faso,Sahel,Oudalan,Gorom-Gorom,14.595442886117,-0.161920255702926
+598,Burkina Faso,Sahel,Oudalan,Gorom-Gorom,14.2017551974163,-0.351842913555178
+599,Burkina Faso,Sahel,Oudalan,Markoye,14.7987970156167,0.163292350330477
+600,Burkina Faso,Sahel,Oudalan,Markoye,14.5030522030121,0.000238040907782
+601,Burkina Faso,Sahel,Oudalan,Oursi,14.580670521524,-0.502205501980676
+602,Burkina Faso,Sahel,Oudalan,Oursi,14.7183858195554,-0.461706823017061
+603,Burkina Faso,Sahel,Oudalan,Tin-Akoff,14.963560290109,-0.113206019913374
+604,Burkina Faso,Sahel,Oudalan,Tin-Akoff,14.9535859093498,-0.505948047667893
+605,Burkina Faso,Sahel,Séno,Bani,13.7719853867461,0.020195668200878
+606,Burkina Faso,Sahel,Séno,Bani,13.6025658554986,0.028051264121053
+607,Burkina Faso,Sahel,Séno,Dori,13.9145344988131,0.025767159805991
+608,Burkina Faso,Sahel,Séno,Dori,14.0283011517497,-0.192837539387078
+609,Burkina Faso,Sahel,Séno,Falagountou,14.3372314300919,0.186204065043365
+610,Burkina Faso,Sahel,Séno,Falagountou,14.3279040775141,0.190176167350803
+611,Burkina Faso,Sahel,Séno,Gorgadji,13.9487974955295,-0.601015353578048
+612,Burkina Faso,Sahel,Séno,Gorgadji,14.0165891422343,-0.350364648725178
+613,Burkina Faso,Sahel,Séno,Sampelga,13.776815130285,0.125339827064261
+614,Burkina Faso,Sahel,Séno,Sampelga,13.838131682095,0.405111275413903
+615,Burkina Faso,Sahel,Séno,Seytenga,14.1352834838716,0.246075793370968
+616,Burkina Faso,Sahel,Séno,Seytenga,14.1350533666563,0.266686325435005
+617,Burkina Faso,Sahel,Soum,Aribinda,13.9306721876094,-0.942560183145337
+618,Burkina Faso,Sahel,Soum,Aribinda,14.4479186941217,-0.745825649210847
+619,Burkina Faso,Sahel,Soum,Baraboule,14.0675835442305,-1.8781084994178
+620,Burkina Faso,Sahel,Soum,Baraboule,14.2479369806313,-1.92137528354024
+621,Burkina Faso,Sahel,Soum,Diguel,14.3825184497341,-1.79492521094942
+622,Burkina Faso,Sahel,Soum,Diguel,14.4584787542099,-1.78444364515189
+623,Burkina Faso,Sahel,Soum,Djibo,13.9772448284136,-1.7026666847834
+624,Burkina Faso,Sahel,Soum,Djibo,14.0741631388482,-1.62219562755307
+625,Burkina Faso,Sahel,Soum,Kelbo,13.9317643923115,-1.13020202797931
+626,Burkina Faso,Sahel,Soum,Kelbo,13.7727684052567,-1.22536591694242
+627,Burkina Faso,Sahel,Soum,Koutougou,14.6756500258483,-0.977615583437375
+628,Burkina Faso,Sahel,Soum,Koutougou,14.7820127175231,-0.983688510339629
+629,Burkina Faso,Sahel,Soum,Nassoumbou,14.4650445768991,-1.44738510489009
+630,Burkina Faso,Sahel,Soum,Nassoumbou,14.4768059570534,-1.29929961429251
+631,Burkina Faso,Sahel,Soum,Pobe-Mengao,13.8586407953332,-1.74127039774033
+632,Burkina Faso,Sahel,Soum,Pobe-Mengao,13.786250357871,-1.75821850854844
+633,Burkina Faso,Sahel,Soum,Tongomayel,14.287520557603,-1.30786488548588
+634,Burkina Faso,Sahel,Soum,Tongomayel,14.3389422884751,-1.20643516562278
+635,Burkina Faso,Sahel,Yagha,Boundore,13.3096181071409,0.859142634427791
+636,Burkina Faso,Sahel,Yagha,Boundore,13.3830780041346,1.16580898319629
+637,Burkina Faso,Sahel,Yagha,Mansila,13.0456740228303,0.64782746762399
+638,Burkina Faso,Sahel,Yagha,Mansila,13.1826563101216,0.818738602575394
+639,Burkina Faso,Sahel,Yagha,Sebba,13.5006698025371,0.537396430983485
+640,Burkina Faso,Sahel,Yagha,Sebba,13.3042344169755,0.570711597123028
+641,Burkina Faso,Sahel,Yagha,Solhan,13.3688468941887,0.49097205888069
+642,Burkina Faso,Sahel,Yagha,Solhan,13.2248837572484,0.363133181152322
+643,Burkina Faso,Sahel,Yagha,Tankougounadie,13.6735430722078,0.66580069525866
+644,Burkina Faso,Sahel,Yagha,Tankougounadie,13.5369169262307,0.633063870235475
+645,Burkina Faso,Sahel,Yagha,Titabe,13.5808375003859,0.458946260406415
+646,Burkina Faso,Sahel,Yagha,Titabe,13.6542822576282,0.486030934765339
+647,Burkina Faso,Sud-Ouest,Bougouriba,Bondigui,11.0337600167657,-3.54742733544274
+648,Burkina Faso,Sud-Ouest,Bougouriba,Bondigui,10.8450475620463,-3.5702753138116
+649,Burkina Faso,Sud-Ouest,Bougouriba,Diebougou,10.8823140690613,-3.20360715164707
+650,Burkina Faso,Sud-Ouest,Bougouriba,Diebougou,10.9975359840691,-3.24772509121046
+651,Burkina Faso,Sud-Ouest,Bougouriba,Dolo,10.9078450557349,-3.41207109701147
+652,Burkina Faso,Sud-Ouest,Bougouriba,Dolo,10.8380418899606,-3.36789757321368
+653,Burkina Faso,Sud-Ouest,Bougouriba,Gueguere,11.118683332241,-3.32106389494405
+654,Burkina Faso,Sud-Ouest,Bougouriba,Gueguere,11.097744437616,-3.1778938777252
+655,Burkina Faso,Sud-Ouest,Bougouriba,Iolonioro,10.7605625868091,-3.66246078631222
+656,Burkina Faso,Sud-Ouest,Bougouriba,Iolonioro,10.7535453111432,-3.66408762678481
+657,Burkina Faso,Sud-Ouest,Bougouriba,Tiankoura,10.6736038247851,-3.3523783914782
+658,Burkina Faso,Sud-Ouest,Bougouriba,Tiankoura,10.7859419495457,-3.15009160974231
+659,Burkina Faso,Sud-Ouest,Ioba,Dano,11.3158288082357,-2.92794041724911
+660,Burkina Faso,Sud-Ouest,Ioba,Dano,11.1299578440792,-3.02977782555113
+661,Burkina Faso,Sud-Ouest,Ioba,Dissin,10.9190031128726,-2.91152293907943
+662,Burkina Faso,Sud-Ouest,Ioba,Dissin,10.9169182945128,-3.04280128370181
+663,Burkina Faso,Sud-Ouest,Ioba,Koper,11.0725870437919,-2.97326217202537
+664,Burkina Faso,Sud-Ouest,Ioba,Koper,11.0742771390162,-2.85784703902316
+665,Burkina Faso,Sud-Ouest,Ioba,Niego,11.1748655031869,-2.70876691263276
+666,Burkina Faso,Sud-Ouest,Ioba,Niego,11.0581289077415,-2.66147580154259
+667,Burkina Faso,Sud-Ouest,Ioba,Oronkua,11.3056853692064,-3.19616403325967
+668,Burkina Faso,Sud-Ouest,Ioba,Oronkua,11.260221487168,-3.09535501162023
+669,Burkina Faso,Sud-Ouest,Ioba,Ouessa,11.1501757276487,-2.7485816084101
+670,Burkina Faso,Sud-Ouest,Ioba,Ouessa,11.1122102072901,-2.78595764203258
+671,Burkina Faso,Sud-Ouest,Ioba,Zambo,10.7743968778543,-3.01623377981909
+672,Burkina Faso,Sud-Ouest,Ioba,Zambo,10.8225810231746,-2.93631243805771
+673,Burkina Faso,Sud-Ouest,Noumbiel,Batié,9.95277048450108,-3.00961448361159
+674,Burkina Faso,Sud-Ouest,Noumbiel,Batié,9.93807320934994,-2.9727218642223
+675,Burkina Faso,Sud-Ouest,Noumbiel,Boussoukoula,9.74601033790656,-3.06284366559293
+676,Burkina Faso,Sud-Ouest,Noumbiel,Boussoukoula,9.80169952410263,-3.08338871459785
+677,Burkina Faso,Sud-Ouest,Noumbiel,Kpuéré,9.50468101486564,-2.73438770770685
+678,Burkina Faso,Sud-Ouest,Noumbiel,Kpuéré,9.46937898800593,-2.74384659863293
+679,Burkina Faso,Sud-Ouest,Noumbiel,Legmoin,10.1362345524094,-2.88325871566028
+680,Burkina Faso,Sud-Ouest,Noumbiel,Legmoin,10.1571975225389,-2.8805508377163
+681,Burkina Faso,Sud-Ouest,Noumbiel,Midebdo,10.0559022523076,-3.1305955843958
+682,Burkina Faso,Sud-Ouest,Noumbiel,Midebdo,10.1503908069853,-3.14185673798626
+683,Burkina Faso,Sud-Ouest,Poni,Bouroum-Bouroum,10.5995963576903,-3.34257286382704
+684,Burkina Faso,Sud-Ouest,Poni,Bouroum-Bouroum,10.4324250512469,-3.29029565495356
+685,Burkina Faso,Sud-Ouest,Poni,Boussera,10.4177976990258,-2.87854279362482
+686,Burkina Faso,Sud-Ouest,Poni,Boussera,10.3256534225458,-2.90714184706949
+687,Burkina Faso,Sud-Ouest,Poni,Djigouè,10.0322647697522,-3.68822202940169
+688,Burkina Faso,Sud-Ouest,Poni,Djigouè,9.96585563650124,-3.86223420494633
+689,Burkina Faso,Sud-Ouest,Poni,Gaoua,10.4349791647872,-3.09023256187572
+690,Burkina Faso,Sud-Ouest,Poni,Gaoua,10.1882505128995,-3.17485682213144
+691,Burkina Faso,Sud-Ouest,Poni,Gbomblora,10.2178042662621,-2.99002106077298
+692,Burkina Faso,Sud-Ouest,Poni,Gbomblora,10.2850340486849,-3.08384625049121
+693,Burkina Faso,Sud-Ouest,Poni,Kampti,10.0772067403516,-3.53359595607842
+694,Burkina Faso,Sud-Ouest,Poni,Kampti,9.9616836651758,-3.36828978069164
+695,Burkina Faso,Sud-Ouest,Poni,Loropeni,10.2661714091932,-3.64737052555167
+696,Burkina Faso,Sud-Ouest,Poni,Loropeni,10.3496374606404,-3.72084445742483
+697,Burkina Faso,Sud-Ouest,Poni,Malba,10.4213099266649,-2.99383612676307
+698,Burkina Faso,Sud-Ouest,Poni,Malba,10.4250828577887,-2.98733032469376
+699,Burkina Faso,Sud-Ouest,Poni,Nako,10.5494829895834,-2.99278659432774
+700,Burkina Faso,Sud-Ouest,Poni,Nako,10.6269360446171,-3.05531582531933
+701,Burkina Faso,Sud-Ouest,Poni,Perigban,10.1896712465607,-3.29500560476622
+702,Burkina Faso,Sud-Ouest,Poni,Perigban,10.1574776843553,-3.305979989251

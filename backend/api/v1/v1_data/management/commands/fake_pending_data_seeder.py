@@ -3,6 +3,7 @@ import random
 from datetime import timedelta
 
 import pandas as pd
+from nwmis.settings import MASTER_DATA
 from django.core.management import BaseCommand
 from django.utils import timezone
 from faker import Faker
@@ -225,7 +226,7 @@ class Command(BaseCommand):
         PendingDataApproval.objects.all().delete()
         PendingDataBatch.objects.all().delete()
         PendingFormData.objects.all().delete()
-        fake_geo = pd.read_csv("./source/kenya_random_points.csv")
+        fake_geo = pd.read_csv(f"{MASTER_DATA}/random_points.csv")
         forms = Forms.objects.all()
         user = None
         if options.get('email'):

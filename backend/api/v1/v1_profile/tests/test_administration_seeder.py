@@ -24,7 +24,7 @@ class AdministrationSeederTestCase(TestCase):
                 "id": 1,
                 "level": 0,
                 "level_name": "National",
-                "name": "Kenya",
+                "name": "Burkina Faso",
                 "parent": None,
                 "children": children.data,
                 "children_level_name": "County",

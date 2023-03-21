@@ -1,11 +1,12 @@
 import pandas as pd
 import numpy as np
+from nwmis.settings import MASTER_DATA
 from django.core.management import BaseCommand
 from utils.db_manager import reset_table_sequence
 from api.v1.v1_profile.constants import OrganisationTypes
 from api.v1.v1_users.models import Organisation, OrganisationAttribute
 
-source_file = './source/organisation.csv'
+source_file = f"{MASTER_DATA}/organisation.csv"
 
 
 class Command(BaseCommand):

@@ -8,12 +8,12 @@ services:
     volumes:
       - ./backend:/app:delegated
     environment:
-      - DB_SCHEMA=nwmis
       - DB_USER=akvo
       - DB_PASSWORD=password
       - DB_HOST=db
       - DEBUG=True
       - DJANGO_SECRET=local-secret
+      - NWMIS_INSTANCE
     depends_on:
       - db
   worker:
@@ -23,12 +23,12 @@ services:
     volumes:
       - ./backend:/app:delegated
     environment:
-      - DB_SCHEMA=nwmis
       - DB_USER=akvo
       - DB_PASSWORD=password
       - DB_HOST=db
       - DEBUG=True
       - DJANGO_SECRET=local-secret
+      - NWMIS_INSTANCE
     depends_on:
       - backend
   frontend:

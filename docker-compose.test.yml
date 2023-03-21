@@ -2,13 +2,12 @@
 version: "3.9"
 services:
   backend:
-    image: eu.gcr.io/akvo-lumen/nwmis/backend:latest
+    image: eu.gcr.io/akvo-lumen/national-wash-mis/backend:latest
     working_dir: /app/backend
     volumes:
       - ./:/app:delegated
       - ${SERVICE_ACCOUNT}:/credentials/:ro
     environment:
-      - DB_SCHEMA=nwmis
       - DB_USER=akvo
       - DB_PASSWORD=password
       - DB_HOST=db
@@ -24,6 +23,7 @@ services:
       - MAILJET_APIKEY=$MAILJET_APIKEY
       - MAILJET_SECRET=$MAILJET_SECRET
       - WEBDOMAIN=notset
+      - NWMIS_INSTANCE=burkina-faso
     depends_on:
       - db
     command: tail -f /dev/null

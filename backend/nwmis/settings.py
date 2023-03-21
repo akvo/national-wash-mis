@@ -128,7 +128,7 @@ SIMPLE_JWT = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': environ["DB_SCHEMA"],
+        'NAME': environ["NWMIS_INSTANCE"],
         'USER': environ["DB_USER"],
         'PASSWORD': environ["DB_PASSWORD"],
         'HOST': environ["DB_HOST"],
@@ -189,7 +189,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = "v1_users.SystemUser"
 
-FORM_GEO_VALUE = {"lat": 9.145, "lng": 40.4897}
+INSTANCE = environ["NWMIS_INSTANCE"]
+MASTER_DATA = f"./source/{INSTANCE}"
+
+FORM_GEO_VALUE = {
+    'default': {'lat': 9.145, 'lng': 40.4897},
+    'kenya': {'lat': 9.145, 'lng': 40.4897},
+    'burkina-faso': {'lat': 12.246, 'lng': -1.5525}
+}
 
 BUCKET_NAME = "nwmis"
 FAKE_STORAGE = False

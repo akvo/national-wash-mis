@@ -2,6 +2,7 @@ import json
 
 import numpy as np
 import pandas as pd
+from nwmis.settings import MASTER_DATA
 from django.core.management import BaseCommand
 from api.v1.v1_profile.models import Levels, Administration
 
@@ -27,7 +28,7 @@ geo_config = [{
     "alias": "Ward"
 }]
 
-source_file = './source/kenya.topojson'
+source_file = f'./{MASTER_DATA}/map.topojson'
 
 
 def get_parent_id(df, x):

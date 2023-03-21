@@ -1,5 +1,6 @@
 from collections import OrderedDict
 
+from nwmis.settings import INSTANCE
 from django.db.models import Q
 from drf_spectacular.types import OpenApiTypes
 from drf_spectacular.utils import extend_schema_field, inline_serializer
@@ -86,7 +87,7 @@ class ListQuestionSerializer(serializers.ModelSerializer):
     @extend_schema_field(GeoFormatSerializer)
     def get_center(self, instance: Questions):
         if instance.type == QuestionTypes.geo:
-            return FORM_GEO_VALUE
+            return FORM_GEO_VALUE[INSTANCE]
         return None
 
     @extend_schema_field(GeoFormatSerializer)
