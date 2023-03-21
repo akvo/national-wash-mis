@@ -195,7 +195,7 @@ MASTER_DATA = f"./source/{INSTANCE}"
 FORM_GEO_VALUE = {
     'default': {'lat': 9.145, 'lng': 40.4897},
     'kenya': {'lat': 9.145, 'lng': 40.4897},
-    'burkina-faso': {'lat': 9.145, 'lng': 40.4897}
+    'burkina-faso': {'lat': 12.246, 'lng': -1.5525}
 }
 
 BUCKET_NAME = "nwmis"

@@ -1,7 +1,7 @@
 import json
 import os
 
-from nwmis.settings import MASTER_DATA
+from nwmis.settings import MASTER_DATA, INSTANCE
 from django.core.management import BaseCommand
 from jsmin import jsmin
 
@@ -33,14 +33,14 @@ class Command(BaseCommand):
         topojson = open(f"{MASTER_DATA}/map.topojson").read()
         topojson = json.loads(topojson)
         geometris_with_id = []
-        for obj in topojson['objects']['kenya']['geometries']:
+        for obj in topojson['objects'][INSTANCE]['geometries']:
             key = obj['properties']['NAME_3']
             find_id = 0
             if key in all_administrations:
                 find_id = all_administrations[key].get("id")
             obj['properties'].update({"SHAPE_ADMIN_ID": find_id})
             geometris_with_id.append(obj)
-        topojson['objects']['kenya']['geometries'] = geometris_with_id
+        topojson['objects'][INSTANCE]['geometries'] = geometris_with_id
         # write new topojson file
         new_topojson_file = f"{MASTER_DATA}/map-with-admin-id.topojson"
         with open(new_topojson_file, "w") as outfile:
