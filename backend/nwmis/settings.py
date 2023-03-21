@@ -128,7 +128,7 @@ SIMPLE_JWT = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': environ["DB_SCHEMA"] + "-" + environ["NWMIS_INSTANCE"],
+        'NAME': environ["NWMIS_INSTANCE"],
         'USER': environ["DB_USER"],
         'PASSWORD': environ["DB_PASSWORD"],
         'HOST': environ["DB_HOST"],

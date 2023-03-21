@@ -8,7 +8,6 @@ services:
       - ./:/app:delegated
       - ${SERVICE_ACCOUNT}:/credentials/:ro
     environment:
-      - DB_SCHEMA=nwmis
       - DB_USER=akvo
       - DB_PASSWORD=password
       - DB_HOST=db

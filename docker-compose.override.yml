@@ -14,7 +14,7 @@ services:
     network_mode: service:mainnetwork
   worker:
     volumes:
-      - ../akvo-config/k8s-secrets/test/nwmis:/credentials/:ro
+      - ../akvo-config/k8s-secrets/test/nwmis-${NWMIS_INSTANCE}:/credentials/:ro
     environment:
       - GOOGLE_APPLICATION_CREDENTIALS=/credentials/nwmis-service-account.json
       - MAILJET_APIKEY=$MAILJET_APIKEY
@@ -22,7 +22,7 @@ services:
       - WEBDOMAIN=https://nwmis.akvotest.org
   backend:
     volumes:
-      - ../akvo-config/k8s-secrets/test/nwmis:/credentials/:ro
+      - ../akvo-config/k8s-secrets/test/nwmis-${NWMIS_INSTANCE}:/credentials/:ro
     environment:
       - GOOGLE_APPLICATION_CREDENTIALS=/credentials/nwmis-service-account.json
       - MAILJET_APIKEY=$MAILJET_APIKEY
