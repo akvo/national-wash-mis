@@ -2,7 +2,7 @@
 version: "3.9"
 services:
   backend:
-    image: eu.gcr.io/akvo-lumen/nwmis/backend:latest
+    image: eu.gcr.io/akvo-lumen/national-wash-mis/backend:latest
     working_dir: /app/backend
     volumes:
       - ./:/app:delegated
@@ -10,7 +10,6 @@ services:
     environment:
       - DB_USER=akvo
       - DB_PASSWORD=password
-      - DB_HOST=db
       - DJANGO_SECRET=ci-secret
       # env vars for coveralls
       - COVERALLS_REPO_TOKEN=${COVERALLS_REPO_TOKEN:-}
