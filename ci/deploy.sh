@@ -3,7 +3,7 @@ set -exuo pipefail
 
 INSTANCES="nwmis-burkina-faso"
 
-[[ "${CI_BRANCH}" !=  "main" && "${CI_BRANCH}" !=  "develop" && "${CI_BRANCH}" !=  "sandbox" && ! "${CI_TAG:=}" =~ promote.* ]] && { echo "Branch different than main, develop and not a tag. Skip deploy"; exit 0; }
+[[ "${CI_BRANCH}" !=  "main" && ! "${CI_TAG:=}" =~ promote.* ]] && { echo "Branch different than main and not a tag. Skip deploy"; exit 0; }
 [[ "${CI_PULL_REQUEST}" ==  "true" ]] && { echo "Pull request. Skip deploy"; exit 0; }
 
 auth () {
