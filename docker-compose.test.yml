@@ -24,7 +24,7 @@ services:
       - MAILJET_APIKEY=$MAILJET_APIKEY
       - MAILJET_SECRET=$MAILJET_SECRET
       - WEBDOMAIN=notset
-      - NWMIS_INSTANCE=kenya
+      - NWMIS_INSTANCE=burkina-faso
     depends_on:
       - db
     command: tail -f /dev/null

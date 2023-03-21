@@ -17,7 +17,7 @@ services:
       - MAILJET_APIKEY=$MAILJET_APIKEY
       - MAILJET_SECRET=$MAILJET_SECRET
       - WEBDOMAIN=notset
-      - NWMIS_INSTANCE=kenya
+      - NWMIS_INSTANCE=burkina-faso
     network_mode: service:mainnetwork
     restart: always
     volumes:
