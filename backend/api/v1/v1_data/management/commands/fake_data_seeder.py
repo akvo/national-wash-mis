@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta, time
 
 import pandas as pd
+from nwmis.settings import MASTER_DATA
 from django.core.management import BaseCommand
 from django.utils import timezone
 from django.utils.timezone import make_aware
@@ -171,7 +172,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         test = options.get("test")
         # FormData.objects.all().delete()
-        fake_geo = pd.read_csv("./source/kenya_random_points.csv")
+        fake_geo = pd.read_csv(f"{MASTER_DATA}/random_points.csv")
         fake_geo = fake_geo.sample(frac=1).reset_index(drop=True)
         level_names = list(
             filter(lambda x: True if "NAME_" in x else False, list(fake_geo)))

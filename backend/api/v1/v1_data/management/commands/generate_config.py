@@ -1,6 +1,7 @@
 import json
 import os
 
+from nwmis.settings import MASTER_DATA
 from django.core.management import BaseCommand
 from jsmin import jsmin
 
@@ -29,7 +30,7 @@ class Command(BaseCommand):
                 "level": a.level.level
             })
         # add administration id to topojson
-        topojson = open("source/kenya.topojson").read()
+        topojson = open(f"{MASTER_DATA}/map.topojson").read()
         topojson = json.loads(topojson)
         geometris_with_id = []
         for obj in topojson['objects']['kenya']['geometries']:
@@ -41,21 +42,21 @@ class Command(BaseCommand):
             geometris_with_id.append(obj)
         topojson['objects']['kenya']['geometries'] = geometris_with_id
         # write new topojson file
-        new_topojson_file = "source/kenya_with_admin_id.topojson"
+        new_topojson_file = f"{MASTER_DATA}/map-with-admin-id.topojson"
         with open(new_topojson_file, "w") as outfile:
             json.dump(topojson, outfile)
         # write administration_file
-        administration_json = "source/administration.json"
+        administration_json = f"{MASTER_DATA}/administration.json"
         with open(administration_json, "w") as outfile:
             json.dump(adm, outfile)
         # write visualisation_json
         # visualisation_json = "source/config/visualisation.json"
-        highlights_json = "source/config/highlights.json"
-        dashboard_json = "source/config/dashboard.json"
-        reports_json = "source/config/reports.json"
+        highlights_json = f"{MASTER_DATA}/config/highlights.json"
+        dashboard_json = f"{MASTER_DATA}/config/dashboard.json"
+        reports_json = f"{MASTER_DATA}/config/reports.json"
 
         # write config
-        config_file = jsmin(open("source/config/config.js").read())
+        config_file = jsmin(open(f"{MASTER_DATA}/config/config.js").read())
         levels = []
         forms = []
         for level in Levels.objects.all():
@@ -89,7 +90,7 @@ class Command(BaseCommand):
             json.dumps(levels), ";", "var forms=",
             json.dumps(forms), ";", config_file
         ]))
-        open("source/config/config.min.js", 'w').write(min_config)
+        open(f"{MASTER_DATA}/config/config.min.js", 'w').write(min_config)
         os.remove(administration_json)
         del levels
         del forms

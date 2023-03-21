@@ -4,6 +4,7 @@ import datetime
 from math import ceil
 from pathlib import Path
 
+from nwmis.settings import MASTER_DATA
 from django.contrib.auth import authenticate
 from django.core import signing
 from django.core.management import call_command
@@ -89,9 +90,9 @@ def health_check(request, version):
 @extend_schema(description='Get required configuration', tags=['Dev'])
 @api_view(['GET'])
 def get_config_file(request, version):
-    if not Path("source/config/config.min.js").exists():
+    if not Path(f"{MASTER_DATA}/config/config.min.js").exists():
         call_command('generate_config')
-    data = jsmin(open("source/config/config.min.js", "r").read())
+    data = jsmin(open(f"{MASTER_DATA}/config/config.min.js", "r").read())
     response = HttpResponse(
         data, content_type="application/x-javascript; charset=utf-8")
     return response
