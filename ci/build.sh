@@ -42,7 +42,7 @@ then
     exit 1
 fi
 
-image_prefix="eu.gcr.io/akvo-lumen/nwmis"
+image_prefix="eu.gcr.io/akvo-lumen/national-wash-mis"
 
 dc () {
     docker-compose \
@@ -103,7 +103,6 @@ worker_build() {
 update_dbdocs() {
     if [[ "${CI_BRANCH}" ==  "main" || "${CI_BRANCH}" ==  "develop" ]]; then
         npm install -g dbdocs
-        # dbdocs build doc/dbml/schema.dbml --project nwmis
         dbdocs build backend/db.dbml --project "nwmis-$CI_BRANCH"
     fi
 }

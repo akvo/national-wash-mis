@@ -3,11 +3,11 @@
 
 set -euo pipefail
 
-deployment_name="nwmis"
-deployment_version_label="nwmis-version"
-github_project="nwmis"
-notification="zulip"
-zulip_stream="NWMIS"
+deployment_name="national-wash-mis"
+deployment_version_label="national-wash-mis-version"
+github_project="national-wash-mis"
+notification="slack"
+slack_channel="#proj-wcaro-mis-dev-notification"
 
 docker run \
        --rm \
@@ -17,4 +17,4 @@ docker run \
        --interactive \
        --tty \
        akvo/akvo-devops:20201203.085214.79bec73 \
-       promote-test-to-prod.sh "${deployment_name}" "${deployment_version_label}" "${github_project}" "${notification}" "${zulip_stream}"
+       promote-test-to-prod.sh "${deployment_name}" "${deployment_version_label}" "${github_project}" "${notification}" "${slack_channel}"
