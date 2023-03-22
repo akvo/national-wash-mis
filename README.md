@@ -6,8 +6,8 @@
 Real Time Monitoring Information Systems
 
 ## Prerequisite
-- Docker > v19
-- Docker Compose > v2.1
+- Docker > v20
+- Docker Compose > v2
 - Docker Sync 0.7.1
 
 ## Development
@@ -57,7 +57,7 @@ Available containers:
 #### Teardown
 
 ```bash
-docker-compose down -v
+docker compose down -v
 docker volume rm nwmis-docker-sync
 ```
 
@@ -68,10 +68,10 @@ export CI_COMMIT='local'
 ./ci/build.sh
 ```
 
-Above command will generate two docker images with prefix `eu.gcr.io/akvo-lumen/nwmis` for backend and frontend
+Above command will generate two docker images with prefix `eu.gcr.io/akvo-lumen/national-wash-mis` for backend and frontend
 
 ```bash
-docker-compose -f docker-compose.yml -f docker-compose.ci.yml up -d
+docker compose -f docker-compose.yml -f docker-compose.ci.yml up -d
 ```
 
 Network config: [nginx](https://github.com/akvo/national-wash-mis/blob/main/frontend/nginx/conf.d/default.conf)
