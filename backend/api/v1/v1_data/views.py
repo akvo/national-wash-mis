@@ -43,7 +43,8 @@ from api.v1.v1_data.serializers import SubmitFormSerializer, \
     SubmitFormDataAnswerSerializer, \
     ChartDataSerializer, ListChartCriteriaRequestSerializer, \
     ListMapOverviewDataPointSerializer, \
-    ListMapOverviewDataPointRequestSerializer
+    ListMapOverviewDataPointRequestSerializer, \
+    ListRawDataSerializer
 from api.v1.v1_data.functions import get_cache, create_cache, \
     filter_by_criteria, get_questions_options_from_params, \
     get_advance_filter_data_ids, transform_glass_answer
@@ -1566,3 +1567,37 @@ def get_glaas_data(request, version, form_id):
             year += 1
     return Response({'counties': counties_data, 'national': national_data},
                     status=status.HTTP_200_OK)
+
+
+@extend_schema(
+        description='Description of your API endpoint',
+        responses={
+            200: ListRawDataSerializer(many=True)
+        },
+        parameters=[
+            OpenApiParameter(
+                name='questions',
+                required=False,
+                type={'type': 'array',
+                      'items': {'type': 'number'}},
+                location=OpenApiParameter.QUERY)],
+        tags=['Data'],
+        summary='Get Raw data points')
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_raw_data_point(request, version, form_id):
+    form = get_object_or_404(Forms, pk=form_id)
+    serializer = ListFormDataRequestSerializer(data=request.GET)
+    if not serializer.is_valid():
+        return Response(
+            {'message': validate_serializers_message(
+                serializer.errors)},
+            status=status.HTTP_400_BAD_REQUEST
+        )
+    instance = form.form_form_data.order_by('-created').all()
+    data = ListRawDataSerializer(
+        instance=instance, context={
+            'questions': serializer.validated_data.get(
+                'questions')},
+        many=True).data
+    return Response(data, status=status.HTTP_200_OK)

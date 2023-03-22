@@ -1059,3 +1059,19 @@ class SubmitPendingFormSerializer(serializers.Serializer):
         async_task('api.v1.v1_data.functions.refresh_materialized_data')
 
         return obj_data
+
+
+class ListRawDataSerializer(serializers.ModelSerializer):
+    administration = serializers.ReadOnlyField(source='administration.name')
+
+    @extend_schema_field(OpenApiTypes.STR)
+    def get_created(self, instance: FormData):
+        return update_date_time_format(instance.created)
+
+    @extend_schema_field(OpenApiTypes.STR)
+    def get_updated(self, instance: FormData):
+        return update_date_time_format(instance.updated)
+
+    class Meta:
+        model = FormData
+        fields = ['id', 'name', 'form', 'administration', 'geo']
