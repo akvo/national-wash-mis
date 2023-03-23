@@ -7,7 +7,7 @@ from api.v1.v1_data.views import DataAnswerDetailDeleteView, \
     FormDataAddListView, PendingFormDataView, BatchView, \
     PendingDataDetailDeleteView, BatchSummaryView, BatchCommentView, \
     get_map_county_data_point, get_last_update_data_point, get_jmp_data, \
-    get_period_submission, get_glaas_data
+    get_period_submission, get_glaas_data, get_raw_data_point
 from api.v1.v1_users.views import health_check, get_config_file, email_template
 
 urlpatterns = [
@@ -15,7 +15,8 @@ urlpatterns = [
             FormDataAddListView.as_view()),
     re_path(r'^(?P<version>(v1))/data/(?P<data_id>[0-9]+)',
             DataAnswerDetailDeleteView.as_view()),
-
+    re_path(r'^(?P<version>(v1))/raw-data/(?P<form_id>[0-9]+)',
+            get_raw_data_point),
     re_path(r'^(?P<version>(v1))/form-pending-data/(?P<form_id>[0-9]+)',
             PendingFormDataView.as_view()),
     re_path(r'^(?P<version>(v1))/form-pending-batch',
