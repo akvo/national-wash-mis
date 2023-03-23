@@ -781,7 +781,8 @@ class ListBatchSerializer(serializers.ModelSerializer):
             path = instance.file
             first_pos = path.rfind("/")
             last_pos = len(path)
-            return {"name": path[first_pos + 1 : last_pos], "file": instance.file}
+            fp = first_pos + 1
+            return {"name": path[fp:last_pos], "file": instance.file}
         return None
 
     @extend_schema_field(OpenApiTypes.INT)
