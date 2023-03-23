@@ -5,13 +5,20 @@ from api.v1.v1_forms.constants import QuestionTypes
 def update_date_time_format(date):
     if date:
         # date = timezone.datetime.strptime(date, "%Y-%m-%d").date()
-        return date.date().strftime('%B %d, %Y')
+        return date.date().strftime("%B %d, %Y")
     return None
 
 
-def get_answer_value(answer: Answers):
-    if answer.question.type in [QuestionTypes.geo, QuestionTypes.option,
-                                QuestionTypes.multiple_option]:
+def get_answer_value(answer: Answers, toString: bool = False):
+    if answer.question.type in [
+        QuestionTypes.geo,
+        QuestionTypes.option,
+        QuestionTypes.multiple_option,
+    ]:
+        if toString:
+            if answer.options:
+                return "|".join([str(a) for a in answer.options])
+            return None
         return answer.options
     elif answer.question.type == QuestionTypes.number:
         return answer.value
@@ -25,9 +32,11 @@ def get_answer_history(answer_history: AnswerHistory):
     value = None
     created = update_date_time_format(answer_history.created)
     created_by = answer_history.created_by.get_full_name()
-    if answer_history.question.type in [QuestionTypes.geo,
-                                        QuestionTypes.option,
-                                        QuestionTypes.multiple_option]:
+    if answer_history.question.type in [
+        QuestionTypes.geo,
+        QuestionTypes.option,
+        QuestionTypes.multiple_option,
+    ]:
         value = answer_history.options
     elif answer_history.question.type == QuestionTypes.number:
         value = answer_history.value
