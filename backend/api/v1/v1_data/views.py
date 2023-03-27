@@ -1787,7 +1787,9 @@ def get_glaas_data(request, version, form_id):
 
 
 @extend_schema(
-    description="Description of your API endpoint",
+    description="""
+    Get Multi-purpose schema of datapoints to use with third party applications
+    """,
     responses={200: ListRawDataSerializer(many=True)},
     parameters=[
         OpenApiParameter(
@@ -1801,7 +1803,7 @@ def get_glaas_data(request, version, form_id):
     summary="Get Raw data points",
 )
 @api_view(["GET"])
-@permission_classes([IsAuthenticated])
+# @permission_classes([IsAuthenticated])
 def get_raw_data_point(request, version, form_id):
     form = get_object_or_404(Forms, pk=form_id)
     serializer = ListFormDataRequestSerializer(data=request.GET)
@@ -1816,8 +1818,12 @@ def get_raw_data_point(request, version, form_id):
         context={"questions": serializer.validated_data.get("questions")},
         many=True,
     ).data
+    filter_data = {}
+    if request.GET.get("questions"):
+        filter_data["question_id__in"] = request.GET.getlist("questions")
     for d in data:
-        instance = Answers.objects.filter(data_id=d["id"]).all()
+        filter_data["data_id"] = d["id"]
+        instance = Answers.objects.filter(**filter_data).all()
         answers = ListRawDataAnswerSerializer(instance=instance, many=True).data
         data_answers = {}
         for a in answers:

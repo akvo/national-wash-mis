@@ -1202,8 +1202,21 @@ class ListRawDataAnswerSerializer(serializers.ModelSerializer):
 
 
 class ListRawDataSerializer(serializers.ModelSerializer):
-    administration = serializers.ReadOnlyField(source="administration.path")
+    administration = serializers.SerializerMethodField()
     geo = serializers.SerializerMethodField()
+
+    @extend_schema_field(OpenApiTypes.STR)
+    def get_administration(self, instance: FormData):
+        administration_path = list(
+            filter(lambda x: x != "", instance.administration.path.split("."))
+        )
+        administration_path = [int(x) for x in administration_path]
+        all_administrations = (
+            Administration.objects.filter(pk__in=administration_path)
+            .order_by("level")
+            .values_list("name", flat=True)
+        )
+        return " - ".join(all_administrations)
 
     @extend_schema_field(OpenApiTypes.STR)
     def get_created(self, instance: FormData):
