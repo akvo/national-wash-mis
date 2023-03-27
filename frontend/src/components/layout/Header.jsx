@@ -69,6 +69,14 @@ const Header = ({ className = "header", ...props }) => {
     </Menu>
   );
 
+  const PowerBIMenu = (
+    <Menu>
+      <Menu.Item key="Household Dashboard" className="dashboard-menu-item">
+        <Link to="/power-bi/households">Households</Link>
+      </Menu.Item>
+    </Menu>
+  );
+
   if (
     location.pathname.includes("/login") ||
     location.pathname.includes("/forgot-password")
@@ -107,6 +115,17 @@ const Header = ({ className = "header", ...props }) => {
               <Link className="dev" to="/reports">
                 {text?.reports}
               </Link>
+              {/* Experimental Dashboard */}
+              <Dropdown overlay={PowerBIMenu}>
+                <a
+                  className="ant-dropdown-link"
+                  onClick={(e) => {
+                    e.preventDefault();
+                  }}
+                >
+                  New Dashboard
+                </a>
+              </Dropdown>
               <Dropdown overlay={DashboardMenu}>
                 <a
                   className="ant-dropdown-link"
