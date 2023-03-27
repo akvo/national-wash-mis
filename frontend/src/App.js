@@ -30,6 +30,7 @@ import {
   Glaas,
   ReportDashboard,
   GlaasReportDashboard,
+  PowerBIDashboard,
   // Visualisation,
 } from "./pages";
 import { useCookies } from "react-cookie";
@@ -63,6 +64,8 @@ const RouteList = () => {
       <Route exact path="/form/:formId" element={<Forms />} />
       <Route exact path="/dashboard/:formId" element={<Dashboard />} />
       <Route exact path="/glaas/:formId" element={<Glaas />} />
+      <Route exact path="/data" element={<Home />} />
+      <Route exact path="/power-bi/:formId" element={<PowerBIDashboard />} />
       <Route
         exact
         path="/report-dashboard/:formId"
