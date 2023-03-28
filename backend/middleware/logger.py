@@ -10,6 +10,6 @@ class ErrorLoggingMiddleware:
         try:
             response = self.get_response(request)
         except Exception as e:
-            logging.exception("Unhandled exception")
+            logging.exception("An error occurred: %s", e)
             raise e
         return response
