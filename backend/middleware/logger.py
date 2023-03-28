@@ -1,4 +1,5 @@
 import logging
+import datetime
 
 
 class ErrorLoggingMiddleware:
@@ -10,6 +11,6 @@ class ErrorLoggingMiddleware:
         try:
             response = self.get_response(request)
         except Exception as e:
-            logging.exception("An error occurred: %s", e)
-            raise e
+            timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+            logging.exception("%s : ERROR %s", timestamp, e)
         return response
