@@ -15,7 +15,7 @@ class Forms(models.Model):
     type = models.IntegerField(
         choices=FormTypes.FieldStr.items(), default=None, null=True
     )
-    translation = models.JSONField(default=None)
+    translations = models.JSONField(default=None, null=True)
 
     def __str__(self):
         return self.name
@@ -96,7 +96,7 @@ class Questions(models.Model):
     dependency = models.JSONField(default=None, null=True)
     api = models.JSONField(default=None, null=True)
     extra = models.JSONField(default=None, null=True)
-    translation = models.JSONField(default=None)
+    translations = models.JSONField(default=None, null=True)
 
     def __str__(self):
         return self.text
@@ -136,7 +136,7 @@ class QuestionOptions(models.Model):
     code = models.CharField(max_length=255, default=None, null=True)
     name = models.TextField()
     other = models.BooleanField(default=False)
-    translation = models.JSONField(default=None)
+    translations = models.JSONField(default=None, null=True)
 
     def __str__(self):
         return self.name

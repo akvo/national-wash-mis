@@ -6,23 +6,23 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('v1_forms', '0020_alter_jmp_materialized_view'),
+        ("v1_forms", "0020_alter_jmp_materialized_view"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='forms',
-            name='translation',
-            field=models.JSONField(default=None),
+            model_name="forms",
+            name="translations",
+            field=models.JSONField(default=None, null=True),
         ),
         migrations.AddField(
-            model_name='questionoptions',
-            name='translation',
-            field=models.JSONField(default=None),
+            model_name="questionoptions",
+            name="translations",
+            field=models.JSONField(default=None, null=True),
         ),
         migrations.AddField(
-            model_name='questions',
-            name='translation',
-            field=models.JSONField(default=None),
+            model_name="questions",
+            name="translations",
+            field=models.JSONField(default=None, null=True),
         ),
     ]
