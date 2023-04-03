@@ -105,17 +105,25 @@ class Command(BaseCommand):
 
         # i18n / translation config
         translation_config = TranslationConfig.choices(source_path)
+        translation_text = {}
+        for lang in translation_config["languages"]:
+            # generate translation text by TranslationConfig class
+            common_text = open(f"./translations/common/{lang}.json").read()
+            page_text = open(f"./translations/page/{lang}.json").read()
+            translation_text.update({
+                lang: {
+                    "common": json.loads(common_text),
+                    "page": json.loads(page_text)
+                }
+            })
         translation_mins = [
             "var languages=",
-            str(translation_config["languages"]), ";",
+            json.dumps(translation_config["languages"]), ";",
             "var defaultLang=",
-            "'", translation_config["defaultLang"], "'", ";"
+            json.dumps(translation_config["defaultLang"]), ";",
+            "var translations=",
+            json.dumps(translation_text), ";"
         ]
-        for lang in translation_config["languages"]:
-            translation_mins.append(f"var {lang}=")
-            translation_mins.append(
-                open(f"./translations/i18n_{lang}.json").read())
-            translation_mins.append(";")
         translation_min_config = jsmin("".join(translation_mins))
         open(f"{MASTER_DATA}/config/i18n.min.js", 'w').write(
             translation_min_config)
