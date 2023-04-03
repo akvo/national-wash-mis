@@ -12,9 +12,9 @@ class Forms(models.Model):
     name = models.TextField()
     version = models.IntegerField(default=1)
     uuid = models.UUIDField(default=uuid.uuid4, editable=False, unique=True)
-    type = models.IntegerField(
-        choices=FormTypes.FieldStr.items(), default=None, null=True
-    )
+    type = models.IntegerField(choices=FormTypes.FieldStr.items(),
+                               default=None,
+                               null=True)
     translations = models.JSONField(default=None, null=True)
 
     def __str__(self):
@@ -25,15 +25,16 @@ class Forms(models.Model):
 
 
 class FormApprovalRule(models.Model):
-    form = models.ForeignKey(
-        to=Forms, on_delete=models.CASCADE, related_name="form_form_approval_rule"
-    )
+    form = models.ForeignKey(to=Forms,
+                             on_delete=models.CASCADE,
+                             related_name="form_form_approval_rule")
     administration = models.ForeignKey(
         to=Administration,
         on_delete=models.CASCADE,
         related_name="administration_form_approval",
     )  # noqa
-    levels = models.ManyToManyField(to=Levels, related_name="levels_form_approval")
+    levels = models.ManyToManyField(to=Levels,
+                                    related_name="levels_form_approval")
 
     def __str__(self):
         return self.form.name
@@ -43,17 +44,17 @@ class FormApprovalRule(models.Model):
 
 
 class FormApprovalAssignment(models.Model):
-    form = models.ForeignKey(
-        to=Forms, on_delete=models.CASCADE, related_name="form_data_approval"
-    )
+    form = models.ForeignKey(to=Forms,
+                             on_delete=models.CASCADE,
+                             related_name="form_data_approval")
     administration = models.ForeignKey(
         to=Administration,
         on_delete=models.CASCADE,
         related_name="administration_data_approval",
     )
-    user = models.ForeignKey(
-        to=SystemUser, on_delete=models.CASCADE, related_name="user_data_approval"
-    )
+    user = models.ForeignKey(to=SystemUser,
+                             on_delete=models.CASCADE,
+                             related_name="user_data_approval")
     updated = models.DateTimeField(default=None, null=True)
 
     def __str__(self):
@@ -64,11 +65,12 @@ class FormApprovalAssignment(models.Model):
 
 
 class QuestionGroup(models.Model):
-    form = models.ForeignKey(
-        to=Forms, on_delete=models.CASCADE, related_name="form_question_group"
-    )
+    form = models.ForeignKey(to=Forms,
+                             on_delete=models.CASCADE,
+                             related_name="form_question_group")
     name = models.TextField()
     order = models.BigIntegerField(null=True, default=None)
+    translations = models.JSONField(default=None, null=True)
 
     def __str__(self):
         return self.name
@@ -78,9 +80,9 @@ class QuestionGroup(models.Model):
 
 
 class Questions(models.Model):
-    form = models.ForeignKey(
-        to=Forms, on_delete=models.CASCADE, related_name="form_questions"
-    )
+    form = models.ForeignKey(to=Forms,
+                             on_delete=models.CASCADE,
+                             related_name="form_questions")
     question_group = models.ForeignKey(
         to=QuestionGroup,
         on_delete=models.CASCADE,
@@ -102,11 +104,9 @@ class Questions(models.Model):
         return self.text
 
     def to_definition(self):
-        options = (
-            [options.name for options in self.question_question_options.all()]
-            if self.question_question_options.count()
-            else False
-        )
+        options = ([
+            options.name for options in self.question_question_options.all()
+        ] if self.question_question_options.count() else False)
         return {
             "id": self.id,
             "qg_id": self.question_group.id,
@@ -129,9 +129,9 @@ class Questions(models.Model):
 
 
 class QuestionOptions(models.Model):
-    question = models.ForeignKey(
-        to=Questions, on_delete=models.CASCADE, related_name="question_question_options"
-    )
+    question = models.ForeignKey(to=Questions,
+                                 on_delete=models.CASCADE,
+                                 related_name="question_question_options")
     order = models.BigIntegerField(null=True, default=None)
     code = models.CharField(max_length=255, default=None, null=True)
     name = models.TextField()
@@ -146,12 +146,12 @@ class QuestionOptions(models.Model):
 
 
 class UserForms(models.Model):
-    user = models.ForeignKey(
-        to=SystemUser, on_delete=models.CASCADE, related_name="user_form"
-    )
-    form = models.ForeignKey(
-        to=Forms, on_delete=models.CASCADE, related_name="form_user"
-    )
+    user = models.ForeignKey(to=SystemUser,
+                             on_delete=models.CASCADE,
+                             related_name="user_form")
+    form = models.ForeignKey(to=Forms,
+                             on_delete=models.CASCADE,
+                             related_name="form_user")
 
     def __str__(self):
         return self.user.email
@@ -181,9 +181,9 @@ class QuestionAttribute(models.Model):
 
 class ViewJMPCriteria(models.Model):
     id = models.BigIntegerField(primary_key=True)
-    form = models.ForeignKey(
-        to=Forms, on_delete=models.DO_NOTHING, related_name="form_view_jmp_criteria"
-    )
+    form = models.ForeignKey(to=Forms,
+                             on_delete=models.DO_NOTHING,
+                             related_name="form_view_jmp_criteria")
     name = models.TextField()
     criteria = models.JSONField(default=None, null=True)
     level = models.TextField()
