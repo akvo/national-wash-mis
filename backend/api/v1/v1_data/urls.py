@@ -8,7 +8,8 @@ from api.v1.v1_data.views import DataAnswerDetailDeleteView, \
     PendingDataDetailDeleteView, BatchSummaryView, BatchCommentView, \
     get_map_county_data_point, get_last_update_data_point, get_jmp_data, \
     get_period_submission, get_glaas_data, get_raw_data_point
-from api.v1.v1_users.views import health_check, get_config_file, email_template
+from api.v1.v1_users.views import health_check, get_config_file, \
+    email_template, get_translation_config_file
 
 urlpatterns = [
     re_path(r'^(?P<version>(v1))/form-data/(?P<form_id>[0-9]+)',
@@ -60,6 +61,7 @@ urlpatterns = [
 
     re_path(r'^(?P<version>(v1))/health/check', health_check),
     re_path(r'^(?P<version>(v1))/config.js', get_config_file),
+    re_path(r'^(?P<version>(v1))/i18n.js', get_translation_config_file),
     re_path(r'^(?P<version>(v1))/email_template', email_template),
 
 ]
