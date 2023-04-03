@@ -1,0 +1,10 @@
+{
+  "common": {
+    "example": "Test Fr"
+  },
+  "page": {
+    "home": {
+      "example": "Home Fr"
+    }
+  }
+}
