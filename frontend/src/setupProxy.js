@@ -18,4 +18,14 @@ module.exports = function (app) {
       },
     })
   );
+  app.use(
+    ["/i18n.js"],
+    createProxyMiddleware({
+      target: "http://localhost:8000",
+      changeOrigin: true,
+      pathRewrite: {
+        "^/i18n.js": "/api/v1/i18n.js",
+      },
+    })
+  );
 };
