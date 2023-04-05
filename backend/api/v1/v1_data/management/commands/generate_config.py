@@ -59,6 +59,7 @@ class Command(BaseCommand):
         highlights_json = f"{MASTER_DATA}/config/highlights.json"
         dashboard_json = f"{MASTER_DATA}/config/dashboard.json"
         reports_json = f"{MASTER_DATA}/config/reports.json"
+        power_bi_dashboard = f"{MASTER_DATA}/config/power-bi-dashboard.json"
 
         # write config
         config_file = jsmin(open(f"{MASTER_DATA}/config/config.js").read())
@@ -82,6 +83,8 @@ class Command(BaseCommand):
         min_config = jsmin("".join([
             "var dashboard=",
             open(dashboard_json).read(), ";",
+            "var powerBIDashboard=",
+            open(power_bi_dashboard).read(), ";",
             "var reports=",
             open(reports_json).read(), ";",
             "var highlights=",

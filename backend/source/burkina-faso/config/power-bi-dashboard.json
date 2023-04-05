@@ -1,0 +1,16 @@
+[
+  {
+    "form": 1,
+    "content": [
+      {
+        "key": "title",
+        "text": "Household WASH Data",
+        "align": "left"
+      },
+      {
+        "key": "embed",
+        "link": "https://app.powerbi.com/view?r=eyJrIjoiMDk4ZTNhZDMtMTA0NS00MWJjLTgzMjctN2JhMDUyZmM2MzYwIiwidCI6ImIxNzBlMTE1LWRjM2QtNGU5Mi04NWJlLWU0YjMwMDljNWRjMiIsImMiOjl9"
+      }
+    ]
+  }
+]
