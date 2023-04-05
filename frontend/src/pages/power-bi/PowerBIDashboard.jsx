@@ -6,8 +6,8 @@ import "./style.scss";
 
 const PowerBIDashboard = () => {
   const { formId } = useParams();
-  const current =
-    window?.powerBIDashboard?.find((x) => (x.form_id = formId)) || null;
+  const powerBIDashboard = window?.powerBIDashboard;
+  const current = powerBIDashboard?.find((x) => x.form_id === parseInt(formId));
 
   if (!current || !current?.content) {
     return "";
@@ -17,7 +17,6 @@ const PowerBIDashboard = () => {
     <div id="powerbi-dashboard">
       {current.content.map((c, ci) => {
         const componentKey = `${c.key}-${ci}`;
-        console.log(c);
         switch (c.key) {
           case "embed":
             return (
