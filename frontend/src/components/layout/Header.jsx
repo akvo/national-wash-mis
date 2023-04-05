@@ -72,7 +72,7 @@ const Header = ({ className = "header", ...props }) => {
   const PowerBIMenu = (
     <Menu>
       <Menu.Item key="Household Dashboard" className="dashboard-menu-item">
-        <Link to="/power-bi/households">Households</Link>
+        <Link to="/power-bi/519630048">Households</Link>
       </Menu.Item>
     </Menu>
   );

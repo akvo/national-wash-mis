@@ -1,12 +1,13 @@
 import React from "react";
-import { Row, Col, Affix } from "antd";
+import { Affix } from "antd";
 import ResponsiveEmbed from "react-responsive-embed";
+import { useParams } from "react-router-dom";
 import "./style.scss";
 
 const PowerBIDashboard = () => {
-  const form_id = 519630048;
+  const { formId } = useParams();
   const current =
-    window?.powerBIDashboard?.find((x) => (x.form_id = form_id)) || null;
+    window?.powerBIDashboard?.find((x) => (x.form_id = formId)) || null;
 
   if (!current || !current?.content) {
     return "";
