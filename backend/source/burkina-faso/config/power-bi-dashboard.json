@@ -1,6 +1,8 @@
 [
   {
     "form_id": 519630048,
+    "page": "power-bi",
+    "name": "Household Data",
     "content": [
       {
         "key": "title",
@@ -22,6 +24,8 @@
   },
   {
     "form_id": 603050002,
+    "page": "power-bi",
+    "name": "Urban Sanitation",
     "content": [
       {
         "key": "title",
@@ -43,6 +47,8 @@
   },
   {
     "form_id": 533560002,
+    "page": "power-bi",
+    "name": "Health Facilities Data",
     "content": [
       {
         "key": "title",
@@ -64,6 +70,8 @@
   },
   {
     "form_id": 563350033,
+    "page": "power-bi",
+    "name": "WASH in Schools Data",
     "content": [
       {
         "key": "title",
@@ -85,6 +93,8 @@
   },
   {
     "form_id": 567490004,
+    "page": "power-bi",
+    "name": "Governance and Policy Data",
     "content": [
       {
         "key": "title",
