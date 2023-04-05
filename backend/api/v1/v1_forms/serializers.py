@@ -122,7 +122,7 @@ class ListQuestionSerializer(serializers.ModelSerializer):
         model = Questions
         fields = [
             'id', 'name', 'order', 'type', 'required', 'dependency', 'option',
-            'center', 'api', 'meta', 'rule', 'extra'
+            'center', 'api', 'meta', 'rule', 'extra', 'translations'
         ]
 
 
@@ -141,7 +141,7 @@ class ListQuestionGroupSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = QuestionGroup
-        fields = ['name', 'question']
+        fields = ['name', 'question', 'translations']
 
 
 class ListAdministrationCascadeSerializer(serializers.ModelSerializer):
@@ -179,7 +179,7 @@ class WebFormDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Forms
-        fields = ['name', 'question_group']
+        fields = ['name', 'question_group', 'translations']
 
 
 class ListFormRequestSerializer(serializers.Serializer):

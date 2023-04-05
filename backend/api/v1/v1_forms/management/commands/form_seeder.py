@@ -15,6 +15,7 @@ from api.v1.v1_forms.models import QuestionAttribute as QA
 
 
 class Command(BaseCommand):
+
     def add_arguments(self, parser):
         parser.add_argument("-t",
                             "--test",
@@ -22,11 +23,7 @@ class Command(BaseCommand):
                             const=1,
                             default=False,
                             type=int)
-        parser.add_argument("-f",
-                            "--file",
-                            nargs="?",
-                            default=False,
-                            type=int)
+        parser.add_argument("-f", "--file", nargs="?", default=False, type=int)
 
     def handle(self, *args, **options):
         TEST = options.get("test")
@@ -56,10 +53,12 @@ class Command(BaseCommand):
             form = Forms.objects.filter(id=json_form["id"]).first()
             QA.objects.filter(question__form=form).all().delete()
             if not form:
-                form = Forms.objects.create(id=json_form["id"],
-                                            name=json_form["form"],
-                                            version=1,
-                                            type=json_form["type"])
+                form = Forms.objects.create(
+                    id=json_form["id"],
+                    name=json_form["form"],
+                    version=1,
+                    type=json_form["type"],
+                    translations=json_form.get("translations"))
                 if not TEST:
                     self.stdout.write(
                         f"Form Created | {form.name} V{form.version}")
@@ -67,6 +66,7 @@ class Command(BaseCommand):
                 form.name = json_form["form"]
                 form.version += 1
                 form.type = json_form["type"]
+                form.translations = json_form.get("translations")
                 form.save()
                 if not TEST:
                     self.stdout.write(
@@ -76,6 +76,7 @@ class Command(BaseCommand):
                 question_group, created = QG.objects.update_or_create(
                     name=qg["question_group"],
                     form=form,
+                    translations=qg.get("translations"),
                     defaults={
                         "name": qg["question_group"],
                         "form": form,
@@ -99,6 +100,7 @@ class Command(BaseCommand):
                             dependency=q.get("dependency"),
                             api=q.get("api"),
                             type=getattr(QuestionTypes, q["type"]),
+                            translations=q.get("translations")
                         )
                     else:
                         question.name = q.get("name") or q.get("question")
@@ -111,6 +113,7 @@ class Command(BaseCommand):
                         question.type = getattr(QuestionTypes, q["type"])
                         question.api = q.get("api")
                         question.extra = q.get("extra")
+                        question.translations = q.get("translations")
                         question.save()
                     if q.get("options"):
                         QO.objects.filter(question=question).all().delete()
@@ -119,6 +122,7 @@ class Command(BaseCommand):
                                 name=o["name"].strip(),
                                 question=question,
                                 order=io + 1,
+                                translations=o.get("translations")
                             ) for io, o in enumerate(q.get("options"))
                         ])
                     if q.get("attributes"):
