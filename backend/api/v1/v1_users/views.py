@@ -98,6 +98,17 @@ def get_config_file(request, version):
     return response
 
 
+@extend_schema(description='Get i18n translation configuration', tags=['Dev'])
+@api_view(['GET'])
+def get_translation_config_file(request, version):
+    if not Path(f"{MASTER_DATA}/config/i18n.min.js").exists():
+        call_command('generate_config')
+    data = jsmin(open(f"{MASTER_DATA}/config/i18n.min.js", "r").read())
+    response = HttpResponse(
+        data, content_type="application/x-javascript; charset=utf-8")
+    return response
+
+
 @extend_schema(description='Use to show email templates',
                tags=['Dev'],
                parameters=[

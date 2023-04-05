@@ -11,6 +11,11 @@ from api.v1.v1_profile.models import Levels, Administration
 from api.v1.v1_forms.serializers import FormDataSerializer
 from django_q.tasks import async_task
 
+from translations.config import TranslationConfig
+
+
+source_path = INSTANCE.replace("-", "_")
+
 
 class Command(BaseCommand):
     def handle(self, *args, **options):
@@ -97,4 +102,30 @@ class Command(BaseCommand):
         del min_config
         del all_administrations
         del adm
+
+        # i18n / translation config
+        translation_config = TranslationConfig.choices(source_path)
+        translation_text = {}
+        for lang in translation_config["languages"]:
+            # generate translation text by TranslationConfig class
+            common_text = open(f"./translations/common/{lang}.json").read()
+            page_text = open(f"./translations/page/{lang}.json").read()
+            translation_text.update({
+                lang: {
+                    "common": json.loads(common_text),
+                    "page": json.loads(page_text)
+                }
+            })
+        translation_mins = [
+            "var languages=",
+            json.dumps(translation_config["languages"]), ";",
+            "var defaultLang=",
+            json.dumps(translation_config["defaultLang"]), ";",
+            "var translations=",
+            json.dumps(translation_text), ";"
+        ]
+        translation_min_config = jsmin("".join(translation_mins))
+        open(f"{MASTER_DATA}/config/i18n.min.js", 'w').write(
+            translation_min_config)
+
         async_task('api.v1.v1_data.functions.refresh_materialized_data')
