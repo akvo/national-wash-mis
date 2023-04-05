@@ -4,7 +4,7 @@ import ResponsiveEmbed from "react-responsive-embed";
 import "./style.scss";
 
 const PowerBIDashboard = () => {
-  const form_id = 1;
+  const form_id = 519630048;
   const current =
     window?.powerBIDashboard?.find((x) => (x.form_id = form_id)) || null;
 
