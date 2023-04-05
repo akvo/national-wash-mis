@@ -113,11 +113,23 @@
 						},
 						{
 							"name": "Amref and Local Government",
-							"color": null
+							"color": null,
+							"translations": [
+								{
+									"language": "fr",
+									"name": "Amref et Local Government"
+								}
+							]
 						},
 						{
 							"name": "Other",
-							"color": null
+							"color": null,
+							"translations": [
+								{
+									"language": "fr",
+									"name": "Autre"
+								}
+							]
 						}
 					]
 				},
@@ -302,20 +314,44 @@
 					"meta": false,
 					"type": "option",
 					"required": false,
+					"translations": [
+						{
+							"language": "fr",
+							"name": "Des toilettes étaient disponibles pour les passagers"
+						}
+					],
 					"options": [
 						{
 							"name": "Yes",
-							"color": null
+							"color": null,
+							"translations": [
+								{
+									"language": "fr",
+									"name": "Oui"
+								}
+							]
 						},
 						{
 							"name": "No",
-							"color": null
+							"color": null,
+							"translations": [
+								{
+									"language": "fr",
+									"name": "Non"
+								}
+							]
 						}
 					]
 				},
 				{
 					"id": 557690351,
 					"question": "Date Verified",
+					"translations": [
+						{
+							"language": "fr",
+							"name": "Date vérifiée"
+						}
+					],
 					"order": 9,
 					"meta": false,
 					"type": "date",
@@ -325,6 +361,12 @@
 				{
 					"id": 569090301,
 					"question": "Number of Latrines at Verification Date",
+					"translations": [
+						{
+							"language": "fr",
+							"name": "Number of Latrines at Verification Date"
+						}
+					],
 					"order": 10,
 					"meta": false,
 					"type": "number",
