@@ -4,20 +4,40 @@ import ResponsiveEmbed from "react-responsive-embed";
 import "./style.scss";
 
 const PowerBIDashboard = () => {
+  const form_id = 1;
+  const current =
+    window?.powerBIDashboard?.find((x) => (x.form_id = form_id)) || null;
+
+  if (!current || !current?.content) {
+    return "";
+  }
+
   return (
     <div id="powerbi-dashboard">
-      <Affix className="sticky-wrapper">
-        <div>
-          <div className="page-title-wrapper">
-            <h1>Household WASH Data</h1>
-          </div>
-        </div>
-      </Affix>
-      <Row className="main-wrapper" align="center">
-        <Col span={24} align="center">
-          <ResponsiveEmbed src="https://app.powerbi.com/view?r=eyJrIjoiMDk4ZTNhZDMtMTA0NS00MWJjLTgzMjctN2JhMDUyZmM2MzYwIiwidCI6ImIxNzBlMTE1LWRjM2QtNGU5Mi04NWJlLWU0YjMwMDljNWRjMiIsImMiOjl9" />
-        </Col>
-      </Row>
+      {current.content.map((c, ci) => {
+        const componentKey = `${c.key}-${ci}`;
+        console.log(c);
+        switch (c.key) {
+          case "embed":
+            return (
+              <div
+                key={componentKey}
+                className="main-wrapper"
+                style={c?.style ? c.style : {}}
+              >
+                <ResponsiveEmbed src={c.link} />
+              </div>
+            );
+          default:
+            return (
+              <Affix key={componentKey} className="sticky-wrapper">
+                <div className="page-title-wrapper">
+                  <h1 style={c?.style ? c.style : {}}>{c.text}</h1>
+                </div>
+              </Affix>
+            );
+        }
+      })}
     </div>
   );
 };
