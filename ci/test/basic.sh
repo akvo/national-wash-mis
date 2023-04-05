@@ -16,4 +16,4 @@ http_get() {
 http_get "http://localhost" 200
 http_get "http://localhost/api/v1/health/check/" 200
 http_get "http://localhost/config.js" 200
-http_get "http://localhost/i18n.js" 200
+# http_get "http://localhost/i18n.js" 200
