@@ -16,6 +16,7 @@ const Header = ({ className = "header", ...props }) => {
     return uiText[activeLang];
   }, [activeLang]);
   const dashboards = window?.dashboard;
+  const powerBIDashboard = window?.powerBIDashboard;
   const reports = window?.reports;
 
   const signOut = async () => {
@@ -71,9 +72,11 @@ const Header = ({ className = "header", ...props }) => {
 
   const PowerBIMenu = (
     <Menu>
-      <Menu.Item key="Household Dashboard" className="dashboard-menu-item">
-        <Link to="/power-bi/519630048">Households</Link>
-      </Menu.Item>
+      {powerBIDashboard?.map((d) => (
+        <Menu.Item key={`${d.name}`} className="dashboard-menu-item">
+          <Link to={`/${d.page}/${d.form_id}`}>{d.name}</Link>
+        </Menu.Item>
+      ))}
     </Menu>
   );
 
