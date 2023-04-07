@@ -2,6 +2,20 @@ import os
 import json
 from django.core.management import BaseCommand
 from nwmis.settings import MASTER_DATA
+from django.db import connection
+
+
+def drop_schema():
+    with connection.cursor() as cursor:
+        cursor.execute(
+            """
+                SELECT EXISTS(
+                SELECT relname FROM pg_class
+                WHERE relkind = 'm' AND relname = %s)
+                """, ['data_category'])
+        exists = cursor.fetchone()[0]
+        if exists:
+            cursor.execute("DROP MATERIALIZED VIEW data_category;")
 
 
 def get_question_config(config: dict, cl: list):
@@ -17,6 +31,7 @@ def generate_schema() -> str:
     file_config = open(f"{MASTER_DATA}/config/category.json")
     configs = json.load(file_config)
     file_config.close()
+
     mview = "CREATE MATERIALIZED VIEW data_category AS\n"
     mview += "SELECT ROW_NUMBER() OVER (PARTITION BY TRUE) as id, *\n"
     mview += "FROM (\n"
@@ -27,7 +42,7 @@ def generate_schema() -> str:
         ql = ",".join(question_config)
         mview += (f"SELECT q.form_id, a.data_id, '{config['name']}' as name,"
                   " jsonb_object_agg(a.question_id,COALESCE(a.options,"
-                  " to_jsonb(array[a.value::text]))) as options \n")
+                  " to_jsonb(array[a.value]))) as options \n")
         mview += "FROM answer a \n"
         mview += "LEFT JOIN question q ON q.id = a.question_id \n"
         mview += "WHERE (a.value IS NOT NULL OR a.options IS NOT NULL) \n"
@@ -50,6 +65,8 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         try:
             views = generate_schema()
-            print(views)
+            drop_schema()
+            with connection.cursor() as cursor:
+                cursor.execute(views)
         except FileNotFoundError:
             print(f"{MASTER_DATA}/category.json is not exist")
