@@ -74,7 +74,7 @@ def get_valid_list(opt, c, category):
                                 category = get_valid_list(opt, o, category)
                             else:
                                 category = o.get("name")
-    if len(valid) > len(validator):
+    if len(valid) >= len(validator):
         conditions = [v if v in valid else False for v in validator]
         conditions = list(filter(lambda x: x is not False, conditions))
         if sorted(conditions) == sorted(validator):
@@ -102,24 +102,17 @@ def get_results(data):
     for d in results:
         d.update({"category": get_category(d["opt"])})
     res = pd.DataFrame(results)
-    if list(res) != ["id", "data", "form", "name", "opt", "category"]:
-        return pd.DataFrame(columns=[
-            "id",
-            "data",
-            "form",
-            "name",
-            "category",
-        ])
     res = pd.concat(
         [res.drop("opt", axis=1),
          pd.DataFrame(df["opt"].tolist())], axis=1)
-    return res[[
+    res = res[[
         "id",
         "data",
         "form",
         "name",
         "category",
     ]]
+    return res.to_dict("records")
 
 
 @extend_schema(
@@ -158,7 +151,7 @@ def get_results(data):
 @api_view(["GET"])
 def get_data_with_category(request, version, form_id):
     data = DataCategory.objects.all()
-    data = [get_results(data)]
+    data = get_results(data)
     return Response(data, status=status.HTTP_200_OK)
 
 
