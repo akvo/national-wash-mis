@@ -14,6 +14,16 @@ class DataCategory(models.Model):
                              related_name='form_view_data_category')
     options = models.JSONField()
 
+    @property
+    def serialize(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "data": self.data_id,
+            "form": self.form_id,
+            "opt": self.options,
+        }
+
     class Meta:
         managed = False
         db_table = 'data_category'
