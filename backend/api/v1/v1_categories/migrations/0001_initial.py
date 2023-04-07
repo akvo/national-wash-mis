@@ -9,8 +9,7 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('v1_forms',
-         '0021_forms_translations_questiongroup_translations_and_more'),
+        ('v1_data', '0023_viewjmpcount')
     ]
 
     operations = [
