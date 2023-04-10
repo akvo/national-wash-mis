@@ -1,5 +1,8 @@
 import pandas as pd
+from math import ceil
 import json
+from django.http import Http404
+from django.core.paginator import Paginator
 from drf_spectacular.types import OpenApiTypes
 from drf_spectacular.utils import (
     extend_schema,
@@ -64,7 +67,8 @@ def get_valid_list(opt, c, category):
                             filter(
                                 lambda x: x not in elses.get("ignore"),
                                 validator,
-                            ))
+                            )
+                        )
                         valid.append(q["id"])
                 if q.get("other"):
                     for o in q.get("other"):
@@ -102,16 +106,16 @@ def get_results(data):
     for d in results:
         d.update({"category": get_category(d["opt"])})
     res = pd.DataFrame(results)
-    res = pd.concat(
-        [res.drop("opt", axis=1),
-         pd.DataFrame(df["opt"].tolist())], axis=1)
-    res = res[[
-        "id",
-        "data",
-        "form",
-        "name",
-        "category",
-    ]]
+    res = pd.concat([res.drop("opt", axis=1), pd.DataFrame(df["opt"].tolist())], axis=1)
+    res = res[
+        [
+            "id",
+            "data",
+            "form",
+            "name",
+            "category",
+        ]
+    ]
     return res.to_dict("records")
 
 
@@ -120,20 +124,17 @@ def get_results(data):
     Get datapoints with computed category
     """,
     responses={
-        (200, "application/json"):
-        inline_serializer(
+        (200, "application/json"): inline_serializer(
             "ListDataCategorizedPaginated",
             fields={
-                "current":
-                serializers.IntegerField(),
-                "total":
-                serializers.IntegerField(),
-                "total_page":
-                serializers.IntegerField(),
-                "data":
-                inline_serializer("ListDataCategorized",
-                                  fields={"test": serializers.IntegerField()},
-                                  many=True),
+                "current": serializers.IntegerField(),
+                "total": serializers.IntegerField(),
+                "total_page": serializers.IntegerField(),
+                "data": inline_serializer(
+                    "ListDataCategorized",
+                    fields={"test": serializers.IntegerField()},
+                    many=True,
+                ),
             },
         )
     },
@@ -150,9 +151,23 @@ def get_results(data):
 )
 @api_view(["GET"])
 def get_data_with_category(request, version, form_id):
-    data = DataCategory.objects.all()
-    data = get_results(data)
-    return Response(data, status=status.HTTP_200_OK)
+    data = DataCategory.objects.filter(form_id=form_id).all()
+    if not len(data):
+        print(data)
+        raise Http404("DataCategory does not exist")
+    paginator = Paginator(data, 10)
+    page = request.GET.get("page")
+    page_obj = paginator.get_page(page)
+    results = get_results(page_obj)
+    return Response(
+        {
+            "current": int(page),
+            "total": data.count(),
+            "total_page": ceil(data.count() / int(page)),
+            "data": results,
+        },
+        status=status.HTTP_200_OK,
+    )
 
 
 # Create your views here.
