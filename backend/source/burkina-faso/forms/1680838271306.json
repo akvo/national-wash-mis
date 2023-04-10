@@ -1,0 +1,3351 @@
+{
+    "id": 1680838271306,
+    "form": "Household questionnaire",
+    "type": 1,
+    "translations": [
+        {
+            "language": "fr",
+            "name": "Questions sur les ménages"
+        }
+    ],
+    "question_groups": [
+        {
+            "id": 1680838271307,
+            "question_group": "A - Identification",
+            "order": 1,
+            "repeatable": false,
+            "questions": [
+                {
+                    "id": 1680838271308,
+                    "order": 1,
+                    "questionGroupId": 1680838271307,
+                    "question": "Localisation",
+                    "type": "cascade",
+                    "required": true,
+                    "meta": false,
+                    "variableName": "administration",
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Localisation"
+                        }
+                    ]
+                },
+                {
+                    "id": 1680838738068,
+                    "order": 2,
+                    "questionGroupId": 1680838271307,
+                    "question": "Neighbourhood",
+                    "type": "text",
+                    "required": false,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Quartier"
+                        }
+                    ]
+                },
+                {
+                    "id": 1680838798025,
+                    "order": 3,
+                    "questionGroupId": 1680838271307,
+                    "question": "Environment",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Milieu"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1680838809431,
+                            "code": null,
+                            "name": "Rural",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Rural"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680838809432,
+                            "code": null,
+                            "name": "Urban",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Urbain"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1680851503662,
+                    "order": 4,
+                    "questionGroupId": 1680838271307,
+                    "question": "Number of households in the village/sector",
+                    "type": "number",
+                    "required": true,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Nombre de ménages dans le village/secteur"
+                        }
+                    ]
+                },
+                {
+                    "id": 1680851537981,
+                    "order": 5,
+                    "questionGroupId": 1680838271307,
+                    "question": "Area",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Zone"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1680851545776,
+                            "code": null,
+                            "name": "Planned",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Loti"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680851545777,
+                            "code": null,
+                            "name": "Unplanned",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Non Loti"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1680851576898,
+                    "order": 6,
+                    "questionGroupId": 1680838271307,
+                    "question": "Name controller",
+                    "type": "text",
+                    "required": true,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Non contrôleur"
+                        }
+                    ]
+                },
+                {
+                    "id": 1680851599249,
+                    "order": 7,
+                    "questionGroupId": 1680838271307,
+                    "question": "Last name and first name of the household chief",
+                    "type": "text",
+                    "required": true,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Nom et prénom du Chef de Ménage"
+                        }
+                    ]
+                },
+                {
+                    "id": 1680851619349,
+                    "order": 8,
+                    "questionGroupId": 1680838271307,
+                    "question": "Household number",
+                    "type": "number",
+                    "required": true,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Numéro ménage"
+                        }
+                    ]
+                },
+                {
+                    "id": 1680851642083,
+                    "order": 9,
+                    "questionGroupId": 1680838271307,
+                    "question": "Household geolocation",
+                    "type": "geo",
+                    "required": true,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Géolocalisation du ménage"
+                        }
+                    ]
+                }
+            ],
+            "translations": [
+                {
+                    "language": "fr",
+                    "name": "A - Identification"
+                }
+            ]
+        },
+        {
+            "id": 1680838524777,
+            "question_group": "B - Observations",
+            "order": 2,
+            "repeatable": false,
+            "questions": [
+                {
+                    "id": 1680838524778,
+                    "order": 1,
+                    "questionGroupId": 1680838524777,
+                    "question": "Observations",
+                    "type": "text",
+                    "required": true,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Observations"
+                        }
+                    ]
+                },
+                {
+                    "id": 1680839237143,
+                    "order": 2,
+                    "questionGroupId": 1680838524777,
+                    "question": "Type of main building",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Type de bâtiment principal"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1680839246055,
+                            "code": null,
+                            "name": "Building with appartments",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Immeuble à appartements"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680839246056,
+                            "code": null,
+                            "name": "Villa",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Villa"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680839280177,
+                            "code": null,
+                            "name": "Simple individual house",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Maison individuelle simple"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680839288182,
+                            "code": null,
+                            "name": "Building with several dwellings",
+                            "order": 4,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Bâtiment à plusieurs logements"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680839296300,
+                            "code": null,
+                            "name": "Traditional house",
+                            "order": 5,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Maison traditionnelle (ex : case)"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680839450489,
+                            "code": null,
+                            "name": "Other, give details",
+                            "order": 6,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Autre, précisez"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1680839363733,
+                    "order": 3,
+                    "questionGroupId": 1680838524777,
+                    "question": "Specify other type of main building",
+                    "type": "text",
+                    "required": false,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1680839237143,
+                            "options": [
+                                "Other, give details"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Précisez Autre type de bâtiment principal"
+                        }
+                    ]
+                },
+                {
+                    "id": 1680839707123,
+                    "order": 4,
+                    "questionGroupId": 1680838524777,
+                    "question": "Nature of the main building walls",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Nature des murs du bâtiment principal"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1680839715881,
+                            "code": null,
+                            "name": "Cement/concrete",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Ciment/béton"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680839715883,
+                            "code": null,
+                            "name": "Pierre",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Pierre"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680839751100,
+                            "code": null,
+                            "name": "Brick (cooked)",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Brique (cuite)"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680839758516,
+                            "code": null,
+                            "name": "Banco (earth brick)",
+                            "order": 4,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Banco (brique de terre)"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680839783595,
+                            "code": null,
+                            "name": "Straw",
+                            "order": 5,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": " Paille"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680839793752,
+                            "code": null,
+                            "name": "Other, give details",
+                            "order": 6,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Autre, précisez"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1680839805044,
+                    "order": 5,
+                    "questionGroupId": 1680838524777,
+                    "question": "Specify other nature of the main building walls",
+                    "type": "text",
+                    "required": false,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1680839707123,
+                            "options": [
+                                "Other, give details"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Précisez Autre nature des murs du bâtiment principal"
+                        }
+                    ]
+                },
+                {
+                    "id": 1680852698308,
+                    "order": 6,
+                    "questionGroupId": 1680838524777,
+                    "question": "Nature of the roof of the main building",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "allowOther": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Nature du toit du bâtiment principal"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1680852707542,
+                            "code": null,
+                            "name": "Straw/thatch",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Paille/chaume"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680852707543,
+                            "code": null,
+                            "name": "Earth",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Terre"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680852745195,
+                            "code": null,
+                            "name": "Sheet",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Tôle"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680852755461,
+                            "code": null,
+                            "name": "Dale",
+                            "order": 4,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Dale"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680852763011,
+                            "code": null,
+                            "name": "Tile",
+                            "order": 5,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Tuile"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680852771277,
+                            "code": null,
+                            "name": "Other, give details",
+                            "order": 6,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Autre, précisez"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1680852795331,
+                    "order": 7,
+                    "questionGroupId": 1680838524777,
+                    "question": "Specify other nature of the roof of the main building",
+                    "type": "text",
+                    "required": false,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1680852698308,
+                            "options": [
+                                "Other, give details"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Précisez Autre nature du toit du bâtiment principal"
+                        }
+                    ]
+                },
+                {
+                    "id": 1680839867606,
+                    "order": 8,
+                    "questionGroupId": 1680838524777,
+                    "question": "Plot of the main building floor.",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Revêtement du sol du bâtiment principal."
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1680839902410,
+                            "code": null,
+                            "name": "Clay",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Terre battue"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680839902411,
+                            "code": null,
+                            "name": "Sable",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Sable"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680839942299,
+                            "code": null,
+                            "name": "Cement screed",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Chape de ciment"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680839953780,
+                            "code": null,
+                            "name": "Tiles",
+                            "order": 4,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Carreaux"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680839960355,
+                            "code": null,
+                            "name": "Carpet",
+                            "order": 5,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Moquette"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680840135625,
+                            "code": null,
+                            "name": "Other, give details",
+                            "order": 6,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Autre, précisez"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1680840199911,
+                    "order": 9,
+                    "questionGroupId": 1680838524777,
+                    "question": "Specify other floor of the main building floor",
+                    "type": "text",
+                    "required": false,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1680839867606,
+                            "options": [
+                                "Other, give details"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Précisez Autre revêtement du sol du bâtiment principal"
+                        }
+                    ]
+                },
+                {
+                    "id": 1680840242411,
+                    "order": 10,
+                    "questionGroupId": 1680838524777,
+                    "question": "Main mode of lighting of the main building",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Mode d’éclairage principal du bâtiment principal"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1680840259109,
+                            "code": null,
+                            "name": "Oil",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Huile/ Pétrole"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680840259110,
+                            "code": null,
+                            "name": "Gas",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": " Gaz"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680840279774,
+                            "code": null,
+                            "name": "Network electricity",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Electricité réseau"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680840294094,
+                            "code": null,
+                            "name": "Solar energy",
+                            "order": 4,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Energie solaire"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680840297126,
+                            "code": null,
+                            "name": "Generator",
+                            "order": 5,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Groupe électrogène"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680840308775,
+                            "code": null,
+                            "name": "Candle",
+                            "order": 6,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Bougie"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680840320444,
+                            "code": null,
+                            "name": "Loadable lamp / battery",
+                            "order": 7,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Lampe chargeable/ Batterie"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680840329460,
+                            "code": null,
+                            "name": "Battery powered torch",
+                            "order": 8,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Torche à pile "
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680840338713,
+                            "code": null,
+                            "name": "Other, give details",
+                            "order": 9,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Autre, précisez"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1680840353979,
+                    "order": 11,
+                    "questionGroupId": 1680838524777,
+                    "question": "Specify other lighting mode of the main building",
+                    "type": "text",
+                    "required": false,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1680840242411,
+                            "options": [
+                                "Other, give details"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Précisez Autre mode d'éclairage du bâtiment principal"
+                        }
+                    ]
+                },
+                {
+                    "id": 1680840436655,
+                    "order": 12,
+                    "questionGroupId": 1680838524777,
+                    "question": "Housing tenure status",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Statut d’occupation du logement"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1680840445096,
+                            "code": null,
+                            "name": "Owner",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Propriétaire"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680840445097,
+                            "code": null,
+                            "name": "Tenant",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Locataire"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680840475594,
+                            "code": null,
+                            "name": "Housed free of charge",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Logé à titre gratuit"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680840483618,
+                            "code": null,
+                            "name": "Other, give details",
+                            "order": 4,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Autre, précisez"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1680840616368,
+                    "order": 13,
+                    "questionGroupId": 1680838524777,
+                    "question": "Specify other status for occupying housing",
+                    "type": "text",
+                    "required": false,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1680840436655,
+                            "options": [
+                                "Other, give details"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Précisez autre statut d'occupation du logement"
+                        }
+                    ]
+                }
+            ],
+            "translations": [
+                {
+                    "language": "fr",
+                    "name": "B - Observations"
+                }
+            ]
+        },
+        {
+            "id": 1680838540277,
+            "question_group": "C - Drinking water source",
+            "order": 3,
+            "repeatable": false,
+            "questions": [
+                {
+                    "id": 1680838540278,
+                    "order": 1,
+                    "questionGroupId": 1680838540277,
+                    "question": "What are the water sources used by the household for drinking water ?",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Quelle sont les sources d’eau utilisées par le ménage pour la boisson ?"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1680840677117,
+                            "code": null,
+                            "name": "Private connection",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Branchement particulier"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680840677118,
+                            "code": null,
+                            "name": "Standpipe",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Borne fontaine"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680840780021,
+                            "code": null,
+                            "name": "Autonomous Water Supply Post",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": " PEA"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680840787233,
+                            "code": null,
+                            "name": "Borehole",
+                            "order": 4,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Forage"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680840794005,
+                            "code": null,
+                            "name": "Modern wells",
+                            "order": 5,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Puit moderne"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680840801530,
+                            "code": null,
+                            "name": "Protected water source",
+                            "order": 6,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Source d’eau protégée"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680840810081,
+                            "code": null,
+                            "name": "River, dam, rivers",
+                            "order": 7,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Rivière, barrage, cours d’eau"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680840821535,
+                            "code": null,
+                            "name": "Traditional well",
+                            "order": 8,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Puit traditionnel"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1680840852470,
+                    "order": 2,
+                    "questionGroupId": 1680838540277,
+                    "question": "Where is the source located?",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Où est située la source ?"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1680840882571,
+                            "code": null,
+                            "name": "In the concession",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Dans la concession"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680840882572,
+                            "code": null,
+                            "name": "In another Concession",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Dans une autre concession"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680840908386,
+                            "code": null,
+                            "name": "Out of concession",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Hors de concession"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1680841431245,
+                    "order": 3,
+                    "questionGroupId": 1680838540277,
+                    "question": "Does the household share the source with others?",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Le ménage partage-t-il la source avec d’autres ?"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1680841445738,
+                            "code": null,
+                            "name": "Yes",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Oui"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680841445739,
+                            "code": null,
+                            "name": "No",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Non"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1680841464128,
+                    "order": 4,
+                    "questionGroupId": 1680838540277,
+                    "question": "How many minutes do you put for a return trip at the source?",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1680840852470,
+                            "options": [
+                                "Out of concession"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Combien de minutes mettez-vous pour un aller-retour à la source ?"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1680841494538,
+                            "code": null,
+                            "name": "Less than 15 mins",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Moins de 15 mns"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680841494539,
+                            "code": null,
+                            "name": "Between 15 et 30 min",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Entre 15 et 30 mns"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680841520889,
+                            "code": null,
+                            "name": "Between 30 et 45 min",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Entre 30 et 45 mns"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680841529109,
+                            "code": null,
+                            "name": "Between 45 et 60 min",
+                            "order": 4,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Entre 45 et 60 mns"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680841536127,
+                            "code": null,
+                            "name": "More than 60 mins",
+                            "order": 5,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Plus de 60 mns"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1680841582282,
+                    "order": 5,
+                    "questionGroupId": 1680838540277,
+                    "question": "On average, how long do you have to wait to obtain water?",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1680840852470,
+                            "options": [
+                                "Out of concession"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "En moyenne, combien de temps d'attente avez-vous pour obtenir l'eau ?"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1680841601889,
+                            "code": null,
+                            "name": "No waiting time",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Pas de temps d'attente"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680841601890,
+                            "code": null,
+                            "name": "Less than 15 mins",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Moins de 15 mns"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680841678311,
+                            "code": null,
+                            "name": "Between 15 mns et 30 mns",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Entre 15 mns et 30 mns"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680841685894,
+                            "code": null,
+                            "name": "Between 30 mns et 45 mns",
+                            "order": 4,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Entre 30 mns et 45 mns"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680841694382,
+                            "code": null,
+                            "name": "More than 45 mins",
+                            "order": 5,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Plus de 45 mns"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1680841747394,
+                    "order": 6,
+                    "questionGroupId": 1680838540277,
+                    "question": "How far do you go through to obtain source water?",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1680840852470,
+                            "options": [
+                                "Out of concession"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Quelle distance parcourez-vous pour obtenir l’eau de la source ?"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1680841756077,
+                            "code": null,
+                            "name": "Less than 500 meters",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Moins de 500 mètres"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680841756078,
+                            "code": null,
+                            "name": "Between 500 and 1000 meters",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Entre 500 et 1000 mètres"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680841776580,
+                            "code": null,
+                            "name": "Over 1 km",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Plus de 1 km"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1680841800035,
+                    "order": 7,
+                    "questionGroupId": 1680838540277,
+                    "question": "What is your appreciation for the water quality of the source?",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": " Quelle est votre appréciation de la qualité de l’eau de la source ?"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1680841813960,
+                            "code": null,
+                            "name": "Bad",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Mauvaise"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680841813961,
+                            "code": null,
+                            "name": "Average",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Moyenne"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680841830310,
+                            "code": null,
+                            "name": "Good",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Bonne"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "translations": [
+                {
+                    "language": "fr",
+                    "name": "Source eau potable"
+                }
+            ]
+        },
+        {
+            "id": 1680838583689,
+            "question_group": "D - Drinking water management",
+            "order": 4,
+            "repeatable": false,
+            "questions": [
+                {
+                    "id": 1680838583690,
+                    "order": 1,
+                    "questionGroupId": 1680838583689,
+                    "question": "In your neighborhood/village is there an user water association and/or a manager of water points?",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Dans votre quartier/village y a-t-il un AUE et/ou un gestionnaire des points d'eau?"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1680841921314,
+                            "code": null,
+                            "name": "User water association",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "AUE"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680841921315,
+                            "code": null,
+                            "name": "Manager of water points",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Gestionnaire des points d'eau"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680841940266,
+                            "code": null,
+                            "name": "None",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Aucun"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680841947751,
+                            "code": null,
+                            "name": "Do not know",
+                            "order": 4,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Ne sait pas"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1680842036799,
+                    "order": 2,
+                    "questionGroupId": 1680838583689,
+                    "question": "Are you satisfied with water user associations services?",
+                    "type": "option",
+                    "required": false,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1680838583690,
+                            "options": [
+                                "User water association"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Etes-vous satisfaits des prestations de l’AUE ?"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1680842061381,
+                            "code": null,
+                            "name": "Yes",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Oui"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680842061382,
+                            "code": null,
+                            "name": "No",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Non"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1680842074190,
+                    "order": 3,
+                    "questionGroupId": 1680838583689,
+                    "question": "Are you satisfied with the services of the Manager of Water Points?",
+                    "type": "option",
+                    "required": false,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Etes-vous satisfaits des prestations du gestionnaire des points d’eau ?"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1680842099085,
+                            "code": null,
+                            "name": "Yes",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Oui"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680842099086,
+                            "code": null,
+                            "name": "No",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Non"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1680842124392,
+                    "order": 4,
+                    "questionGroupId": 1680838583689,
+                    "question": "In the past 12 months, how many days have you had difficulty getting drinking water?",
+                    "type": "number",
+                    "required": true,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Au cours des 12 derniers mois, pendant combien de jours avez-vous eu des difficultés pour obtenir de l’eau potable ?"
+                        }
+                    ]
+                },
+                {
+                    "id": 1680842207055,
+                    "order": 5,
+                    "questionGroupId": 1680838583689,
+                    "question": "Why did you have the difficulties?",
+                    "type": "option",
+                    "required": false,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Pour quelles raisons avez-vous eu les difficultés ?"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1680842217305,
+                            "code": null,
+                            "name": "Water shortage",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Coupure d’eau"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680842217306,
+                            "code": null,
+                            "name": "Breakdown",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Panne"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680842255589,
+                            "code": null,
+                            "name": "Suspension of supply",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Suspension de fourniture"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680842262691,
+                            "code": null,
+                            "name": "Exclusion by others",
+                            "order": 4,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Exclusion par autrui"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680842268949,
+                            "code": null,
+                            "name": "Other, give details",
+                            "order": 5,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Autre, précisez"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680855324246,
+                            "code": null,
+                            "name": "Lack of money",
+                            "order": 6,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Manque d'argent"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680855339378,
+                            "code": null,
+                            "name": "No difficulties",
+                            "order": 7,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Pas de difficultés"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1680842343785,
+                    "order": 6,
+                    "questionGroupId": 1680838583689,
+                    "question": "Specify why you were excluded by others",
+                    "type": "text",
+                    "required": true,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1680842207055,
+                            "options": [
+                                "Exclusion by others"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Précisez pourquoi vous avez été exclu(e) par autrui"
+                        }
+                    ]
+                },
+                {
+                    "id": 1680842398307,
+                    "order": 7,
+                    "questionGroupId": 1680838583689,
+                    "question": "Specify the other reasons why you have had difficulties",
+                    "type": "text",
+                    "required": false,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1680842207055,
+                            "options": [
+                                "Other, give details"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Précisez les Autres raisons pour lesquelles vous avez eu des difficultés"
+                        }
+                    ]
+                }
+            ],
+            "translations": [
+                {
+                    "language": "fr",
+                    "name": "D - Gestion Eau potable"
+                }
+            ]
+        },
+        {
+            "id": 1680855466552,
+            "question_group": "E - Sanitation infrastructure",
+            "order": 5,
+            "repeatable": false,
+            "questions": [
+                {
+                    "id": 1680842458339,
+                    "order": 8,
+                    "questionGroupId": 1680855466552,
+                    "question": "What kind of toilet facility do members of your household usually use?",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Quels sont les ouvrages qu’utilisent les membres du ménage comme lieu d’aisance ?"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1680842466255,
+                            "code": null,
+                            "name": "Dry pit latrine",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Toilette à Chasse Manuelle"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680842466256,
+                            "code": null,
+                            "name": "Poor Flush toilet",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Toilette à Chasse Mécanique"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680842505358,
+                            "code": null,
+                            "name": "Ventilated Improved Single pit",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Latrine VIP simple fosse"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680842771383,
+                            "code": null,
+                            "name": "Ventilated Improved double pit",
+                            "order": 4,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Latrine VIP Double fosses "
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680842778978,
+                            "code": null,
+                            "name": "Latrine ECOSAN",
+                            "order": 5,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Latrine ECOSAN "
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680842827976,
+                            "code": null,
+                            "name": "Latrine SANPLAT",
+                            "order": 6,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Latrine SANPLAT"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680842849613,
+                            "code": null,
+                            "name": "Traditional latrine without concrete slab",
+                            "order": 7,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Latrine traditionnelle sans dalle de béton "
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680842856649,
+                            "code": null,
+                            "name": "Traditional latrine with concrete slab",
+                            "order": 8,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Latrine traditionnelle avec dalle de béton"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680842864069,
+                            "code": null,
+                            "name": "No facility/Bush/Field",
+                            "order": 9,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Nature"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1680848719107,
+                    "order": 2,
+                    "questionGroupId": 1680855466552,
+                    "question": "Does the infrastructure belong to the household?",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1680842458339,
+                            "options": [
+                                "Dry pit latrine",
+                                "Poor Flush toilet",
+                                "Ventilated Improved Single pit",
+                                "Ventilated Improved double pit",
+                                "Latrine ECOSAN",
+                                "Latrine SANPLAT",
+                                "Traditional latrine without concrete slab"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "L'ouvrage appartient-il au ménage ?"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1680848728145,
+                            "code": null,
+                            "name": "Yes",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Oui"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680848728146,
+                            "code": null,
+                            "name": "No",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Non"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1680848769594,
+                    "order": 3,
+                    "questionGroupId": 1680855466552,
+                    "question": "Specify the funding source",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1680848719107,
+                            "options": [
+                                "Yes"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Précisez la source de financement"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1680848804500,
+                            "code": null,
+                            "name": "Household only",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Ménage seul "
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680848804501,
+                            "code": null,
+                            "name": "Several households",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Plusieurs ménages "
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680848834228,
+                            "code": null,
+                            "name": "Partial subsidy",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Subvention partielle "
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680848840090,
+                            "code": null,
+                            "name": "Total subsidy",
+                            "order": 4,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Subvention totale "
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680848851460,
+                            "code": null,
+                            "name": "Loan",
+                            "order": 5,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Emprunt "
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680848858393,
+                            "code": null,
+                            "name": "Other, give details",
+                            "order": 6,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Autre, précisez"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1680848885112,
+                    "order": 4,
+                    "questionGroupId": 1680855466552,
+                    "question": "Specify another source of financing",
+                    "type": "text",
+                    "required": false,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1680848769594,
+                            "options": [
+                                "Other, give details"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Précisez autre source de financement"
+                        }
+                    ]
+                },
+                {
+                    "id": 1680848921881,
+                    "order": 5,
+                    "questionGroupId": 1680855466552,
+                    "question": "Year of completion of the work",
+                    "type": "number",
+                    "required": true,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Année de réalisation de l'ouvrage"
+                        }
+                    ]
+                },
+                {
+                    "id": 1680848954281,
+                    "order": 6,
+                    "questionGroupId": 1680855466552,
+                    "question": "Where is the infrastucture located?",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Où est situé cet ouvrage ?"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1680848963449,
+                            "code": null,
+                            "name": "In the Concession",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Dans la concession"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680848963450,
+                            "code": null,
+                            "name": "In another Concession",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Dans une autre concession"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680848986381,
+                            "code": null,
+                            "name": "Out of concession",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Hors de concession"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1680849008847,
+                    "order": 7,
+                    "questionGroupId": 1680855466552,
+                    "question": "Does the household share this infrastructure with others?",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Le ménage partage-t-il cet ouvrage avec d’autres ?"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1680849029555,
+                            "code": null,
+                            "name": "Yes",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Oui"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680849029556,
+                            "code": null,
+                            "name": "No",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Non"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1680849019147,
+                    "order": 8,
+                    "questionGroupId": 1680855466552,
+                    "question": "If so, how many households use this infrastructure (total)?",
+                    "type": "number",
+                    "required": false,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1680849008847,
+                            "options": [
+                                "Yes"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Si oui, combien de ménages utilisent cet ouvrage (total) ?"
+                        }
+                    ]
+                },
+                {
+                    "id": 1680849106610,
+                    "order": 9,
+                    "questionGroupId": 1680855466552,
+                    "question": "How many people regularly use this infrastructure?",
+                    "type": "option",
+                    "required": false,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1680842458339,
+                            "options": [
+                                "Dry pit latrine",
+                                "Poor Flush toilet",
+                                "Ventilated Improved Single pit",
+                                "Ventilated Improved double pit",
+                                "Latrine ECOSAN",
+                                "Latrine SANPLAT",
+                                "Traditional latrine without concrete slab"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Combien de personnes utilisent régulièrement cet ouvrage ?"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1680849115893,
+                            "code": null,
+                            "name": "Less than 5 people",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Moins de 5 personnes "
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680849115894,
+                            "code": null,
+                            "name": "Between 6 and 10 people",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Entre 6 et 10 personnes "
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680849232198,
+                            "code": null,
+                            "name": "Between 11 and 15 people",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Entre 11 et 15 personnes "
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680849241737,
+                            "code": null,
+                            "name": "More than 15 people",
+                            "order": 4,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Plus de 15 personnes"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1680849252617,
+                    "order": 10,
+                    "questionGroupId": 1680855466552,
+                    "question": "In the past 12 months, have you emptied the infrastructure?",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1680842458339,
+                            "options": [
+                                "Dry pit latrine",
+                                "Poor Flush toilet",
+                                "Ventilated Improved Single pit",
+                                "Latrine ECOSAN",
+                                "Latrine SANPLAT",
+                                "Traditional latrine without concrete slab"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Au cours des 12 derniers mois, avez-vous vidangé l'ouvrage ?"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1680849328576,
+                            "code": null,
+                            "name": "Yes",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Oui"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680849328577,
+                            "code": null,
+                            "name": "No",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Non"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1680849380698,
+                    "order": 11,
+                    "questionGroupId": 1680855466552,
+                    "question": "By what process have you emptied?",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1680849252617,
+                            "options": [
+                                "Yes"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Par quel procédé l’avez-vous fait ?"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1680849403230,
+                            "code": null,
+                            "name": "Yourself",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Soi-même"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680849403231,
+                            "code": null,
+                            "name": "Manuel emptier",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Prestataire manuel"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680849438587,
+                            "code": null,
+                            "name": "Mechanical provider",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Prestataire mécanique"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "translations": [
+                {
+                    "language": "fr",
+                    "name": "E - Ouvrage Assainissement excréta"
+                }
+            ]
+        },
+        {
+            "id": 1680838608225,
+            "question_group": "F- Wastewater",
+            "order": 6,
+            "repeatable": false,
+            "questions": [
+                {
+                    "id": 1680838608226,
+                    "order": 1,
+                    "questionGroupId": 1680838608225,
+                    "question": "How are the wastewater of your household managed?",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Comment sont gérées les eaux usées de votre ménage ?"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1680849897631,
+                            "code": null,
+                            "name": "Sewer",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Egout"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680849897632,
+                            "code": null,
+                            "name": "Septic tank",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Fosse septique"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680849919768,
+                            "code": null,
+                            "name": "Sump",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Puisard"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680849927859,
+                            "code": null,
+                            "name": "Manure pit",
+                            "order": 4,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Fosse fumière"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680849935111,
+                            "code": null,
+                            "name": "In the yard",
+                            "order": 5,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Dans la cour"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680849944759,
+                            "code": null,
+                            "name": "Gutter",
+                            "order": 6,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Caniveau"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680849952171,
+                            "code": null,
+                            "name": "Street/Environment",
+                            "order": 7,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Rue/nature"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680849953798,
+                            "code": null,
+                            "name": "Other, give details",
+                            "order": 8,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Autre, précisez"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1680849991191,
+                    "order": 2,
+                    "questionGroupId": 1680838608225,
+                    "question": "Specify the other way in which wastewater is processed",
+                    "type": "text",
+                    "required": true,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1680838608226,
+                            "options": [
+                                "Other, give details"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Précisez l'autre manière dont les eaux usées sont traitées"
+                        }
+                    ]
+                }
+            ],
+            "translations": [
+                {
+                    "language": "fr",
+                    "name": "F - Assainissement eaux usées"
+                }
+            ]
+        },
+        {
+            "id": 1680838640390,
+            "question_group": "G - Household members",
+            "order": 7,
+            "repeatable": false,
+            "questions": [
+                {
+                    "id": 1680838640391,
+                    "order": 1,
+                    "questionGroupId": 1680838640390,
+                    "question": "Last name and first name",
+                    "type": "text",
+                    "required": false,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Nom et prénom"
+                        }
+                    ]
+                },
+                {
+                    "id": 1680850060896,
+                    "order": 2,
+                    "questionGroupId": 1680838640390,
+                    "question": "Sex",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Sexe"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1680850076218,
+                            "code": null,
+                            "name": "Men",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Homme"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680850076219,
+                            "code": null,
+                            "name": "Women",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Femme"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1680850117178,
+                    "order": 3,
+                    "questionGroupId": 1680838640390,
+                    "question": "Link with the head of household",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Lien avec le chef de ménage"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1680850124751,
+                            "code": null,
+                            "name": "Head of household",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Chef de ménage"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680850124752,
+                            "code": null,
+                            "name": "Partner of the head of household",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Conjoint(e)"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680850150194,
+                            "code": null,
+                            "name": "Biological child",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Enfant biologique"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680850152127,
+                            "code": null,
+                            "name": "Other, give details",
+                            "order": 4,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Autre, précisez"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1680850193613,
+                    "order": 4,
+                    "questionGroupId": 1680838640390,
+                    "question": "Specify another link with the household chief",
+                    "type": "text",
+                    "required": true,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1680850117178,
+                            "options": [
+                                "Other, give details"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Précisez Autre lien avec le chef de ménage"
+                        }
+                    ]
+                },
+                {
+                    "id": 1680850388364,
+                    "order": 5,
+                    "questionGroupId": 1680838640390,
+                    "question": "Age",
+                    "type": "number",
+                    "required": false,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Age"
+                        }
+                    ]
+                },
+                {
+                    "id": 1680850409549,
+                    "order": 6,
+                    "questionGroupId": 1680838640390,
+                    "question": "Age greater than 12 years?",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Âge supérieur à 12 ans ?"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1680850427342,
+                            "code": null,
+                            "name": "Yes",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Oui"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680850427343,
+                            "code": null,
+                            "name": "No",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Non"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1680850452603,
+                    "order": 7,
+                    "questionGroupId": 1680838640390,
+                    "question": "Situation matrimoniale",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1680850409549,
+                            "options": [
+                                "Yes"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Situation matrimoniale"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1680850461162,
+                            "code": null,
+                            "name": "Married",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Marié(e)"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680850461163,
+                            "code": null,
+                            "name": "Single (never married)",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Célibataire (jamais marié(e))"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680850500274,
+                            "code": null,
+                            "name": "Divorced / separated",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Divorcé(e) / séparé(e)"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680850509961,
+                            "code": null,
+                            "name": "Widower/widow",
+                            "order": 4,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Veuf (veuve)"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1680850524070,
+                    "order": 8,
+                    "questionGroupId": 1680838640390,
+                    "question": "How many years have you lived in this town?",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1680850409549,
+                            "options": [
+                                "Yes"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Depuis combien d’années vivez-vous dans cette commune?"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1680850554118,
+                            "code": null,
+                            "name": "Always",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Toujours"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680850554119,
+                            "code": null,
+                            "name": "Under 5 years",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Moins de 5 ans"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680850588806,
+                            "code": null,
+                            "name": "Over 5 years",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Plus de 5 ans"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1680850620442,
+                    "order": 9,
+                    "questionGroupId": 1680838640390,
+                    "question": "Main occupation",
+                    "type": "option",
+                    "required": false,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1680850409549,
+                            "options": [
+                                "Yes"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Occupation principale"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1680850634485,
+                            "code": null,
+                            "name": "Employer / boss",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Employeur / Patron "
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680850634486,
+                            "code": null,
+                            "name": "Public or private employee",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Salarié public ou privé "
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680850667651,
+                            "code": null,
+                            "name": "Independent",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Indépendant "
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680850674537,
+                            "code": null,
+                            "name": "Farmer/breeder",
+                            "order": 4,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Agriculteur/éleveur "
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680850676151,
+                            "code": null,
+                            "name": "Help / volunteer / apprentice",
+                            "order": 5,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Aide / bénévole / apprenti"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680850687500,
+                            "code": null,
+                            "name": "Inactive / student",
+                            "order": 6,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Inactif / étudiant "
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680850688501,
+                            "code": null,
+                            "name": "Unemployed person",
+                            "order": 7,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Chômeur"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680850711965,
+                            "code": null,
+                            "name": "Housework",
+                            "order": 8,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Ménagère"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680850720520,
+                            "code": null,
+                            "name": "Other, give details",
+                            "order": 9,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Autre, précisez"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1680850730770,
+                    "order": 10,
+                    "questionGroupId": 1680838640390,
+                    "question": "Specify other main occupation",
+                    "type": "text",
+                    "required": false,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1680850620442,
+                            "options": [
+                                "Other, give details"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Précisez Autre occupation principale"
+                        }
+                    ]
+                },
+                {
+                    "id": 1680850789105,
+                    "order": 11,
+                    "questionGroupId": 1680838640390,
+                    "question": "Had a contact with water or sanitation services",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1680850409549,
+                            "options": [
+                                "Yes"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "A eu un contact avec les services d’eau ou d’assainissement"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1680850799380,
+                            "code": null,
+                            "name": "Yes",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Oui"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680850799381,
+                            "code": null,
+                            "name": "No",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Non"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1680850856805,
+                    "order": 12,
+                    "questionGroupId": 1680838640390,
+                    "question": "Level of satisfaction",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1680850409549,
+                            "options": [
+                                "Yes"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Niveau de satisfaction"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1680850865765,
+                            "code": null,
+                            "name": "Very satisfied with the service",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Très satisfait(e) du service"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680850865766,
+                            "code": null,
+                            "name": "Moderately satisfied",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Moyennement satisfait(e)"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680850918923,
+                            "code": null,
+                            "name": "Not at all satisfied",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Pas du tout satisfait(e)"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1680850951793,
+                    "order": 13,
+                    "questionGroupId": 1680838640390,
+                    "question": "Person living with engine handicap",
+                    "type": "option",
+                    "required": false,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Personne vivant avec un handicap moteur"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1680850960967,
+                            "code": null,
+                            "name": "Yes",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Oui"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680850960968,
+                            "code": null,
+                            "name": "No",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Non"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1680850979574,
+                    "order": 14,
+                    "questionGroupId": 1680838640390,
+                    "question": "Have you attended (or follow) information, education or communication sessions on drinking water and sanitation?",
+                    "type": "option",
+                    "required": false,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Avez-vous assisté à (ou suivi) des séances d’information, d’éducation ou de communication sur l’eau potable et l’assainissement ?"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1680851026942,
+                            "code": null,
+                            "name": "No",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Non"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680851026943,
+                            "code": null,
+                            "name": "OSC/Association",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "OSC/Association"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680851045537,
+                            "code": null,
+                            "name": "Radio",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Radio"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680851046539,
+                            "code": null,
+                            "name": "Television",
+                            "order": 4,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Télévision"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680851059006,
+                            "code": null,
+                            "name": "Other, give details",
+                            "order": 5,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Autre, précisez"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1680851156159,
+                    "order": 15,
+                    "questionGroupId": 1680838640390,
+                    "question": "Specify other information, education or communication sessions on drinking water and the sanitation you have attended",
+                    "type": "text",
+                    "required": false,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1680850979574,
+                            "options": [
+                                "Other, give details"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Précisez Autres séances d'information, d'éducation ou de communication sur l'eau potable et l'assainissement auxquelles vous avez assisté"
+                        }
+                    ]
+                },
+                {
+                    "id": 1680851189596,
+                    "order": 16,
+                    "questionGroupId": 1680838640390,
+                    "question": "Systematic wash from hand to soap after use of toilets?",
+                    "type": "option",
+                    "required": false,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Lavage systématique des mains au savon après usage des toilettes ?"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1680851201088,
+                            "code": null,
+                            "name": "Yes",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Oui"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1680851201089,
+                            "code": null,
+                            "name": "No",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Non"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "translations": [
+                {
+                    "language": "fr",
+                    "name": "G - Membres du Ménage"
+                }
+            ]
+        }
+    ]
+}
