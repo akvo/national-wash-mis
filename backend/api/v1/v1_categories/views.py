@@ -1,6 +1,4 @@
-import pandas as pd
 from math import ceil
-import json
 from django.http import Http404
 from django.core.paginator import Paginator
 from drf_spectacular.types import OpenApiTypes
@@ -9,114 +7,21 @@ from drf_spectacular.utils import (
     inline_serializer,
     OpenApiParameter,
 )
+from rest_framework.generics import get_object_or_404
 from rest_framework import serializers, status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from utils.custom_serializer_fields import validate_serializers_message
+
+from api.v1.v1_categories.functions import get_category_results
 from api.v1.v1_categories.models import DataCategory
-from nwmis.settings import MASTER_DATA
-
-
-def validate_number(q, answer):
-    aw = float(answer[0])
-    op = q.get("number")
-    ok = False
-    if "greater_than" in op:
-        ok = aw > op.get("greater_than")
-    if "less_than" in op:
-        ok = aw < op.get("less_than")
-    if "equal" in op:
-        ok = aw == op.get("equal")
-    if "greater_than_equal" in op:
-        ok = aw >= op.get("greater_than_equal")
-    if "less_than_equal" in op:
-        ok = aw <= op.get("less_than_equal")
-    return ok
-
-
-def get_valid_list(opt, c, category):
-    validator = [q["id"] for q in c["questions"]]
-    valid = []
-    exit = False
-    for q in c["questions"]:
-        if exit:
-            continue
-        answer = opt.get(str(q["id"]))
-        if not answer:
-            opt.update({str(q["id"]): None})
-            continue
-        if q.get("number"):
-            is_valid = validate_number(q, answer)
-            if is_valid:
-                valid.append(q["id"])
-            else:
-                elses = q.get("else")
-                category = elses.get("name")
-                exit = True
-        if q.get("options"):
-            if len(set(q["options"]).intersection(answer)):
-                valid.append(q["id"])
-            # TODO Merge else with above
-            else:
-                if q.get("else"):
-                    elses = q.get("else")
-                    if elses.get("name"):
-                        category = elses.get("name")
-                        exit = True
-                    if elses.get("ignore"):
-                        validator = list(
-                            filter(
-                                lambda x: x not in elses.get("ignore"),
-                                validator,
-                            )
-                        )
-                        valid.append(q["id"])
-                if q.get("other"):
-                    for o in q.get("other"):
-                        if len(set(o["options"]).intersection(answer)):
-                            exit = True
-                            if len(o.get("questions")):
-                                category = get_valid_list(opt, o, category)
-                            else:
-                                category = o.get("name")
-    if len(valid) >= len(validator):
-        conditions = [v if v in valid else False for v in validator]
-        conditions = list(filter(lambda x: x is not False, conditions))
-        if sorted(conditions) == sorted(validator):
-            category = c["name"]
-    if sorted(valid) == sorted(validator):
-        category = c["name"]
-    return category
-
-
-def get_category(opt: dict):
-    file_config = f"{MASTER_DATA}/config/category.json"
-    with open(file_config) as config_file:
-        configs = json.load(config_file)
-    category = False
-    for config in configs:
-        for c in config["categories"]:
-            category = get_valid_list(opt, c, category)
-    return category
-
-
-def get_results(data):
-    categories = [d.serialize for d in data]
-    df = pd.DataFrame(categories)
-    results = df.to_dict("records")
-    for d in results:
-        d.update({"category": get_category(d["opt"])})
-    res = pd.DataFrame(results)
-    res = pd.concat([res.drop("opt", axis=1), pd.DataFrame(df["opt"].tolist())], axis=1)
-    res = res[
-        [
-            "id",
-            "data",
-            "form",
-            "name",
-            "category",
-        ]
-    ]
-    return res.to_dict("records")
+from api.v1.v1_data.models import Answers
+from api.v1.v1_forms.models import Forms
+from api.v1.v1_data.serializers import (
+    ListFormDataRequestSerializer,
+    ListRawDataSerializer,
+    ListRawDataAnswerSerializer,
+)
 
 
 @extend_schema(
@@ -158,7 +63,7 @@ def get_data_with_category(request, version, form_id):
     paginator = Paginator(data, 10)
     page = request.GET.get("page")
     page_obj = paginator.get_page(page)
-    results = get_results(page_obj)
+    results = get_category_results(page_obj)
     return Response(
         {
             "current": int(page),
@@ -170,4 +75,47 @@ def get_data_with_category(request, version, form_id):
     )
 
 
-# Create your views here.
+@extend_schema(
+    description="""
+    Get Multi-purpose schema of datapoints to use with third party applications
+    """,
+    responses={200: ListRawDataSerializer(many=True)},
+    parameters=[
+        OpenApiParameter(
+            name="questions",
+            required=False,
+            type={"type": "array", "items": {"type": "number"}},
+            location=OpenApiParameter.QUERY,
+        )
+    ],
+    tags=["Data Categories"],
+    summary="Get Raw data points",
+)
+@api_view(["GET"])
+# @permission_classes([IsAuthenticated])
+def get_raw_data_point(request, version, form_id):
+    form = get_object_or_404(Forms, pk=form_id)
+    serializer = ListFormDataRequestSerializer(data=request.GET)
+    if not serializer.is_valid():
+        return Response(
+            {"message": validate_serializers_message(serializer.errors)},
+            status=status.HTTP_400_BAD_REQUEST,
+        )
+    instance = form.form_form_data.order_by("-created").all()
+    data = ListRawDataSerializer(
+        instance=instance,
+        context={"questions": serializer.validated_data.get("questions")},
+        many=True,
+    ).data
+    filter_data = {}
+    if request.GET.get("questions"):
+        filter_data["question_id__in"] = request.GET.getlist("questions")
+    for d in data:
+        filter_data["data_id"] = d["id"]
+        instance = Answers.objects.filter(**filter_data).all()
+        answers = ListRawDataAnswerSerializer(instance=instance, many=True).data
+        data_answers = {}
+        for a in answers:
+            data_answers.update({a["question"]: a["value"]})
+        d.update({"data": data_answers})
+    return Response(data, status=status.HTTP_200_OK)
