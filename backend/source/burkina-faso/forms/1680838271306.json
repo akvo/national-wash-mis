@@ -948,7 +948,7 @@
                     "options": [
                         {
                             "id": 1680840677117,
-                            "code": null,
+                            "code": "A23A",
                             "name": "Private connection",
                             "order": 1,
                             "translations": [
@@ -960,7 +960,7 @@
                         },
                         {
                             "id": 1680840677118,
-                            "code": null,
+                            "code": "A23B",
                             "name": "Standpipe",
                             "order": 2,
                             "translations": [
@@ -972,7 +972,7 @@
                         },
                         {
                             "id": 1680840780021,
-                            "code": null,
+                            "code": "A23C",
                             "name": "Autonomous Water Supply Post",
                             "order": 3,
                             "translations": [
@@ -984,7 +984,7 @@
                         },
                         {
                             "id": 1680840787233,
-                            "code": null,
+                            "code": "A23D",
                             "name": "Borehole",
                             "order": 4,
                             "translations": [
@@ -996,7 +996,7 @@
                         },
                         {
                             "id": 1680840794005,
-                            "code": null,
+                            "code": "A23E",
                             "name": "Modern wells",
                             "order": 5,
                             "translations": [
@@ -1008,7 +1008,7 @@
                         },
                         {
                             "id": 1680840801530,
-                            "code": null,
+                            "code": "A23F",
                             "name": "Protected water source",
                             "order": 6,
                             "translations": [
@@ -1020,7 +1020,7 @@
                         },
                         {
                             "id": 1680840810081,
-                            "code": null,
+                            "code": "A23G",
                             "name": "River, dam, rivers",
                             "order": 7,
                             "translations": [
@@ -1032,7 +1032,7 @@
                         },
                         {
                             "id": 1680840821535,
-                            "code": null,
+                            "code": "A23H",
                             "name": "Traditional well",
                             "order": 8,
                             "translations": [
@@ -1061,7 +1061,7 @@
                     "options": [
                         {
                             "id": 1680840882571,
-                            "code": null,
+                            "code": "A24A",
                             "name": "In the concession",
                             "order": 1,
                             "translations": [
@@ -1073,7 +1073,7 @@
                         },
                         {
                             "id": 1680840882572,
-                            "code": null,
+                            "code": "A24B",
                             "name": "In another Concession",
                             "order": 2,
                             "translations": [
@@ -1085,7 +1085,7 @@
                         },
                         {
                             "id": 1680840908386,
-                            "code": null,
+                            "code": "A24C",
                             "name": "Out of concession",
                             "order": 3,
                             "translations": [
@@ -1163,7 +1163,7 @@
                     "options": [
                         {
                             "id": 1680841494538,
-                            "code": null,
+                            "code": "A26A",
                             "name": "Less than 15 mins",
                             "order": 1,
                             "translations": [
@@ -1175,7 +1175,7 @@
                         },
                         {
                             "id": 1680841494539,
-                            "code": null,
+                            "code": "A26B",
                             "name": "Between 15 et 30 min",
                             "order": 2,
                             "translations": [
@@ -1187,7 +1187,7 @@
                         },
                         {
                             "id": 1680841520889,
-                            "code": null,
+                            "code": "A26C",
                             "name": "Between 30 et 45 min",
                             "order": 3,
                             "translations": [
@@ -1199,7 +1199,7 @@
                         },
                         {
                             "id": 1680841529109,
-                            "code": null,
+                            "code": "A26D",
                             "name": "Between 45 et 60 min",
                             "order": 4,
                             "translations": [
@@ -1211,7 +1211,7 @@
                         },
                         {
                             "id": 1680841536127,
-                            "code": null,
+                            "code": "A26E",
                             "name": "More than 60 mins",
                             "order": 5,
                             "translations": [
@@ -1333,7 +1333,7 @@
                     "options": [
                         {
                             "id": 1680841756077,
-                            "code": null,
+                            "code": "A28A",
                             "name": "Less than 500 meters",
                             "order": 1,
                             "translations": [
@@ -1345,7 +1345,7 @@
                         },
                         {
                             "id": 1680841756078,
-                            "code": null,
+                            "code": "A28B",
                             "name": "Between 500 and 1000 meters",
                             "order": 2,
                             "translations": [
@@ -1357,7 +1357,7 @@
                         },
                         {
                             "id": 1680841776580,
-                            "code": null,
+                            "code": "A28C",
                             "name": "Over 1 km",
                             "order": 3,
                             "translations": [
@@ -1784,7 +1784,7 @@
                     "options": [
                         {
                             "id": 1680842466255,
-                            "code": null,
+                            "code": "A37A",
                             "name": "Dry pit latrine",
                             "order": 1,
                             "translations": [
@@ -1796,7 +1796,7 @@
                         },
                         {
                             "id": 1680842466256,
-                            "code": null,
+                            "code": "A37B",
                             "name": "Poor Flush toilet",
                             "order": 2,
                             "translations": [
@@ -1808,7 +1808,7 @@
                         },
                         {
                             "id": 1680842505358,
-                            "code": null,
+                            "code": "A37C",
                             "name": "Ventilated Improved Single pit",
                             "order": 3,
                             "translations": [
@@ -1820,7 +1820,7 @@
                         },
                         {
                             "id": 1680842771383,
-                            "code": null,
+                            "code": "A37D",
                             "name": "Ventilated Improved double pit",
                             "order": 4,
                             "translations": [
@@ -1832,7 +1832,7 @@
                         },
                         {
                             "id": 1680842778978,
-                            "code": null,
+                            "code": "A37E",
                             "name": "Latrine ECOSAN",
                             "order": 5,
                             "translations": [
@@ -1844,7 +1844,7 @@
                         },
                         {
                             "id": 1680842827976,
-                            "code": null,
+                            "code": "A37F",
                             "name": "Latrine SANPLAT",
                             "order": 6,
                             "translations": [
@@ -1856,7 +1856,7 @@
                         },
                         {
                             "id": 1680842849613,
-                            "code": null,
+                            "code": "A37G",
                             "name": "Traditional latrine without concrete slab",
                             "order": 7,
                             "translations": [
@@ -1868,7 +1868,7 @@
                         },
                         {
                             "id": 1680842856649,
-                            "code": null,
+                            "code": "A37H",
                             "name": "Traditional latrine with concrete slab",
                             "order": 8,
                             "translations": [
@@ -1880,7 +1880,7 @@
                         },
                         {
                             "id": 1680842864069,
-                            "code": null,
+                            "code": "A37I",
                             "name": "No facility/Bush/Field",
                             "order": 9,
                             "translations": [
@@ -2099,7 +2099,7 @@
                     "options": [
                         {
                             "id": 1680848963449,
-                            "code": null,
+                            "code": "A42A",
                             "name": "In the Concession",
                             "order": 1,
                             "translations": [
@@ -2111,7 +2111,7 @@
                         },
                         {
                             "id": 1680848963450,
-                            "code": null,
+                            "code": "A42B",
                             "name": "In another Concession",
                             "order": 2,
                             "translations": [
@@ -2123,7 +2123,7 @@
                         },
                         {
                             "id": 1680848986381,
-                            "code": null,
+                            "code": "A42C",
                             "name": "Out of concession",
                             "order": 3,
                             "translations": [
@@ -2152,7 +2152,7 @@
                     "options": [
                         {
                             "id": 1680849029555,
-                            "code": null,
+                            "code": "A43A",
                             "name": "Yes",
                             "order": 1,
                             "translations": [
@@ -2164,7 +2164,7 @@
                         },
                         {
                             "id": 1680849029556,
-                            "code": null,
+                            "code": "A43B",
                             "name": "No",
                             "order": 2,
                             "translations": [
@@ -2308,7 +2308,7 @@
                     "options": [
                         {
                             "id": 1680849328576,
-                            "code": null,
+                            "code": "A46A",
                             "name": "Yes",
                             "order": 1,
                             "translations": [
@@ -2320,7 +2320,7 @@
                         },
                         {
                             "id": 1680849328577,
-                            "code": null,
+                            "code": "A46B",
                             "name": "No",
                             "order": 2,
                             "translations": [
