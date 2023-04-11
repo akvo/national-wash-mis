@@ -433,7 +433,7 @@
                         {
                             "id": 1681079174738,
                             "code": "B14A",
-                            "name": "Private connexion",
+                            "name": "Private connection",
                             "order": 1,
                             "translations": [
                                 {
@@ -1419,7 +1419,7 @@
                     "options": [
                         {
                             "id": 1681094655985,
-                            "code": null,
+                            "code": "B33A",
                             "name": "Yes",
                             "order": 1,
                             "translations": [
@@ -1431,7 +1431,7 @@
                         },
                         {
                             "id": 1681094655986,
-                            "code": null,
+                            "code": "B33B",
                             "name": "No",
                             "order": 2,
                             "translations": [
@@ -1468,7 +1468,7 @@
                     "options": [
                         {
                             "id": 1681089887788,
-                            "code": null,
+                            "code": "B34A",
                             "name": "Yes",
                             "order": 1,
                             "translations": [
@@ -1480,7 +1480,7 @@
                         },
                         {
                             "id": 1681089887789,
-                            "code": null,
+                            "code": "B34B",
                             "name": "No",
                             "order": 2,
                             "translations": [
@@ -1517,7 +1517,7 @@
                     "options": [
                         {
                             "id": 1681090058222,
-                            "code": null,
+                            "code": "B35A",
                             "name": "Bin with lid",
                             "order": 1,
                             "translations": [
@@ -1529,7 +1529,7 @@
                         },
                         {
                             "id": 1681090058223,
-                            "code": null,
+                            "code": "B35B",
                             "name": "Water",
                             "order": 2,
                             "translations": [
@@ -1541,7 +1541,7 @@
                         },
                         {
                             "id": 1681090077949,
-                            "code": null,
+                            "code": "B35C",
                             "name": "Savon",
                             "order": 3,
                             "translations": [
@@ -1734,7 +1734,7 @@
                     "id": 1681078526084,
                     "order": 1,
                     "questionGroupId": 1681078526083,
-                    "question": "Are there installations for hand hygiene in working order at the service of care on the day of the survey?",
+                    "question": "Are there installations for hand hygiene in working order at the care service on the day of the survey?",
                     "type": "option",
                     "required": true,
                     "meta": false,
@@ -1747,7 +1747,7 @@
                     "options": [
                         {
                             "id": 1681090500235,
-                            "code": null,
+                            "code": "B41A",
                             "name": "Yes",
                             "order": 1,
                             "translations": [
@@ -1759,7 +1759,7 @@
                         },
                         {
                             "id": 1681090500236,
-                            "code": null,
+                            "code": "B41B",
                             "name": "No",
                             "order": 2,
                             "translations": [
@@ -1775,7 +1775,7 @@
                     "id": 1681090548597,
                     "order": 2,
                     "questionGroupId": 1681078526083,
-                    "question": "Hand hygiene installations in working order on care points on the day of the survey include water?",
+                    "question": "Hand hygiene installations in working order at the care service on the day of the survey include water?",
                     "type": "option",
                     "required": true,
                     "meta": false,
@@ -1796,7 +1796,7 @@
                     "options": [
                         {
                             "id": 1681090555998,
-                            "code": null,
+                            "code": "B42A",
                             "name": "Yes",
                             "order": 1,
                             "translations": [
@@ -1808,7 +1808,7 @@
                         },
                         {
                             "id": 1681090555999,
-                            "code": null,
+                            "code": "B42B",
                             "name": "No",
                             "order": 2,
                             "translations": [
@@ -1824,7 +1824,7 @@
                     "id": 1681090593818,
                     "order": 3,
                     "questionGroupId": 1681078526083,
-                    "question": "Hand hygiene installations in working order at the service of care on the day of the survey include soap?",
+                    "question": "Hand hygiene installations in working order at the care service on the day of the survey include soap?",
                     "type": "option",
                     "required": false,
                     "meta": false,
@@ -1846,7 +1846,7 @@
                     "options": [
                         {
                             "id": 1681090611349,
-                            "code": null,
+                            "code": "B43A",
                             "name": "Yes",
                             "order": 1,
                             "translations": [
@@ -1858,7 +1858,7 @@
                         },
                         {
                             "id": 1681090611350,
-                            "code": null,
+                            "code": "B43B",
                             "name": "No",
                             "order": 2,
                             "translations": [
@@ -1874,7 +1874,7 @@
                     "id": 1681090638903,
                     "order": 4,
                     "questionGroupId": 1681078526083,
-                    "question": "Is there a hand lava device (DLM) in working order in one or more toilets on the day of the survey?",
+                    "question": "Is there a functional hand washing facility in one or more toilets on the day of the survey?",
                     "type": "option",
                     "required": true,
                     "meta": false,
@@ -1887,7 +1887,7 @@
                     "options": [
                         {
                             "id": 1681090668531,
-                            "code": null,
+                            "code": "B44A",
                             "name": "Yes",
                             "order": 1,
                             "translations": [
@@ -1899,7 +1899,7 @@
                         },
                         {
                             "id": 1681090668532,
-                            "code": null,
+                            "code": "B44B",
                             "name": "No",
                             "order": 2,
                             "translations": [
@@ -1915,7 +1915,7 @@
                     "id": 1681090690169,
                     "order": 5,
                     "questionGroupId": 1681078526083,
-                    "question": "Is there currently water at DLM?",
+                    "question": "Is there currently water at the hand washing facility?",
                     "type": "option",
                     "required": true,
                     "meta": false,
@@ -1936,7 +1936,7 @@
                     "options": [
                         {
                             "id": 1681090696181,
-                            "code": null,
+                            "code": "B45A",
                             "name": "Yes",
                             "order": 1,
                             "translations": [
@@ -1948,7 +1948,7 @@
                         },
                         {
                             "id": 1681090696182,
-                            "code": null,
+                            "code": "B45B",
                             "name": "No",
                             "order": 2,
                             "translations": [
@@ -1964,7 +1964,7 @@
                     "id": 1681090786071,
                     "order": 6,
                     "questionGroupId": 1681078526083,
-                    "question": "​​Are there currently soap at the DLM?",
+                    "question": "Are there currently soap at at the hand washing facility ?",
                     "type": "option",
                     "required": true,
                     "meta": false,
@@ -1985,7 +1985,7 @@
                     "options": [
                         {
                             "id": 1681090794097,
-                            "code": null,
+                            "code": "B46A",
                             "name": "Yes",
                             "order": 1,
                             "translations": [
@@ -1997,7 +1997,7 @@
                         },
                         {
                             "id": 1681090794098,
-                            "code": null,
+                            "code": "B46B",
                             "name": "No",
                             "order": 2,
                             "translations": [
@@ -2013,7 +2013,7 @@
                     "id": 1681090847839,
                     "order": 7,
                     "questionGroupId": 1681078526083,
-                    "question": "At what distance is the DLM of the toilet?",
+                    "question": "At what distance is the the hand washing facility  of the toilet?",
                     "type": "option",
                     "required": true,
                     "meta": false,
@@ -2034,7 +2034,7 @@
                     "options": [
                         {
                             "id": 1681090877538,
-                            "code": null,
+                            "code": "B47A",
                             "name": "Within a 5 m radius of the toilet",
                             "order": 1,
                             "translations": [
@@ -2046,7 +2046,7 @@
                         },
                         {
                             "id": 1681090877539,
-                            "code": null,
+                            "code": "B47B",
                             "name": "More than 5 m from the toilet",
                             "order": 2,
                             "translations": [
@@ -2092,7 +2092,7 @@
                     "id": 1681091038710,
                     "order": 10,
                     "questionGroupId": 1681078526083,
-                    "question": "Photo your DLM",
+                    "question": "Photo of the hand washing facility",
                     "type": "text",
                     "required": false,
                     "meta": false,
@@ -2142,7 +2142,7 @@
                     "options": [
                         {
                             "id": 1681091108530,
-                            "code": null,
+                            "code": "B51A",
                             "name": "Yes",
                             "order": 1,
                             "translations": [
@@ -2154,7 +2154,7 @@
                         },
                         {
                             "id": 1681091108531,
-                            "code": null,
+                            "code": "B51B",
                             "name": "Only part only (the trash cans are full, contain other waste, or there is only one or two)",
                             "order": 2,
                             "translations": [
@@ -2166,8 +2166,8 @@
                         },
                         {
                             "id": 1681091152528,
-                            "code": null,
-                            "name": "NO",
+                            "code": "B51C",
+                            "name": "No",
                             "order": 3,
                             "translations": [
                                 {
@@ -2195,7 +2195,7 @@
                     "options": [
                         {
                             "id": 1681091202333,
-                            "code": null,
+                            "code": "B52A",
                             "name": "Autoclavage",
                             "order": 1,
                             "translations": [
@@ -2207,7 +2207,7 @@
                         },
                         {
                             "id": 1681091202334,
-                            "code": null,
+                            "code": "B52B",
                             "name": "Burning in a protected pit",
                             "order": 2,
                             "translations": [
@@ -2219,7 +2219,7 @@
                         },
                         {
                             "id": 1681091223232,
-                            "code": null,
+                            "code": "B52C",
                             "name": "Incineration (2 bedrooms, 850–1,000 ° C)",
                             "order": 3,
                             "translations": [
@@ -2231,7 +2231,7 @@
                         },
                         {
                             "id": 1681091229544,
-                            "code": null,
+                            "code": "B52D",
                             "name": "Incineration (other)",
                             "order": 4,
                             "translations": [
@@ -2243,7 +2243,7 @@
                         },
                         {
                             "id": 1681091231792,
-                            "code": null,
+                            "code": "B52E",
                             "name": "No treatment, but buried in a protected pit provided for this purpose",
                             "order": 5,
                             "translations": [
@@ -2255,7 +2255,7 @@
                         },
                         {
                             "id": 1681091255309,
-                            "code": null,
+                            "code": "B52F",
                             "name": "No treatment, but collection for out -of -site elimination",
                             "order": 6,
                             "translations": [
@@ -2267,7 +2267,7 @@
                         },
                         {
                             "id": 1681091256625,
-                            "code": null,
+                            "code": "B52G",
                             "name": "No treatment and waste is thrown with general waste",
                             "order": 7,
                             "translations": [
@@ -2279,7 +2279,7 @@
                         },
                         {
                             "id": 1681091257792,
-                            "code": null,
+                            "code": "B52H",
                             "name": "Treatment in the open air without treatment",
                             "order": 8,
                             "translations": [
@@ -2291,7 +2291,7 @@
                         },
                         {
                             "id": 1681091297320,
-                            "code": null,
+                            "code": "B52I",
                             "name": "Open air burning",
                             "order": 9,
                             "translations": [
@@ -2303,7 +2303,7 @@
                         },
                         {
                             "id": 1681091299242,
-                            "code": null,
+                            "code": "B52J",
                             "name": "Other",
                             "order": 10,
                             "translations": [
@@ -2355,7 +2355,7 @@
                     "options": [
                         {
                             "id": 1681091634129,
-                            "code": null,
+                            "code": "B54A",
                             "name": "Autoclavage",
                             "order": 1,
                             "translations": [
@@ -2367,7 +2367,7 @@
                         },
                         {
                             "id": 1681091634130,
-                            "code": null,
+                            "code": "B54B",
                             "name": "Incineration (2 bedrooms, 850–1,000 ° C)",
                             "order": 2,
                             "translations": [
@@ -2379,7 +2379,7 @@
                         },
                         {
                             "id": 1681091669279,
-                            "code": null,
+                            "code": "B54C",
                             "name": "Incineration (other)",
                             "order": 3,
                             "translations": [
@@ -2391,7 +2391,7 @@
                         },
                         {
                             "id": 1681091680455,
-                            "code": null,
+                            "code": "B54D",
                             "name": "Burning in a protected pit",
                             "order": 4,
                             "translations": [
@@ -2403,7 +2403,7 @@
                         },
                         {
                             "id": 1681091689722,
-                            "code": null,
+                            "code": "B54E",
                             "name": "No treatment, but buried in a protected pit provided for this purpose",
                             "order": 5,
                             "translations": [
@@ -2415,7 +2415,7 @@
                         },
                         {
                             "id": 1681091692944,
-                            "code": null,
+                            "code": "B54F",
                             "name": "No treatment, but collection for out -of -site elimination",
                             "order": 6,
                             "translations": [
@@ -2427,7 +2427,7 @@
                         },
                         {
                             "id": 1681091701607,
-                            "code": null,
+                            "code": "B54G",
                             "name": "Air-free deposit, without treatment",
                             "order": 7,
                             "translations": [
@@ -2439,7 +2439,7 @@
                         },
                         {
                             "id": 1681091717343,
-                            "code": null,
+                            "code": "B54H",
                             "name": "Open air burning",
                             "order": 8,
                             "translations": [
@@ -2451,7 +2451,7 @@
                         },
                         {
                             "id": 1681091734306,
-                            "code": null,
+                            "code": "B54I",
                             "name": "No treatment and waste is thrown with general waste",
                             "order": 9,
                             "translations": [
@@ -2463,7 +2463,7 @@
                         },
                         {
                             "id": 1681091742970,
-                            "code": null,
+                            "code": "B54J",
                             "name": "other (explain, list,)",
                             "order": 10,
                             "translations": [
@@ -2506,7 +2506,7 @@
                     "options": [
                         {
                             "id": 1681091829281,
-                            "code": null,
+                            "code": "B55A",
                             "name": "Yes",
                             "order": 1,
                             "translations": [
@@ -2518,7 +2518,7 @@
                         },
                         {
                             "id": 1681091829282,
-                            "code": null,
+                            "code": "B55B",
                             "name": "No",
                             "order": 2,
                             "translations": [
@@ -2547,7 +2547,7 @@
                     "options": [
                         {
                             "id": 1681091876157,
-                            "code": null,
+                            "code": "B56A",
                             "name": "Yes, they have all undergone training",
                             "order": 1,
                             "translations": [
@@ -2559,7 +2559,7 @@
                         },
                         {
                             "id": 1681091876158,
-                            "code": null,
+                            "code": "B56B",
                             "name": "No, some have undergone training but not all",
                             "order": 2,
                             "translations": [
@@ -2571,7 +2571,7 @@
                         },
                         {
                             "id": 1681091903342,
-                            "code": null,
+                            "code": "B56C",
                             "name": "No, none has undergone training",
                             "order": 3,
                             "translations": [
@@ -2583,7 +2583,7 @@
                         },
                         {
                             "id": 1681096010682,
-                            "code": null,
+                            "code": "B56D",
                             "name": "No, no staff should perform cleaning duties",
                             "order": 4,
                             "translations": [
