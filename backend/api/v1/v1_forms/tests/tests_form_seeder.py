@@ -53,13 +53,14 @@ class FormSeederTestCase(TestCase):
             "Health facility questionnaire",
             "School questionnaire",
             "CLTS progress tracking",
+            "Water Points questionnaire",
         ]
 
         # RUN SEED NEW FORM
         output = self.call_command()
         output = list(filter(lambda x: len(x), output.split("\n")))
         forms = Forms.objects.all()
-        self.assertEqual(forms.count(), 11)
+        self.assertEqual(forms.count(), 12)
         for form in forms:
             self.assertIn(f"Form Created | {form.name} V{form.version}",
                           output)
