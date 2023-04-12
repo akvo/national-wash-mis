@@ -600,7 +600,7 @@
                         {
                             "id": 1681078454620,
                             "options": [
-                                "Protected source"
+                                "Other"
                             ]
                         }
                     ],
@@ -980,7 +980,7 @@
                         {
                             "id": 1681088450342,
                             "code": "B24D",
-                            "name": "Latrines Vip Simple Fosse",
+                            "name": "Ventilated improved single pit",
                             "order": 4,
                             "translations": [
                                 {
@@ -992,7 +992,7 @@
                         {
                             "id": 1681088465542,
                             "code": "B24E",
-                            "name": "Latrines VIP double fosse",
+                            "name": "Ventilated improved double pit",
                             "order": 5,
                             "translations": [
                                 {
@@ -1135,7 +1135,14 @@
                             "options": [
                                 "Manual or mechanical flush toilets connected to the sewer network",
                                 "Manual or mechanical flush toilets connected to a pit",
-                                "Manual or mechanical flush toilets connected to open pipes"
+                                "Manual or mechanical flush toilets connected to open pipes",
+                                "Ventilated improved single pit",
+                                "Ventilated improved double pit",
+                                "Latrines ECOSAN",
+                                "Latrines SANPLAT",
+                                "Traditional latrines with concrete slab",
+                                "Traditional latrines without concrete slab",
+                                "Other"
                             ]
                         }
                     ],
@@ -1194,7 +1201,7 @@
                     "id": 1681089528621,
                     "order": 6,
                     "questionGroupId": 1681078512667,
-                    "question": "Book functionality",
+                    "question": "Is infrastructure functional?",
                     "type": "option",
                     "required": true,
                     "meta": false,
@@ -1204,7 +1211,14 @@
                             "options": [
                                 "Manual or mechanical flush toilets connected to the sewer network",
                                 "Manual or mechanical flush toilets connected to a pit",
-                                "Manual or mechanical flush toilets connected to open pipes"
+                                "Manual or mechanical flush toilets connected to open pipes",
+                                "Ventilated improved single pit",
+                                "Ventilated improved double pit",
+                                "Latrines ECOSAN",
+                                "Latrines SANPLAT",
+                                "Traditional latrines with concrete slab",
+                                "Traditional latrines without concrete slab",
+                                "Other"
                             ]
                         }
                     ],
@@ -1218,7 +1232,7 @@
                         {
                             "id": 1681089563667,
                             "code": "B29A",
-                            "name": "Fully functional",
+                            "name": "Totally functional",
                             "order": 1,
                             "translations": [
                                 {
@@ -1289,7 +1303,7 @@
                         {
                             "id": 1681089528621,
                             "options": [
-                                "Fully functional"
+                                "Totally functional"
                             ]
                         }
                     ],
@@ -1314,7 +1328,14 @@
                             "options": [
                                 "Manual or mechanical flush toilets connected to the sewer network",
                                 "Manual or mechanical flush toilets connected to a pit",
-                                "Manual or mechanical flush toilets connected to open pipes"
+                                "Manual or mechanical flush toilets connected to open pipes",
+                                "Ventilated improved single pit",
+                                "Ventilated improved double pit",
+                                "Latrines ECOSAN",
+                                "Latrines SANPLAT",
+                                "Traditional latrines with concrete slab",
+                                "Traditional latrines without concrete slab",
+                                "Other"
                             ]
                         }
                     ],
@@ -1365,7 +1386,14 @@
                             "options": [
                                 "Manual or mechanical flush toilets connected to the sewer network",
                                 "Manual or mechanical flush toilets connected to a pit",
-                                "Manual or mechanical flush toilets connected to open pipes"
+                                "Manual or mechanical flush toilets connected to open pipes",
+                                "Ventilated improved single pit",
+                                "Ventilated improved double pit",
+                                "Latrines ECOSAN",
+                                "Latrines SANPLAT",
+                                "Traditional latrines with concrete slab",
+                                "Traditional latrines without concrete slab",
+                                "Other"
                             ]
                         }
                     ],
@@ -1378,7 +1406,7 @@
                     "options": [
                         {
                             "id": 1681089812207,
-                            "code": null,
+                            "code": "B32A",
                             "name": "Yes",
                             "order": 1,
                             "translations": [
@@ -1390,7 +1418,7 @@
                         },
                         {
                             "id": 1681089812208,
-                            "code": null,
+                            "code": "B32B",
                             "name": "No",
                             "order": 2,
                             "translations": [
@@ -1410,6 +1438,23 @@
                     "type": "option",
                     "required": true,
                     "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681078512668,
+                            "options": [
+                                "Manual or mechanical flush toilets connected to the sewer network",
+                                "Manual or mechanical flush toilets connected to a pit",
+                                "Manual or mechanical flush toilets connected to open pipes",
+                                "Ventilated improved single pit",
+                                "Ventilated improved double pit",
+                                "Latrines ECOSAN",
+                                "Latrines SANPLAT",
+                                "Traditional latrines with concrete slab",
+                                "Traditional latrines without concrete slab",
+                                "Other"
+                            ]
+                        }
+                    ],
                     "translations": [
                         {
                             "language": "fr",
@@ -1518,7 +1563,7 @@
                         {
                             "id": 1681090058222,
                             "code": "B35A",
-                            "name": "Bin with lid",
+                            "name": "Bin with cover",
                             "order": 1,
                             "translations": [
                                 {
@@ -1542,7 +1587,7 @@
                         {
                             "id": 1681090077949,
                             "code": "B35C",
-                            "name": "Savon",
+                            "name": "Soap",
                             "order": 3,
                             "translations": [
                                 {
@@ -1611,8 +1656,8 @@
                     "options": [
                         {
                             "id": 1681090217369,
-                            "code": null,
-                            "name": "Own",
+                            "code": "B37A",
+                            "name": "Clean",
                             "order": 1,
                             "translations": [
                                 {
@@ -1623,7 +1668,7 @@
                         },
                         {
                             "id": 1681090217370,
-                            "code": null,
+                            "code": "B37B",
                             "name": "Average",
                             "order": 2,
                             "translations": [
@@ -1635,8 +1680,8 @@
                         },
                         {
                             "id": 1681090234029,
-                            "code": null,
-                            "name": "Sale",
+                            "code": "B37C",
+                            "name": "Dirty",
                             "order": 3,
                             "translations": [
                                 {
@@ -2196,7 +2241,7 @@
                         {
                             "id": 1681091202333,
                             "code": "B52A",
-                            "name": "Autoclavage",
+                            "name": "Autoclaved",
                             "order": 1,
                             "translations": [
                                 {
@@ -2220,7 +2265,7 @@
                         {
                             "id": 1681091223232,
                             "code": "B52C",
-                            "name": "Incineration (2 bedrooms, 850–1,000 ° C)",
+                            "name": "Incineration (2 rooms, 850–1,000 \u00b0C)",
                             "order": 3,
                             "translations": [
                                 {
@@ -2256,7 +2301,7 @@
                         {
                             "id": 1681091255309,
                             "code": "B52F",
-                            "name": "No treatment, but collection for out -of -site elimination",
+                            "name": "No treatment but collection for out-of-site elimination",
                             "order": 6,
                             "translations": [
                                 {
@@ -2356,7 +2401,7 @@
                         {
                             "id": 1681091634129,
                             "code": "B54A",
-                            "name": "Autoclavage",
+                            "name": "Autoclaved",
                             "order": 1,
                             "translations": [
                                 {
@@ -2368,7 +2413,7 @@
                         {
                             "id": 1681091634130,
                             "code": "B54B",
-                            "name": "Incineration (2 bedrooms, 850–1,000 ° C)",
+                            "name": "Incineration (2 rooms, 850–1,000 \u00b0C)",
                             "order": 2,
                             "translations": [
                                 {
@@ -2416,7 +2461,7 @@
                         {
                             "id": 1681091692944,
                             "code": "B54F",
-                            "name": "No treatment, but collection for out -of -site elimination",
+                            "name": "No treatment but collection for out-of-site elimination",
                             "order": 6,
                             "translations": [
                                 {
