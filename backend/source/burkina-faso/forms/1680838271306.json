@@ -1150,6 +1150,7 @@
                         {
                             "id": 1680840852470,
                             "options": [
+                                "In another Concession",
                                 "Out of concession"
                             ]
                         }
@@ -1235,6 +1236,7 @@
                         {
                             "id": 1680840852470,
                             "options": [
+                                "In another Concession",
                                 "Out of concession"
                             ]
                         }
@@ -1320,6 +1322,7 @@
                         {
                             "id": 1680840852470,
                             "options": [
+                                "In another Concession",
                                 "Out of concession"
                             ]
                         }
@@ -1797,7 +1800,7 @@
                         {
                             "id": 1680842466256,
                             "code": "A37B",
-                            "name": "Poor Flush toilet",
+                            "name": "Flush/pour flush",
                             "order": 2,
                             "translations": [
                                 {
@@ -1905,12 +1908,13 @@
                             "id": 1680842458339,
                             "options": [
                                 "Dry pit latrine",
-                                "Poor Flush toilet",
+                                "Flush/pour flush",
                                 "Ventilated Improved Single pit",
                                 "Ventilated Improved double pit",
                                 "Latrine ECOSAN",
                                 "Latrine SANPLAT",
-                                "Traditional latrine without concrete slab"
+                                "Traditional latrine without concrete slab",
+                                "Traditional latrine with concrete slab"
                             ]
                         }
                     ],
@@ -2212,12 +2216,13 @@
                             "id": 1680842458339,
                             "options": [
                                 "Dry pit latrine",
-                                "Poor Flush toilet",
+                                "Flush/pour flush",
                                 "Ventilated Improved Single pit",
                                 "Ventilated Improved double pit",
                                 "Latrine ECOSAN",
                                 "Latrine SANPLAT",
-                                "Traditional latrine without concrete slab"
+                                "Traditional latrine without concrete slab",
+                                "Traditional latrine with concrete slab"
                             ]
                         }
                     ],
@@ -2291,11 +2296,13 @@
                             "id": 1680842458339,
                             "options": [
                                 "Dry pit latrine",
-                                "Poor Flush toilet",
+                                "Flush/pour flush",
                                 "Ventilated Improved Single pit",
+                                "Ventilated Improved double pit",
                                 "Latrine ECOSAN",
                                 "Latrine SANPLAT",
-                                "Traditional latrine without concrete slab"
+                                "Traditional latrine without concrete slab",
+                                "Traditional latrine with concrete slab"
                             ]
                         }
                     ],
