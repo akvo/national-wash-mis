@@ -1,5 +1,4 @@
 import json
-import pandas as pd
 from nwmis.settings import MASTER_DATA
 from django.db import transaction, connection
 
@@ -99,19 +98,16 @@ def get_category(opt: dict):
 
 def get_category_results(data):
     categories = [d.serialize for d in data]
-    df = pd.DataFrame(categories)
-    results = df.to_dict("records")
-    for d in results:
+    for d in categories:
         d.update({"category": get_category(d["opt"])})
-    res = pd.DataFrame(results)
-    res = pd.concat([res.drop("opt", axis=1), pd.DataFrame(df["opt"].tolist())], axis=1)
-    res = res[
-        [
-            "id",
-            "data",
-            "form",
-            "name",
-            "category",
-        ]
+    categories = [
+        {"id": c["data"], "category": {c["name"]: c["category"]}} for c in categories
     ]
-    return res.to_dict("records")
+    updated_data = {}
+    for item in categories:
+        if item["id"] in updated_data:
+            updated_data[item["id"]]["category"].update(item["category"])
+        else:
+            updated_data[item["id"]] = item
+    updated_data = list(updated_data.values())
+    return updated_data

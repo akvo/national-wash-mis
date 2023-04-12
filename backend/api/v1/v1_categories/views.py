@@ -37,11 +37,17 @@ from api.v1.v1_data.serializers import (
                 "total_page": serializers.IntegerField(),
                 "data": inline_serializer(
                     "ListDataCategorized",
-                    fields={"test": serializers.IntegerField()},
-                    many=True,
+                    fields={
+                        "id": serializers.IntegerField(),
+                        "categories": inline_serializer(
+                            "ListDataCategorySerializer",
+                            fields={"Sanitation": serializers.CharField()},
+                        ),
+                    },
                 ),
             },
-        )
+            many=True,
+        ),
     },
     parameters=[
         OpenApiParameter(
@@ -110,12 +116,20 @@ def get_raw_data_point(request, version, form_id):
     filter_data = {}
     if request.GET.get("questions"):
         filter_data["question_id__in"] = request.GET.getlist("questions")
+    categories = DataCategory.objects.filter(
+        form_id=form_id, data_id__in=[d["id"] for d in data]
+    ).all()
+    categories = get_category_results(categories)
     for d in data:
+        category = list(filter(lambda x: x["id"] == d["id"], categories))
         filter_data["data_id"] = d["id"]
         instance = Answers.objects.filter(**filter_data).all()
         answers = ListRawDataAnswerSerializer(instance=instance, many=True).data
         data_answers = {}
         for a in answers:
             data_answers.update({a["question"]: a["value"]})
-        d.update({"data": data_answers})
+        if category:
+            d.update({"data": data_answers, "categories": category[0]["category"]})
+        else:
+            d.update({"data": data_answers, "categories": {}})
     return Response(data, status=status.HTTP_200_OK)
