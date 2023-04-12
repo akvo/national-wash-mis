@@ -15,7 +15,7 @@ from utils.custom_serializer_fields import validate_serializers_message
 
 from api.v1.v1_categories.functions import get_category_results
 from api.v1.v1_categories.models import DataCategory
-from api.v1.v1_data.models import Answers
+from api.v1.v1_data.models import FormData, Answers
 from api.v1.v1_forms.models import Forms
 from api.v1.v1_data.serializers import (
     ListFormDataRequestSerializer,
@@ -62,14 +62,15 @@ from api.v1.v1_data.serializers import (
 )
 @api_view(["GET"])
 def get_data_with_category(request, version, form_id):
-    data = DataCategory.objects.filter(form_id=form_id).all()
+    data = FormData.objects.filter(form_id=form_id).values_list("pk", flat=True)
     if not len(data):
         print(data)
         raise Http404("DataCategory does not exist")
     paginator = Paginator(data, 10)
     page = request.GET.get("page")
     page_obj = paginator.get_page(page)
-    results = get_category_results(page_obj)
+    categories = DataCategory.objects.filter(data_id__in=page_obj).all()
+    results = get_category_results(categories)
     return Response(
         {
             "current": int(page),
