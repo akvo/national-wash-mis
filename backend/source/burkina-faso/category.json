@@ -461,5 +461,215 @@
                 ]
             }
         ]
+    },
+    {
+        "name": "Water",
+        "form": 1681103820972,
+        "labels": [
+            {
+                "name": "Basic",
+                "color": "#00b8ec"
+            },
+            {
+                "name": "Limited",
+                "color": "#fff176"
+            },
+            {
+                "name": "No Service",
+                "color": "#FEBC11"
+            }
+        ],
+        "categories": [
+            {
+                "name": "Basic",
+                "questions": [
+                    {
+                        "id": 1681107224764,
+                        "text": "Is there a drinking water point provided by the school?",
+                        "options": [
+                            "Yes"
+                        ],
+                        "else": {
+                            "ignore": [
+                                1681108436898,
+                                1681108776850
+                            ]
+                        }
+                    },
+                    {
+                        "id": 1681108436898,
+                        "text": "What is the main drinking water point provided by the school?",
+                        "options": [
+                            "Pipeline connection / Piped water to yard/plot",
+                            "Borehole",
+                            "Modern well",
+                            "Traditional well",
+                            "Rainwater collection",
+                            "Standpipe",
+                            "Packaged bottled water",
+                            "Cart",
+                            "Packaged bottled water",
+                            "Autonomous Water Supply Post"
+                        ],
+                        "else": {
+                            "name": "No Service"
+                        }
+                    },
+                    {
+                        "id": 1681108776850,
+                        "text": "The drinking water point provided by the school is currently functional",
+                        "options": [
+                            "Totally Functional"
+                        ],
+                        "other": [
+                            {
+                                "name": "Limited",
+                                "options": [
+                                    "Partially functional",
+                                    "Broken-down"
+                                ],
+                                "questions": []
+                            }
+                        ],
+                        "else": {
+                            "name": "No Service"
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Sanitation",
+        "form": 1681103820972,
+        "labels": [
+            {
+                "name": "Basic",
+                "color": "#51B453"
+            },
+            {
+                "name": "Limited",
+                "color": "#fff176"
+            },
+            {
+                "name": "No Service",
+                "color": "#FEBC11"
+            }
+        ],
+        "categories": [
+            {
+                "name": "Basic",
+                "questions": [
+                    {
+                        "id": 1681107239045,
+                        "text": "Is there a sanitation infrastructure (toilet) in the school?",
+                        "options": [
+                            "Yes"
+                        ],
+                        "else": {
+                            "name": "No Service",
+                            "ignore": [
+                                1681110563714,
+                                1681110975144
+                            ]
+                        }
+                    },
+                    {
+                        "id": 1681110563714,
+                        "text": "What type of toilet/latrines are there for students in the school?",
+                        "options": [
+                            "Manual or mechanical flush toilets",
+                            "Ventilated Improved Single pit",
+                            "Ventilated Improved double pit",
+                            "Latrine ECOSAN",
+                            "Latrines SANPLAT",
+                            "Traditional latrines with concrete slab"
+                        ],
+                        "else": {
+                            "name": "No Service"
+                        }
+                    },
+                    {
+                        "id": 1681110975144,
+                        "text": "How many toilets/ cabins for students are currently usable?",
+                        "number": {
+                            "greater_than": 0
+                        },
+                        "else": {
+                            "name": "Limited"
+                        }
+                    },
+                    {
+                        "id": 1681111021763,
+                        "text": "Are there separate toilets/latrines for girls and boys?",
+                        "options": [
+                            "Yes"
+                        ],
+                        "else": {
+                            "name": "Limited"
+                        }
+                    },
+                    {
+                        "id": 1681111261327,
+                        "text": "State of hygiene in cabins (observation)",
+                        "options": [
+                            "Clean",
+                            "Average"
+                        ],
+                        "else": {
+                            "name": "Limited"
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Hygiene",
+        "form": 1681103820972,
+        "labels": [
+            {
+                "name": "Basic",
+                "color": "#ab47bc"
+            },
+            {
+                "name": "Limited",
+                "color": "#fff176"
+            },
+            {
+                "name": "No Facility",
+                "color": "#FEBC11"
+            }
+        ],
+        "categories": [
+            {
+                "name": "Basic",
+                "questions": [
+                    {
+                        "id": 1681107261379,
+                        "text": "Are there hand washing facilities in the school establishment?",
+                        "options": [
+                            "Yes"
+                        ],
+                        "else": {
+                            "name": "No Facility",
+                            "ignore": [
+                                1681111640583
+                            ]
+                        }
+                    },
+                    {
+                        "id": 1681111640583,
+                        "text": "Are soap water and soap currently available in hand washing facilities?",
+                        "options": [
+                            "Yes, water and soap"
+                        ],
+                        "else": {
+                            "name": "Limited"
+                        }
+                    }
+                ]
+            }
+        ]
     }
 ]
