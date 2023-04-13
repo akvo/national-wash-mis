@@ -1,9 +1,10 @@
-import React, { useState, useMemo } from "react";
+import React, { useState } from "react";
 import { Form, Input, Button } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import { useNavigate } from "react-router-dom";
-import { api, store, uiText } from "../../../lib";
+import { api, store } from "../../../lib";
 import { useNotification } from "../../../util/hooks";
+import { getTranslation } from "../../../util";
 
 const ResetForm = () => {
   const navigate = useNavigate();
@@ -11,9 +12,7 @@ const ResetForm = () => {
   const { notify } = useNotification();
   const { language } = store.useState((s) => s);
   const { active: activeLang } = language;
-  const text = useMemo(() => {
-    return uiText[activeLang];
-  }, [activeLang]);
+  const text = getTranslation(activeLang, "login");
 
   const onFinish = (values) => {
     setLoading(true);
@@ -52,7 +51,7 @@ const ResetForm = () => {
     >
       <Form.Item
         name="email"
-        label="Email Address"
+        label={text.emailLabel}
         rules={[
           {
             type: "email",
@@ -63,7 +62,7 @@ const ResetForm = () => {
       >
         <Input
           prefix={<UserOutlined className="site-form-item-icon" />}
-          placeholder="Email"
+          placeholder={text.email}
         />
       </Form.Item>
       <Form.Item style={{ marginTop: 8 }}>
