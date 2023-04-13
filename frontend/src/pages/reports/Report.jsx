@@ -9,9 +9,12 @@ import {
 } from "../../components";
 import { useParams, Link } from "react-router-dom";
 import IFrame from "./IFrame";
+import { getTranslation } from "../../util";
 
 const Reports = () => {
-  const { selectedForm: formId } = store.useState((s) => s);
+  const { selectedForm: formId, language } = store.useState((s) => s);
+  const { active: activeLang } = language;
+  const text = getTranslation(activeLang, "report");
 
   const { templateId } = useParams();
   const template = config?.templates?.find((t) => t.id === +templateId);
@@ -33,7 +36,7 @@ const Reports = () => {
   }, [formId]);
 
   if (!template) {
-    return <h3 className="text-muted">Template not found</h3>;
+    return <h3 className="text-muted">{text.templateNotFound}</h3>;
   }
 
   return (
@@ -43,10 +46,10 @@ const Reports = () => {
         <Row justify="space-between" align="middle">
           <div className="toolbar">
             <Button className="light mx" onClick={handlePrint}>
-              Print
+              {text.print}
             </Button>
             <Link to="/reports">
-              <Button className="light">Back</Button>
+              <Button className="light">{text.back}</Button>
             </Link>
           </div>
         </Row>
