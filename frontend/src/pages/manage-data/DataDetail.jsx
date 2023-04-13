@@ -6,6 +6,7 @@ import { api, store } from "../../lib";
 import { useNotification } from "../../util/hooks";
 import { flatten, isEqual } from "lodash";
 import { HistoryTable } from "../../components";
+import { getTranslation } from "../../util";
 
 const DataDetail = ({
   questionGroups,
@@ -19,8 +20,10 @@ const DataDetail = ({
   const [loading, setLoading] = useState(false);
   const [saving, setSaving] = useState(false);
   const pendingData = record?.pending_data?.created_by || false;
-  const { user: authUser, forms } = store.useState((state) => state);
+  const { user: authUser, forms, language } = store.useState((state) => state);
   const { notify } = useNotification();
+  const { active: activeLang } = language;
+  const text = getTranslation(activeLang, "manageData");
 
   const updateCell = (key, parentId, value) => {
     let prev = JSON.parse(JSON.stringify(dataset));
@@ -94,8 +97,8 @@ const DataDetail = ({
           message:
             authUser?.role?.id === 4 ||
             (authUser?.role?.id === 2 && formRes.type === 2)
-              ? "Created New Pending Submission. Please go to your Profile to send this data for approval"
-              : "Data updated successfully",
+              ? text.successCreated
+              : text.successUpdated,
         });
         updater(
           updateRecord === record.id
@@ -110,7 +113,7 @@ const DataDetail = ({
         console.error(e);
         notify({
           type: "error",
-          message: "Could not update data",
+          message: text.errorUpdated,
         });
       })
       .finally(() => {
@@ -170,14 +173,14 @@ const DataDetail = ({
   return loading ? (
     <Space style={{ paddingTop: 18, color: "#9e9e9e" }} size="middle">
       <Spin indicator={<LoadingOutlined style={{ color: "#1b91ff" }} spin />} />
-      <span>Loading..</span>
+      <span>{text.loading}..</span>
     </Space>
   ) : (
     <>
       <div className="data-detail">
         {pendingData && (
           <Alert
-            message={`Can't edit/update this data, because data in pending data by ${pendingData}`}
+            message={`${text.alertPending} ${pendingData}`}
             type="warning"
           />
         )}
@@ -196,11 +199,11 @@ const DataDetail = ({
               rowKey="id"
               columns={[
                 {
-                  title: "Question",
+                  title: text.QuestionCol,
                   dataIndex: "name",
                 },
                 {
-                  title: "Response",
+                  title: text.responseCol,
                   render: (row) => (
                     <EditableCell
                       record={row}
@@ -242,10 +245,10 @@ const DataDetail = ({
               disabled={!edited || saving}
               loading={saving}
             >
-              Save Edits
+              {text.saveEditsBtn}
             </Button>
             <Button type="danger" onClick={() => setDeleteData(record)}>
-              Delete
+              {text.delete}
             </Button>
           </Space>
         </div>
