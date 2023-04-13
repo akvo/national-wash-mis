@@ -12,7 +12,8 @@ import {
   isEmpty,
 } from "lodash";
 import { Chart } from "../../../components";
-import { jmpColorScore } from "../../../lib";
+import { jmpColorScore, store } from "../../../lib";
+import { getTranslation } from "../../../util";
 
 const ChartVisual = ({ chartConfig, loading }) => {
   const { formId } = useParams();
@@ -36,6 +37,8 @@ const ChartVisual = ({ chartConfig, loading }) => {
   const [showEmpty, setShowEmpty] = useState(false);
   const showSwitcher =
     calc?.toLowerCase() === "jmp" && chartType?.toLowerCase() !== "pie";
+  const { active: activeLang } = store.useState((s) => s.language);
+  const text = getTranslation(activeLang, "dashboard");
 
   const chartData = useMemo(() => {
     let jmpServiceLevelOrder = get(jmpColorScore, colorPath);
@@ -140,12 +143,14 @@ const ChartVisual = ({ chartConfig, loading }) => {
               }}
               checked={showEmpty}
             >
-              Show empty values
+              {text.showEmpty}
             </Checkbox>
           )}
           {showSwitcher && (
             <Space align="center">
-              <span>Show By {admLevelName.singular}</span>
+              <span>
+                {text?.showBy} {admLevelName.singular}
+              </span>
               <Switch size="small" checked={isStack} onChange={setIsStack} />
             </Space>
           )}

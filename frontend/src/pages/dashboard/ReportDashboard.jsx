@@ -4,10 +4,11 @@ import { useParams } from "react-router-dom";
 import { Row, Col, Tabs, Affix } from "antd";
 import { VisualisationFilters } from "../../components";
 import { useNotification } from "../../util/hooks";
-import { api, uiText, store, config } from "../../lib";
+import { api, store, config } from "../../lib";
 import { capitalize, takeRight } from "lodash";
 import { TableVisual } from "./components";
 import { generateAdvanceFilterURL } from "../../util/filter";
+import { getTranslation } from "../../util";
 
 const { TabPane } = Tabs;
 
@@ -28,9 +29,7 @@ const ReportDashboard = () => {
   const administration = store.useState((s) => s.administration);
   const [wait, setWait] = useState(true);
 
-  const text = useMemo(() => {
-    return uiText[activeLang];
-  }, [activeLang]);
+  const text = getTranslation(activeLang);
 
   const currentAdministration = takeRight(administration)?.[0];
   const prefixText =
@@ -115,9 +114,9 @@ const ReportDashboard = () => {
     current,
     currentAdministration,
     notify,
-    text,
     advancedFilters,
     wait,
+    text.errorDataLoad,
   ]);
 
   const changeTab = (tabKey) => {
