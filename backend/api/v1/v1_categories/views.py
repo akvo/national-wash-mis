@@ -7,7 +7,6 @@ from drf_spectacular.utils import (
     inline_serializer,
     OpenApiParameter,
 )
-from rest_framework.generics import get_object_or_404
 from rest_framework import serializers, status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -16,7 +15,6 @@ from utils.custom_serializer_fields import validate_serializers_message
 from api.v1.v1_categories.functions import get_category_results
 from api.v1.v1_categories.models import DataCategory
 from api.v1.v1_data.models import FormData, Answers
-from api.v1.v1_forms.models import Forms
 from api.v1.v1_categories.serializers import (
     ListRawDataSerializer,
     ListRawDataAnswerSerializer,
