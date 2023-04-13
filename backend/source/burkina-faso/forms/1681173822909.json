@@ -176,7 +176,7 @@
           "required": true,
           "meta": false,
           "variableName": "D7",
-          "attributes": ["advanced_filter", "table", "charts", "aggregate"],
+          "attributes": ["advanced_filter", "table", "chart", "aggregate"],
           "translations": [
             {
               "language": "fr",
