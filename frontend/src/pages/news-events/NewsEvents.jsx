@@ -2,6 +2,8 @@ import React from "react";
 import "./style.scss";
 import { Row, Col, Card, Timeline, Typography } from "antd";
 const { Paragraph } = Typography;
+import { store } from "../../lib";
+import { getTranslation } from "../../util";
 
 const updates = [
   {
@@ -53,12 +55,14 @@ const events = [
 ];
 
 const NewsEvents = () => {
+  const { active: activeLang } = store.useState((s) => s.language);
+  const text = getTranslation(activeLang, "newsEvents");
   return (
     <div id="news-events">
-      <h1>News {"&"} Events</h1>
+      <h1>{text.pageTitle}</h1>
       <Row gutter={[36, 16]}>
         <Col xs={24} sm={24} md={24} lg={16} xl={16}>
-          <h2>Latest Updates</h2>
+          <h2>{text.latestUpdates}</h2>
           <div className="updates">
             {updates.map((u, uI) => (
               <Card bodyStyle={{ padding: 0 }} key={uI} className="update">
@@ -76,7 +80,7 @@ const NewsEvents = () => {
           </div>
         </Col>
         <Col xs={24} sm={24} md={24} lg={8} xl={8}>
-          <h2>Upcoming Events</h2>
+          <h2>{text.upcomingEvents}</h2>
           <div className="events">
             <Timeline>
               {events.map((e, eI) => (
