@@ -8,6 +8,7 @@ import {
 import { generateAdvanceFilterURL } from "../../../util/filter";
 import DataDetail from "../../manage-data/DataDetail";
 import { api, store } from "../../../lib";
+import { getTranslation } from "../../../util";
 
 const ReportVisual = ({ selectedForm }) => {
   const [dataset, setDataset] = useState([]);
@@ -15,8 +16,9 @@ const ReportVisual = ({ selectedForm }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalCount, setTotalCount] = useState(0);
   const [updateRecord, setUpdateRecord] = useState(false);
-  const { advancedFilters } = store.useState((s) => s);
+  const { advancedFilters, language } = store.useState((s) => s);
   const { administration, questionGroups } = store.useState((state) => state);
+  const text = getTranslation(language?.active, "dashboard");
 
   const selectedAdministration =
     administration.length > 0
@@ -57,7 +59,7 @@ const ReportVisual = ({ selectedForm }) => {
 
   const columns = [
     {
-      title: "Name",
+      title: text.name,
       dataIndex: "name",
       key: "name",
       filtered: true,
@@ -71,12 +73,12 @@ const ReportVisual = ({ selectedForm }) => {
       ),
     },
     {
-      title: "Last Updated",
+      title: text.lastUpdatedCol,
       dataIndex: "updated",
       render: (cell, row) => cell || row.created,
     },
     {
-      title: "Region",
+      title: text.regionCol,
       dataIndex: "administration",
     },
     Table.EXPAND_COLUMN,
