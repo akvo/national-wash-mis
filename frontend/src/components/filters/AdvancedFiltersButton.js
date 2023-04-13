@@ -3,9 +3,14 @@ import "./style.scss";
 import { Button } from "antd";
 import { store } from "../../lib";
 import { FilterOutlined } from "@ant-design/icons";
+import { getTranslation } from "../../util";
 
 const AdvancedFiltersButton = () => {
-  const { advancedFilters, showAdvancedFilters } = store.useState((s) => s);
+  const { advancedFilters, showAdvancedFilters, language } = store.useState(
+    (s) => s
+  );
+  const { active: activeLang } = language;
+  const text = getTranslation(activeLang);
   return (
     <Button
       onClick={() => {
@@ -18,7 +23,7 @@ const AdvancedFiltersButton = () => {
         showAdvancedFilters || advancedFilters.length ? "light active" : "light"
       }
     >
-      Advanced Filters
+      {text.advancedFilters}
     </Button>
   );
 };

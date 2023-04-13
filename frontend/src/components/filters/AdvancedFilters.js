@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import "./style.scss";
 import { Card, Select, Checkbox, Row, Col, Tag, Popover } from "antd";
 import { store } from "../../lib";
+import { getTranslation } from "../../util";
 import { InfoCircleOutlined } from "@ant-design/icons";
 import { first, flatten, intersection } from "lodash";
 
@@ -15,6 +16,8 @@ const AdvancedFilters = () => {
   const questionGroups = store.useState((s) => s.questionGroups);
   const showAdvancedFilters = store.useState((s) => s.showAdvancedFilters);
   const advancedFilters = store.useState((s) => s.advancedFilters);
+  const { active: activeLang } = store.useState((s) => s.language);
+  const text = getTranslation(activeLang);
 
   useEffect(() => {
     if (first(flatten(questionGroups.map((qg) => qg.question)))?.form) {
@@ -93,7 +96,7 @@ const AdvancedFilters = () => {
             value={selectedFilterOption.map((fo) => fo.value)}
             onChange={onOptionsChange}
             className="filter-options"
-            placeholder="Select.."
+            placeholder={`${text.select}..`}
           >
             {optionsRes.option.map((oi) => (
               <Option value={oi.id} key={oi.id}>
@@ -105,7 +108,7 @@ const AdvancedFilters = () => {
       }
     }
     return null;
-  }, [selectedQuestion, questionGroups, advancedFilters]);
+  }, [selectedQuestion, questionGroups, advancedFilters, text.select]);
 
   const activeFilters = useMemo(() => {
     const handleCloseTag = (id, value) => {
