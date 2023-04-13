@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import "./style.scss";
 import {
   Row,
@@ -14,16 +14,17 @@ import {
 } from "antd";
 import { Link } from "react-router-dom";
 import { Breadcrumbs, DescriptionPanel } from "../../components";
-import { api, store, uiText, config } from "../../lib";
+import { api, store, config } from "../../lib";
 import { useNotification } from "../../util/hooks";
 import { orderBy } from "lodash";
+import { getTranslation } from "../../util";
 
 const { Search } = Input;
 const { Option } = Select;
 
-const pagePath = [
+const pagePath = (text) => [
   {
-    title: "Control Center",
+    title: text.controlCenter,
     link: "/control-center",
   },
   {
@@ -45,27 +46,23 @@ const Organisations = () => {
   const { language, isLoggedIn } = store.useState((s) => s);
   const { active: activeLang } = language;
 
-  const text = useMemo(() => {
-    return uiText[activeLang];
-  }, [activeLang]);
-
-  const descriptionData = <div>{text.orgPanelText}</div>;
+  const text = getTranslation(activeLang, "organisation");
 
   const columns = [
     {
-      title: "ID",
+      title: text?.idCol,
       dataIndex: "id",
       key: "id",
       width: 20,
       align: "center",
     },
     {
-      title: "Organization",
+      title: text?.nameCol,
       dataIndex: "name",
       key: "name",
     },
     {
-      title: "Attributes",
+      title: text?.attributesCol,
       dataIndex: "attributes",
       key: "attributes",
       render: (attributes) =>
@@ -79,7 +76,7 @@ const Organisations = () => {
           : "-",
     },
     {
-      title: "Users",
+      title: text?.usersCol,
       dataIndex: "users",
       key: "users",
       render: (users) => users || " - ",
@@ -87,13 +84,13 @@ const Organisations = () => {
       align: "center",
     },
     {
-      title: "Action",
+      title: text?.action,
       key: "action",
       render: (record, rowValue) => (
         <Space>
           <Link to={`/organisation/${record.id}`}>
             <Button type="secondary" size="small">
-              Edit
+              {text?.edit}
             </Button>
           </Link>
           <Button
@@ -105,7 +102,7 @@ const Organisations = () => {
               setDeleteOrganisation({ ...record, count: rowValue.users })
             }
           >
-            Delete
+            {text?.delete}
           </Button>
         </Space>
       ),
@@ -124,7 +121,7 @@ const Organisations = () => {
         setDeleting(false);
         notify({
           type: "success",
-          message: "Organization deleted",
+          message: text?.successDeleted,
         });
       })
       .catch((err) => {
@@ -183,12 +180,23 @@ const Organisations = () => {
     <div id="organisations">
       <Row justify="space-between" align="bottom">
         <Col>
-          <Breadcrumbs pagePath={pagePath} />
-          <DescriptionPanel description={descriptionData} />
+          <Breadcrumbs pagePath={pagePath(text)} />
+          <DescriptionPanel
+            description={
+              <div>
+                {text.thisIsWhereYou}
+                <ul>
+                  <li>{text.manageOrgDescText1}</li>
+                  <li>{text.manageOrgDescText2}</li>
+                  <li>{text.manageOrgDescText3}</li>
+                </ul>
+              </div>
+            }
+          />
         </Col>
         <Col>
           <Link to="/organisation/add">
-            <Button type="primary">Add new organization</Button>
+            <Button type="primary">{text.manageOrgDescText1}</Button>
           </Link>
         </Col>
       </Row>
@@ -199,7 +207,7 @@ const Organisations = () => {
         <Col span={20}>
           <Space>
             <Search
-              placeholder="Search..."
+              placeholder={`${text?.search}...`}
               onChange={(e) => {
                 setSearch(e.target.value?.length >= 2 ? e.target.value : null);
               }}
@@ -207,7 +215,7 @@ const Organisations = () => {
               allowClear
             />
             <Select
-              placeholder="Attributes"
+              placeholder={text?.attributesCol}
               getPopupContainer={(trigger) => trigger.parentNode}
               style={{ width: 225 }}
               onChange={setAttributes}
@@ -260,7 +268,7 @@ const Organisations = () => {
                   setDeleteOrganisation(null);
                 }}
               >
-                Cancel
+                {text?.cancel}
               </Button>
               <Button
                 type="primary"
@@ -270,7 +278,7 @@ const Organisations = () => {
                   handleDelete();
                 }}
               >
-                Delete
+                {text?.delete}
               </Button>
             </Col>
           </Row>
@@ -281,7 +289,13 @@ const Organisations = () => {
         <br />
         <img src="/assets/personal-information.png" height="80" />
         <h2>{deleteOrganisation?.name}</h2>
-        <p>{text.deleteOrganisationDesc(deleteOrganisation || { count: 0 })}</p>
+        <span>
+          {text?.deleteOrganisationDesc1?.replace(
+            ":count:",
+            deleteOrganisation?.count || 0
+          )}
+          {text?.deleteOrganisationDes2}
+        </span>
       </Modal>
     </div>
   );
