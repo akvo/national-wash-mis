@@ -15,22 +15,13 @@ import {
 } from "antd";
 import { AdministrationDropdown } from "../../components";
 import { useNavigate, useParams } from "react-router-dom";
-import { api, store, config, uiText } from "../../lib";
+import { api, store, config } from "../../lib";
 import { Breadcrumbs, DescriptionPanel } from "../../components";
 import { takeRight, take, max } from "lodash";
 import { useNotification } from "../../util/hooks";
+import { getTranslation } from "../../util";
 
 const { Option } = Select;
-
-const descriptionData = (
-  <p>
-    This page allows you to add users to the RUSH platform.You will only be able
-    to add users for regions under your jurisdisction.
-    <br />
-    Once you have added the user, the user will be notified by email to set
-    their password and access the platform
-  </p>
-);
 
 const AddUser = () => {
   const {
@@ -57,9 +48,7 @@ const AddUser = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [modalContent, setModalContent] = useState([]);
 
-  const text = useMemo(() => {
-    return uiText[activeLang];
-  }, [activeLang]);
+  const text = getTranslation(activeLang, "userForm");
 
   useEffect(() => {
     if (!organisations.length) {
@@ -138,7 +127,7 @@ const AddUser = () => {
       .then(() => {
         notify({
           type: "success",
-          message: `User ${id ? "updated" : "added"}`,
+          message: id ? text.successUpdated : text.successAdded,
         });
         setSubmitting(false);
         navigate("/users");
@@ -151,8 +140,9 @@ const AddUser = () => {
           notify({
             type: "error",
             message:
-              err?.response?.data?.message ||
-              `User could not be ${id ? "updated" : "added"}`,
+              err?.response?.data?.message || id
+                ? text.errorUpdated
+                : text.errorAdded,
           });
         }
         setSubmitting(false);
@@ -262,7 +252,15 @@ const AddUser = () => {
       <Row justify="space-between">
         <Col>
           <Breadcrumbs pagePath={pagePath} />
-          <DescriptionPanel description={descriptionData} />
+          <DescriptionPanel
+            description={
+              <p>
+                {text.descriptionData1}
+                <br />
+                {text.descriptionData2}
+              </p>
+            }
+          />
         </Col>
       </Row>
       <Divider />
@@ -288,7 +286,7 @@ const AddUser = () => {
           <Row className="form-row">
             <Col span={12}>
               <Form.Item
-                label="First name"
+                label={text.firstName}
                 name="first_name"
                 rules={[
                   {
@@ -302,7 +300,7 @@ const AddUser = () => {
             </Col>
             <Col span={12}>
               <Form.Item
-                label="Last name"
+                label={text.lastName}
                 name="last_name"
                 rules={[
                   {
@@ -317,7 +315,7 @@ const AddUser = () => {
           </Row>
           <div className="form-row">
             <Form.Item
-              label="Email Address"
+              label={text.emailAddress}
               name="email"
               rules={[
                 {
@@ -332,7 +330,7 @@ const AddUser = () => {
           </div>
           <div className="form-row">
             <Form.Item
-              label="Phone Number"
+              label={text.phoneNumber}
               name="phone_number"
               rules={[
                 {
@@ -347,12 +345,12 @@ const AddUser = () => {
           <div className="form-row">
             <Form.Item
               name="organisation"
-              label="Organization"
+              label={text.organisation}
               rules={[{ required: true, message: text.valOrganization }]}
             >
               <Select
                 getPopupContainer={(trigger) => trigger.parentNode}
-                placeholder="Select one.."
+                placeholder={`${text.selectOne}..`}
                 allowClear
               >
                 {organisations?.map((o, oi) => (
@@ -366,11 +364,11 @@ const AddUser = () => {
           <div className="form-row">
             <Form.Item
               name="designation"
-              label="Designation"
+              label={text.designation}
               rules={[{ required: true, message: text.valDesignation }]}
             >
               <Select
-                placeholder="Select one.."
+                placeholder={`${text.selectOne}..`}
                 getPopupContainer={(trigger) => trigger.parentNode}
               >
                 {config?.designations?.map((d, di) => (
@@ -383,7 +381,7 @@ const AddUser = () => {
           </div>
           <div className="form-row">
             <Form.Item name="trained" valuePropName="checked">
-              <Checkbox>Trained</Checkbox>
+              <Checkbox>{text.trained}</Checkbox>
             </Form.Item>
           </div>
           <div className="form-row">
@@ -394,7 +392,7 @@ const AddUser = () => {
             >
               <Select
                 getPopupContainer={(trigger) => trigger.parentNode}
-                placeholder="Select one.."
+                placeholder={`${text.selectOne}..`}
                 onChange={onRoleChange}
               >
                 {allowedRoles.map((r, ri) => (
@@ -413,11 +411,11 @@ const AddUser = () => {
           </div>
           {(role === 3 || role === 5) && (
             <div className="form-row">
-              <Form.Item label="Administration Level">
+              <Form.Item label={text.adminLevel}>
                 <Select
                   value={level}
                   getPopupContainer={(trigger) => trigger.parentNode}
-                  placeholder="Select one.."
+                  placeholder={`${text.selectOne}..`}
                   onChange={onLevelChange}
                 >
                   {allowedLevels.map((l, li) => (
@@ -427,16 +425,14 @@ const AddUser = () => {
                   ))}
                 </Select>
                 {levelError && (
-                  <div className="text-error">
-                    Please select an administration level
-                  </div>
+                  <div className="text-error">{text.valAdminLevel}</div>
                 )}
               </Form.Item>
             </div>
           )}
           {([2, 4].includes(role) || ([3, 5].includes(role) && level > 1)) && (
             <div className="form-row-adm">
-              <h3>Administration</h3>
+              <h3>{text.administration}</h3>
               {!!adminError && <div className="text-error">{adminError}</div>}
               <AdministrationDropdown
                 direction="vertical"
@@ -463,7 +459,7 @@ const AddUser = () => {
                 valuePropName="checked"
                 onChange={(e) => setNationalApprover(e.target.checked)}
               >
-                <Checkbox>National Approver</Checkbox>
+                <Checkbox>{text.nationalApprover}</Checkbox>
               </Form.Item>
             </div>
           )}
@@ -472,9 +468,11 @@ const AddUser = () => {
               {loadingForm || loading ? (
                 <>
                   <div className="ant-form-item-label">
-                    <label title="Questionnaires">Questionnaires</label>
+                    <label title="Questionnaires">{text.questionnaires}</label>
                   </div>
-                  <p style={{ paddingLeft: 12, color: "#6b6b6f" }}>Loading..</p>
+                  <p
+                    style={{ paddingLeft: 12, color: "#6b6b6f" }}
+                  >{`${text.loading}..`}</p>
                 </>
               ) : (
                 <Form.Item
@@ -485,7 +483,7 @@ const AddUser = () => {
                   <Select
                     mode="multiple"
                     getPopupContainer={(trigger) => trigger.parentNode}
-                    placeholder="Select.."
+                    placeholder={`${text.select}..`}
                     allowClear
                   >
                     {allowedForms.map((f) => (
@@ -538,7 +536,7 @@ const AddUser = () => {
           <Row justify="center" align="middle">
             <Col>
               <Button className="light" onClick={onCloseModal}>
-                Cancel
+                {text.cancel}
               </Button>
             </Col>
           </Row>
