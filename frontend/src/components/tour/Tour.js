@@ -1,8 +1,9 @@
-import React, { useRef, useState, useMemo } from "react";
+import React, { useRef, useState } from "react";
 import { Button, Modal, Carousel, Row, Col, Space } from "antd";
 import { QuestionCircleOutlined } from "@ant-design/icons";
-import { store, uiText } from "../../lib";
+import { store } from "../../lib";
 import "./style.scss";
+import { getTranslation } from "../../util";
 
 const Tour = ({ steps, title = "Help" }) => {
   const [isVisible, setIsVisible] = useState(false);
@@ -10,9 +11,7 @@ const Tour = ({ steps, title = "Help" }) => {
   const cRef = useRef(null);
   const { language } = store.useState((s) => s);
   const { active: activeLang } = language;
-  const text = useMemo(() => {
-    return uiText[activeLang];
-  }, [activeLang]);
+  const text = getTranslation(activeLang, "tour");
   const handleNext = () => {
     if (current < steps.length - 1) {
       cRef.current.next();
