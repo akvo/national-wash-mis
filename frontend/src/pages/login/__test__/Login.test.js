@@ -7,6 +7,33 @@ import "@testing-library/jest-dom";
 
 jest.mock("axios");
 
+beforeAll(() => {
+  window.translations = {
+    en: {
+      page: {
+        login: {
+          welcomeBack: "Welcome back",
+          welcomeInstruction: "Please enter your account details",
+          loginBtn: "Log in",
+          emailLabel: "Email Address",
+          forgotPasswordLink: "Forgot password",
+          confirmPassword: "Confirm Password",
+          setNewPasswordBtn: "Set New Password",
+        },
+        header: {
+          signOut: "Sign Out",
+          dashboards: "Dashboards",
+          reports: "Reports",
+          newsEvents: "News & Events",
+          login: "Log in",
+          newDashboard: "New Dashboard",
+          households: "Households",
+        },
+      },
+    },
+  };
+});
+
 describe("Login and Registration", () => {
   test("test if the login form exists", () => {
     const { asFragment } = render(<TestApp />);
