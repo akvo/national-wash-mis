@@ -65,7 +65,6 @@ from api.v1.v1_data.serializers import ListFormDataRequestSerializer
 def get_data_with_category(request, version, form_id):
     data = FormData.objects.filter(form_id=form_id).values_list("pk", flat=True)
     if not len(data):
-        print(data)
         raise Http404("DataCategory does not exist")
     paginator = Paginator(data, 10)
     page = request.GET.get("page")
@@ -90,11 +89,17 @@ def get_data_with_category(request, version, form_id):
     responses={200: ListRawDataSerializer(many=True)},
     parameters=[
         OpenApiParameter(
+            name="page",
+            required=True,
+            type=OpenApiTypes.NUMBER,
+            location=OpenApiParameter.QUERY,
+        ),
+        OpenApiParameter(
             name="questions",
             required=False,
             type={"type": "array", "items": {"type": "number"}},
             location=OpenApiParameter.QUERY,
-        )
+        ),
     ],
     tags=["Data Categories"],
     summary="Get Raw data points",
@@ -102,14 +107,16 @@ def get_data_with_category(request, version, form_id):
 @api_view(["GET"])
 # @permission_classes([IsAuthenticated])
 def get_raw_data_point(request, version, form_id):
-    form = get_object_or_404(Forms, pk=form_id)
     serializer = ListFormDataRequestSerializer(data=request.GET)
     if not serializer.is_valid():
         return Response(
             {"message": validate_serializers_message(serializer.errors)},
             status=status.HTTP_400_BAD_REQUEST,
         )
-    instance = form.form_form_data.order_by("-created").all()
+    instance = FormData.objects.filter(form_id=form_id).order_by("-created").all()
+    paginator = Paginator(instance, 10)
+    page = request.GET.get("page")
+    data = paginator.get_page(page)
     data = ListRawDataSerializer(
         instance=instance,
         context={"questions": serializer.validated_data.get("questions")},
@@ -134,4 +141,12 @@ def get_raw_data_point(request, version, form_id):
             d.update({"data": data_answers, "categories": category[0]["category"]})
         else:
             d.update({"data": data_answers, "categories": {}})
-    return Response(data, status=status.HTTP_200_OK)
+    return Response(
+        {
+            "current": int(page),
+            "total": instance.count(),
+            "total_page": ceil(instance.count() / 10),
+            "data": data,
+        },
+        status=status.HTTP_200_OK,
+    )
