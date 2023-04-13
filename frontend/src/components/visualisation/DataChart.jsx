@@ -1,13 +1,14 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect } from "react";
 import "./style.scss";
 import { Card, Spin } from "antd";
 import { LoadingOutlined, SwapOutlined } from "@ant-design/icons";
-import { api, store, uiText, queue } from "../../lib";
+import { api, store, queue } from "../../lib";
 import { useNotification } from "../../util/hooks";
 import { Chart } from "../../components";
 import PropTypes from "prop-types";
 import { Color } from "../../components/chart/options/common";
 import { generateAdvanceFilterURL } from "../../util/filter";
+import { getTranslation } from "../../util";
 
 const getOptionColor = (name, index) => {
   return (
@@ -76,9 +77,7 @@ const DataChart = ({ current, index }) => {
   const { id, title, type, stack, options, horizontal = true } = current;
 
   const { active: activeLang } = language;
-  const text = useMemo(() => {
-    return uiText[activeLang];
-  }, [activeLang]);
+  const text = getTranslation(activeLang, "charts");
 
   useEffect(() => {
     if (formId && id && runCall) {
