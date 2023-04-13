@@ -135,6 +135,14 @@ class FormSeederTestCase(TestCase):
             response["question_group"][0]["question"][2]["attributes"],
         )
         self.assertEqual(
+            1680838271308,
+            response["question_group"][0]["question"][0]["id"],
+        )
+        self.assertEqual(
+            True,
+            response["question_group"][0]["question"][0]["meta"],
+        )
+        self.assertEqual(
             "Localisation",
             response["question_group"][0]["question"][0]["name"],
         )
