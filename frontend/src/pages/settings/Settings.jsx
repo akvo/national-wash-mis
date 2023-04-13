@@ -1,25 +1,33 @@
 /* TODO: DELETE COMPLETELY */
-import React, { useMemo } from "react";
+import React from "react";
 import "./style.scss";
 import { Row, Col, Card, Button, Divider } from "antd";
-import { store, config, uiText } from "../../lib";
+import { store, config } from "../../lib";
 import { Link } from "react-router-dom";
 import { Breadcrumbs, DescriptionPanel } from "../../components";
+import { getTranslation } from "../../util";
 
 const Settings = () => {
   const { user: authUser } = store.useState((s) => s);
   const { language } = store.useState((s) => s);
   const { active: activeLang } = language;
-  const text = useMemo(() => {
-    return uiText[activeLang];
-  }, [activeLang]);
+  const text = getTranslation(activeLang, "settings");
 
   const panels = [
     {
-      title: text.orgPanelTitle,
-      buttonLabel: text.orgPanelButton,
+      title: text.manageOrgTitle,
+      buttonLabel: text.manageOrgButton,
       access: "organisation",
-      description: <div>{text.orgPanelText}</div>,
+      description: (
+        <div>
+          {text.thisIsWhereYou}
+          <ul>
+            <li>{text.manageOrgDescText1}</li>
+            <li>{text.manageOrgDescText2}</li>
+            <li>{text.manageOrgDescText3}</li>
+          </ul>
+        </div>
+      ),
       link: "/organisations",
       image: "/assets/personal-information.png",
     },
@@ -35,13 +43,13 @@ const Settings = () => {
         <Breadcrumbs
           pagePath={[
             {
-              title: "System Settings",
+              title: text.pageTitle,
               link: "/settings",
             },
           ]}
         />
       </Row>
-      <DescriptionPanel description={text.settingsDescriptionPanel} />
+      <DescriptionPanel description={text.pageDescription} />
       <Divider />
       <Row gutter={[16, 16]}>
         {selectedPanels.map((panel, index) => (
