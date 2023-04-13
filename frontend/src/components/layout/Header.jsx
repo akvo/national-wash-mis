@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Row, Col, Space, Button, Menu, Dropdown } from "antd";
-import { UserOutlined, DownOutlined } from "@ant-design/icons";
+import { UserOutlined, CaretDownOutlined } from "@ant-design/icons";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { config, store } from "../../lib";
 import { eraseCookieFromAllPaths } from "../../util/date";
@@ -203,9 +203,13 @@ const Header = ({ className = "header", ...props }) => {
               )}
             </div>
             <Dropdown overlay={langMenu}>
-              <Button size="small">
+              <Button
+                type="secondary"
+                size="small"
+                className="language-switcher"
+              >
                 <Space>
-                  {activeLang} <DownOutlined />
+                  {activeLang} <CaretDownOutlined />
                 </Space>
               </Button>
             </Dropdown>
