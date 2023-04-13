@@ -7,7 +7,7 @@ import {
   ClockCircleOutlined,
 } from "@ant-design/icons";
 
-export const columnsApproval = [
+export const columnsApproval = (text) => [
   {
     title: "",
     dataIndex: "id",
@@ -16,7 +16,7 @@ export const columnsApproval = [
     render: () => <InfoCircleOutlined />,
   },
   {
-    title: "Submission",
+    title: text?.submissionCol,
     dataIndex: "name",
     key: "name",
     width: "20%",
@@ -30,29 +30,29 @@ export const columnsApproval = [
     ),
   },
   {
-    title: "Form",
+    title: text?.formCol,
     dataIndex: "form",
     key: "form",
     render: (form) => form.name,
   },
   {
-    title: "Date",
+    title: text?.dateCol,
     dataIndex: "created",
     key: "created",
   },
   {
-    title: "Submitter",
+    title: text?.submitterCol,
     dataIndex: "created_by",
     key: "created_by",
   },
   {
-    title: "Location",
+    title: text?.locationCol,
     dataIndex: "administration",
     key: "administration",
     render: (administration) => administration.name,
   },
   {
-    title: "Status",
+    title: text?.statusCol,
     dataIndex: "approver",
     key: "approver",
     render: ({ status_text }) => (
@@ -81,13 +81,13 @@ export const columnsApproval = [
     ),
   },
   {
-    title: "Waiting on",
+    title: text?.waitingOnCol,
     dataIndex: "waiting_on",
     key: "waiting_on",
     render: (_, row) => row.approver.name,
   },
   {
-    title: "Total Data",
+    title: text?.totalDataCol,
     dataIndex: "total_data",
     key: "total_data",
   },
