@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect } from "react";
 import { Table, Tabs, Button, Space, Tag, List, Avatar, Spin } from "antd";
 import {
   PlusSquareOutlined,
@@ -6,12 +6,13 @@ import {
   LoadingOutlined,
   HistoryOutlined,
 } from "@ant-design/icons";
-import { api, store, uiText } from "../../lib";
+import { api, store } from "../../lib";
 import { EditableCell } from "../../components";
 import { isEqual, flatten } from "lodash";
 import { useNotification } from "../../util/hooks";
 import { HistoryTable } from "../../components";
 import { columnsApprover } from "./";
+import { getTranslation } from "../../util";
 const { TabPane } = Tabs;
 
 const columnsRawData = [
@@ -92,9 +93,7 @@ const UploadDetail = ({ record, setReload }) => {
   const { user } = store.useState((state) => state);
   const { language } = store.useState((s) => s);
   const { active: activeLang } = language;
-  const text = useMemo(() => {
-    return uiText[activeLang];
-  }, [activeLang]);
+  const text = getTranslation(activeLang, "submission");
 
   const handleSave = (data) => {
     setSaving(data.id);
@@ -385,7 +384,7 @@ const UploadDetail = ({ record, setReload }) => {
                               />
                             }
                           />
-                          <span>Loading..</span>
+                          <span>{text.loading}..</span>
                         </Space>
                       ) : (
                         <div className={`pending-data-outer`}>
