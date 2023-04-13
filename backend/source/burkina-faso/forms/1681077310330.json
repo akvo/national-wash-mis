@@ -1,0 +1,2607 @@
+{
+    "id": 1681077310330,
+    "form": "Health facility questionnaire",
+    "type": 1,
+    "languages": [
+        "en",
+        "fr"
+    ],
+    "defaultLanguage": "en",
+    "translations": [
+        {
+            "language": "fr",
+            "name": "Enquete-centre de sante"
+        }
+    ],
+    "question_groups": [
+        {
+            "id": 1681077310331,
+            "question_group": "Localisation",
+            "order": 1,
+            "repeatable": false,
+            "questions": [
+                {
+                    "id": 1681077310332,
+                    "order": 1,
+                    "questionGroupId": 1681077310331,
+                    "question": "Locality",
+                    "type": "cascade",
+                    "required": true,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Localité"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681078638639,
+                    "order": 2,
+                    "questionGroupId": 1681077310331,
+                    "question": "Village",
+                    "type": "text",
+                    "required": true,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Village"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681078669770,
+                    "order": 3,
+                    "questionGroupId": 1681077310331,
+                    "question": "Sector/district",
+                    "type": "text",
+                    "required": true,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Secteur/Quartier"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681078695059,
+                    "order": 4,
+                    "questionGroupId": 1681077310331,
+                    "question": "GPS coordinates of the Health Center",
+                    "type": "geo",
+                    "required": true,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Coordonnee GPS du centre de Santé"
+                        }
+                    ]
+                }
+            ],
+            "translations": [
+                {
+                    "language": "fr",
+                    "name": "Localisation"
+                }
+            ]
+        },
+        {
+            "id": 1681078759978,
+            "question_group": "Consent",
+            "order": 2,
+            "repeatable": false,
+            "questions": [
+                {
+                    "id": 1681078759979,
+                    "order": 1,
+                    "questionGroupId": 1681078759978,
+                    "question": "We carry out this interview to better understand the situation in terms of information and prevention on the COVVI-19 in your area. Do you willing to participate to participate?",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Nous réalisons cet entretien pour mieux comprendre la situation en matière d’information et de prévention sur la COVID-19 dans votre zone.Acceptez vous volontier de participer?"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681078772186,
+                            "code": null,
+                            "name": "Yes",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Oui"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681078772187,
+                            "code": null,
+                            "name": "No",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Non"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "translations": [
+                {
+                    "language": "fr",
+                    "name": "Consentement"
+                }
+            ]
+        },
+        {
+            "id": 1681078366616,
+            "question_group": "General Information",
+            "order": 3,
+            "repeatable": false,
+            "questions": [
+                {
+                    "id": 1681078366617,
+                    "order": 1,
+                    "questionGroupId": 1681078366616,
+                    "question": "Type of health center",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Type de centre de santé"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681078832953,
+                            "code": null,
+                            "name": "CSPS",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "CSPS"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681078832954,
+                            "code": null,
+                            "name": "CM",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "CM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681078863100,
+                            "code": null,
+                            "name": "CMA",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "CMA"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681078864537,
+                            "code": null,
+                            "name": "CHR",
+                            "order": 4,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "CHR"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681078865770,
+                            "code": null,
+                            "name": "AN",
+                            "order": 5,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "CHU"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681078887561,
+                            "code": null,
+                            "name": "Maternity",
+                            "order": 6,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Maternité"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681078896488,
+                            "code": null,
+                            "name": "Dispensary",
+                            "order": 7,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Dispensaire"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681078897670,
+                            "code": null,
+                            "name": "Other",
+                            "order": 8,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Autre"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681078936153,
+                    "order": 2,
+                    "questionGroupId": 1681078366616,
+                    "question": "Other to specify",
+                    "type": "text",
+                    "required": false,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681078366617,
+                            "options": [
+                                "Other"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Autre à spécifier"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681078957723,
+                    "order": 3,
+                    "questionGroupId": 1681078366616,
+                    "question": "What is the name of the health center?",
+                    "type": "text",
+                    "required": true,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Quelle est le nom du centre de santé ?"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681078977474,
+                    "order": 4,
+                    "questionGroupId": 1681078366616,
+                    "question": "Last name and first name of the respondent",
+                    "type": "text",
+                    "required": true,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Nom et prénom du répondant"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681079007174,
+                    "order": 5,
+                    "questionGroupId": 1681078366616,
+                    "question": "Sex of the respondent",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Sexe du répondant"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681079020094,
+                            "code": null,
+                            "name": "Male",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Masculin"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681079020095,
+                            "code": null,
+                            "name": "Female",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Feminin"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681079044667,
+                    "order": 6,
+                    "questionGroupId": 1681078366616,
+                    "question": "Title/responsibility of the respondent in the health center",
+                    "type": "text",
+                    "required": false,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Titre/responsabilité du répondant dans le centre de santé"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681079072163,
+                    "order": 7,
+                    "questionGroupId": 1681078366616,
+                    "question": "In what year did you take service in the health center",
+                    "type": "text",
+                    "required": false,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "En quelle année avez-vous pris service dans le centre de santé"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681079103174,
+                    "order": 8,
+                    "questionGroupId": 1681078366616,
+                    "question": "Telephone number",
+                    "type": "text",
+                    "required": true,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Numéro de téléphone"
+                        }
+                    ]
+                }
+            ],
+            "translations": [
+                {
+                    "language": "fr",
+                    "name": "Information Generales"
+                }
+            ]
+        },
+        {
+            "id": 1681078454619,
+            "question_group": "Water",
+            "order": 4,
+            "repeatable": false,
+            "questions": [
+                {
+                    "id": 1681078454620,
+                    "order": 1,
+                    "questionGroupId": 1681078454619,
+                    "question": "What is the main source of water supply from the health center?",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Quelle est la principale source d’approvisionnement en eau du centre de santé ?"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681079174738,
+                            "code": "B14A",
+                            "name": "Private connection",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Branchement ONEA"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681079174739,
+                            "code": "B14B",
+                            "name": "Borehole",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Forage"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681079210872,
+                            "code": "B14C",
+                            "name": "Modern well",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Puits Moderne"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681079212174,
+                            "code": "B14D",
+                            "name": "Traditional well",
+                            "order": 4,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Puits Traditionnel"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681079213625,
+                            "code": "B14E",
+                            "name": "Protected source",
+                            "order": 5,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Source protégée"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681079214692,
+                            "code": "B14F",
+                            "name": "Unprotected source",
+                            "order": 6,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Source non protégée"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681079215840,
+                            "code": "B14G",
+                            "name": "Rainwater",
+                            "order": 7,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Eaux de pluie"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681079216674,
+                            "code": "B14H",
+                            "name": "Tanker",
+                            "order": 8,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Camion-citerne"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681079258425,
+                            "code": "B14I",
+                            "name": "Standpipe",
+                            "order": 9,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Borne Fontaine"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681079259575,
+                            "code": "B14J",
+                            "name": "Surface water (river/lake/canal)",
+                            "order": 10,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Eaux de surface (rivière/lac/canal)"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681079280208,
+                            "code": "B14K",
+                            "name": "Autonomous Water Supply Post",
+                            "order": 11,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Poste d'Eau Autonome(PEA)"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681079288918,
+                            "code": "B14L",
+                            "name": "No source of water",
+                            "order": 12,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Aucune source d’eau"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681079291708,
+                            "code": "B14M",
+                            "name": "Other",
+                            "order": 13,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Autre"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681079313450,
+                    "order": 2,
+                    "questionGroupId": 1681078454619,
+                    "question": "Other to specify",
+                    "type": "text",
+                    "required": false,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681078454620,
+                            "options": [
+                                "Protected source"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Autre à spécifier"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681079350561,
+                    "order": 3,
+                    "questionGroupId": 1681078454619,
+                    "question": "Is the main source of water supply located on site?",
+                    "type": "option",
+                    "required": false,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "La principale source d’approvisionnement en eau est située sur place ?"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681079358269,
+                            "code": "B16A",
+                            "name": "Yes",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Oui"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681079358270,
+                            "code": "B16B",
+                            "name": "No",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Non"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681079365626,
+                            "code": "B16C",
+                            "name": "Don't know",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Ne sait pas"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681079440730,
+                    "order": 4,
+                    "questionGroupId": 1681078454619,
+                    "question": "At what distance (meter) is the main source of water supply from the health center?",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681079350561,
+                            "options": [
+                                "No"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "A quelle distance (mètre) se trouve la principale source d'approvisionnement en eau du centre de santé ?"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681081177832,
+                            "code": "B17A",
+                            "name": "Within a radius of 500 m",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Dans un rayon de 500 m"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681081177833,
+                            "code": "B17B",
+                            "name": "Over 500 m",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Plus de 500 m"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681081264176,
+                    "order": 5,
+                    "questionGroupId": 1681078454619,
+                    "question": "Is water currently available to the main supply point at the time of the survey?",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "L’eau est-elle actuellement disponible au point principal d’approvisionnement au moment de l’enquête?"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681081272314,
+                            "code": "B18A",
+                            "name": "Yes",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Oui"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681081272315,
+                            "code": "B18B",
+                            "name": "No",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Non"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681081300267,
+                    "order": 6,
+                    "questionGroupId": 1681078454619,
+                    "question": "If not why?",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681081264176,
+                            "options": [
+                                "No"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Si Non pourquoi ?"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681081328708,
+                            "code": null,
+                            "name": "Broken-down",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "En panne"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681081328709,
+                            "code": null,
+                            "name": "Abandoned",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Abandonné"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681081418118,
+                    "order": 7,
+                    "questionGroupId": 1681078454619,
+                    "question": "Water is it sufficient?",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Eau est elle suffisante ?"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681081430289,
+                            "code": null,
+                            "name": "Yes",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Oui"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681081430290,
+                            "code": null,
+                            "name": "No",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Non"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681081454185,
+                    "order": 8,
+                    "questionGroupId": 1681078454619,
+                    "question": "Hygian around the water point (observation)",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Hygienne autour du Point d'Eau (Observation)"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681081460487,
+                            "code": null,
+                            "name": "Own",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Propre"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681081460488,
+                            "code": null,
+                            "name": "Average",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Moyen"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681081476350,
+                            "code": null,
+                            "name": "Sale",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Sale"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681081499611,
+                    "order": 9,
+                    "questionGroupId": 1681078454619,
+                    "question": "Photo of the main source of water supply from the health center",
+                    "type": "text",
+                    "required": false,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Photo de la principale source d'approvisionnement en eau du centre de santé"
+                        }
+                    ]
+                }
+            ],
+            "translations": [
+                {
+                    "language": "fr",
+                    "name": "Eau"
+                }
+            ]
+        },
+        {
+            "id": 1681078512667,
+            "question_group": "Sanitation",
+            "order": 5,
+            "repeatable": false,
+            "questions": [
+                {
+                    "id": 1681078512668,
+                    "order": 1,
+                    "questionGroupId": 1681078512667,
+                    "question": "Type of toilets/latrines",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Type de toilettes/latrines"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681088421339,
+                            "code": "B24A",
+                            "name": "Manual or mechanical flush toilets connected to the sewer network",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Toilettes à chasse d’eau manuelle ou mécanique raccordées au réseau d’égouts"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681088421340,
+                            "code": "B24B",
+                            "name": "Manual or mechanical flush toilets connected to a pit",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Toilettes à chasse d’eau manuelle ou mécanique raccordées à une fosse"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681088441481,
+                            "code": "B24C",
+                            "name": "Manual or mechanical flush toilets connected to open pipes",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Toilettes à chasse d’eau manuelle ou mécanique raccordées à des canalisations ouvertes"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681088450342,
+                            "code": "B24D",
+                            "name": "Latrines Vip Simple Fosse",
+                            "order": 4,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Latrines VIP simple fosse"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681088465542,
+                            "code": "B24E",
+                            "name": "Latrines VIP double fosse",
+                            "order": 5,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Latrines VIP double fosse"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681088477311,
+                            "code": "B24F",
+                            "name": "Latrines ECOSAN",
+                            "order": 6,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Latrines ECOSAN"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681088485342,
+                            "code": "B24G",
+                            "name": "Latrines SANPLAT",
+                            "order": 7,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Latrines SANPLAT"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681088492944,
+                            "code": "B24H",
+                            "name": "Traditional latrines with concrete slab",
+                            "order": 8,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Latrines traditionnelle avec dalle en béton"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681088519995,
+                            "code": "B24I",
+                            "name": "Traditional latrines without concrete slab",
+                            "order": 9,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Latrines traditionnelle sans dalle à béton"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681088527391,
+                            "code": "B24J",
+                            "name": "Other",
+                            "order": 10,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Autre"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681088530826,
+                            "code": "B24K",
+                            "name": "No toiets",
+                            "order": 11,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Aucune toiette"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681088549506,
+                    "order": 2,
+                    "questionGroupId": 1681078512667,
+                    "question": "Other to be specified",
+                    "type": "text",
+                    "required": true,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681078512668,
+                            "options": [
+                                "Other"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Autre à préciser"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681088577179,
+                    "order": 3,
+                    "questionGroupId": 1681078512667,
+                    "question": "Where do agents and patients relieve themselves?",
+                    "type": "text",
+                    "required": true,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681078512668,
+                            "options": [
+                                "No toiets"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Où est ce que les agents et les patients se soulagent?"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681088728738,
+                    "order": 4,
+                    "questionGroupId": 1681078512667,
+                    "question": "Are there agents or patients who relieve free lair?",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681078512668,
+                            "options": [
+                                "Manual or mechanical flush toilets connected to the sewer network",
+                                "Manual or mechanical flush toilets connected to a pit",
+                                "Manual or mechanical flush toilets connected to open pipes"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Y'a t'il des agents ou patients qui se soulagent à lair libre?"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681088749941,
+                            "code": null,
+                            "name": "Yes",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Oui"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681088749942,
+                            "code": null,
+                            "name": "No",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Non"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681088845898,
+                    "order": 5,
+                    "questionGroupId": 1681078512667,
+                    "question": "What is the percentage?",
+                    "type": "number",
+                    "required": true,
+                    "meta": false,
+                    "rule": {
+                        "allowDecimal": true
+                    },
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Quel est le pourcentage?"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681089528621,
+                    "order": 6,
+                    "questionGroupId": 1681078512667,
+                    "question": "Book functionality",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681078512668,
+                            "options": [
+                                "Manual or mechanical flush toilets connected to the sewer network",
+                                "Manual or mechanical flush toilets connected to a pit",
+                                "Manual or mechanical flush toilets connected to open pipes"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Fonctionnalité de l'ouvrage"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681089563667,
+                            "code": "B29A",
+                            "name": "Fully functional",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Totalement fonctionnel"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681089563668,
+                            "code": "B29B",
+                            "name": "Partially functional",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Partiellement fonctionnel"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681089575488,
+                            "code": "B29C",
+                            "name": "Broken-down",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "En panne"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681089580771,
+                            "code": "B29D",
+                            "name": "Abandoned",
+                            "order": 4,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Abandonné"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681089585983,
+                            "code": "B29E",
+                            "name": "Full",
+                            "order": 5,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Pleine"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681089641512,
+                    "order": 7,
+                    "questionGroupId": 1681078512667,
+                    "question": "Number of toilets/cabins usable in the health center",
+                    "type": "number",
+                    "required": true,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681089528621,
+                            "options": [
+                                "Fully functional"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Nombre de toilettes/cabines utilisables dans le centre de santé"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681089690924,
+                    "order": 8,
+                    "questionGroupId": 1681078512667,
+                    "question": "Is there an access ramp to the toilet?",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681078512668,
+                            "options": [
+                                "Manual or mechanical flush toilets connected to the sewer network",
+                                "Manual or mechanical flush toilets connected to a pit",
+                                "Manual or mechanical flush toilets connected to open pipes"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Existe t'il une rampe d’accès aux toilettes?"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681089700243,
+                            "code": "B31A",
+                            "name": "Yes",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Oui"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681089700244,
+                            "code": "B31B",
+                            "name": "No",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Non"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681089804947,
+                    "order": 9,
+                    "questionGroupId": 1681078512667,
+                    "question": "Are there separate toilets for staff and patients",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681078512668,
+                            "options": [
+                                "Manual or mechanical flush toilets connected to the sewer network",
+                                "Manual or mechanical flush toilets connected to a pit",
+                                "Manual or mechanical flush toilets connected to open pipes"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Existe t'il des toilettes séparées pour le personnel et les patients"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681089812207,
+                            "code": null,
+                            "name": "Yes",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Oui"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681089812208,
+                            "code": null,
+                            "name": "No",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Non"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681094634451,
+                    "order": 10,
+                    "questionGroupId": 1681078512667,
+                    "question": "Are there separate toilets for men and women patients",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Existe t'il des toilettes séparées pour les patients hommes et femmes"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681094655985,
+                            "code": "B33A",
+                            "name": "Yes",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Oui"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681094655986,
+                            "code": "B33B",
+                            "name": "No",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Non"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681089868812,
+                    "order": 11,
+                    "questionGroupId": 1681078512667,
+                    "question": "Are the toilets reserved for women equipped with menstrual hygiene management devices?",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681094634451,
+                            "options": [
+                                "Yes"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Les toilettes réservées aux femmes sont-elles équipées de dispositifs de gestion de l’hygiène menstruelle?"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681089887788,
+                            "code": "B34A",
+                            "name": "Yes",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Oui"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681089887789,
+                            "code": "B34B",
+                            "name": "No",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Non"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681090041682,
+                    "order": 12,
+                    "questionGroupId": 1681078512667,
+                    "question": "What?",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681089868812,
+                            "options": [
+                                "Yes"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Les quelles?"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681090058222,
+                            "code": "B35A",
+                            "name": "Bin with lid",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Poubelle avec couvercle"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681090058223,
+                            "code": "B35B",
+                            "name": "Water",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Eau"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681090077949,
+                            "code": "B35C",
+                            "name": "Savon",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Savon"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681090148093,
+                    "order": 13,
+                    "questionGroupId": 1681078512667,
+                    "question": "Is there a toilet reserved for people with reduced mobility?",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Existe t'il une toilette réservée aux personnes à mobilité réduite ?"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681090154409,
+                            "code": null,
+                            "name": "Yes",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Oui"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681090154410,
+                            "code": null,
+                            "name": "No",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Non"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681090177120,
+                    "order": 14,
+                    "questionGroupId": 1681078512667,
+                    "question": "Hygian around the latrines (observation)",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Hygienne autour des latrines (Observation)"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681090217369,
+                            "code": null,
+                            "name": "Own",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Propre"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681090217370,
+                            "code": null,
+                            "name": "Average",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Moyen"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681090234029,
+                            "code": null,
+                            "name": "Sale",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Sale"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681090293738,
+                    "order": 15,
+                    "questionGroupId": 1681078512667,
+                    "question": "Photo of the sanitation work (toilet) used in the health center",
+                    "type": "text",
+                    "required": false,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681089804947,
+                            "options": [
+                                "No"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Photo de l'ouvrage d'assainissement (toilette) utilisé dans le centre de santé"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681090322165,
+                    "order": 16,
+                    "questionGroupId": 1681078512667,
+                    "question": "Photo of the sanitation work (toilet) used by the staff",
+                    "type": "text",
+                    "required": false,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681089804947,
+                            "options": [
+                                "Yes"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Photo de l'ouvrage d'assainissement (toilette) utilisé par le personnel"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681090381432,
+                    "order": 17,
+                    "questionGroupId": 1681078512667,
+                    "question": "Photo of the sanitation work (toilet) used by patients",
+                    "type": "text",
+                    "required": false,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681089804947,
+                            "options": [
+                                "Yes"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Photo de l'ouvrage d'assainissement (toilette) utilisé par les patients"
+                        }
+                    ]
+                }
+            ],
+            "translations": [
+                {
+                    "language": "fr",
+                    "name": "Assainissement"
+                }
+            ]
+        },
+        {
+            "id": 1681078526083,
+            "question_group": "Hygiene",
+            "order": 6,
+            "repeatable": false,
+            "questions": [
+                {
+                    "id": 1681078526084,
+                    "order": 1,
+                    "questionGroupId": 1681078526083,
+                    "question": "Are there installations for hand hygiene in working order at the care service on the day of the survey?",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Y a-t-il des installations pour l’hygiène des mains en état de marche aux points de prestation de soins le jour de l’enquête ?"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681090500235,
+                            "code": "B41A",
+                            "name": "Yes",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Oui"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681090500236,
+                            "code": "B41B",
+                            "name": "No",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Non"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681090548597,
+                    "order": 2,
+                    "questionGroupId": 1681078526083,
+                    "question": "Hand hygiene installations in working order at the care service on the day of the survey include water?",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681078526084,
+                            "options": [
+                                "Yes"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Les installations pour l’hygiène des mains en état de marche aux points de prestation de soins le jour de l’enquête comporte t'il de l'eau ?"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681090555998,
+                            "code": "B42A",
+                            "name": "Yes",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Oui"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681090555999,
+                            "code": "B42B",
+                            "name": "No",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Non"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681090593818,
+                    "order": 3,
+                    "questionGroupId": 1681078526083,
+                    "question": "Hand hygiene installations in working order at the care service on the day of the survey include soap?",
+                    "type": "option",
+                    "required": false,
+                    "meta": false,
+                    "allowOther": true,
+                    "dependency": [
+                        {
+                            "id": 1681078526084,
+                            "options": [
+                                "Yes"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Les installations pour l’hygiène des mains en état de marche aux points de prestation de soins le jour de l’enquête comporte t'il du Savon ?"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681090611349,
+                            "code": "B43A",
+                            "name": "Yes",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Oui"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681090611350,
+                            "code": "B43B",
+                            "name": "No",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Non"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681090638903,
+                    "order": 4,
+                    "questionGroupId": 1681078526083,
+                    "question": "Is there a functional hand washing facility in one or more toilets on the day of the survey?",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Existe t'il un Dispositif de Lave Main (DLM) en état de marche dans une ou plusieurs toilettes le jour de l’enquête ?"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681090668531,
+                            "code": "B44A",
+                            "name": "Yes",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Oui"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681090668532,
+                            "code": "B44B",
+                            "name": "No",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Non"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681090690169,
+                    "order": 5,
+                    "questionGroupId": 1681078526083,
+                    "question": "Is there currently water at the hand washing facility?",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681090638903,
+                            "options": [
+                                "Yes"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Existe t'il actuellement de l'eau au niveau du DLM ?"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681090696181,
+                            "code": "B45A",
+                            "name": "Yes",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Oui"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681090696182,
+                            "code": "B45B",
+                            "name": "No",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Non"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681090786071,
+                    "order": 6,
+                    "questionGroupId": 1681078526083,
+                    "question": "Are there currently soap at at the hand washing facility ?",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681090638903,
+                            "options": [
+                                "Yes"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Existe t'il actuellement du savon au niveau du DLM?"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681090794097,
+                            "code": "B46A",
+                            "name": "Yes",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Oui"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681090794098,
+                            "code": "B46B",
+                            "name": "No",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Non"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681090847839,
+                    "order": 7,
+                    "questionGroupId": 1681078526083,
+                    "question": "At what distance is the the hand washing facility  of the toilet?",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681090638903,
+                            "options": [
+                                "Yes"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "A quelle distance se trouve le DLM de la toilette ?"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681090877538,
+                            "code": "B47A",
+                            "name": "Within a 5 m radius of the toilet",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Dans un rayon de 5 m des toilettes"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681090877539,
+                            "code": "B47B",
+                            "name": "More than 5 m from the toilet",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "A plus de 5 m des toilettes"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681090938406,
+                    "order": 8,
+                    "questionGroupId": 1681078526083,
+                    "question": "When will you wash your hands?",
+                    "type": "text",
+                    "required": false,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "A quel moment lavez-vous les mains?"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681090968257,
+                    "order": 9,
+                    "questionGroupId": 1681078526083,
+                    "question": "When do patients/guides wash their hands?",
+                    "type": "text",
+                    "required": false,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "A quel moment les patients/accompagnateurs lavent-ils leurs mains?"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681091038710,
+                    "order": 10,
+                    "questionGroupId": 1681078526083,
+                    "question": "Photo of the hand washing facility",
+                    "type": "text",
+                    "required": false,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681090638903,
+                            "options": [
+                                "Yes"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Photo du DLM"
+                        }
+                    ]
+                }
+            ],
+            "translations": [
+                {
+                    "language": "fr",
+                    "name": "Hygiene"
+                }
+            ]
+        },
+        {
+            "id": 1681078582118,
+            "question_group": "Management of biomedical waste",
+            "order": 7,
+            "repeatable": false,
+            "questions": [
+                {
+                    "id": 1681078582119,
+                    "order": 1,
+                    "questionGroupId": 1681078582118,
+                    "question": "The sharp and sharp, infectious and general waste is sorted and distributed safely in at least three trash cans labeled in the consultation area?",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Les déchets pointus et tranchants, infectieux et généraux sont triés et répartis en toute sécurité dans au moins trois poubelles étiquetées dans la zone de consultation ?"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681091108530,
+                            "code": "B51A",
+                            "name": "Yes",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Oui"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681091108531,
+                            "code": "B51B",
+                            "name": "Only part only (the trash cans are full, contain other waste, or there is only one or two)",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "En partie seulement (les poubelles sont pleines, contiennent d’autres déchets, ou il n’y en a qu’une ou deux)"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681091152528,
+                            "code": "B51C",
+                            "name": "No",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Non"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681091176454,
+                    "order": 2,
+                    "questionGroupId": 1681078582118,
+                    "question": "How does the establishment proceed to the treatment/elimination of sharp and sharp waste?",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Comment l’établissement procède-t-il au traitement/à l’élimination des déchets pointus et tranchants ?"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681091202333,
+                            "code": "B52A",
+                            "name": "Autoclavage",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Autoclavage"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681091202334,
+                            "code": "B52B",
+                            "name": "Burning in a protected pit",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Brûlage dans une fosse protégée"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681091223232,
+                            "code": "B52C",
+                            "name": "Incineration (2 bedrooms, 850–1,000 ° C)",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Incinération (2 chambres, 850–1 000 °C)"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681091229544,
+                            "code": "B52D",
+                            "name": "Incineration (other)",
+                            "order": 4,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Incinération (autre)"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681091231792,
+                            "code": "B52E",
+                            "name": "No treatment, but buried in a protected pit provided for this purpose",
+                            "order": 5,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Pas de traitement, mais enfouis dans une fosse protégée prévue à cet effet"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681091255309,
+                            "code": "B52F",
+                            "name": "No treatment, but collection for out -of -site elimination",
+                            "order": 6,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Pas de traitement, mais collecte pour élimination hors site"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681091256625,
+                            "code": "B52G",
+                            "name": "No treatment and waste is thrown with general waste",
+                            "order": 7,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Pas de traitement et les déchets sont jetés avec les déchets généraux"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681091257792,
+                            "code": "B52H",
+                            "name": "Treatment in the open air without treatment",
+                            "order": 8,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Dépôt à l’air libre sans traitement"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681091297320,
+                            "code": "B52I",
+                            "name": "Open air burning",
+                            "order": 9,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Brûlage à l’air libre"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681091299242,
+                            "code": "B52J",
+                            "name": "Other",
+                            "order": 10,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Autre"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681091544582,
+                    "order": 3,
+                    "questionGroupId": 1681078582118,
+                    "question": "Other (specify)",
+                    "type": "text",
+                    "required": true,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681091176454,
+                            "options": [
+                                "Other"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Autre (préciser)"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681091626938,
+                    "order": 4,
+                    "questionGroupId": 1681078582118,
+                    "question": "How is the treatment/elimination of infectious waste?",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Comment se fait le traitement/élimination des déchets infectieux ?"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681091634129,
+                            "code": "B54A",
+                            "name": "Autoclavage",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Autoclavage"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681091634130,
+                            "code": "B54B",
+                            "name": "Incineration (2 bedrooms, 850–1,000 ° C)",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Incinération (2 chambres, 850–1 000 °C)"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681091669279,
+                            "code": "B54C",
+                            "name": "Incineration (other)",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Incinération (autre)"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681091680455,
+                            "code": "B54D",
+                            "name": "Burning in a protected pit",
+                            "order": 4,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Brûlage dans une fosse protégée"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681091689722,
+                            "code": "B54E",
+                            "name": "No treatment, but buried in a protected pit provided for this purpose",
+                            "order": 5,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Pas de traitement, mais enfouis dans une fosse protégée prévue à cet effet"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681091692944,
+                            "code": "B54F",
+                            "name": "No treatment, but collection for out -of -site elimination",
+                            "order": 6,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Pas de traitement, mais collecte pour élimination hors site"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681091701607,
+                            "code": "B54G",
+                            "name": "Air-free deposit, without treatment",
+                            "order": 7,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Dépôt à l’air libre, sans traitement"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681091717343,
+                            "code": "B54H",
+                            "name": "Open air burning",
+                            "order": 8,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Brûlage à l’air libre"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681091734306,
+                            "code": "B54I",
+                            "name": "No treatment and waste is thrown with general waste",
+                            "order": 9,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Pas de traitement et les déchets sont jetés avec les déchets généraux"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681091742970,
+                            "code": "B54J",
+                            "name": "other (explain, list,)",
+                            "order": 10,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Autre (préciser)"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "translations": [
+                {
+                    "language": "fr",
+                    "name": "Gestion Des Dechets Biomedicaux"
+                }
+            ]
+        },
+        {
+            "id": 1681078583918,
+            "question_group": "Environmental cleaning",
+            "order": 8,
+            "repeatable": false,
+            "questions": [
+                {
+                    "id": 1681078583919,
+                    "order": 1,
+                    "questionGroupId": 1681078583918,
+                    "question": "Are there cleaning protocols?",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Existe-t-il des protocoles de nettoyage?"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681091829281,
+                            "code": "B55A",
+                            "name": "Yes",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Oui"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681091829282,
+                            "code": "B55B",
+                            "name": "No",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Non"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681091866178,
+                    "order": 2,
+                    "questionGroupId": 1681078583918,
+                    "question": "Have all staff members who have to pay cleaning tasks under training?",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Tous les membres du personnel devant s’acquitter de tâches de nettoyage ont-ils suivi une formation ?"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681091876157,
+                            "code": "B56A",
+                            "name": "Yes, they have all undergone training",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Oui, ils ont tous suivi une formation."
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681091876158,
+                            "code": "B56B",
+                            "name": "No, some have undergone training but not all",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Non, certains ont suivi une formation mais pas tous."
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681091903342,
+                            "code": "B56C",
+                            "name": "No, none has undergone training",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Non, aucun n’a suivi de formation"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681096010682,
+                            "code": "B56D",
+                            "name": "No, no staff should perform cleaning duties",
+                            "order": 4,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Non, aucun membre du personnel ne doit accomplir des tâches de nettoyage"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "translations": [
+                {
+                    "language": "fr",
+                    "name": "Nettoyage de le'environnement"
+                }
+            ]
+        }
+    ]
+}

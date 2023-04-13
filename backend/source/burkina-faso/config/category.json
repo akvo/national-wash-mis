@@ -1,0 +1,95 @@
+[
+  {
+    "name": "Sanitation",
+    "form": 533560002,
+    "categories": [
+      {
+        "name": "Basic",
+        "questions": [
+          {
+            "id": 611790061,
+            "name": "Health Facility has Toilet",
+            "options": ["Yes"],
+            "else": {
+              "name": "No Service"
+            }
+          },
+          {
+            "id": 530250002,
+            "name": "Usablility of the toilets",
+            "options": ["Yes"],
+            "else": {
+              "name": "No Service"
+            }
+          },
+          {
+            "id": 555370004,
+            "name": "Toilet Type",
+            "options": [
+              "Flush / Pour-flush toilet",
+              "VIP latrine",
+              "Pit latrine"
+            ],
+            "else": {
+              "name": "Limited"
+            }
+          },
+          {
+            "id": 555370007,
+            "name": "Number of usable toilets",
+            "number": {
+              "greater_than": 3
+            },
+            "else": {
+              "name": "Limited"
+            }
+          },
+          {
+            "id": 555370003,
+            "name": "Gender-separated toilets",
+            "options": ["Yes"],
+            "else": {
+              "name": "Limited"
+            }
+          },
+          {
+            "id": 555370005,
+            "name": "The toilets having menstrual hygiene facilities",
+            "options": ["Yes"],
+            "else": {
+              "name": "Limited"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Hygiene",
+    "form": 533560002,
+    "categories": [
+      {
+        "name": "Basic",
+        "questions": [
+          {
+            "id": 551560007,
+            "name": "Functional hand hygiene facility availabilty",
+            "name": "Health Facility has Toilet",
+            "options": ["Yes"],
+            "else": {
+              "name": "No Service"
+            }
+          },
+          {
+            "id": 551560004,
+            "name": "Functional handwashing facility availabilty at toilets",
+            "options": ["Yes"],
+            "else": {
+              "name": "Limited"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -63,9 +63,12 @@ exports[`Login and Registration test if the login form exists: LoginPage 1`] = `
             <p
               class="contact-text"
             >
+              Having trouble accessing the platform?
               <a
                 href="#"
-              />
+              >
+                Please contact
+              </a>
               .
             </p>
             <form

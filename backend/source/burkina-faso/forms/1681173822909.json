@@ -1,0 +1,3475 @@
+{
+    "id": 1681173822909,
+    "form": "Water Points questionnaire",
+    "type": 1,
+    "languages": [
+        "en",
+        "fr"
+    ],
+    "defaultLanguage": "en",
+    "translations": [
+        {
+            "language": "fr",
+            "name": "Questionnaire Points d'Eau"
+        }
+    ],
+    "question_groups": [
+        {
+            "id": 1681173822910,
+            "question_group": "Identification",
+            "order": 1,
+            "repeatable": false,
+            "questions": [
+                {
+                    "id": 1681173822911,
+                    "order": 1,
+                    "questionGroupId": 1681173822910,
+                    "question": "Localisation",
+                    "type": "cascade",
+                    "required": true,
+                    "meta": false,
+                    "variableName": "D1",
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Localisation"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681174434310,
+                    "order": 2,
+                    "questionGroupId": 1681173822910,
+                    "question": "Neighbourhood",
+                    "type": "text",
+                    "required": true,
+                    "meta": false,
+                    "variableName": "D2",
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Quartier"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681174459081,
+                    "order": 3,
+                    "questionGroupId": 1681173822910,
+                    "question": "Take the geolocation of the water point",
+                    "type": "geo",
+                    "required": true,
+                    "meta": false,
+                    "variableName": "D3",
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Prendre la geolocalisation de l'ouvrage"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681174488899,
+                    "order": 4,
+                    "questionGroupId": 1681173822910,
+                    "question": "Environment",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "variableName": "D4",
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Milieu"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681174493816,
+                            "code": null,
+                            "name": "Rural",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Rural"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681174493817,
+                            "code": null,
+                            "name": "Urban",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Urbain"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681174543028,
+                    "order": 5,
+                    "questionGroupId": 1681173822910,
+                    "question": "Name controller",
+                    "type": "text",
+                    "required": true,
+                    "meta": false,
+                    "variableName": "D5",
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Nom du contrôleur"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681174566099,
+                    "order": 6,
+                    "questionGroupId": 1681173822910,
+                    "question": "Area",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "variableName": "D6",
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Zone"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681174572597,
+                            "code": null,
+                            "name": "Planned",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Loti"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681174572598,
+                            "code": null,
+                            "name": "Unplanned",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Non loti"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681174596464,
+                    "order": 7,
+                    "questionGroupId": 1681173822910,
+                    "question": "Beneficiary",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "variableName": "D7",
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Bénéficiaire"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681174614674,
+                            "code": "",
+                            "name": "Community",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Communautaire"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681174614675,
+                            "code": "",
+                            "name": "Markets/ stations",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Marchés/ Gares"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681174638506,
+                            "code": "",
+                            "name": "Place of worship",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Lieu de culte"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681174644522,
+                            "code": "",
+                            "name": "Schools and training centers",
+                            "order": 4,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Ecoles et Centres de formation"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681174649022,
+                            "code": "",
+                            "name": "Health center",
+                            "order": 5,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Centre de santé"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681174691441,
+                            "code": "",
+                            "name": "Private",
+                            "order": 6,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Privés"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681174692882,
+                            "code": "",
+                            "name": "Local authorities (town hall and regional council)",
+                            "order": 7,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Collectivités Territoriale (Mairie et Conseil régional)"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681174694124,
+                            "code": "",
+                            "name": "Administration (central and decentralized service)",
+                            "order": 8,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Administration (service central et déconcentré)"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681174727051,
+                            "code": "",
+                            "name": "Others",
+                            "order": 9,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Autres"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681174771174,
+                    "order": 8,
+                    "questionGroupId": 1681173822910,
+                    "question": "Specify other type of beneficiary",
+                    "type": "text",
+                    "required": true,
+                    "meta": false,
+                    "variableName": "D8",
+                    "dependency": [
+                        {
+                            "id": 1681174596464,
+                            "options": [
+                                "Others"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Précisez autre type de bénéficiaire"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681174814446,
+                    "order": 9,
+                    "questionGroupId": 1681173822910,
+                    "question": "Specify the type of school/ training center",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "variableName": "D9",
+                    "dependency": [
+                        {
+                            "id": 1681174596464,
+                            "options": [
+                                "Schools and training centers"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Précisez le type d'école/ de centre de formation"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681174850422,
+                            "code": null,
+                            "name": "Primary school",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "École primaire"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681174850423,
+                            "code": null,
+                            "name": "High school",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Lycée"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681174916479,
+                            "code": null,
+                            "name": "College",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Collège"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681174921285,
+                            "code": null,
+                            "name": "Training center",
+                            "order": 4,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Centre de formation"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681174927503,
+                            "code": null,
+                            "name": "Koranic school",
+                            "order": 5,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "École coranique"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681174944298,
+                            "code": null,
+                            "name": "Other",
+                            "order": 6,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Autre"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681174963167,
+                    "order": 10,
+                    "questionGroupId": 1681173822910,
+                    "question": "Specify other type of school/ training center",
+                    "type": "text",
+                    "required": true,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681174814446,
+                            "options": [
+                                "Other"
+                            ]
+                        }
+                    ],
+                    "variableName": "D10",
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Précisez autre type d'école/ de centre de formation"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681175104769,
+                    "order": 11,
+                    "questionGroupId": 1681173822910,
+                    "question": "Specify the type of health center",
+                    "type": "text",
+                    "required": true,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681174596464,
+                            "options": [
+                                "Health center"
+                            ]
+                        }
+                    ],
+                    "variableName": "D11",
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Précisez le type de centre de santé"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681174979147,
+                    "order": 12,
+                    "questionGroupId": 1681173822910,
+                    "question": "Type of water point",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "variableName": "D12",
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Type de point d'eau"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681175163063,
+                            "code": null,
+                            "name": "Distribution system (AEP, PEA, AEPS, AEP Multi Village)",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Système de distribution (AEP, PEA, AEPS, AEP Multi village)"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681175163064,
+                            "code": null,
+                            "name": "Modern water pem (drilling, well)",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "PEM-Point d'eau Moderne (forage, puits)"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681175210567,
+                    "order": 13,
+                    "questionGroupId": 1681173822910,
+                    "question": "Identifier of the infrastructure",
+                    "type": "text",
+                    "required": true,
+                    "meta": false,
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Identifiant de l'ouvrage"
+                        }
+                    ]
+                }
+            ],
+            "translations": [
+                {
+                    "language": "fr",
+                    "name": "Identification"
+                }
+            ]
+        },
+        {
+            "id": 1681174038994,
+            "question_group": "Distribution system",
+            "order": 2,
+            "repeatable": false,
+            "questions": [
+                {
+                    "id": 1681174038995,
+                    "order": 1,
+                    "questionGroupId": 1681174038994,
+                    "question": "Type of distribution system",
+                    "type": "option",
+                    "required": false,
+                    "meta": false,
+                    "variableName": "D14",
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Type de systeme de distribution"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681175614143,
+                            "code": null,
+                            "name": "AEP",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "AEP"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681175614144,
+                            "code": null,
+                            "name": "Autonomous Water Supply Posts",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "PEA"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681175634624,
+                            "code": null,
+                            "name": "Small scale supply system",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "AEPS"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681175635695,
+                            "code": null,
+                            "name": "AEP Multi village",
+                            "order": 4,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "AEP Multi village"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681175767016,
+                    "order": 2,
+                    "questionGroupId": 1681174038994,
+                    "question": "System elements",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681174038995,
+                            "options": [
+                                "AEP",
+                                "Autonomous Water Supply Posts",
+                                "Small scale supply system",
+                                "AEP Multi village"
+                            ]
+                        }
+                    ],
+                    "variableName": "D15",
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Elements du système"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681175772049,
+                            "code": null,
+                            "name": "The resource",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "La ressource"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681175772050,
+                            "code": null,
+                            "name": "The water tower",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Le château d’eau"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681175809716,
+                            "code": null,
+                            "name": "Standpipe",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Les bornes fontaines"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681175815592,
+                            "code": null,
+                            "name": "The source of energy",
+                            "order": 4,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "La source d’énergie"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681175821817,
+                            "code": null,
+                            "name": "The number of private connections",
+                            "order": 5,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Le nombre de branchements privés"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681175830917,
+                            "code": null,
+                            "name": "The number of villages served",
+                            "order": 6,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Le nombre de villages desservis"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681175864467,
+                    "order": 3,
+                    "questionGroupId": 1681174038994,
+                    "question": "Type of resource",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "variableName": "D16",
+                    "dependency": [
+                        {
+                            "id": 1681175767016,
+                            "options": [
+                                "The resource"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Type de ressource"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681175877496,
+                            "code": null,
+                            "name": "Borehole",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Forage"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681175877497,
+                            "code": null,
+                            "name": "Barrage",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Barrage"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681175905517,
+                            "code": null,
+                            "name": "Watercourse",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Cours d’eau"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681175912232,
+                            "code": null,
+                            "name": "Others",
+                            "order": 4,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Autres"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681175918852,
+                    "order": 4,
+                    "questionGroupId": 1681174038994,
+                    "question": "Other resources",
+                    "type": "text",
+                    "required": false,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681175864467,
+                            "options": [
+                                "Others"
+                            ]
+                        }
+                    ],
+                    "variableName": "D17",
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Ressource autres"
+                        }
+                    ]
+                }
+            ],
+            "translations": [
+                {
+                    "language": "fr",
+                    "name": "Système de distribution"
+                }
+            ]
+        },
+        {
+            "id": 1681174052310,
+            "question_group": "Borehole",
+            "order": 3,
+            "repeatable": false,
+            "questions": [
+                {
+                    "id": 1681174052311,
+                    "order": 1,
+                    "questionGroupId": 1681174052310,
+                    "question": "Drilling protection system",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "variableName": "D18",
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Système de protection du forage"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681175994762,
+                            "code": null,
+                            "name": "Without protection",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Sans protection"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681175994763,
+                            "code": null,
+                            "name": "Wall",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Mur"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681176006912,
+                            "code": null,
+                            "name": "Wire mesh",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Grillage"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681176007634,
+                            "code": null,
+                            "name": "Other: specify",
+                            "order": 4,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Autres, précisez"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681176027604,
+                    "order": 2,
+                    "questionGroupId": 1681174052310,
+                    "question": "Specify other drill protection system",
+                    "type": "text",
+                    "required": true,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681174052311,
+                            "options": [
+                                "Other: specify"
+                            ]
+                        }
+                    ],
+                    "variableName": "D19",
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Précisez autre système de protection du forage"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681176290550,
+                    "order": 3,
+                    "questionGroupId": 1681174052310,
+                    "question": "Borehole with a meter reader",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681175864467,
+                            "options": [
+                                "Borehole"
+                            ]
+                        }
+                    ],
+                    "variableName": "D20",
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Compteur du forage"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681176295861,
+                            "code": null,
+                            "name": "Yes",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Oui"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681176295862,
+                            "code": null,
+                            "name": "No",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Non"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681176371188,
+                    "order": 4,
+                    "questionGroupId": 1681174052310,
+                    "question": "Index you forage",
+                    "type": "number",
+                    "required": true,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681176290550,
+                            "options": [
+                                "Yes"
+                            ]
+                        }
+                    ],
+                    "variableName": "D21",
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Index du forage"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681176444931,
+                    "order": 5,
+                    "questionGroupId": 1681174052310,
+                    "question": "Photo of the index",
+                    "type": "text",
+                    "required": false,
+                    "meta": false,
+                    "variableName": "D22",
+                    "dependency": [
+                        {
+                            "id": 1681176290550,
+                            "options": [
+                                "Yes"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Photo de l'index"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681176475103,
+                    "order": 6,
+                    "questionGroupId": 1681174052310,
+                    "question": "GPS coordinates of borehole",
+                    "type": "geo",
+                    "required": true,
+                    "meta": false,
+                    "variableName": "D23",
+                    "dependency": [
+                        {
+                            "id": 1681175864467,
+                            "options": [
+                                "Borehole"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Coordonnées GPS du forage"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681176522320,
+                    "order": 7,
+                    "questionGroupId": 1681174052310,
+                    "question": "Year of achievement of the borehole",
+                    "type": "number",
+                    "required": false,
+                    "meta": false,
+                    "variableName": "D24",
+                    "dependency": [
+                        {
+                            "id": 1681175864467,
+                            "options": [
+                                "Borehole"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Année de réalisation du forage"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681176571587,
+                    "order": 8,
+                    "questionGroupId": 1681174052310,
+                    "question": "Photo of the borehole",
+                    "type": "text",
+                    "required": false,
+                    "meta": false,
+                    "variableName": "D25",
+                    "dependency": [
+                        {
+                            "id": 1681175864467,
+                            "options": [
+                                "Borehole"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Photo du forage"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681176615389,
+                    "order": 9,
+                    "questionGroupId": 1681174052310,
+                    "question": "Borehole functionality",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "variableName": "D26",
+                    "dependency": [
+                        {
+                            "id": 1681175864467,
+                            "options": [
+                                "Borehole"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Fonctionnalité du forage"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681176623721,
+                            "code": null,
+                            "name": "Functional",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Fonctionnel"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681176623722,
+                            "code": null,
+                            "name": "Broken-down",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "En panne"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681176662073,
+                            "code": null,
+                            "name": "Abandoned",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Abandonné"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681176691173,
+                    "order": 10,
+                    "questionGroupId": 1681174052310,
+                    "question": "If abandoned, specify the reason",
+                    "type": "text",
+                    "required": true,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681176615389,
+                            "options": [
+                                "Abandoned"
+                            ]
+                        }
+                    ],
+                    "variableName": "D27",
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Si abandonné, précisez la raison"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681176720540,
+                    "order": 11,
+                    "questionGroupId": 1681174052310,
+                    "question": "Borehole seasonality",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "variableName": "D28",
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Saisonnalité du forage"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681176738649,
+                            "code": null,
+                            "name": "Permanent",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Permanent"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681176738650,
+                            "code": null,
+                            "name": "Seasonal",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Saisonnier"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "translations": [
+                {
+                    "language": "fr",
+                    "name": "Forage"
+                }
+            ]
+        },
+        {
+            "id": 1681174084162,
+            "question_group": "Dam and rivers",
+            "order": 4,
+            "repeatable": false,
+            "questions": [
+                {
+                    "id": 1681174084163,
+                    "order": 1,
+                    "questionGroupId": 1681174084162,
+                    "question": "Municipality in which the dam is located",
+                    "type": "text",
+                    "required": false,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681175864467,
+                            "options": [
+                                "Barrage"
+                            ]
+                        }
+                    ],
+                    "variableName": "D29",
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Commune dans laquelle se trouve le barrage"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681176928226,
+                    "order": 2,
+                    "questionGroupId": 1681174084162,
+                    "question": "Name of the dam",
+                    "type": "text",
+                    "required": true,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681175864467,
+                            "options": [
+                                "Barrage"
+                            ]
+                        }
+                    ],
+                    "variableName": "D30",
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Nom du barrage"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681176954059,
+                    "order": 3,
+                    "questionGroupId": 1681174084162,
+                    "question": "Name of the river",
+                    "type": "text",
+                    "required": false,
+                    "meta": false,
+                    "variableName": "D31",
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Nom du cours d’eau"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681177035110,
+                    "order": 4,
+                    "questionGroupId": 1681174084162,
+                    "question": "Source of energy",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681175767016,
+                            "options": [
+                                "The resource"
+                            ]
+                        }
+                    ],
+                    "variableName": "D32",
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Source d’énergie"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681177042825,
+                            "code": null,
+                            "name": "Solar",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Solaire"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681177042826,
+                            "code": null,
+                            "name": "Generator",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Groupe électrogène"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681177094282,
+                            "code": null,
+                            "name": "Electrical network",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Réseau électrique"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681177104392,
+                            "code": null,
+                            "name": "National electricity provider",
+                            "order": 4,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Branchement SONABEL"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681177110172,
+                            "code": null,
+                            "name": "Other: specify",
+                            "order": 5,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Autres, précisez"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681177112952,
+                            "code": null,
+                            "name": "None",
+                            "order": 6,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Aucun"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681177124729,
+                    "order": 5,
+                    "questionGroupId": 1681174084162,
+                    "question": "Specify other energy source",
+                    "type": "text",
+                    "required": true,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681177035110,
+                            "options": [
+                                "Other: specify"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Précisez autre source d'énergie"
+                        }
+                    ]
+                }
+            ],
+            "translations": [
+                {
+                    "language": "fr",
+                    "name": "Barrage et cours d'eau"
+                }
+            ]
+        },
+        {
+            "id": 1681174290311,
+            "question_group": "Water tower",
+            "order": 5,
+            "repeatable": false,
+            "questions": [
+                {
+                    "id": 1681174290312,
+                    "order": 1,
+                    "questionGroupId": 1681174290311,
+                    "question": "Water chateau counter",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681174979147,
+                            "options": [
+                                "Distribution system (AEP, PEA, AEPS, AEP Multi Village)"
+                            ]
+                        }
+                    ],
+                    "variableName": "D34",
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Compteur du chateau d'eau"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681177195359,
+                            "code": null,
+                            "name": "Yes",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Oui"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681177195360,
+                            "code": null,
+                            "name": "No",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Non"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681177767592,
+                    "order": 2,
+                    "questionGroupId": 1681174290311,
+                    "question": "GPS coordinates of the water chateau",
+                    "type": "geo",
+                    "required": false,
+                    "meta": false,
+                    "variableName": "D35",
+                    "dependency": [
+                        {
+                            "id": 1681174979147,
+                            "options": [
+                                "Distribution system (AEP, PEA, AEPS, AEP Multi Village)"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Coordonnées GPS du chateau d'eau"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681177788442,
+                    "order": 3,
+                    "questionGroupId": 1681174290311,
+                    "question": "Water tower materials",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681174979147,
+                            "options": [
+                                "Distribution system (AEP, PEA, AEPS, AEP Multi Village)"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Matériaux du chateau d'eau"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681177813530,
+                            "code": null,
+                            "name": "Concrete",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Béton"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681177813531,
+                            "code": null,
+                            "name": "Metallic",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Métallique"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681177851202,
+                            "code": null,
+                            "name": "Polytank",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Polytank"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681177851929,
+                            "code": null,
+                            "name": "Other",
+                            "order": 4,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Autre"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681177865242,
+                    "order": 4,
+                    "questionGroupId": 1681174290311,
+                    "question": "Specify other materials",
+                    "type": "text",
+                    "required": true,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681177788442,
+                            "options": [
+                                "Other"
+                            ]
+                        }
+                    ],
+                    "variableName": "D37",
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Précisez autres matériaux"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681177902710,
+                    "order": 5,
+                    "questionGroupId": 1681174290311,
+                    "question": "Chateau volume in M3",
+                    "type": "number",
+                    "required": false,
+                    "meta": false,
+                    "variableName": "D38",
+                    "dependency": [
+                        {
+                            "id": 1681174979147,
+                            "options": [
+                                "Distribution system (AEP, PEA, AEPS, AEP Multi Village)"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Volume du chateau en m3"
+                        }
+                    ]
+                }
+            ],
+            "translations": [
+                {
+                    "language": "fr",
+                    "name": "Chateau d'eau"
+                }
+            ]
+        },
+        {
+            "id": 1681174311528,
+            "question_group": "Standpipe",
+            "order": 6,
+            "repeatable": false,
+            "questions": [
+                {
+                    "id": 1681174311529,
+                    "order": 1,
+                    "questionGroupId": 1681174311528,
+                    "question": "Order number",
+                    "type": "number",
+                    "required": true,
+                    "meta": false,
+                    "variableName": "D39",
+                    "dependency": [
+                        {
+                            "id": 1681174979147,
+                            "options": [
+                                "Distribution system (AEP, PEA, AEPS, AEP Multi Village)"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Numéro d’ordre"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681178006362,
+                    "order": 2,
+                    "questionGroupId": 1681174311528,
+                    "question": "Year of realization of the standpipe",
+                    "type": "number",
+                    "required": true,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681174979147,
+                            "options": [
+                                "Distribution system (AEP, PEA, AEPS, AEP Multi Village)"
+                            ]
+                        }
+                    ],
+                    "variableName": "D40",
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Année de réalisation de la borne fontaine"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681178057312,
+                    "order": 3,
+                    "questionGroupId": 1681174311528,
+                    "question": "GPS contact details of the Fountain terminal",
+                    "type": "geo",
+                    "required": false,
+                    "meta": false,
+                    "variableName": "D41",
+                    "dependency": [
+                        {
+                            "id": 1681174979147,
+                            "options": [
+                                "Distribution system (AEP, PEA, AEPS, AEP Multi Village)"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Coordonnées GPS de la Borne Fontaine"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681178091175,
+                    "order": 4,
+                    "questionGroupId": 1681174311528,
+                    "question": "Photo of the fountain terminal",
+                    "type": "text",
+                    "required": false,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681174979147,
+                            "options": [
+                                "Distribution system (AEP, PEA, AEPS, AEP Multi Village)"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Photo de la borne fontaine"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681178139608,
+                    "order": 5,
+                    "questionGroupId": 1681174311528,
+                    "question": "Gustatory quality of water from the fountain terminal",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681174979147,
+                            "options": [
+                                "Distribution system (AEP, PEA, AEPS, AEP Multi Village)"
+                            ]
+                        }
+                    ],
+                    "variableName": "D43",
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Qualité gustative de l'eau de la Borne fontaine"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681178161687,
+                            "code": null,
+                            "name": "Good",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Bonne"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681178161688,
+                            "code": null,
+                            "name": "Average",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Moyenne"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681178183194,
+                            "code": null,
+                            "name": "Bad",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Mauvaise"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681178237642,
+                    "order": 6,
+                    "questionGroupId": 1681174311528,
+                    "question": "Meter at the standpipe",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "variableName": "D44",
+                    "dependency": [
+                        {
+                            "id": 1681174979147,
+                            "options": [
+                                "Distribution system (AEP, PEA, AEPS, AEP Multi Village)"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Compteur de la borne fontaine"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681178600371,
+                            "code": null,
+                            "name": "Yes",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Oui"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681178600372,
+                            "code": null,
+                            "name": "No",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Non"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681178289166,
+                    "order": 7,
+                    "questionGroupId": 1681174311528,
+                    "question": "Index of the meter at the standpipe",
+                    "type": "number",
+                    "required": false,
+                    "meta": false,
+                    "variableName": "D45",
+                    "dependency": [
+                        {
+                            "id": 1681178237642,
+                            "options": [
+                                "Yes"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Index du compteur de la borne fontaine"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681178340459,
+                    "order": 8,
+                    "questionGroupId": 1681174311528,
+                    "question": "Photo of the index of the fountain terminal",
+                    "type": "text",
+                    "required": false,
+                    "meta": false,
+                    "variableName": "D46",
+                    "dependency": [
+                        {
+                            "id": 1681178237642,
+                            "options": [
+                                "Yes"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Photo de l'index de la borne fontaine"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681178668786,
+                    "order": 9,
+                    "questionGroupId": 1681174311528,
+                    "question": "Functionality of the standpipe",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "variableName": "D47",
+                    "dependency": [
+                        {
+                            "id": 1681174979147,
+                            "options": [
+                                "Distribution system (AEP, PEA, AEPS, AEP Multi Village)"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Fonctionnalité de la borne fontaine"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681178691313,
+                            "code": null,
+                            "name": "Totally",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Abandonnée"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681178691314,
+                            "code": null,
+                            "name": "Partially",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Totalement"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681178721877,
+                            "code": null,
+                            "name": "Broken-down",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Partiellement"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681178722801,
+                            "code": null,
+                            "name": "Abandoned",
+                            "order": 4,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "En panne"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681178754338,
+                    "order": 10,
+                    "questionGroupId": 1681174311528,
+                    "question": "If BF abandoned, why?",
+                    "type": "text",
+                    "required": true,
+                    "meta": false,
+                    "variableName": "D48",
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Si BF abandonné, pourquoi ?"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681178776513,
+                    "order": 11,
+                    "questionGroupId": 1681174311528,
+                    "question": "Number of water breaking days in the last 12 months",
+                    "type": "number",
+                    "required": true,
+                    "meta": false,
+                    "variableName": "D49",
+                    "dependency": [
+                        {
+                            "id": 1681174979147,
+                            "options": [
+                                "Distribution system (AEP, PEA, AEPS, AEP Multi Village)"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Nombre de jours de rupture d'eau dans les 12 derniers mois"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681178814623,
+                    "order": 12,
+                    "questionGroupId": 1681174311528,
+                    "question": "Number of breakdown in the last 12 months",
+                    "type": "number",
+                    "required": true,
+                    "meta": false,
+                    "variableName": "D50",
+                    "dependency": [
+                        {
+                            "id": 1681174979147,
+                            "options": [
+                                "Distribution system (AEP, PEA, AEPS, AEP Multi Village)"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Nombre de jours de rupture d'eau dans les 12 derniers mois"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681178900403,
+                    "order": 13,
+                    "questionGroupId": 1681174311528,
+                    "question": "Seasonality of the standpipe",
+                    "type": "option",
+                    "required": false,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681174979147,
+                            "options": [
+                                "Distribution system (AEP, PEA, AEPS, AEP Multi Village)"
+                            ]
+                        }
+                    ],
+                    "variableName": "D51",
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Saisonnalité de la Borne fontaine"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681178906115,
+                            "code": null,
+                            "name": "Permanent",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Permanent"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681178906116,
+                            "code": null,
+                            "name": "Temporary",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Temporaire"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "translations": [
+                {
+                    "language": "fr",
+                    "name": "Borne Fontaine"
+                }
+            ]
+        },
+        {
+            "id": 1681174341612,
+            "question_group": "Private connections / Tap",
+            "order": 7,
+            "repeatable": false,
+            "questions": [
+                {
+                    "id": 1681174341613,
+                    "order": 1,
+                    "questionGroupId": 1681174341612,
+                    "question": "Number of private connections",
+                    "type": "number",
+                    "required": true,
+                    "meta": false,
+                    "variableName": "D52",
+                    "dependency": [
+                        {
+                            "id": 1681175767016,
+                            "options": [
+                                "The number of private connections"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Nombre de branchements privés"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681179795648,
+                    "order": 2,
+                    "questionGroupId": 1681174341612,
+                    "question": "Number of villages served",
+                    "type": "number",
+                    "required": true,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681175767016,
+                            "options": [
+                                "The number of villages served"
+                            ]
+                        }
+                    ],
+                    "variableName": "D53",
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Nombre de villages desservis"
+                        }
+                    ]
+                }
+            ],
+            "translations": [
+                {
+                    "language": "fr",
+                    "name": "Branchements privés"
+                }
+            ]
+        },
+        {
+            "id": 1681174361313,
+            "question_group": "Modern water point",
+            "order": 8,
+            "repeatable": false,
+            "questions": [
+                {
+                    "id": 1681174361314,
+                    "order": 1,
+                    "questionGroupId": 1681174361313,
+                    "question": "Year of realization of the PEM",
+                    "type": "number",
+                    "required": true,
+                    "meta": false,
+                    "variableName": "D54",
+                    "dependency": [
+                        {
+                            "id": 1681174979147,
+                            "options": [
+                                "Modern water pem (drilling, well)"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Année de réalisation du PEM"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681179950820,
+                    "order": 2,
+                    "questionGroupId": 1681174361313,
+                    "question": "Type of modern water point",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681174979147,
+                            "options": [
+                                "Modern water pem (drilling, well)"
+                            ]
+                        }
+                    ],
+                    "variableName": "D55",
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Type de point d'eau Moderne"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681179976554,
+                            "code": null,
+                            "name": "Borehole",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Forage"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681179976555,
+                            "code": null,
+                            "name": "Well",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Puits"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681180057650,
+                    "order": 3,
+                    "questionGroupId": 1681174361313,
+                    "question": "PEM characteristics",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681179950820,
+                            "options": [
+                                "Borehole",
+                                "Well"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Caracteristiques du PEM"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681180064342,
+                            "code": null,
+                            "name": "Equipped",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Equipé"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681180064343,
+                            "code": null,
+                            "name": "Unquiced",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Non équipé"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681180100916,
+                            "code": null,
+                            "name": "Piezometer",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Piézomètre"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681180102006,
+                            "code": null,
+                            "name": "Artesian",
+                            "order": 4,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Artésien"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681180143453,
+                    "order": 4,
+                    "questionGroupId": 1681174361313,
+                    "question": "Brand of the PEM",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681180057650,
+                            "options": [
+                                "Equipped"
+                            ]
+                        }
+                    ],
+                    "variableName": "D57",
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Marque du PEM"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681180149894,
+                            "code": null,
+                            "name": "ABI",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "ABI"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681180149895,
+                            "code": null,
+                            "name": "Artésien",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": " Artésien"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681180199649,
+                            "code": null,
+                            "name": "BluePump",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "BluePump"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681180204625,
+                            "code": null,
+                            "name": "Bourga",
+                            "order": 4,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Bourga"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681180211260,
+                            "code": null,
+                            "name": "Briau",
+                            "order": 5,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Briau"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681180216705,
+                            "code": null,
+                            "name": "DIAFA",
+                            "order": 6,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "DIAFA"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681180225289,
+                            "code": null,
+                            "name": "DUBA",
+                            "order": 7,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "DUBA"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681180232258,
+                            "code": null,
+                            "name": "India",
+                            "order": 8,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "India"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681180239372,
+                            "code": null,
+                            "name": "India Mark2",
+                            "order": 9,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "India Mark2"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681180241584,
+                            "code": null,
+                            "name": "Kardia",
+                            "order": 10,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Kardia"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681180242389,
+                            "code": null,
+                            "name": "Moyno",
+                            "order": 11,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Moyno"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681180254323,
+                            "code": null,
+                            "name": "Pulsa",
+                            "order": 12,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Pulsa"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681180261523,
+                            "code": null,
+                            "name": "UPM",
+                            "order": 13,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "UPM"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681180274306,
+                            "code": null,
+                            "name": "Vergnet",
+                            "order": 14,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Vergnet"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681180284508,
+                            "code": null,
+                            "name": "Volonta",
+                            "order": 15,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Volonta"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681180326008,
+                    "order": 5,
+                    "questionGroupId": 1681174361313,
+                    "question": "PEM counter",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "variableName": "D58",
+                    "dependency": [
+                        {
+                            "id": 1681180057650,
+                            "options": [
+                                "Equipped"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Compteur du PEM"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681180332256,
+                            "code": null,
+                            "name": "Yes",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Oui"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681180332257,
+                            "code": null,
+                            "name": "No",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Non"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681180386827,
+                    "order": 6,
+                    "questionGroupId": 1681174361313,
+                    "question": "PEM counter index",
+                    "type": "number",
+                    "required": true,
+                    "meta": false,
+                    "variableName": "D59",
+                    "dependency": [
+                        {
+                            "id": 1681180326008,
+                            "options": [
+                                "Yes"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Index du compteur du PEM"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681180434245,
+                    "order": 7,
+                    "questionGroupId": 1681174361313,
+                    "question": "Photo of the PEM counter",
+                    "type": "text",
+                    "required": false,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681180326008,
+                            "options": [
+                                "Yes"
+                            ]
+                        }
+                    ],
+                    "variableName": "D60",
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Photo du compteur du PEM"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681180491313,
+                    "order": 8,
+                    "questionGroupId": 1681174361313,
+                    "question": "Surronding infrastructure",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "variableName": "D61",
+                    "dependency": [
+                        {
+                            "id": 1681179950820,
+                            "options": [
+                                "Borehole",
+                                "Well"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Aménagement du PEM"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681180504250,
+                            "code": null,
+                            "name": "Drinking through",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Abreuvoir"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681180504251,
+                            "code": null,
+                            "name": "Wall",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Muret"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681180533794,
+                            "code": null,
+                            "name": "Well-lost",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Puits perdu"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681180534550,
+                            "code": null,
+                            "name": "None",
+                            "order": 4,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Aucun"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681180585686,
+                    "order": 9,
+                    "questionGroupId": 1681174361313,
+                    "question": "PEM functionality",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "variableName": "D62",
+                    "dependency": [
+                        {
+                            "id": 1681180057650,
+                            "options": [
+                                "Equipped"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Fonctionnalité du PEM"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681180594447,
+                            "code": null,
+                            "name": "Totally",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Totalement"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681180594448,
+                            "code": null,
+                            "name": "Partially",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Partiellement"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681180629148,
+                            "code": null,
+                            "name": "Broken-down",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "En panne "
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681180629782,
+                            "code": null,
+                            "name": "Abandoned",
+                            "order": 4,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Abandonné"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681180670820,
+                    "order": 10,
+                    "questionGroupId": 1681174361313,
+                    "question": "Number of water breaking days in the last 12 months",
+                    "type": "number",
+                    "required": true,
+                    "meta": false,
+                    "variableName": "D63",
+                    "dependency": [
+                        {
+                            "id": 1681180057650,
+                            "options": [
+                                "Equipped"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Nombre de jours de rupture d'eau dans les 12 derniers mois"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681180705148,
+                    "order": 11,
+                    "questionGroupId": 1681174361313,
+                    "question": "Number of breakdowns in the last 12 months",
+                    "type": "number",
+                    "required": true,
+                    "meta": false,
+                    "variableName": "D64",
+                    "dependency": [
+                        {
+                            "id": 1681180057650,
+                            "options": [
+                                "Equipped"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Nombre de pannes dans les 12 derniers mois"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681180749648,
+                    "order": 12,
+                    "questionGroupId": 1681174361313,
+                    "question": "PEM seasonality",
+                    "type": "option",
+                    "required": false,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681180057650,
+                            "options": [
+                                "Equipped"
+                            ]
+                        }
+                    ],
+                    "variableName": "D65",
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Saisonnalité du PEM"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681180764273,
+                            "code": null,
+                            "name": "Permanent",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Permanent"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681180764274,
+                            "code": null,
+                            "name": "Temporary",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Temporaire"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681180841400,
+                    "order": 13,
+                    "questionGroupId": 1681174361313,
+                    "question": "Gustatory quality of PEM water",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681180057650,
+                            "options": [
+                                "Equipped"
+                            ]
+                        }
+                    ],
+                    "variableName": "D66",
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Qualité gustative de l'eau du PEM"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681180848210,
+                            "code": null,
+                            "name": "Good",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Bonne"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681180848211,
+                            "code": null,
+                            "name": "Average",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Moyenne"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681180893373,
+                            "code": null,
+                            "name": "Bad",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Mauvaise"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681180936378,
+                    "order": 14,
+                    "questionGroupId": 1681174361313,
+                    "question": "Photo of the PEM",
+                    "type": "text",
+                    "required": false,
+                    "meta": false,
+                    "variableName": "D67",
+                    "dependency": [
+                        {
+                            "id": 1681180057650,
+                            "options": [
+                                "Equipped"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Photo du PEM"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681181049719,
+                    "order": 15,
+                    "questionGroupId": 1681174361313,
+                    "question": "Type of financing",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681179950820,
+                            "options": [
+                                "Borehole",
+                                "Well"
+                            ]
+                        }
+                    ],
+                    "variableName": "D68",
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Type de financement"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681181074266,
+                            "code": null,
+                            "name": "Own financing",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Lui-même "
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681181074267,
+                            "code": null,
+                            "name": "Partial grant",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Subvention partielle"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681181102796,
+                            "code": null,
+                            "name": "Total grant",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Subvention totale "
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681181103867,
+                            "code": null,
+                            "name": "Other, give details",
+                            "order": 4,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Autre, précisez"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681181136781,
+                    "order": 16,
+                    "questionGroupId": 1681174361313,
+                    "question": "Specify other type of financing",
+                    "type": "text",
+                    "required": true,
+                    "meta": false,
+                    "variableName": "D69",
+                    "dependency": [
+                        {
+                            "id": 1681181049719,
+                            "options": [
+                                "Other, give details"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Précisez autre type de financement"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681181174570,
+                    "order": 17,
+                    "questionGroupId": 1681174361313,
+                    "question": "Specify the project name",
+                    "type": "text",
+                    "required": true,
+                    "meta": false,
+                    "variableName": "D70",
+                    "dependency": [
+                        {
+                            "id": 1681181049719,
+                            "options": [
+                                "Partial grant",
+                                "Total grant"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Précisez le nom du projet"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681181234722,
+                    "order": 18,
+                    "questionGroupId": 1681174361313,
+                    "question": "Manager",
+                    "type": "option",
+                    "required": false,
+                    "meta": false,
+                    "variableName": "D71",
+                    "dependency": [
+                        {
+                            "id": 1681179950820,
+                            "options": [
+                                "Borehole",
+                                "Well"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Gestionnaire"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681181264411,
+                            "code": null,
+                            "name": "Private",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Privaté"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681181264412,
+                            "code": null,
+                            "name": "Commune",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Commune"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681181307810,
+                            "code": null,
+                            "name": "Community",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Communautaire"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681181308696,
+                            "code": null,
+                            "name": "Individuel",
+                            "order": 4,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Soi même"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681181309836,
+                            "code": null,
+                            "name": "Other, give details",
+                            "order": 5,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Autre, précisez"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681181358828,
+                    "order": 19,
+                    "questionGroupId": 1681174361313,
+                    "question": "Specify other manager",
+                    "type": "text",
+                    "required": true,
+                    "meta": false,
+                    "variableName": "D72",
+                    "dependency": [
+                        {
+                            "id": 1681181234722,
+                            "options": [
+                                "Other, give details"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Précisez autre gestionnaire"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681181389740,
+                    "order": 20,
+                    "questionGroupId": 1681174361313,
+                    "question": "Specify the name of the private manager",
+                    "type": "text",
+                    "required": true,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681181234722,
+                            "options": [
+                                "Private"
+                            ]
+                        }
+                    ],
+                    "variableName": "D73",
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Précisez le nom du gestionnaire privé"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681181479642,
+                    "order": 21,
+                    "questionGroupId": 1681174361313,
+                    "question": "Association of functional water users (AUE)",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "variableName": "D74",
+                    "dependency": [
+                        {
+                            "id": 1681179950820,
+                            "options": [
+                                "Borehole",
+                                "Well"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Association des usagers de l'eau (AUE) fonctionnelle"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681181487265,
+                            "code": null,
+                            "name": "Yes",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Yes"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681181487266,
+                            "code": null,
+                            "name": "No",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Non"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681181527705,
+                            "code": null,
+                            "name": "Incommensurate",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Sans Objet"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681181569603,
+                    "order": 22,
+                    "questionGroupId": 1681174361313,
+                    "question": "Cleanliness",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "variableName": "D75",
+                    "dependency": [
+                        {
+                            "id": 1681179950820,
+                            "options": [
+                                "Borehole",
+                                "Well"
+                            ]
+                        }
+                    ],
+                    "tooltip": {
+                        "text": "\n\n"
+                    },
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Propreté"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681181576734,
+                            "code": null,
+                            "name": "Clean",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Propre"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681181576735,
+                            "code": null,
+                            "name": "Average",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Moyen"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681182262552,
+                            "code": null,
+                            "name": "Dirty",
+                            "order": 3,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Sale"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681182288760,
+                    "order": 23,
+                    "questionGroupId": 1681174361313,
+                    "question": "Water is it sold at the PEM?",
+                    "type": "option",
+                    "required": true,
+                    "meta": false,
+                    "variableName": "D76",
+                    "dependency": [
+                        {
+                            "id": 1681179950820,
+                            "options": [
+                                "Borehole",
+                                "Well"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "L’eau est-elle vendue au niveau du PEM ?"
+                        }
+                    ],
+                    "options": [
+                        {
+                            "id": 1681182305356,
+                            "code": null,
+                            "name": "Yes",
+                            "order": 1,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Oui"
+                                }
+                            ]
+                        },
+                        {
+                            "id": 1681182305357,
+                            "code": null,
+                            "name": "No",
+                            "order": 2,
+                            "translations": [
+                                {
+                                    "language": "fr",
+                                    "name": "Non"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": 1681182352901,
+                    "order": 24,
+                    "questionGroupId": 1681174361313,
+                    "question": "Price of the 20 liter can",
+                    "type": "number",
+                    "required": true,
+                    "meta": false,
+                    "variableName": "D77",
+                    "dependency": [
+                        {
+                            "id": 1681182288760,
+                            "options": [
+                                "Yes"
+                            ]
+                        }
+                    ],
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Prix du bidon de 20 litres"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681182410734,
+                    "order": 25,
+                    "questionGroupId": 1681174361313,
+                    "question": "Opening time (HH.MM)",
+                    "type": "text",
+                    "required": false,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681180057650,
+                            "options": [
+                                "Equipped"
+                            ]
+                        }
+                    ],
+                    "variableName": "D78",
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Heure d'ouverture (HH.MM)"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681182410585,
+                    "order": 26,
+                    "questionGroupId": 1681174361313,
+                    "question": "Closing time (HH.MM)",
+                    "type": "text",
+                    "required": false,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681180057650,
+                            "options": [
+                                "Equipped"
+                            ]
+                        }
+                    ],
+                    "variableName": "D79",
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Heure de fermeture (HH.MM)"
+                        }
+                    ]
+                },
+                {
+                    "id": 1681182500379,
+                    "order": 27,
+                    "questionGroupId": 1681174361313,
+                    "question": "Observations",
+                    "type": "text",
+                    "required": true,
+                    "meta": false,
+                    "dependency": [
+                        {
+                            "id": 1681174979147,
+                            "options": [
+                                "Modern water pem (drilling, well)"
+                            ]
+                        }
+                    ],
+                    "variableName": "D80",
+                    "translations": [
+                        {
+                            "language": "fr",
+                            "name": "Observations"
+                        }
+                    ]
+                }
+            ],
+            "translations": [
+                {
+                    "language": "fr",
+                    "name": "Point d'eau moderne"
+                }
+            ]
+        }
+    ]
+}

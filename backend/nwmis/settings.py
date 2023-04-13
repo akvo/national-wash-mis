@@ -78,6 +78,7 @@ API_APPS = [
     "api.v1.v1_profile",
     "api.v1.v1_forms",
     "api.v1.v1_data",
+    "api.v1.v1_categories",
     "api.v1.v1_jobs",
 ]
 

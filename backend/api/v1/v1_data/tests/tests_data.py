@@ -1,7 +1,7 @@
 from django.core.management import call_command
 from django.test import TestCase
 from django.test.utils import override_settings
-from api.v1.v1_data.models import FormData, Forms, Questions, Answers, AnswerHistory
+from api.v1.v1_data.models import FormData, Forms, Answers, AnswerHistory
 
 
 @override_settings(USE_TZ=False)
@@ -48,51 +48,6 @@ class DataTestCase(TestCase):
         # EMPTY PAGE 2
         data = self.client.get("/api/v1/form-data/1?page=2", follow=True, **header)
         self.assertEqual(data.status_code, 404)
-
-        # PRIVATE RAW DATA ACCESS (POWER BI)
-        data = self.client.get("/api/v1/raw-data/1", follow=True, **header)
-        self.assertEqual(data.status_code, 200)
-        result = data.json()
-        self.assertEqual(
-            list(result[0]),
-            ["id", "name", "administration", "geo", "data"],
-        )
-        questions_queryset = Questions.objects.filter(form_id=1).values_list(
-            "id", "name"
-        )
-        self.assertEqual(
-            list(result[0]["data"]),
-            [f"{str(x[0])}|{x[1]}" for x in list(questions_queryset)],
-        )
-
-        # PRIVATE RAW DATA ACCESS (POWER BI) WITH FILTER
-        question = Questions.objects.filter(form_id=1).first()
-        data = self.client.get(
-            f"/api/v1/raw-data/1?questions={question.id}", follow=True, **header
-        )
-        self.assertEqual(data.status_code, 200)
-        result = data.json()
-        questions_queryset = Questions.objects.filter(
-            form_id=1, pk=question.id
-        ).values_list("id", "name")
-        self.assertEqual(
-            list(result[0]["data"]),
-            [f"{str(x[0])}|{x[1]}" for x in list(questions_queryset)],
-        )
-
-        # PRIVATE RAW DATA ACCESS (POWER BI)
-        data = self.client.get("/api/v1/raw-data/1", follow=True, **header)
-        self.assertEqual(data.status_code, 200)
-        result = data.json()
-        self.assertEqual(
-            list(result[0]),
-            ["id", "name", "administration", "geo", "data"],
-        )
-
-        # PRIVATE RAW DATA ACCESS WITHOUT HEADER TOKEN
-        data = self.client.get("/api/v1/raw-data/1", follow=True)
-        # TODO: AFTER DEMO, FIND HOW PROVIDE AUTHENTICATION IN POWERBI
-        self.assertEqual(data.status_code, 200)
 
     def test_datapoint_deletion(self):
         call_command("administration_seeder", "--test")

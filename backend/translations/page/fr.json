@@ -4,10 +4,10 @@
     "dashboards": "Tableaux de bord",
     "reports": "Rapports",
     "newsEvents": "Actualités et évènements",
-    "login": "Connexion",
-    "newDashboard": "Nouveau tableau de bord",
-    "households": "Ménages"
+    "login": "Connexion"
   },
+  "charts": { "showEmpty": "Montrer des valeurs vides" },
+  "banner": { "welcomeCta": "Explorer les données nationales" },
   "login": {
     "passwordRule1": "Caractère minuscule",
     "passwordRule2": "Nombres",
