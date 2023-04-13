@@ -1,14 +1,15 @@
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useEffect, useState } from "react";
 import { Webform } from "akvo-react-form";
 import "akvo-react-form/dist/index.css";
 import "./style.scss";
 import { useParams, useNavigate } from "react-router-dom";
 import { Row, Col, Space, Progress, Result, Button, notification } from "antd";
-import { api, store, uiText } from "../../lib";
+import { api, store } from "../../lib";
 import { takeRight, pick } from "lodash";
 import { PageLoader, Breadcrumbs, DescriptionPanel } from "../../components";
 import { useNotification } from "../../util/hooks";
 import moment from "moment";
+import { getTranslation } from "../../util";
 
 const Forms = () => {
   const navigate = useNavigate();
@@ -22,9 +23,7 @@ const Forms = () => {
   const { notify } = useNotification();
   const { language } = store.useState((s) => s);
   const { active: activeLang } = language;
-  const text = useMemo(() => {
-    return uiText[activeLang];
-  }, [activeLang]);
+  const text = getTranslation(activeLang, "forms");
 
   const formType = window.forms.find(
     (x) => x.id === parseInt(formId)
@@ -36,7 +35,7 @@ const Forms = () => {
 
   const pagePath = [
     {
-      title: "Control Center",
+      title: text.controlCenter,
       link: "/control-center",
     },
     {
@@ -157,7 +156,7 @@ const Forms = () => {
               if (q.extra?.allowOther) {
                 qVal = {
                   ...qVal,
-                  allowOtherText: "Enter any OTHER value",
+                  allowOtherText: text.enterOther,
                 };
               }
             }
@@ -172,7 +171,7 @@ const Forms = () => {
         setLoading(false);
       });
     }
-  }, [formId, loading]);
+  }, [formId, loading, text]);
 
   return (
     <div id="form">
@@ -181,10 +180,24 @@ const Forms = () => {
           <Space>
             <Breadcrumbs
               pagePath={pagePath}
-              description={text.formDescription}
+              description={
+                <p>
+                  {text.description1}
+                  <br />
+                  {text.description2}
+                </p>
+              }
             />
           </Space>
-          <DescriptionPanel description={text.formDescription} />
+          <DescriptionPanel
+            description={
+              <p>
+                {text.description1}
+                <br />
+                {text.description2}
+              </p>
+            }
+          />
           {loading || !formId ? (
             <PageLoader message={text.fetchingForm} />
           ) : (
@@ -216,21 +229,21 @@ const Forms = () => {
                   key="back-button"
                   onClick={() => setShowSuccess(false)}
                 >
-                  Add New Submission
+                  {text.addNew}
                 </Button>,
                 !redirectToBatch ? (
                   <Button
                     key="manage-button"
                     onClick={() => navigate("/data/manage")}
                   >
-                    Finish and Go to Manage Data
+                    {text.backManageData}
                   </Button>
                 ) : (
                   <Button
                     key="batch-button"
                     onClick={() => navigate("/data/submissions")}
                   >
-                    Finish and Go to Batch
+                    {text.backBatch}
                   </Button>
                 ),
               ]}

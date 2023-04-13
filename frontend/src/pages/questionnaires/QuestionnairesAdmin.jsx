@@ -16,28 +16,31 @@ import { api, store } from "../../lib";
 import { Breadcrumbs } from "../../components";
 import { reloadData } from "../../util/form";
 import { useNotification } from "../../util/hooks";
+import { getTranslation } from "../../util";
 
-const pagePath = [
+const pagePath = (text) => [
   {
-    title: "Control Center",
+    title: text.controlCenter,
     link: "/control-center",
   },
   {
-    title: "Approvals",
+    title: text.approvalsPath,
     link: "/approvals",
   },
   {
-    title: "Manage Questionnaires Approvals",
+    title: text.title,
   },
 ];
 
 const QuestionnairesAdmin = () => {
-  const { forms, levels, user } = store.useState((s) => s);
+  const { forms, levels, user, language } = store.useState((s) => s);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [dataset, setDataset] = useState([]);
   const [dataOriginal, setDataOriginal] = useState("");
   const { notify } = useNotification();
+  const { active: activeLang } = language;
+  const text = getTranslation(activeLang, "questionnaires");
 
   const columns = useMemo(() => {
     const handleChecked = (id, val) => {
@@ -55,12 +58,12 @@ const QuestionnairesAdmin = () => {
     };
     return [
       {
-        title: "Questionnaire",
+        title: text.questCol,
         dataIndex: "form_id",
         render: (cell) => forms.find((f) => f.id === cell)?.name || "",
       },
       {
-        title: "Questionnaire Description",
+        title: text.questDescCol,
         dataIndex: "description",
         render: (cell) => cell || <span>-</span>,
       },
@@ -82,7 +85,7 @@ const QuestionnairesAdmin = () => {
           };
         })
     );
-  }, [levels, forms, dataset]);
+  }, [levels, forms, dataset, text]);
 
   useEffect(() => {
     if (forms.length) {
@@ -117,14 +120,14 @@ const QuestionnairesAdmin = () => {
         setSaving(false);
         notify({
           type: "success",
-          message: "Questionnaires updated",
+          message: text.successUpdated,
         });
         reloadData(user);
       })
       .catch(() => {
         notify({
           type: "error",
-          message: "Could not update Questionnaires",
+          message: text.errorUpdated,
         });
         setSaving(false);
       });
@@ -138,7 +141,7 @@ const QuestionnairesAdmin = () => {
     <div id="questionnaires">
       <Row justify="space-between">
         <Col>
-          <Breadcrumbs pagePath={pagePath} />
+          <Breadcrumbs pagePath={pagePath(text)} />
         </Col>
         <Col>
           <Space size={6}>
@@ -150,7 +153,7 @@ const QuestionnairesAdmin = () => {
                 setDataset(cloned);
               }}
             >
-              Reset
+              {text.reset}
             </Button>
             <Button
               type="primary"
@@ -158,7 +161,7 @@ const QuestionnairesAdmin = () => {
               onClick={handleSubmit}
               loading={saving}
             >
-              Save
+              {text.save}
             </Button>
           </Space>
         </Col>
@@ -168,17 +171,13 @@ const QuestionnairesAdmin = () => {
         style={{ padding: 0, minHeight: "40vh" }}
         bodyStyle={{ padding: 30 }}
       >
-        <ConfigProvider renderEmpty={() => <Empty description="No data" />}>
+        <ConfigProvider renderEmpty={() => <Empty description={text.noData} />}>
           <Table
             columns={columns}
             dataSource={dataset}
             loading={!dataset.length}
             onChange={handleChange}
             pagination={false}
-            // pagination={{
-            //   total: totalCount,
-            //   pageSize: 10,
-            // }}
             rowKey="form_id"
           />
         </ConfigProvider>

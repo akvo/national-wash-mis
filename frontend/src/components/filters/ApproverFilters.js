@@ -4,7 +4,7 @@ import { Row, Col, Space, Button } from "antd";
 import AdministrationDropdown from "./AdministrationDropdown";
 import RemoveFiltersButton from "./RemoveFiltersButton";
 
-const ApproverFilters = ({ loading, disabled, visible, reset, save }) => {
+const ApproverFilters = ({ loading, disabled, visible, reset, save, text }) => {
   return (
     <Row>
       <Col flex={1}>
@@ -19,7 +19,7 @@ const ApproverFilters = ({ loading, disabled, visible, reset, save }) => {
             <Col>
               <Space size={6}>
                 <Button className="light" disabled={disabled} onClick={reset}>
-                  Reset
+                  {text.reset}
                 </Button>
                 <Button
                   type="primary"
@@ -27,7 +27,7 @@ const ApproverFilters = ({ loading, disabled, visible, reset, save }) => {
                   onClick={save}
                   loading={loading}
                 >
-                  Save
+                  {text.save}
                 </Button>
               </Space>
             </Col>

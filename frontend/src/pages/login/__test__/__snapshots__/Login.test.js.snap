@@ -67,11 +67,11 @@ exports[`Login and Registration test if the login form exists: LoginPage 1`] = `
             <p
               class="contact-text"
             >
-              Having trouble accessing the platform? Please 
+              Having trouble accessing the platform?
               <a
                 href="#"
               >
-                contact
+                Please contact
               </a>
               .
             </p>
@@ -131,7 +131,6 @@ exports[`Login and Registration test if the login form exists: LoginPage 1`] = `
                         <input
                           class="ant-input"
                           id="login-form_email"
-                          placeholder="Email"
                           type="text"
                           value=""
                         />

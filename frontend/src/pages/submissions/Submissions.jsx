@@ -18,12 +18,13 @@ import {
   CloseSquareOutlined,
   FileTextFilled,
 } from "@ant-design/icons";
-import { api, store, uiText } from "../../lib";
+import { api, store } from "../../lib";
 import { useNotification } from "../../util/hooks";
 import { columnsPending, columnsBatch, columnsSelected } from "./";
 import UploadDetail from "./UploadDetail";
 import FormDropdown from "../../components/filters/FormDropdown";
 import { isEmpty, without, union, xor } from "lodash";
+import { getTranslation } from "../../util";
 
 const { TextArea } = Input;
 
@@ -47,14 +48,15 @@ const Submissions = () => {
   const { language } = store.useState((s) => s);
   const { active: activeLang } = language;
   const { notify } = useNotification();
+  const text = getTranslation(activeLang, "submission");
 
   const pagePath = [
     {
-      title: "Control Center",
+      title: text.controlCenter,
       link: "/control-center",
     },
     {
-      title: "Submissions",
+      title: text.title,
       link: "/control-center",
     },
     {
@@ -62,9 +64,6 @@ const Submissions = () => {
     },
   ];
 
-  const text = useMemo(() => {
-    return uiText[activeLang];
-  }, [activeLang]);
   useEffect(() => {
     if (selectedForm) {
       setLoading(true);
@@ -224,8 +223,8 @@ const Submissions = () => {
           onChange={handleChange}
           columns={
             dataTab === "pending-submission"
-              ? [...columnsPending]
-              : [...columnsBatch, Table.EXPAND_COLUMN]
+              ? [...columnsPending(text)]
+              : [...columnsBatch(text), Table.EXPAND_COLUMN]
           }
           rowSelection={
             dataTab === "pending-submission"
@@ -316,7 +315,7 @@ const Submissions = () => {
                   setModalVisible(false);
                 }}
               >
-                Cancel
+                {text.cancel}
               </Button>
               <Button
                 type="primary"
@@ -338,7 +337,7 @@ const Submissions = () => {
           bordered
           size="small"
           dataSource={selectedRows}
-          columns={columnsSelected}
+          columns={columnsSelected(text)}
           pagination={false}
           scroll={{ y: 270 }}
           rowKey="id"

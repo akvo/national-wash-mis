@@ -3,6 +3,7 @@ import "./style.scss";
 import { Modal, Button, Form, Input, Space } from "antd";
 import { useNotification } from "../../util/hooks";
 import { store, api } from "../../lib";
+import { getTranslation } from "../../util";
 
 const ContactForm = () => {
   const [form] = Form.useForm();
@@ -11,7 +12,9 @@ const ContactForm = () => {
   const [reloadCaptcha, setReloadCaptcha] = useState(true);
   const [captchaValue, setCaptchaValue] = useState(0);
   const [submitting, setSubmitting] = useState(false);
-  const showContactFormModal = store.useState((s) => s.showContactFormModal);
+  const { language, showContactFormModal } = store.useState((s) => s);
+  const { active: activeLang } = language;
+  const text = getTranslation(activeLang, "contactForm");
 
   useEffect(() => {
     if (reloadCaptcha) {
@@ -59,14 +62,14 @@ const ContactForm = () => {
       .then(() => {
         notify({
           type: "success",
-          message: "Feedback was sent successfully.",
+          message: text?.successSent,
         });
         handleCancel();
       })
       .catch(() => {
         notify({
           type: "error",
-          message: "Oops, something went wrong.",
+          message: text?.errorSent,
         });
       })
       .finally(() => {
@@ -78,7 +81,7 @@ const ContactForm = () => {
   return (
     <Modal
       className="contact-form-modal"
-      title="Please use this form for registering your feedback / issues."
+      title={text?.title}
       visible={showContactFormModal}
       width={600}
       centered
@@ -93,10 +96,10 @@ const ContactForm = () => {
           loading={submitting}
           onClick={handleOk}
         >
-          Send
+          {text?.send}
         </Button>,
         <Button key="back" onClick={handleCancel}>
-          Cancel
+          {text?.cancel}
         </Button>,
       ]}
     >
@@ -109,23 +112,23 @@ const ContactForm = () => {
       >
         <Space direction="vertical" style={{ width: "100%" }}>
           <Form.Item
-            label="Name"
+            label={text?.name}
             name="name"
-            rules={[{ required: true, message: "Please input your name." }]}
+            rules={[{ required: true, message: text.valName }]}
           >
             <Input />
           </Form.Item>
           <Form.Item
-            label="Email"
+            label={text?.email}
             name="email"
-            rules={[{ required: true, message: "Please input your email." }]}
+            rules={[{ required: true, message: text.valEmail }]}
           >
             <Input type="email" />
           </Form.Item>
           <Form.Item
-            label="Message"
+            label={text?.message}
             name="message"
-            rules={[{ required: true, message: "Please input your message." }]}
+            rules={[{ required: true, message: text.valMessage }]}
           >
             <Input.TextArea rows={5} />
           </Form.Item>
@@ -133,10 +136,10 @@ const ContactForm = () => {
           <Space size="large">
             <div id="captcha-number" />
             <Form.Item
-              label="Captcha"
+              label={text?.captcha}
               name="captcha"
               rules={[
-                { required: true, message: "Please input captcha." },
+                { required: true, message: text.valCaptcha },
                 () => ({
                   validator(_, value) {
                     if (!value || Number(value) === Number(captchaValue)) {
@@ -152,7 +155,7 @@ const ContactForm = () => {
           </Space>
           <Form.Item style={{ display: "none" }}>
             <Button type="primary" htmlType="submit" ref={submitButton}>
-              Submit
+              {text?.submit}
             </Button>
           </Form.Item>
         </Space>

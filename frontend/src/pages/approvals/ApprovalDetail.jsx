@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Row,
   Col,
@@ -19,15 +19,16 @@ import {
   LoadingOutlined,
   HistoryOutlined,
 } from "@ant-design/icons";
-import { api, store, uiText, config } from "../../lib";
+import { api, store, config } from "../../lib";
 import { EditableCell } from "../../components";
 import { isEqual, flatten } from "lodash";
 import { useNotification } from "../../util/hooks";
 import { HistoryTable } from "../../components";
+import { getTranslation } from "../../util";
 const { TextArea } = Input;
 const { TabPane } = Tabs;
 
-const columnsRawData = [
+const columnsRawData = (text) => [
   {
     title: "",
     dataIndex: "key",
@@ -38,23 +39,23 @@ const columnsRawData = [
     },
   },
   {
-    title: "Name",
+    title: text.name,
     dataIndex: "name",
     key: "name",
   },
   {
-    title: "Administration",
+    title: text.administration,
     dataIndex: "administration",
     key: "administration",
     align: "center",
   },
   {
-    title: "Date",
+    title: text.dateCol,
     dataIndex: "created",
     key: "created",
   },
   {
-    title: "Upload By",
+    title: text.createdByCol,
     dataIndex: "created_by",
     key: "created_by",
     width: 200,
@@ -62,14 +63,14 @@ const columnsRawData = [
   Table.EXPAND_COLUMN,
 ];
 
-const summaryColumns = [
+const summaryColumns = (text) => [
   {
-    title: "Question",
+    title: text.QuestionCol,
     dataIndex: "question",
     key: "question",
   },
   {
-    title: "Value",
+    title: text.valueCol,
     dataIndex: "value",
     key: "value",
     render: (value, row) => {
@@ -98,9 +99,15 @@ const ApprovalDetail = ({
   setExpandedParentKeys,
   readonly = false,
 }) => {
+  const { user: authUser, language } = store.useState((s) => s);
+  const { approvalsLiteral } = config;
+  const { active: activeLang } = language;
+
+  const text = getTranslation(activeLang, "approvals");
+
   const [values, setValues] = useState([]);
   const [rawValues, setRawValues] = useState([]);
-  const [columns, setColumns] = useState(summaryColumns);
+  const [columns, setColumns] = useState(summaryColumns(text));
   const [loading, setLoading] = useState(true);
   const [dataLoading, setDataLoading] = useState(null);
   const [saving, setSaving] = useState(null);
@@ -110,14 +117,6 @@ const ApprovalDetail = ({
   const [comment, setComment] = useState("");
   const [questionGroups, setQuestionGroups] = useState([]);
   const { notify } = useNotification();
-
-  const { user: authUser, language } = store.useState((s) => s);
-  const { approvalsLiteral } = config;
-  const { active: activeLang } = language;
-
-  const text = useMemo(() => {
-    return uiText[activeLang];
-  }, [activeLang]);
 
   const handleSave = (data) => {
     setSaving(data.id);
@@ -146,7 +145,7 @@ const ApprovalDetail = ({
         fetchData(data.id, questionGroups);
         notify({
           type: "success",
-          message: "Data updated",
+          message: text.successUpdated,
         });
       })
       .catch((e) => {
@@ -164,8 +163,7 @@ const ApprovalDetail = ({
     if (!comment.length) {
       notify({
         type: "warning",
-        message:
-          "Please provide notes or feedback to decline or approved the submission",
+        message: text.errorComment,
       });
       return;
     }
@@ -196,7 +194,7 @@ const ApprovalDetail = ({
       setColumns(summaryColumns);
     } else {
       setExpandedRowKeys([]);
-      setColumns(columnsRawData);
+      setColumns(columnsRawData(text));
     }
     setSelectedTab(e);
   };
@@ -377,8 +375,8 @@ const ApprovalDetail = ({
   return (
     <div>
       <Tabs centered activeKey={selectedTab} onTabClick={handleTabSelect}>
-        <TabPane tab="Data Summary" key="data-summary" />
-        <TabPane tab="Raw Data" key="raw-data" />
+        <TabPane tab={text.dataSummaryTab} key="data-summary" />
+        <TabPane tab={text.rawDataTab} key="raw-data" />
       </Tabs>
       <Table
         loading={loading}
@@ -409,7 +407,7 @@ const ApprovalDetail = ({
                               />
                             }
                           />
-                          <span>Loading..</span>
+                          <span>{`${text.loading}..`}</span>
                         </Space>
                       ) : (
                         <>
@@ -428,11 +426,11 @@ const ApprovalDetail = ({
                                 rowKey="id"
                                 columns={[
                                   {
-                                    title: "Question",
+                                    title: text.QuestionCol,
                                     dataIndex: "name",
                                   },
                                   {
-                                    title: "Response",
+                                    title: text.responseCol,
                                     render: (row) => (
                                       <EditableCell
                                         record={row}
@@ -477,7 +475,7 @@ const ApprovalDetail = ({
                               isEdited(record.id) === false
                             }
                           >
-                            Save Edits
+                            {text.saveEditsBtn}
                           </Button>
                         </>
                       )}
@@ -555,7 +553,7 @@ const ApprovalDetail = ({
               onClick={() => handleApprove(record.id, 3)}
               disabled={!approve}
             >
-              Decline
+              {text.decline}
             </Button>
             <Button
               type="primary"

@@ -1,16 +1,13 @@
-import React, { useState, useMemo, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./style.scss";
 import { Row, Col, Card, Form, Button, Divider, Input, Select } from "antd";
 import { useNavigate, useParams } from "react-router-dom";
-import { api, store, config, uiText } from "../../lib";
+import { api, store, config } from "../../lib";
 import { Breadcrumbs, DescriptionPanel } from "../../components";
 import { useNotification } from "../../util/hooks";
+import { getTranslation } from "../../util";
 
 const { Option } = Select;
-
-const descriptionData = (
-  <p>This page allows you to add organisations to the RUSH platform.</p>
-);
 
 const AddOrganisation = () => {
   const { id } = useParams();
@@ -24,9 +21,7 @@ const AddOrganisation = () => {
   const [submitting, setSubmitting] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const text = useMemo(() => {
-    return uiText[activeLang];
-  }, [activeLang]);
+  const text = getTranslation(activeLang, "organisationForm");
 
   const pagePath = [
     {
@@ -55,7 +50,7 @@ const AddOrganisation = () => {
       .then(() => {
         notify({
           type: "success",
-          message: `Organization ${id ? "updated" : "added"}`,
+          message: id ? text?.successUpdated : text?.successAdded,
         });
         setSubmitting(false);
         navigate("/organisations");
@@ -64,8 +59,9 @@ const AddOrganisation = () => {
         notify({
           type: "error",
           message:
-            err?.response?.data?.message ||
-            `Organization could not be ${id ? "updated" : "added"}`,
+            err?.response?.data?.message || id
+              ? text?.errorUpdated
+              : text?.errorAdded,
         });
         setSubmitting(false);
       });
@@ -89,7 +85,7 @@ const AddOrganisation = () => {
       <Row justify="space-between">
         <Col>
           <Breadcrumbs pagePath={pagePath} />
-          <DescriptionPanel description={descriptionData} />
+          <DescriptionPanel description={<p>{text?.descriptionData}</p>} />
         </Col>
       </Row>
       <Divider />
@@ -108,7 +104,7 @@ const AddOrganisation = () => {
             <Col span={24}>
               <Form.Item
                 name="name"
-                label="Organization Name"
+                label={text?.name}
                 rules={[
                   {
                     required: true,
@@ -123,12 +119,12 @@ const AddOrganisation = () => {
           <div className="form-row">
             <Form.Item
               name="attributes"
-              label="Organization Attributes"
+              label={text?.attributes}
               rules={[{ required: true, message: text.valOrgAttributes }]}
             >
               <Select
                 getPopupContainer={(trigger) => trigger.parentNode}
-                placeholder="Select attributes.."
+                placeholder={text.selectAttributes}
                 mode="multiple"
                 allowClear
                 loading={!organisationAttributes.length || loading}

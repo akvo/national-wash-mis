@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Button, DatePicker, Input, Select, Row, Col } from "antd";
-import { config } from "../lib";
+import { config, store } from "../lib";
 import { isEqual } from "lodash";
 const { Option } = Select;
 import { UndoOutlined, SaveOutlined } from "@ant-design/icons";
 import moment from "moment";
 import PropTypes from "prop-types";
+import { getTranslation } from "../util";
 
 const EditableCell = ({
   record,
@@ -20,6 +21,8 @@ const EditableCell = ({
   const [editing, setEditing] = useState(false);
   const [locationName, setLocationName] = useState(null);
   const [value, setValue] = useState(null);
+  const { active: activeLang } = store.useState((s) => s.language);
+  const text = getTranslation(activeLang);
 
   useEffect(() => {
     if (
@@ -137,7 +140,7 @@ const EditableCell = ({
         }}
         icon={<SaveOutlined />}
       >
-        Save
+        {text.save}
       </Button>
     </Row>
   ) : (
@@ -164,7 +167,7 @@ const EditableCell = ({
           }}
           icon={<UndoOutlined />}
         >
-          Reset
+          {text.reset}
         </Button>
       )}
     </Row>

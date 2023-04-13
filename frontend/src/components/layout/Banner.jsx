@@ -1,11 +1,12 @@
-import React, { useMemo } from "react";
+import React from "react";
 import { Row, Col, Button, Dropdown, Menu } from "antd";
 import { DownOutlined } from "@ant-design/icons";
 import { Link, useLocation } from "react-router-dom";
 import ComingSoon from "./custom/ComingSoon";
 import Countdown from "react-countdown";
 import moment from "moment";
-import { uiText, store } from "../../lib";
+import { store } from "../../lib";
+import { getTranslation } from "../../util";
 
 const styles = {
   banner: {
@@ -20,9 +21,7 @@ const Banner = () => {
   const { pathname } = useLocation();
   const { language } = store.useState((s) => s);
   const { active: activeLang } = language;
-  const text = useMemo(() => {
-    return uiText[activeLang];
-  }, [activeLang]);
+  const text = getTranslation(activeLang, "layout");
 
   if (
     pathname !== "/" &&
@@ -108,8 +107,16 @@ const Banner = () => {
     );
     return (
       <>
-        <h1>{text?.welcome}</h1>
-        <h2>{text?.welcomeDesc}</h2>
+        <h1>
+          {text?.bannerTitle1}
+          <br />
+          {text?.bannerTitle2}
+        </h1>
+        <h2>
+          {text?.bannerSubT1}
+          <br />
+          {text?.bannerSubT2}
+        </h2>
         <div className="launching">
           <h4>{text?.countdownTitle}</h4>
           <Countdown date="2025-12-31T09:00:00" renderer={renderer} />
@@ -128,7 +135,7 @@ const Banner = () => {
               onClick={(e) => e.preventDefault()}
               className="btn-dashboard"
             >
-              Comprehensive Dashboards <DownOutlined />
+              {text?.dashboardButton} <DownOutlined />
             </Button>
           </Dropdown>
         </Row>

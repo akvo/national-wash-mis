@@ -3,6 +3,7 @@ import "./style.scss";
 import { Button } from "antd";
 import { store } from "../../lib";
 import { useLocation } from "react-router-dom";
+import { getTranslation } from "../../util";
 
 const hideInPages = ["/control-center", "/data/submissions", "/profile"];
 
@@ -12,6 +13,8 @@ const RemoveFiltersButton = ({ extra = () => {} }) => {
   if (hideButton) {
     return "";
   }
+  const { active: activeLang } = store.useState((s) => s.language);
+  const text = getTranslation(activeLang);
   return (
     <Button
       onClick={() => {
@@ -26,7 +29,7 @@ const RemoveFiltersButton = ({ extra = () => {} }) => {
       }}
       className="light"
     >
-      Remove Filters
+      {text.removeFilters}
     </Button>
   );
 };

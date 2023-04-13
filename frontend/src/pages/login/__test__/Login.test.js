@@ -4,8 +4,13 @@ import userEvent from "@testing-library/user-event";
 import axios from "axios";
 import TestApp from "../../../TestApp";
 import "@testing-library/jest-dom";
+import { loginTrans } from "./translation";
 
 jest.mock("axios");
+
+beforeAll(() => {
+  window.translations = { ...loginTrans };
+});
 
 describe("Login and Registration", () => {
   test("test if the login form exists", () => {

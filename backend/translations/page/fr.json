@@ -31,7 +31,21 @@
     "accountDisclaimer": "L'utilisateur est responsable de son compte et en cas de changement (transfert, retraite, congé, démission, etc.), il doit en informer l'administrateur régional ou le superadministrateur national, qui pourra éventuellement attribuer les rôles au nouvel agent.",
     "contactAdmin": "Veuillez contacter l'administrateur",
     "formAssignmentError": "Vous n'avez aucune attribution de formulaire. Veuillez contacter l'administrateur.",
-    "usernameRequired": "Veuillez saisir votre nom d'utilisateur!"
+    "usernameRequired": "Veuillez saisir votre nom d'utilisateur!",
+    "helpLink": "S'il vous plaît contactez",
+    "helpText": "Vous avez du mal à accéder à la plate-forme?",
+    "invitedInstruction1": "Veuillez définir votre mot de passe pour la plate-forme.",
+    "invitedInstruction2": "Votre mot de passe doit inclure:",
+    "verifying": "Vérification",
+    "welcomeBack": "Content de te revoir",
+    "welcomeInstruction": "Veuillez saisir les détails de votre compte",
+    "emailLabel": "Adresse e-mail",
+    "passwordLabel": "Mot de passe",
+    "loginBtn": "Connexion",
+    "forgotPasswordLink": "Mot de passe oublié",
+    "confirmPassword": "Confirmez le mot de passe",
+    "valConfirmPassword": "Veuillez confirmer le mot de passe !",
+    "setNewPasswordBtn": "Definir un nouveau mot de passe"
   },
   "footer": {
     "footerAboutTitle": "À propos des données",
@@ -56,20 +70,12 @@
     "lastlogin": "Dernière connexion"
   },
   "organisation": {
-    "manageOrganisations": "Gérer les organisations",
-    "addOrganisation": "Ajouter une organisation",
-    "editOrganisation": "Modifier l'organisation",
-    "updateOrganisation": "Mettre à jour l'organisation",
     "successDeleted": "Organisation supprimée",
     "organisationsLoadFail": "Impossible de charger les organisations",
     "organisationDeleteFail": "Impossible de supprimer l'organisation",
     "deleteOrganisationTitle": "Vous êtes sur le point de supprimer l'organisation",
     "deleteOrganisationDesc1": "Il y a <b>: des comptes: utilisateurs</b> associés à cette organisation",
     "deleteOrganisationDes2": "Veuillez réaffecter ou supprimer ces utilisateurs avant de supprimer l'organisation pour éviter des résultats inattendus",
-    "descriptionData": "C'est là que vous:",
-    "orgPanelText1": "Ajouter une nouvelle organisation",
-    "orgPanelText2": "Modifier l'organisation existante",
-    "orgPanelText3": "Supprimer l'organisation existante",
     "usersCol": "Utilisateurs",
     "nameCol": "Organisation",
     "attributesCol": "Les attributs"
@@ -85,12 +91,13 @@
     "errorUpdated": "L'orgnaisation n'a pas pu être mise à jour",
     "valOrganization": "Veuillez sélectionner une organisation",
     "valOrgName": "Le nom de l'organisation est requis",
-    "valOrgAttributes": "Veuillez sélectionner un attribut"
+    "valOrgAttributes": "Veuillez sélectionner un attribut",
+    "manageOrganisations": "Gérer les organisations",
+    "addOrganisation": "Ajouter une organisation",
+    "editOrganisation": "Modifier l'organisation",
+    "updateOrganisation": "Mettre à jour l'organisation"
   },
   "users": {
-    "manageUsers": "gérer les utilisateurs",
-    "addUser": "Ajouter l'utilisateur",
-    "editUser": "Modifier l'utilisateur",
     "updateUser": "Mettre à jour l'utilisateur",
     "successDeleted": "Utilisateur supprimé",
     "usersLoadFail": "Impossible de charger les utilisateurs",
@@ -98,7 +105,18 @@
     "deleteUserHint": "La suppression de cet utilisateur ne supprimera les données associées",
     "deleteUserTitle": "Vous êtes sur le point de supprimer l'utilisateur",
     "deleteUserDesc": "L'utilisateur ne pourra plus accéder à la platerforme RUSH en tant qu'enquêteur/Admin. etc.",
-    "userAssociations": "Cet utilisateur a des associations de données suivantes"
+    "userAssociations": "Cet utilisateur a des associations de données suivantes",
+    "assosiationCol": "Assaissiation",
+    "countCol": "Compter",
+    "credentialsCol": "Crédits",
+    "formsCol": "Formes",
+    "lastLoginCol": "Dernière connexion",
+    "locationsCol": "Emplacements",
+    "phoneCol": "Téléphone",
+    "regionCol": "Région",
+    "roleCol": "Rôle",
+    "showPendingUsers": "Afficher les utilisateurs en instance",
+    "trainedStatus": "Statut"
   },
   "userForm": {
     "successAdded": "Utilisateur ajouté",
@@ -113,13 +131,7 @@
     "valPhone": "Le numéro de téléphone est requis",
     "valDesignation": "Veuillez sélectionner une désignation",
     "valRole": "Veuillez sélectionner un rôle",
-    "firstName": "Prénom",
-    "lastName": "Nom de famille",
-    "email": "Adresse e-mail",
-    "phoneNumber": "Numéro de téléphone",
-    "organisation": "Organisation",
-    "designation": "Désignation",
-    "trained": "Qualifié",
+    "emailAddress": "Adresse e-mail",
     "adminLevel": "Niveau d'administration",
     "valAdminLevel": "Veuillez sélectionner un niveau d'administration",
     "administration": "Administration",
@@ -127,7 +139,9 @@
     "questionnaires": "Questionnaires",
     "existingApproverTitle": "Il existe des approbateurs existants pour:",
     "existingApproverDescription": "Veuillez mettre à jour la configuration au niveau de la gestion de l'arbre de validation ou supprimer ces formulaires pour l'utilisation actuelle.",
-    "informUser": "Informer l'utilisateur des modifications"
+    "informUser": "Informer l'utilisateur des modifications",
+    "addUser": "Ajouter l'utilisateur",
+    "editUser": "Modifier l'utilisateur"
   },
   "approvals": {
     "approvalsTab1": "Mon demande en attente",
@@ -138,15 +152,22 @@
     "adminCol": "Administration",
     "dateCol": "Date",
     "createdByCol": "Télécharger",
-    "QuestionCol": "Question",
     "valueCol": "Valeur",
-    "responseCol": "Réponse",
     "dataSummaryTab": "Résumé des données",
     "rawDataTab": "Données brutes",
     "successUpdated": "Données mises à jour",
     "errorComment": "Veuillez fournir des notes ou des commentaires pour refuser ou approuver la soumission",
-    "saveEditsBtn": "Enregistrer les modifications",
-    "notesNFeedback": "Notes et commentaires"
+    "notesNFeedback": "Notes et commentaires",
+    "descriptionText1": "Voir les approbations de données en attente en attente de votre approbation",
+    "descriptionText2": "Voir les approbations en attente de vos approbateurs subordonnés",
+    "descriptionText3": "Attribuer des approbateurs subordonnés",
+    "formCol": "Former",
+    "locationCol": "Emplacement",
+    "statusCol": "Statut",
+    "submissionCol": "Soumission",
+    "submitterCol": "Émissaire",
+    "totalDataCol": "Données totales",
+    "waitingOnCol": "Attendre sur"
   },
   "approvers": {
     "description": "C'est ici que vous gérez la validation des données pour chaque questionnaire. Vous pouvez :",
@@ -166,32 +187,17 @@
     "manageUserTitle": "Gestion des utilisateurs",
     "manageUserButton": "gérer les utilisateurs",
     "ccDescriptionPanel": "Accès instantané à toutes les pages d'administration et des panneaux d'aperçu pour les approbations de données.",
-    "orgPanelTitle": "Gérer l'organisation",
-    "orgPanelButton": "Gérer l'organisation",
-    "validationSetup": "Gérer la configuration de la validation des données",
-    "selectedDatasetCol": "Jeu de données",
-    "selectedDateCol": "Date téléchargée",
-    "batchNameCol": "Nom de lot",
-    "batchFormCol": "Formulaire",
-    "batchAdmCol": "Administration",
-    "batchStatusCol": "Statut",
-    "batchPopContent": "Il n'y a aucun approbateur pour ces données, veuillez contacter l'administrateur",
-    "batchPopTitle": "Pas d'approbateur",
-    "batchTotalCol": "Données totales",
-    "pendingNameCol": "Nom",
-    "pendingAdmCol": "Administration",
-    "approverNameCol": "Nom",
-    "approverAdmCol": "Administration",
-    "approverStatusCol": "Statut",
     "bulkUpload": "Chargement en masse",
     "addNew": "Ajouter un nouveau",
-    "showPendingUsers": "Montrer les utilisateurs en attente"
+    "dataDownloadCan1": "Accéder aux données téléchargées",
+    "errorExport": "Échec de l'exportation",
+    "successExport": "Données exportées avec succès"
   },
   "dashboard": {
     "lastUpdate": "Dernière mise à jour",
-    "showEmptyValues": "Montrer des valeurs vides",
     "lastUpdatedCol": "Dernière mise à jour",
-    "regionCol": "Région"
+    "regionCol": "Région",
+    "selectCounty": "Sélectionner le comté"
   },
   "exportData": {
     "title": "Téléchargement des données",
@@ -216,9 +222,11 @@
     "description": "La plate-forme RUSH est un système de suivi et d'information en temps réel appartenant à Akvo. La plate-forme regroupe des données quantitatives et qualitatives provenant des comtés et du niveau national et facilite l'analyse des données, la génération de rapports et la visualisation.",
     "contactUs": "Contactez-nous pour un appui ou des commentaires.",
     "getInTouch": "Contactez-nous pour un soutien ou des commentaires.",
-    "sendFeedback": "Envoyez des commentaires"
+    "sendFeedback": "Envoyez des commentaires",
+    "partners": "Les partenaires"
   },
   "newsEvents": {
+    "pageTitle": "Actualités et évènements",
     "latestUpdates": "Dernières mises à jour",
     "upcomingEvents": "évènements à venir"
   },
@@ -230,9 +238,17 @@
     "noFormSelected": "Aucun formulaire sélectionné",
     "confirmDelete1": "Vous êtes sur le point de supprimer: Nom: Données.",
     "confirmDelete2": "Supprimer un point de données supprimera également l'historique",
-    "confirmDelete3": "Êtes-vous sûr de vouloir supprimer ce point de données?"
+    "confirmDelete3": "Êtes-vous sûr de vouloir supprimer ce point de données?",
+    "errorDeleted": "Impossible de supprimer le point de données",
+    "lastUpdatedCol": "Dernière mise à jour",
+    "nameCol": "Nom",
+    "pageTitle": "Gérer les données",
+    "regionCol": "Région",
+    "userCol": "Utilisateur"
   },
-  "powerBi": { "title": "Données WASH des ménages" },
+  "powerBi": {
+    "title": "Données WASH des ménages"
+  },
   "questionnaires": {
     "title": "Gérer les approbations des questionnaires",
     "approvalsPath": "Approbations",
@@ -244,8 +260,8 @@
     "errorUpdated": "Impossible de mettre à jour les questionnaires"
   },
   "settings": {
-    "settingsPath": "Les paramètres du système",
-    "settingsDescriptionPanel": "Cette page permet au Super Admin de maintenir les listes principales critiques du système."
+    "pageTitle": "Les paramètres du système",
+    "pageDescription": "Cette page permet au Super Admin de maintenir les listes principales critiques du système."
   },
   "submission": {
     "batchSelectedDatasets": "Ensembles de données sélectionnés par lots",
@@ -274,14 +290,15 @@
     "templateDownloadHint": "Si vous n'avez pas déjà de modèle, veuillez le télécharger",
     "uploading": "Téléchargement..",
     "dropFile": "Déposez votre fichier ici",
-    "selectForm": "Veuillez sélectionner un formulaire",
+    "pleaseSelectFrom": "Veuillez sélectionner un formulaire",
     "browseComputer": "Parcourez votre ordinateur",
     "bulkUploadNoApproverMessage": "Impossible de charger des données car il n'y a pas encore d'approbateur.",
     "title": "Téléchargement de données",
     "successDesc": "Merci d'avoir chargé le fichier de données. Sachez que les données seront validées par le système. Vous serez informé par e-mail si les données échouent les tests de validation. Il y aura également une pièce jointe des erreurs de validation qui devra être corrigée. S'il n'y a pas d'erreurs de validation, les données seront transmises pour vérification, approbation et certification.",
     "uploadAnotherButton": "Télécharger un autre fichier",
     "BackToCc": "Retour au centre de contrôle",
-    "uploadUrData": "Téléchargez vos données"
+    "uploadUrData": "Téléchargez vos données",
+    "selectForm": "Sélectionner le formulaire"
   },
   "tour": {
     "tourControlCenter": "Lorem ipsum Dolor Sit, Amet Consectetur Adipising Elit",
@@ -291,7 +308,14 @@
     "tourManageData": "Lorem ipsum Dolor Sit, Amet Consectetur Adipising Elit",
     "tourExports": "Velit Amet Omnis Dolores. Ad uniiet ex beatae Dolorum",
     "tourUserManagement": "Magni Provident Aliquam Harum Cucidite iSte",
-    "tourDataUploadsPanel": "Velit Amet Omnis Dolores. Ad uniiet ex beatae Dolorum"
+    "tourDataUploadsPanel": "Velit Amet Omnis Dolores. Ad uniiet ex beatae Dolorum",
+    "tourApprovalsTitle": "Gérer les approbations",
+    "tourApproversTitle": "Gérer les approbateurs",
+    "tourDataUploadsPanelTitle": "Panneau de téléchargement de données",
+    "tourDataUploadsTitle": "Téléchargements de données",
+    "tourExportsTitle": "Exportations",
+    "tourManageDataTitle": "Gérer les données",
+    "tourUserMngTitle": "Gestion des utilisateurs"
   },
   "contactForm": {
     "title": "Veuillez utiliser ce formulaire pour enregistrer vos commentaires / problèmes.",
@@ -301,10 +325,38 @@
     "errorSent": "Oups, quelque chose s'est mal passé.",
     "valName": "Veuillez saisir votre nom.",
     "valEmail": "Veuillez saisir votre e-mail.",
-    "valMessage": "Veuillez saisir votre message"
+    "valMessage": "Veuillez saisir votre message",
+    "valCaptcha": "Veuillez saisir le captcha."
   },
   "layout": {
     "welcomeCta": "Explorez les données nationales",
     "dashboardButton": "Tableaux de bord complets"
+  },
+  "report": {
+    "chooseTemplate": "Choisissez un modèle",
+    "noTemplateFound": "Aucun modèle trouvé",
+    "templateNotFound": "Modèle introuvable"
+  },
+  "useDetail": {
+    "changePassword": "Changer le mot de passe",
+    "dataSubmission": "Soumission de données",
+    "errorSelfDeletion": "Ne pouvait pas faire de l'auto-suppression",
+    "fieldCol": "Champ",
+    "forms": "Formes",
+    "invitationCode": "code d'invitation",
+    "pendingApproval": "Approbation des données en attente",
+    "pendingBatchSubmitted": "Données par lots en attente soumises",
+    "valueCol": "Valeur"
+  },
+  "historyTable": {
+    "history": "Histoire",
+    "updatedAt": "Mis à jour à",
+    "updatedBy": "Mis à jour par"
+  },
+  "tabs": {
+    "dataValidationTree": "Arbre de validation des données",
+    "downloadedData": "Données téléchargées",
+    "manageData": "Gérer les données",
+    "manageUsers": "gérer les utilisateurs"
   }
 }

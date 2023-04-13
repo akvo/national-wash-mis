@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { Row, Col, Tabs, Affix } from "antd";
 import { VisualisationFilters } from "../../components";
 import { useNotification } from "../../util/hooks";
-import { api, uiText, store, config } from "../../lib";
+import { api, store, config } from "../../lib";
 import { capitalize, takeRight } from "lodash";
 import { Maps } from "../../components";
 import {
@@ -14,6 +14,7 @@ import {
   ReportVisual,
 } from "./components";
 import { generateAdvanceFilterURL } from "../../util/filter";
+import { getTranslation } from "../../util";
 
 const { TabPane } = Tabs;
 
@@ -35,9 +36,7 @@ const Dashboard = () => {
   const administration = store.useState((s) => s.administration);
   const [wait, setWait] = useState(true);
 
-  const text = useMemo(() => {
-    return uiText[activeLang];
-  }, [activeLang]);
+  const text = getTranslation(activeLang, "dashboard");
 
   const currentAdministration = takeRight(administration)?.[0];
   const prefixText =
@@ -137,9 +136,9 @@ const Dashboard = () => {
     current,
     currentAdministration,
     notify,
-    text,
     advancedFilters,
     wait,
+    text.errorDataLoad,
   ]);
 
   const changeTab = (tabKey) => {
@@ -263,7 +262,7 @@ const Dashboard = () => {
               );
             })
           ) : (
-            <h4>No data</h4>
+            <h4>{text.noData}</h4>
           )}
         </Col>
       </Row>

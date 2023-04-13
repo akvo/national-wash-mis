@@ -1,10 +1,11 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect } from "react";
 import { Card, Table, Tabs, Row, Button } from "antd";
-import { api, store, config, uiText } from "../../../lib";
+import { api, store, config } from "../../../lib";
 import { Link } from "react-router-dom";
 import { columnsApproval } from "../../approvals";
 import "./style.scss";
 import { DescriptionPanel } from "../../../components";
+import { getTranslation } from "../../../util";
 
 const { TabPane } = Tabs;
 
@@ -19,9 +20,7 @@ const PanelApprovals = () => {
   const { language } = store.useState((s) => s);
   const { active: activeLang } = language;
 
-  const text = useMemo(() => {
-    return uiText[activeLang];
-  }, [activeLang]);
+  const text = getTranslation(activeLang, "approvals");
 
   const approvalsText = approvalsLiteral(authUser);
 
@@ -53,7 +52,18 @@ const PanelApprovals = () => {
           <img src="/assets/approval.png" width={100} height={100} />
         </div>
       </div>
-      <DescriptionPanel description={<div>{text.panelApprovalsDesc}</div>} />
+      <DescriptionPanel
+        description={
+          <div>
+            {text.thisIsWhereYou}
+            <ul>
+              <li>{text.descriptionText1}</li>
+              <li>{text.descriptionText2}</li>
+              <li>{text.descriptionText3}</li>
+            </ul>
+          </div>
+        }
+      />
       <Tabs defaultActiveKey={approvalTab} onChange={setApprovalTab}>
         <TabPane
           tab={`${text.approvalsTab1} ${approvalsText}`}
@@ -66,17 +76,17 @@ const PanelApprovals = () => {
       <Table
         dataSource={approvalsPending}
         loading={loading}
-        columns={columnsApproval}
+        columns={columnsApproval(text)}
         pagination={{ position: ["none", "none"] }}
         scroll={{ y: 270 }}
       />
       <Row justify="space-between" className="approval-links">
         <Link to="/approvals">
-          <Button type="primary">View All</Button>
+          <Button type="primary">{text.viewAll}</Button>
         </Link>
         {checkAccess(authUser?.role_detail, "approvers") && (
           <Link to="/approvers/tree">
-            <Button type="primary">Manage Data Validation Setup</Button>
+            <Button type="primary">{text.validationSetup}</Button>
           </Link>
         )}
       </Row>

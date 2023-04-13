@@ -1,10 +1,11 @@
-import React, { useState, useMemo } from "react";
+import React, { useState } from "react";
 import { Form, Input, Button, Checkbox } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
-import { api, store, config, uiText } from "../../../lib";
+import { api, store, config } from "../../../lib";
 import { useNavigate } from "react-router-dom";
 import { useNotification } from "../../../util/hooks";
 import { reloadData } from "../../../util/form";
+import { getTranslation } from "../../../util";
 
 const RegistrationForm = (props) => {
   const { invite } = props;
@@ -14,9 +15,7 @@ const RegistrationForm = (props) => {
   const { notify } = useNotification();
   const { language } = store.useState((s) => s);
   const { active: activeLang } = language;
-  const text = useMemo(() => {
-    return uiText[activeLang];
-  }, [activeLang]);
+  const text = getTranslation(activeLang, "login");
 
   const checkBoxOptions = [
     { name: text.passwordRule1, re: /[a-z]/ },
@@ -100,7 +99,7 @@ const RegistrationForm = (props) => {
       >
         <Form.Item
           name="password"
-          label="Password"
+          label={text.passwordLabel}
           rules={[
             {
               required: true,
@@ -119,18 +118,18 @@ const RegistrationForm = (props) => {
         >
           <Input.Password
             prefix={<UserOutlined className="site-form-item-icon" />}
-            placeholder="Password"
+            placeholder={text.passwordLabel}
           />
         </Form.Item>
         <Form.Item
           name="confirm"
-          label="Confirm Password"
+          label={text.confirmPassword}
           dependencies={["password"]}
           hasFeedback
           rules={[
             {
               required: true,
-              message: "Please Confirm Password!",
+              message: text.valConfirmPassword,
             },
             ({ getFieldValue }) => ({
               validator(_, value) {
@@ -144,12 +143,12 @@ const RegistrationForm = (props) => {
         >
           <Input.Password
             prefix={<LockOutlined className="site-form-item-icon" />}
-            placeholder="Confirm Password"
+            placeholder={text.confirmPassword}
           />
         </Form.Item>
         <Form.Item>
           <Button type="primary" htmlType="submit" loading={loading}>
-            Set New Password
+            {text.setNewPasswordBtn}
           </Button>
         </Form.Item>
         <p className="disclaimer">{text.accountDisclaimer}</p>

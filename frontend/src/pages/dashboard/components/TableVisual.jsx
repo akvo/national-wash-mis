@@ -4,13 +4,16 @@ import { Col, Table, Button } from "antd";
 import { get, capitalize, sumBy, orderBy } from "lodash";
 import { DownloadOutlined } from "@ant-design/icons";
 import { Excel } from "antd-table-saveas-excel";
-import { jmpColorScore } from "../../../lib";
+import { jmpColorScore, store } from "../../../lib";
+import { getTranslation } from "../../../util";
 
 const fontSize = 12;
 
 const TableVisual = ({ tableConfig, loading }) => {
   const { formId } = useParams();
   const { title, type, columns, span, data, index, admLevelName } = tableConfig;
+  const { active: activeLang } = store.useState((s) => s.language);
+  const text = getTranslation(activeLang);
 
   const tableColumns = useMemo(() => {
     return columns.map((c) => {
@@ -21,7 +24,7 @@ const TableVisual = ({ tableConfig, loading }) => {
         if (!obj) {
           return {
             title: c.title,
-            render: () => "No data",
+            render: () => text.noData,
           };
         }
         const jmpConfigPath = String(c.children_path).replace("data", formId);
@@ -73,7 +76,7 @@ const TableVisual = ({ tableConfig, loading }) => {
       }
       return tmp;
     });
-  }, [columns, data, formId]);
+  }, [columns, data, formId, text]);
 
   const tableDataSource = useMemo(() => {
     const paths = columns.map((x) => {
@@ -149,7 +152,7 @@ const TableVisual = ({ tableConfig, loading }) => {
               className="download"
               size="small"
             >
-              Download
+              {text.download}
             </Button>
           </div>
         )}

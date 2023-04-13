@@ -16,26 +16,29 @@ import { api, store } from "../../lib";
 import { Breadcrumbs } from "../../components";
 import { reloadData } from "../../util/form";
 import { useNotification } from "../../util/hooks";
+import { getTranslation } from "../../util";
 
-const pagePath = [
+const pagePath = (text) => [
   {
-    title: "Control Center",
+    title: text.controlCenter,
     link: "/control-center",
   },
   {
-    title: "Approvals",
+    title: text.approvalsPath,
     link: "/approvals",
   },
   {
-    title: "Manage Questionnaires Approvals",
+    title: text.title,
   },
 ];
 
 const Questionnaires = () => {
-  const { forms, user } = store.useState((s) => s);
+  const { forms, user, language } = store.useState((s) => s);
   const [dataset, setDataset] = useState([]);
   const [loading, setLoading] = useState(false);
   const { notify } = useNotification();
+  const { active: activeLang } = language;
+  const text = getTranslation(activeLang, "questionnaires");
 
   useEffect(() => {
     if (forms.length) {
@@ -45,17 +48,17 @@ const Questionnaires = () => {
 
   const columns = [
     {
-      title: "Questionnaire",
+      title: text.questCol,
       dataIndex: "name",
       key: "name",
     },
     {
-      title: "Questionnaire Description",
+      title: text.questDescCol,
       dataIndex: "description",
       render: (cell) => cell || <span>-</span>,
     },
     {
-      title: "National",
+      title: text.nationalCol,
       render: (row) => (
         <Checkbox
           checked={row.type === 2}
@@ -66,7 +69,7 @@ const Questionnaires = () => {
       ),
     },
     {
-      title: "County",
+      title: text.countryCol,
       render: (row) => (
         <Checkbox
           checked={row.type === 1}
@@ -99,21 +102,17 @@ const Questionnaires = () => {
         setLoading(false);
         notify({
           type: "success",
-          message: "Questionnaires updated",
+          message: text.successUpdated,
         });
         reloadData(user, dataset);
       })
       .catch(() => {
         notify({
           type: "error",
-          message: "Could not update Questionnaires",
+          message: text.errorUpdated,
         });
         setLoading(false);
       });
-  };
-
-  const handleChange = () => {
-    // setCurrentPage(e.current);
   };
 
   const isPristine = useMemo(() => {
@@ -124,7 +123,7 @@ const Questionnaires = () => {
     <div id="questionnaires">
       <Row justify="space-between">
         <Col>
-          <Breadcrumbs pagePath={pagePath} />
+          <Breadcrumbs pagePath={pagePath(text)} />
         </Col>
         <Col>
           <Space size={6}>
@@ -136,7 +135,7 @@ const Questionnaires = () => {
                 setDataset(cloned);
               }}
             >
-              Reset
+              {text.reset}
             </Button>
             <Button
               type="primary"
@@ -144,7 +143,7 @@ const Questionnaires = () => {
               onClick={handleSubmit}
               loading={loading}
             >
-              Save
+              {text.save}
             </Button>
           </Space>
         </Col>
@@ -159,11 +158,6 @@ const Questionnaires = () => {
             columns={columns}
             dataSource={dataset}
             loading={!dataset.length}
-            onChange={handleChange}
-            // pagination={{
-            //   total: totalCount,
-            //   pageSize: 10,
-            // }}
             pagination={false}
             rowKey="id"
           />

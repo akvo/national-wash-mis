@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useCallback, useMemo } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import "./style.scss";
 import { Row, Col, Card, Button, Divider, Table, Modal, Tag } from "antd";
 import { Link } from "react-router-dom";
 import { PlusSquareOutlined, CloseSquareOutlined } from "@ant-design/icons";
-import { api, store, uiText } from "../../lib";
+import { api, store } from "../../lib";
 import UserDetail from "./UserDetail";
 import {
   UserFilters,
@@ -14,14 +14,15 @@ import {
 import { useNotification } from "../../util/hooks";
 import { reverse } from "lodash";
 import moment from "moment";
+import { getTranslation } from "../../util";
 
-const pagePath = [
+const pagePath = (text) => [
   {
-    title: "Control Center",
+    title: text.controlCenter,
     link: "/control-center",
   },
   {
-    title: "Manage Users",
+    title: text.manageUsers,
   },
 ];
 const Users = () => {
@@ -36,9 +37,7 @@ const Users = () => {
 
   const { language } = store.useState((s) => s);
   const { active: activeLang } = language;
-  const text = useMemo(() => {
-    return uiText[activeLang];
-  }, [activeLang]);
+  const text = getTranslation(activeLang, "users");
 
   const { administration, filters, isLoggedIn } = store.useState(
     (state) => state
@@ -53,7 +52,7 @@ const Users = () => {
 
   const columns = [
     {
-      title: "Name",
+      title: text.name,
       dataIndex: "first_name",
       key: "first_name",
       render: (firstName, row) => (
@@ -63,26 +62,26 @@ const Users = () => {
             row.email?.endsWith("@user.com")) && (
             <Tag color="geekblue">Test User</Tag>
           )}
-          {row.trained && <Tag color="warning">Trained</Tag>}
+          {row.trained && <Tag color="warning">{text.trained}</Tag>}
         </span>
       ),
     },
     {
-      title: "Organization",
+      title: text.organisation,
       dataIndex: "organisation",
       render: (organisation) => organisation?.name || "-",
     },
     {
-      title: "Email",
+      title: text.email,
       dataIndex: "email",
     },
     {
-      title: "Role",
+      title: text.roleCol,
       dataIndex: "role",
       render: (role) => role?.value || "",
     },
     {
-      title: "Region",
+      title: text.regionCol,
       dataIndex: "administration",
       render: (administration) => {
         const adm = administration?.id
@@ -95,18 +94,18 @@ const Users = () => {
       },
     },
     {
-      title: "Phone",
+      title: text.phoneCol,
       dataIndex: "phone_number",
       render: (phone_number) => (phone_number ? phone_number : "-"),
     },
     {
-      title: "Forms",
+      title: text.formsCol,
       dataIndex: "forms",
       align: "center",
       render: (forms) => forms.length || "None",
     },
     {
-      title: "Last Login",
+      title: text.lastLoginCol,
       dataIndex: "last_login",
       align: "center",
       render: (last_login) =>
@@ -128,7 +127,7 @@ const Users = () => {
         setDeleting(false);
         notify({
           type: "success",
-          message: "User deleted",
+          message: text.successDeleted,
         });
       })
       .catch((err) => {
@@ -218,14 +217,25 @@ const Users = () => {
     <div id="users">
       <Row justify="space-between" align="bottom">
         <Col>
-          <Breadcrumbs pagePath={pagePath} />
-          <DescriptionPanel description={text.manageUserText} />
+          <Breadcrumbs pagePath={pagePath(text)} />
+          <DescriptionPanel
+            description={
+              <>
+                {text.manageUserDesc}
+                <ul>
+                  <li>{text.manageUserCan1}</li>
+                  <li>{text.manageUserCan2}</li>
+                  <li>{text.manageUserCan3}</li>
+                </ul>
+              </>
+            }
+          />
         </Col>
       </Row>
       <UserTab
         tabBarExtraContent={
           <Link to="/user/add">
-            <Button type="primary">Add new user</Button>
+            <Button type="primary">{text.manageUserCan1}</Button>
           </Link>
         }
       />
@@ -298,7 +308,7 @@ const Users = () => {
                   setDeleteUser(null);
                 }}
               >
-                Cancel
+                {text.cancel}
               </Button>
               <Button
                 type="primary"
@@ -308,7 +318,7 @@ const Users = () => {
                   handleDelete();
                 }}
               >
-                Delete
+                {text.delete}
               </Button>
             </Col>
           </Row>
@@ -325,12 +335,12 @@ const Users = () => {
         <Table
           columns={[
             {
-              title: "Locations",
+              title: text.locationsCol,
               dataIndex: "administration",
               render: (cell) => cell.name,
             },
             {
-              title: "Credentials",
+              title: text.credentialsCol,
               dataIndex: "role",
               render: (cell) => cell.value,
             },
@@ -344,11 +354,11 @@ const Users = () => {
           title={() => text.userAssociations}
           columns={[
             {
-              title: "Assosiation",
+              title: text.assosiationCol,
               dataIndex: "name",
             },
             {
-              title: "Count",
+              title: text.countCol,
               dataIndex: "count",
             },
           ]}

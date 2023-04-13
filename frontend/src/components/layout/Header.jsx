@@ -1,10 +1,11 @@
-import React, { useMemo } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { Row, Col, Space, Button, Menu, Dropdown } from "antd";
-import { UserOutlined } from "@ant-design/icons";
+import { UserOutlined, CaretDownOutlined } from "@ant-design/icons";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { config, store, uiText } from "../../lib";
+import { config, store } from "../../lib";
 import { eraseCookieFromAllPaths } from "../../util/date";
+import { getTranslation } from "../../util";
 
 const Header = ({ className = "header", ...props }) => {
   const { isLoggedIn, user } = store.useState();
@@ -12,12 +13,11 @@ const Header = ({ className = "header", ...props }) => {
   const location = useLocation();
   const { language } = store.useState((s) => s);
   const { active: activeLang } = language;
-  const text = useMemo(() => {
-    return uiText[activeLang];
-  }, [activeLang]);
+  const text = getTranslation(activeLang, "header");
   const dashboards = window?.dashboard;
   const powerBIDashboard = window?.powerBIDashboard;
   const reports = window?.reports;
+  const languages = window.languages;
 
   const signOut = async () => {
     eraseCookieFromAllPaths("AUTH_TOKEN");
@@ -26,6 +26,15 @@ const Header = ({ className = "header", ...props }) => {
       s.user = null;
     });
     navigate("login");
+  };
+
+  const handleLangClick = ({ key }) => {
+    store.update((s) => {
+      s.language = {
+        ...s.language,
+        active: key,
+      };
+    });
   };
 
   const userMenu = (
@@ -80,6 +89,16 @@ const Header = ({ className = "header", ...props }) => {
     </Menu>
   );
 
+  const langMenu = (
+    <Menu onClick={handleLangClick}>
+      {languages?.map((lg) => (
+        <Menu.Item key={lg} className="dashboard-menu-item">
+          {lg}
+        </Menu.Item>
+      ))}
+    </Menu>
+  );
+
   if (
     location.pathname.includes("/login") ||
     location.pathname.includes("/forgot-password")
@@ -126,7 +145,7 @@ const Header = ({ className = "header", ...props }) => {
                     e.preventDefault();
                   }}
                 >
-                  New Dashboard
+                  {text?.newDashboard}
                 </a>
               </Dropdown>
               <Dropdown overlay={DashboardMenu}>
@@ -158,30 +177,43 @@ const Header = ({ className = "header", ...props }) => {
               </Link>
             </Space>
           </div>
-          <div className="account">
-            {isLoggedIn ? (
-              <Dropdown overlay={userMenu}>
-                <a
-                  className="ant-dropdown-link"
-                  onClick={(e) => {
-                    e.preventDefault();
-                  }}
-                >
-                  {user?.name || ""}
-                  <span className="role">, {user?.role?.value || ""}</span>
-                  <span className="icon">
-                    <UserOutlined />
-                  </span>
-                </a>
-              </Dropdown>
-            ) : (
-              <Link to={"/login"}>
-                <Button type="primary" size="small">
-                  {text?.login}
-                </Button>
-              </Link>
-            )}
-          </div>
+          <Space>
+            <div className="account">
+              {isLoggedIn ? (
+                <Dropdown overlay={userMenu}>
+                  <a
+                    className="ant-dropdown-link"
+                    onClick={(e) => {
+                      e.preventDefault();
+                    }}
+                  >
+                    {user?.name || ""}
+                    <span className="role">, {user?.role?.value || ""}</span>
+                    <span className="icon">
+                      <UserOutlined />
+                    </span>
+                  </a>
+                </Dropdown>
+              ) : (
+                <Link to={"/login"}>
+                  <Button type="primary" size="small">
+                    {text?.login}
+                  </Button>
+                </Link>
+              )}
+            </div>
+            <Dropdown overlay={langMenu}>
+              <Button
+                type="secondary"
+                size="small"
+                className="language-switcher"
+              >
+                <Space>
+                  {activeLang} <CaretDownOutlined />
+                </Space>
+              </Button>
+            </Dropdown>
+          </Space>
         </Col>
       )}
     </Row>

@@ -2,19 +2,20 @@ import React, { useState, useEffect, useMemo } from "react";
 import "./style.scss";
 import { Row, Col, Card, Divider, Space } from "antd";
 import { Breadcrumbs, DescriptionPanel, UserTab } from "../../components";
-import { api, store, uiText } from "../../lib";
+import { api, store } from "../../lib";
 import ApproverFilters from "../../components/filters/ApproverFilters";
 import { SteppedLineTo } from "react-lineto";
 import { take, takeRight } from "lodash";
 import { useNotification } from "../../util/hooks";
+import { getTranslation } from "../../util";
 
-const pagePath = [
+const pagePath = (text) => [
   {
-    title: "Control Center",
+    title: text.controlCenter,
     link: "/control-center",
   },
   {
-    title: "Manage Data Validation Setup",
+    title: text.validationSetup,
   },
 ];
 
@@ -28,9 +29,7 @@ const ApproversTree = () => {
   const { notify } = useNotification();
   const { language } = store.useState((s) => s);
   const { active: activeLang } = language;
-  const text = useMemo(() => {
-    return uiText[activeLang];
-  }, [activeLang]);
+  const text = getTranslation(activeLang, "approvers");
 
   useEffect(() => {
     setNodes([
@@ -79,12 +78,12 @@ const ApproversTree = () => {
         .catch(() => {
           notify({
             type: "error",
-            message: "Could not fetch data",
+            message: text?.errorFetchData,
           });
           setLoading(false);
         });
     }
-  }, [administration, selectedForm, notify]);
+  }, [administration, selectedForm, notify, text?.errorFetchData]);
 
   const isPristine = useMemo(() => {
     return JSON.stringify(dataset) === datasetJson;
@@ -305,16 +304,15 @@ const ApproversTree = () => {
     <div id="approversTree">
       <Row justify="space-between">
         <Col>
-          <Breadcrumbs pagePath={pagePath} />
+          <Breadcrumbs pagePath={pagePath(text)} />
           <DescriptionPanel
             description={
               <>
-                This is where you manage data validation for each Questionnaire.
-                You can:
+                {text.description}
                 <ul>
-                  <li>Add data validator</li>
-                  <li>Modify data validator</li>
-                  <li>Delete data validator</li>
+                  <li>{text.panelText1}</li>
+                  <li>{text.panelText2}</li>
+                  <li>{text.panelText3}</li>
                 </ul>
               </>
             }
@@ -326,6 +324,7 @@ const ApproversTree = () => {
         loading={false}
         disabled={isPristine || loading}
         visible={false}
+        text={text}
       />
       <Divider />
       <Card style={{ padding: 0, minHeight: "40vh" }}>
@@ -335,7 +334,7 @@ const ApproversTree = () => {
           justify="left"
         >
           <Col span={6} align="center">
-            Questionnaire
+            {text.questionCol}
           </Col>
           {selectedForm &&
             dataset.map(
