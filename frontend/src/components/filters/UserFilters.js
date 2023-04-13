@@ -6,6 +6,7 @@ const { Search } = Input;
 import { store, config, api } from "../../lib";
 import AdministrationDropdown from "./AdministrationDropdown";
 import RemoveFiltersButton from "./RemoveFiltersButton";
+import { getTranslation } from "../../util";
 
 const { Option } = Select;
 
@@ -17,8 +18,14 @@ const UserFilters = ({
   setPending,
   loading,
 }) => {
-  const { user: authUser, filters } = store.useState((state) => state);
+  const {
+    user: authUser,
+    filters,
+    language,
+  } = store.useState((state) => state);
   const { trained, role, organisation } = filters;
+  const { active: activeLang } = language;
+  const text = getTranslation(activeLang, "users");
 
   const { trainedStatus } = config;
   // show role > logged in user if logged in user not super admin
@@ -42,7 +49,7 @@ const UserFilters = ({
       <Col span={20}>
         <Space>
           <Search
-            placeholder="Search..."
+            placeholder={`${text.search}...`}
             value={query}
             onChange={(e) => {
               setQuery(e.target.value);
@@ -55,7 +62,7 @@ const UserFilters = ({
             allowClear
           />
           <Select
-            placeholder="Organization"
+            placeholder={text.organisation}
             getPopupContainer={(trigger) => trigger.parentNode}
             style={{ width: 160 }}
             value={organisation}
@@ -73,7 +80,7 @@ const UserFilters = ({
             ))}
           </Select>
           <Select
-            placeholder="Trained Status"
+            placeholder={text.trainedStatus}
             getPopupContainer={(trigger) => trigger.parentNode}
             style={{ width: 160 }}
             value={trained}
@@ -91,7 +98,7 @@ const UserFilters = ({
             ))}
           </Select>
           <Select
-            placeholder="Role"
+            placeholder={text.roleCol}
             getPopupContainer={(trigger) => trigger.parentNode}
             style={{ width: 160 }}
             value={role}
@@ -124,7 +131,7 @@ const UserFilters = ({
           disabled={loading}
           checked={pending}
         >
-          Show Pending Users
+          {text.showPendingUsers}
         </Checkbox>
       </Col>
     </Row>
