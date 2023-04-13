@@ -128,6 +128,9 @@ class FormSeederTestCase(TestCase):
         self.assertEqual(200, response.status_code)
         response = response.json()
         self.assertEqual(
+            ['id', 'name', 'order'],
+            list(response["question_group"][0]["question"][2]['option'][0]))
+        self.assertEqual(
             ["chart", "aggregate", "table", "advanced_filter"],
             response["question_group"][0]["question"][2]["attributes"],
         )
