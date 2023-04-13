@@ -1,20 +1,19 @@
 import React, { useMemo } from "react";
 import "./style.scss";
 import { Row, Col, Card, Button, Divider } from "antd";
-import { store, config, uiText } from "../../lib";
+import { store, config } from "../../lib";
 import { Link } from "react-router-dom";
 import { PanelApprovals, PanelSubmissions } from "../control-center/components";
 import { Breadcrumbs, DescriptionPanel } from "../../components";
 import { ControlCenterTour } from "./components";
+import { getTranslation } from "../../util";
 
 const ControlCenter = () => {
   const { user: authUser } = store.useState((s) => s);
   const { language } = store.useState((s) => s);
 
   const { active: activeLang } = language;
-  const text = useMemo(() => {
-    return uiText[activeLang];
-  }, [activeLang]);
+  const text = getTranslation(activeLang, "controlCenter");
 
   const { roles, checkAccess } = config;
 
@@ -25,7 +24,16 @@ const ControlCenter = () => {
         title: text.manageDataTitle,
         buttonLabel: text.manageDataButton,
         access: "data",
-        description: <div>{text.manageDataText}</div>,
+        description: (
+          <div>
+            {text.thisIsWhereYou}
+            <ul>
+              <li>{text.manageDataCan1}</li>
+              <li>{text.manageDataCan2}</li>
+              <li>{text.manageDataCan3}</li>
+            </ul>
+          </div>
+        ),
         link: "/data/manage",
         image: "/assets/big-data.png",
       },
@@ -34,7 +42,14 @@ const ControlCenter = () => {
         title: text.dataDownloadTitle,
         buttonLabel: text.dataDownloadButton,
         access: "data",
-        description: <div>{text.dataDownloadText}</div>,
+        description: (
+          <div>
+            {text.thisIsWhereYou}
+            <ul>
+              <li>{text.dataDownloadCan1}</li>
+            </ul>
+          </div>
+        ),
         link: "/data/export",
         image: "/assets/import.png",
       },
@@ -43,7 +58,16 @@ const ControlCenter = () => {
         title: text.dataUploadTitle,
         buttonLabel: text.dataUploadButton,
         access: authUser?.role.id === 4 ? "" : "form",
-        description: <div>{text.dataUploadText}</div>,
+        description: (
+          <div>
+            {text.thisIsWhereYou}
+            <ul>
+              <li>{text.uploadDataCan1}</li>
+              <li>{text.uploadDataCan2}</li>
+              <li>{text.uploadDataCan3}</li>
+            </ul>
+          </div>
+        ),
         link: "/data/upload",
         image: "/assets/upload.png",
       },
@@ -52,16 +76,34 @@ const ControlCenter = () => {
         title: text.manageUserTitle,
         buttonLabel: text.manageUserButton,
         access: "user",
-        description: <div>{text.manageUserText}</div>,
+        description: (
+          <div>
+            {text.manageUserDesc}
+            <ul>
+              <li>{text.manageUserCan1}</li>
+              <li>{text.manageUserCan2}</li>
+              <li>{text.manageUserCan3}</li>
+            </ul>
+          </div>
+        ),
         link: "/users",
         image: "/assets/personal-information.png",
       },
       {
         key: "manage-organisation",
-        title: text.orgPanelTitle,
-        buttonLabel: text.orgPanelButton,
+        title: text.manageOrgTitle,
+        buttonLabel: text.manageOrgButton,
         access: "organisation",
-        description: <div>{text.orgPanelText}</div>,
+        description: (
+          <div>
+            {text.thisIsWhereYou}
+            <ul>
+              <li>{text.manageOrgDescText1}</li>
+              <li>{text.manageOrgDescText2}</li>
+              <li>{text.manageOrgDescText3}</li>
+            </ul>
+          </div>
+        ),
         link: "/organisations",
         image: "/assets/organisation.svg",
       },
@@ -105,7 +147,7 @@ const ControlCenter = () => {
         <Breadcrumbs
           pagePath={[
             {
-              title: "Control Center",
+              title: text.controlCenter,
               link: "/control-center",
             },
           ]}

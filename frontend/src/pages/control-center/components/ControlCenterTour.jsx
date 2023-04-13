@@ -1,26 +1,25 @@
-import React, { useMemo } from "react";
+import React from "react";
 import { Tour } from "../../../components";
-import { store, config, uiText } from "../../../lib";
+import { store, config } from "../../../lib";
+import { getTranslation } from "../../../util";
 
 const ControlCenterTour = () => {
   const { user: authUser } = store.useState((s) => s);
   const { language } = store.useState((s) => s);
   const { active: activeLang } = language;
-  const text = useMemo(() => {
-    return uiText[activeLang];
-  }, [activeLang]);
+  const text = getTranslation(activeLang, "tour");
 
   const steps = [
     ...(config.checkAccess(authUser?.role_detail, "data")
       ? [
           {
             image: "/assets/tour/control-center/1.png",
-            title: "Manage Data",
+            title: text.tourManageDataTitle,
             description: text.tourManageData,
           },
           {
             image: "/assets/tour/control-center/2.png",
-            title: "Exports",
+            title: text.tourExportsTitle,
             description: text.tourExports,
           },
         ]
@@ -30,7 +29,7 @@ const ControlCenterTour = () => {
       ? [
           {
             image: "/assets/tour/control-center/3.png",
-            title: "Data Uploads",
+            title: text.tourDataUploadsTitle,
             description: text.tourDataUploads,
           },
         ]
@@ -39,7 +38,7 @@ const ControlCenterTour = () => {
       ? [
           {
             image: "/assets/tour/control-center/4.png",
-            title: "User Management",
+            title: text.tourUserMngTitle,
             description: text.tourUserManagement,
           },
         ]
@@ -49,7 +48,7 @@ const ControlCenterTour = () => {
       ? [
           {
             image: "/assets/tour/control-center/5.png",
-            title: "Data Uploads Panel",
+            title: text.tourDataUploadsPanelTitle,
             description: text.tourDataUploadsPanel,
           },
         ]
@@ -58,12 +57,12 @@ const ControlCenterTour = () => {
       ? [
           {
             image: "/assets/tour/control-center/6.png",
-            title: "Manage Approvals",
+            title: text.tourApprovalsTitle,
             description: text.tourApprovals,
           },
           {
             image: "/assets/tour/control-center/7.png",
-            title: "Manage Approvers",
+            title: text.tourApproversTitle,
             description: text.tourApprovers,
           },
         ]
