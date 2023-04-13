@@ -23,29 +23,30 @@ import {
   ExclamationCircleOutlined,
 } from "@ant-design/icons";
 import { DataFilters } from "../../../components";
-import { api, store, uiText } from "../../../lib";
+import { api, store } from "../../../lib";
 import { Link } from "react-router-dom";
 import { useNotification } from "../../../util/hooks";
 import { isEmpty, without, union, xor } from "lodash";
+import { getTranslation } from "../../../util";
 
 const { TabPane } = Tabs;
 const { TextArea } = Input;
 
-const columnsSelected = [
+const columnsSelected = (text) => [
   {
-    title: "Dataset",
+    title: text.selectedDatasetCol,
     dataIndex: "name",
     key: "name",
   },
   {
-    title: "Date Uploaded",
+    title: text.selectedDateCol,
     dataIndex: "created",
     key: "created",
     align: "right",
   },
 ];
 
-const columnsBatch = [
+const columnsBatch = (text) => [
   {
     title: "",
     dataIndex: "id",
@@ -55,7 +56,7 @@ const columnsBatch = [
     width: 50,
   },
   {
-    title: "Batch Name",
+    title: text.batchNameCol,
     dataIndex: "name",
     key: "name",
     render: (name, row) => (
@@ -71,19 +72,19 @@ const columnsBatch = [
     ),
   },
   {
-    title: "Form",
+    title: text.batchFormCol,
     dataIndex: "form",
     key: "form",
     render: (form) => form.name || "",
   },
   {
-    title: "Administration",
+    title: text.batchAdmCol,
     dataIndex: "administration",
     key: "administration",
     render: (administration) => administration.name || "",
   },
   {
-    title: "Status",
+    title: text.batchStatusCol,
     dataIndex: "approvers",
     key: "approvers",
     align: "center",
@@ -117,12 +118,9 @@ const columnsBatch = [
       }
       return (
         <span>
-          <Popover
-            content="There is no approvers for this data, please contact admin"
-            title="No Approver"
-          >
+          <Popover content={text.batchPopContent} title={text.batchPopTitle}>
             <Tag color="warning" icon={<ExclamationCircleOutlined />}>
-              No Approver
+              {text.batchPopTitle}
             </Tag>
           </Popover>
         </span>
@@ -130,14 +128,14 @@ const columnsBatch = [
     },
   },
   {
-    title: "Total Data",
+    title: text.batchTotalCol,
     dataIndex: "total_data",
     key: "total_data",
     align: "center",
   },
 ];
 
-const columnsPending = [
+const columnsPending = (text) => [
   {
     title: "",
     dataIndex: "id",
@@ -146,7 +144,7 @@ const columnsPending = [
     width: 50,
   },
   {
-    title: "Name",
+    title: text.pendingNameCol,
     dataIndex: "name",
     key: "name",
     render: (name, row) => (
@@ -162,25 +160,25 @@ const columnsPending = [
     ),
   },
   {
-    title: "Administration",
+    title: text.pendingAdmCol,
     dataIndex: "administration",
     key: "administration",
   },
 ];
 
-const columnsApprover = [
+const columnsApprover = (text) => [
   {
-    title: "Approver",
+    title: text.approverNameCol,
     dataIndex: "name",
     key: "name",
   },
   {
-    title: "Administration",
+    title: text.approverAdmCol,
     dataIndex: "administration",
     key: "administration",
   },
   {
-    title: "Status",
+    title: text.approverStatusCol,
     dataIndex: "status_text",
     key: "status_text",
     render: (status_text) => (
@@ -210,10 +208,10 @@ const columnsApprover = [
   },
 ];
 
-const ApproverDetail = (record) => {
+const ApproverDetail = (record, text) => {
   return (
     <Table
-      columns={columnsApprover}
+      columns={columnsApprover(text)}
       dataSource={record.approvers.map((r, ri) => ({
         key: ri,
         ...r,
@@ -238,9 +236,7 @@ const PanelSubmissions = () => {
   const [comment, setComment] = useState("");
   const { language } = store.useState((s) => s);
   const { active: activeLang } = language;
-  const text = useMemo(() => {
-    return uiText[activeLang];
-  }, [activeLang]);
+  const text = getTranslation(activeLang, "controlCenter");
 
   const { notify } = useNotification();
   const { selectedForm, user } = store.useState((state) => state);
@@ -392,8 +388,8 @@ const PanelSubmissions = () => {
         dataSource={dataset}
         columns={
           pane === "pending-data"
-            ? [...columnsPending]
-            : [...columnsBatch, Table.EXPAND_COLUMN]
+            ? [...columnsPending(text)]
+            : [...columnsBatch(text), Table.EXPAND_COLUMN]
         }
         onChange={handlePageChange}
         rowSelection={
@@ -422,7 +418,7 @@ const PanelSubmissions = () => {
           pane === "pending-data"
             ? false
             : {
-                expandedRowRender: ApproverDetail,
+                expandedRowRender: (record) => ApproverDetail(record, text),
                 expandIcon: (expand) => {
                   return expand.expanded ? (
                     <CloseSquareOutlined
@@ -465,7 +461,7 @@ const PanelSubmissions = () => {
         </Tabs>
         <Link to="/data/submissions">
           <Button className="view-all" type="primary">
-            View All
+            {text.viewAll}
           </Button>
         </Link>
       </Card>
@@ -499,7 +495,7 @@ const PanelSubmissions = () => {
                   setModalVisible(false);
                 }}
               >
-                Cancel
+                {text.cancel}
               </Button>
               <Button
                 type="primary"
@@ -521,7 +517,7 @@ const PanelSubmissions = () => {
           bordered
           size="small"
           dataSource={selectedRows}
-          columns={columnsSelected}
+          columns={columnsSelected(text)}
           pagination={false}
           scroll={{ y: 270 }}
           rowKey="id"
