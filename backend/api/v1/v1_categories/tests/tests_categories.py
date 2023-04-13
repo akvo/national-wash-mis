@@ -19,25 +19,25 @@ class CategoryTestCase(TestCase):
         header = {"HTTP_AUTHORIZATION": f"Bearer {token}"}
 
         # PRIVATE RAW DATA ACCESS (POWER BI)
-        data = self.client.get("/api/v1/raw-data/1", follow=True, **header)
+        data = self.client.get("/api/v1/raw-data/1?page=1", follow=True, **header)
         self.assertEqual(data.status_code, 200)
         result = data.json()
         self.assertEqual(
-            list(result[0]),
+            list(result["data"][0]),
             ["id", "name", "administration", "geo", "data", "categories"],
         )
         questions_queryset = Questions.objects.filter(form_id=1).values_list(
             "id", "name"
         )
         self.assertEqual(
-            list(result[0]["data"]),
+            list(result["data"][0]["data"]),
             [f"{str(x[0])}|{x[1]}" for x in list(questions_queryset)],
         )
 
         # PRIVATE RAW DATA ACCESS (POWER BI) WITH FILTER
         question = Questions.objects.filter(form_id=1).first()
         data = self.client.get(
-            f"/api/v1/raw-data/1?questions={question.id}", follow=True, **header
+            f"/api/v1/raw-data/1?questions={question.id}&page=1", follow=True, **header
         )
         self.assertEqual(data.status_code, 200)
         result = data.json()
@@ -45,20 +45,20 @@ class CategoryTestCase(TestCase):
             form_id=1, pk=question.id
         ).values_list("id", "name")
         self.assertEqual(
-            list(result[0]["data"]),
+            list(result["data"][0]["data"]),
             [f"{str(x[0])}|{x[1]}" for x in list(questions_queryset)],
         )
 
         # PRIVATE RAW DATA ACCESS (POWER BI)
-        data = self.client.get("/api/v1/raw-data/1", follow=True, **header)
+        data = self.client.get("/api/v1/raw-data/1?page=1", follow=True, **header)
         self.assertEqual(data.status_code, 200)
         result = data.json()
         self.assertEqual(
-            list(result[0]),
+            list(result["data"][0]),
             ["id", "name", "administration", "geo", "data", "categories"],
         )
 
         # PRIVATE RAW DATA ACCESS WITHOUT HEADER TOKEN
-        data = self.client.get("/api/v1/raw-data/1", follow=True)
+        data = self.client.get("/api/v1/raw-data/1?page=1", follow=True)
         # TODO: AFTER DEMO, FIND HOW PROVIDE AUTHENTICATION IN POWERBI
         self.assertEqual(data.status_code, 200)
