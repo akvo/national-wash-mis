@@ -1,6 +1,4 @@
-from math import ceil
 from django.http import Http404
-from django.core.paginator import Paginator
 from drf_spectacular.types import OpenApiTypes
 from drf_spectacular.utils import (
     extend_schema,
@@ -11,6 +9,7 @@ from rest_framework import serializers, status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from utils.custom_serializer_fields import validate_serializers_message
+from utils.custom_pagination import Pagination
 
 from api.v1.v1_categories.functions import get_category_results
 from api.v1.v1_categories.models import DataCategory
@@ -61,23 +60,14 @@ from api.v1.v1_data.serializers import ListFormDataRequestSerializer
 )
 @api_view(["GET"])
 def get_data_with_category(request, version, form_id):
-    data = FormData.objects.filter(form_id=form_id).values_list("pk", flat=True)
-    if not len(data):
+    queryset = FormData.objects.filter(form_id=form_id).values_list("pk", flat=True)
+    if not len(queryset):
         raise Http404("DataCategory does not exist")
-    paginator = Paginator(data, 10)
-    page = request.GET.get("page")
-    page_obj = paginator.get_page(page)
-    categories = DataCategory.objects.filter(data_id__in=page_obj).all()
+    paginator = Pagination()
+    instance = paginator.paginate_queryset(queryset, request)
+    categories = DataCategory.objects.filter(data_id__in=instance)
     results = get_category_results(categories)
-    return Response(
-        {
-            "current": int(page),
-            "total": data.count(),
-            "total_page": ceil(data.count() / int(page)),
-            "data": results,
-        },
-        status=status.HTTP_200_OK,
-    )
+    return paginator.get_paginated_response(results)
 
 
 @extend_schema(
@@ -111,12 +101,11 @@ def get_raw_data_point(request, version, form_id):
             {"message": validate_serializers_message(serializer.errors)},
             status=status.HTTP_400_BAD_REQUEST,
         )
-    instance = FormData.objects.filter(form_id=form_id).order_by("-created").all()
-    paginator = Paginator(instance, 10)
-    page = request.GET.get("page")
-    data = paginator.get_page(page)
+    instances = FormData.objects.filter(form_id=form_id).order_by("-created")
+    paginator = Pagination()
+    page = paginator.paginate_queryset(instances, request)
     data = ListRawDataSerializer(
-        instance=instance,
+        instance=page,
         context={"questions": serializer.validated_data.get("questions")},
         many=True,
     ).data
@@ -130,8 +119,8 @@ def get_raw_data_point(request, version, form_id):
     for d in data:
         category = list(filter(lambda x: x["id"] == d["id"], categories))
         filter_data["data_id"] = d["id"]
-        instance = Answers.objects.filter(**filter_data).all()
-        answers = ListRawDataAnswerSerializer(instance=instance, many=True).data
+        answers = Answers.objects.filter(**filter_data).all()
+        answers = ListRawDataAnswerSerializer(instance=answers, many=True).data
         data_answers = {}
         for a in answers:
             data_answers.update({a["question"]: a["value"]})
@@ -139,12 +128,4 @@ def get_raw_data_point(request, version, form_id):
             d.update({"data": data_answers, "categories": category[0]["category"]})
         else:
             d.update({"data": data_answers, "categories": {}})
-    return Response(
-        {
-            "current": int(page),
-            "total": instance.count(),
-            "total_page": ceil(instance.count() / 10),
-            "data": data,
-        },
-        status=status.HTTP_200_OK,
-    )
+    return paginator.get_paginated_response(data)
