@@ -1,15 +1,14 @@
-import React, { useMemo } from "react";
+import React from "react";
 import "./style.scss";
 import Countdown from "react-countdown";
 import { Row, Col } from "antd";
-import { store, uiText } from "../../../lib";
+import { store } from "../../../lib";
+import { getTranslation } from "../../../util";
 
 const ComingSoon = () => {
   const { language } = store.useState((s) => s);
   const { active: activeLang } = language;
-  const text = useMemo(() => {
-    return uiText[activeLang];
-  }, [activeLang]);
+  const text = getTranslation(activeLang);
 
   const renderer = ({ days, hours, minutes, seconds, completed }) => {
     if (completed) {

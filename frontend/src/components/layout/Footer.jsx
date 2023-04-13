@@ -1,29 +1,62 @@
-import React, { useMemo } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { Row, Col } from "antd";
 import { useLocation } from "react-router-dom";
-import { uiText, store } from "../../lib";
+import { store } from "../../lib";
+import { getTranslation } from "../../util";
 
 const Footer = ({ className = "footer", ...props }) => {
   const location = useLocation();
   const { language } = store.useState((s) => s);
   const { active: activeLang } = language;
-  const text = useMemo(() => {
-    return uiText[activeLang];
-  }, [activeLang]);
+  const text = getTranslation(activeLang, "footer");
   if (
     location.pathname.includes("/login") ||
     location.pathname.includes("/report/")
   ) {
     return "";
   }
+  const footerExternalLinkItems = [
+    {
+      text: "JMP",
+      url: "https://washdata.org/how-we-work/about-jmp#:~:text=Background,hygiene%20(WASH)%20since%201990",
+    },
+    {
+      text: "CLTS NWMIS",
+      url: " http://wash.health.go.ke/clts/index.jsp",
+    },
+    {
+      text: "GLAAS",
+      url: "https://www.who.int/teams/environment-climate-change-and-health/water-sanitation-and-health/monitoring-and-evidence/wash-systems-monitoring/un-water-global-analysis-and-assessment-of-sanitation-and-drinking-water",
+    },
+  ];
+  const footerResourcesItems = [
+    {
+      text: "International Resources",
+      url: "#",
+    },
+    {
+      text: "National Resources",
+      url: "#",
+    },
+    {
+      text: "County Resources",
+      url: "#",
+    },
+  ];
+  const footerQuickLinkItems = [
+    {
+      text: "Read the Docs",
+      url: "/documentation/",
+    },
+  ];
   return (
     <div className={className}>
       <Row align="top" justify="space-between" {...props}>
         <Col span={8}>
           <h2>{text?.footerAboutTitle}</h2>
           <p>{text?.footerAboutDescription}</p>
-          {text?.footerQuickLinkItems?.map((x, xi) => (
+          {footerQuickLinkItems?.map((x, xi) => (
             <a
               key={`quick-link-${xi}`}
               className="link-inline"
@@ -37,38 +70,34 @@ const Footer = ({ className = "footer", ...props }) => {
         </Col>
         <Col span={4}>
           <h2>{text?.footerExternalLinkTitle}</h2>
-          {!!text?.footerExternalLinkItems && (
-            <ul>
-              {text.footerExternalLinkItems.map((x, xi) => (
-                <li key={`ext-link-${xi}`}>
-                  <a target="_blank" rel="noreferrer" href={x.url}>
-                    {x.text}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          )}
+          <ul>
+            {footerExternalLinkItems.map((x, xi) => (
+              <li key={`ext-link-${xi}`}>
+                <a target="_blank" rel="noreferrer" href={x.url}>
+                  {x.text}
+                </a>
+              </li>
+            ))}
+          </ul>
         </Col>
         <Col span={4}>
           <h2>{text?.footerResourcesTitle}</h2>
-          {!!text?.footerResourcesItems && (
-            <ul>
-              {text.footerResourcesItems.map((x, xi) => (
-                <li key={`ext-link-${xi}`}>
-                  <a target="_blank" rel="noreferrer" href={x.url}>
-                    {x.text}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          )}
+          <ul>
+            {footerResourcesItems.map((x, xi) => (
+              <li key={`ext-link-${xi}`}>
+                <a target="_blank" rel="noreferrer" href={x.url}>
+                  {x.text}
+                </a>
+              </li>
+            ))}
+          </ul>
         </Col>
         <Col span={6}>
           <h2>{text?.footerContactTitle}</h2>
           <p>{text?.footerContactAddress}</p>
           <ul>
             <li>
-              Phone:
+              {text?.phone}:
               <a
                 target="_blank"
                 rel="noreferrer"
@@ -78,7 +107,7 @@ const Footer = ({ className = "footer", ...props }) => {
               </a>
             </li>
             <li>
-              Email:
+              {text?.email}:
               <a
                 target="_blank"
                 rel="noreferrer"
