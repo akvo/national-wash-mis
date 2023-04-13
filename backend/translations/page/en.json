@@ -4,10 +4,10 @@
     "dashboards": "Dashboards",
     "reports": "Reports",
     "newsEvents": "News & Events",
-    "login": "Log in"
+    "login": "Log in",
+    "newDashboard": "New Dashboard",
+    "households": "Households"
   },
-  "charts": { "showEmpty": "Show empty values" },
-  "banner": { "welcomeCta": "Explore National Data" },
   "login": {
     "passwordRule1": "Lowercase Character",
     "passwordRule2": "Numbers",
@@ -31,7 +31,21 @@
     "accountDisclaimer": "The user is accountable for his/her account and in case there are any changes (Transfers, retirement, any kind of leave, resignation etc) this should be communicated to the County Administrator or National Super Admin who might be able to assign the roles to the new officer.",
     "contactAdmin": "Please contact the administrator",
     "formAssignmentError": "You don't have any form assignment, please contact the administrator",
-    "usernameRequired": "Please input your Username!"
+    "usernameRequired": "Please input your Username!",
+    "helpText": "Having trouble accessing the platform?",
+    "helpLink": "Please contact",
+    "welcomeBack": "Welcome back",
+    "welcomeInstruction": "Please enter your account details",
+    "invitedInstruction1": "Please set your password for the platform.",
+    "invitedInstruction2": "Your password must include:",
+    "verifying": "Verifying",
+    "emailLabel": "Email Address",
+    "passwordLabel": "Password",
+    "loginBtn": "Log in",
+    "forgotPasswordLink": "Forgot password",
+    "confirmPassword": "Confirm Password",
+    "valConfirmPassword": "Please Confirm Password!",
+    "setNewPasswordBtn": "Set New Password"
   },
   "footer": {
     "footerAboutTitle": "About Data",
@@ -53,23 +67,15 @@
     "designation": "Designation",
     "administration": "Administration",
     "questionnaires": "Questionnaires",
-    "lastlogin": "Last login"
+    "lastLogin": "Last login"
   },
   "organisation": {
-    "manageOrganisations": "Manage Organizations",
-    "addOrganisation": "Add Organization",
-    "editOrganisation": "Edit Organization",
-    "updateOrganisation": "Update Organization",
     "successDeleted": "Organisation deleted",
     "organisationsLoadFail": "Could not load organizations",
     "organisationDeleteFail": "Could not delete organization",
     "deleteOrganisationTitle": "You are about to delete the organization",
-    "deleteOrganisationDesc1": "There are <b>:count: Users</b> associated with this organisation",
+    "deleteOrganisationDesc1": "There are :count: Users associated with this organisation",
     "deleteOrganisationDes2": "Please reassign or delete these user(s) before deleting the organisation to prevent unexpected results",
-    "descriptionData": "This is where you :",
-    "orgPanelText1": "Add new organization",
-    "orgPanelText2": "Modify existing organization",
-    "orgPanelText3": "Delete existing organization",
     "usersCol": "Users",
     "nameCol": "Organisation",
     "attributesCol": "Attributes"
@@ -85,12 +91,13 @@
     "errorUpdated": "Orgnisation could not be updated",
     "valOrganization": "Please select an Organization",
     "valOrgName": "Organization name is required",
-    "valOrgAttributes": "Please select an Attributes"
+    "valOrgAttributes": "Please select an Attributes",
+    "manageOrganisations": "Manage Organizations",
+    "addOrganisation": "Add Organization",
+    "editOrganisation": "Edit Organization",
+    "updateOrganisation": "Update Organization"
   },
   "users": {
-    "manageUsers": "Manage Users",
-    "addUser": "Add User",
-    "editUser": "Edit User",
     "updateUser": "Update User",
     "successDeleted": "User deleted",
     "usersLoadFail": "Could not load users",
@@ -98,7 +105,18 @@
     "deleteUserHint": "Deleting this user will not delete the data association(s)",
     "deleteUserTitle": "You are about to delete the user",
     "deleteUserDesc": "The User will no longer be able to access the RUSH platform as an Enumrator/Admin etc",
-    "userAssociations": "This user has following data association(s)"
+    "userAssociations": "This user has following data association(s)",
+    "roleCol": "Role",
+    "regionCol": "Region",
+    "phoneCol": "Phone",
+    "formsCol": "Forms",
+    "lastLoginCol": "Last login",
+    "locationsCol": "Locations",
+    "credentialsCol": "Credentials",
+    "assosiationCol": "Assosiation",
+    "countCol": "Count",
+    "showPendingUsers": "Show Pending Users",
+    "trainedStatus": "Trained Status"
   },
   "userForm": {
     "successAdded": "User added",
@@ -113,13 +131,7 @@
     "valPhone": "Phone number is required",
     "valDesignation": "Please select a Designation",
     "valRole": "Please select a Role",
-    "firstName": "First name",
-    "lastName": "Last name",
-    "email": "Email Address",
-    "phoneNumber": "Phone Number",
-    "organisation": "Organization",
-    "designation": "Designation",
-    "trained": "Trained",
+    "emailAddress": "Email Address",
     "adminLevel": "Administration Level",
     "valAdminLevel": "Please select an administration level",
     "administration": "Administration",
@@ -127,7 +139,9 @@
     "questionnaires": "Questionnaires",
     "existingApproverTitle": "There are existing approvers for:",
     "existingApproverDescription": "Please update the setup in manage validation tree or remove these forms for the current user",
-    "informUser": "Inform User for Changes"
+    "informUser": "Inform User for Changes",
+    "addUser": "Add User",
+    "editUser": "Edit User"
   },
   "approvals": {
     "approvalsTab1": "My Pending",
@@ -138,15 +152,22 @@
     "adminCol": "Administration",
     "dateCol": "Date",
     "createdByCol": "Upload By",
-    "QuestionCol": "Question",
     "valueCol": "Value",
-    "responseCol": "Response",
     "dataSummaryTab": "Data Summary",
     "rawDataTab": "Raw Data",
     "successUpdated": "Data updated",
     "errorComment": "Please provide notes or feedback to decline or approved the submission",
-    "saveEditsBtn": "Save Edits",
-    "notesNFeedback": "Notes & Feedback"
+    "notesNFeedback": "Notes & Feedback",
+    "submissionCol": "Submission",
+    "formCol": "Form",
+    "submitterCol": "Submitter",
+    "locationCol": "Location",
+    "statusCol": "Status",
+    "waitingOnCol": "Waiting on",
+    "totalDataCol": "Total data",
+    "descriptionText1": "View pending data approvals awaiting your approval",
+    "descriptionText2": "View pending approvals by your subordinate approvers",
+    "descriptionText3": "Assign subordinate approvers"
   },
   "approvers": {
     "description": "This is where you manage data validation for each Questionnaire. You can:",
@@ -166,32 +187,17 @@
     "manageUserTitle": "User Management",
     "manageUserButton": "Manage Users",
     "ccDescriptionPanel": "Instant access to all the administration pages and overview panels for data approvals.",
-    "orgPanelTitle": "Manage Organization",
-    "orgPanelButton": "Manage Organization",
-    "validationSetup": "Manage Data Validation Setup",
-    "selectedDatasetCol": "Dataset",
-    "selectedDateCol": "Date Uploaded",
-    "batchNameCol": "Batch Name",
-    "batchFormCol": "Form",
-    "batchAdmCol": "Administration",
-    "batchStatusCol": "Status",
-    "batchPopContent": "There is no approvers for this data, please contact admin",
-    "batchPopTitle": "No Approver",
-    "batchTotalCol": "Total Data",
-    "pendingNameCol": "Name",
-    "pendingAdmCol": "Administration ",
-    "approverNameCol": "Name",
-    "approverAdmCol": "Administration ",
-    "approverStatusCol": "Status",
     "bulkUpload": "Bulk Upload",
     "addNew": "Add New",
-    "showPendingUsers": "Show Pending Users"
+    "dataDownloadCan1": "Access downloaded data",
+    "successExport": "Data exported successfully",
+    "errorExport": "Export failed"
   },
   "dashboard": {
     "lastUpdate": "Last Update",
-    "showEmptyValues": "Show empty values",
     "lastUpdatedCol": "Last Updated",
-    "regionCol": "Region"
+    "regionCol": "Region",
+    "selectCounty": "Select County"
   },
   "exportData": {
     "title": "Data Download",
@@ -216,9 +222,11 @@
     "description": "The Kenya Rural Urban Sanitation and Hygiene (RUSH) platform is a real-time monitoring and information system owned by the Ministry of Health. The platform aggregates quantitative and qualitative data from county and national levels and facilitates data analysis, report generation and visualizations.",
     "contactUs": "Contact Us",
     "getInTouch": "Get in touch with us for support or feedback.",
-    "sendFeedback": "Send Feedback"
+    "sendFeedback": "Send Feedback",
+    "partners": "Partners"
   },
   "newsEvents": {
+    "pageTitle": "News & Events",
     "latestUpdates": "Latest Updates",
     "upcomingEvents": "Upcoming Events"
   },
@@ -230,9 +238,17 @@
     "noFormSelected": "No form selected",
     "confirmDelete1": "You are about to delete :name: data.",
     "confirmDelete2": "Delete a datapoint also will delete the history",
-    "confirmDelete3": "Are you sure want to delete this datapoint?"
+    "confirmDelete3": "Are you sure want to delete this datapoint?",
+    "pageTitle": "Manage Data",
+    "errorDeleted": "Could not delete datapoint",
+    "nameCol": "Name",
+    "lastUpdatedCol": "Last Updated",
+    "userCol": "User",
+    "regionCol": "Region"
   },
-  "powerBi": { "title": "Household WASH Data" },
+  "powerBi": {
+    "title": "Household WASH Data"
+  },
   "questionnaires": {
     "title": "Manage Questionnaires Approvals",
     "approvalsPath": "Approvals",
@@ -244,8 +260,8 @@
     "errorUpdated": "Could not update Questionnaires"
   },
   "settings": {
-    "settingsPath": "System Settings",
-    "settingsDescriptionPanel": "This page allows Super Admin to maintain system critical master lists."
+    "pageTitle": "System Settings",
+    "pageDescription": "This page allows Super Admin to maintain system critical master lists."
   },
   "submission": {
     "batchSelectedDatasets": "Batch Selected Datasets",
@@ -274,14 +290,15 @@
     "templateDownloadHint": "If you do not already have a template, please download it",
     "uploading": "Uploading..",
     "dropFile": "Drop your file here",
-    "selectForm": "Please select a form",
+    "pleaseSelectFrom": "Please select a form",
     "browseComputer": "Browse your computer",
     "bulkUploadNoApproverMessage": "Can't upload data, because there's no approver yet.",
     "title": "Data Upload",
     "successDesc": "Thank you for uploading the data file. Do note that the data will be validated by the system . You will be notified via email if the data fails the validation tests . There will also be an attachment of the validation errors that needs to be corrected. If there are no validation errors , then the data will be forwarded for verification, approval, and certification",
     "uploadAnotherButton": "Upload Another File",
     "BackToCc": "Back to Control Center",
-    "uploadUrData": "Upload your data"
+    "uploadUrData": "Upload your data",
+    "selectForm": "Select Form"
   },
   "tour": {
     "tourControlCenter": "Lorem ipsum dolor sit, amet consectetur adipisicing elit",
@@ -291,7 +308,14 @@
     "tourManageData": "Lorem ipsum dolor sit, amet consectetur adipisicing elit",
     "tourExports": "Velit amet omnis dolores. Ad eveniet ex beatae dolorum",
     "tourUserManagement": "Magni provident aliquam harum cupiditate iste",
-    "tourDataUploadsPanel": "Velit amet omnis dolores. Ad eveniet ex beatae dolorum"
+    "tourDataUploadsPanel": "Velit amet omnis dolores. Ad eveniet ex beatae dolorum",
+    "tourManageDataTitle": "Manage Data",
+    "tourExportsTitle": "Exports",
+    "tourDataUploadsTitle": "Data Uploads",
+    "tourUserMngTitle": "User Management",
+    "tourDataUploadsPanelTitle": "Data Uploads Panel",
+    "tourApprovalsTitle": "Manage Approvals",
+    "tourApproversTitle": "Manage Approvers"
   },
   "contactForm": {
     "title": "Please use this form for registering your feedback / issues.",
@@ -301,10 +325,38 @@
     "errorSent": "Oops, something went wrong.",
     "valName": "Please input your name.",
     "valEmail": "Please input your email.",
-    "valMessage": "Please input your message"
+    "valMessage": "Please input your message",
+    "valCaptcha": "Please input captcha."
   },
   "layout": {
     "welcomeCta": "Explore National Data",
     "dashboardButton": "Comprehensive Dashboards"
+  },
+  "report": {
+    "templateNotFound": "Template not found",
+    "chooseTemplate": "Choose a template",
+    "noTemplateFound": "No templates found"
+  },
+  "userDetail": {
+    "fieldCol": "Field",
+    "valueCol": "Value",
+    "invitationCode": "Invitation Code",
+    "changePassword": "Change Password",
+    "forms": "Forms",
+    "errorSelfDeletion": "Could not do self deletion",
+    "pendingApproval": "Pending Data Approval",
+    "pendingBatchSubmitted": "Pending Batch Data Submitted",
+    "dataSubmission": "Data Submission"
+  },
+  "historyTable": {
+    "history": "History",
+    "updatedAt": "Updated at",
+    "updatedBy": "Updated by"
+  },
+  "tabs": {
+    "manageData": "Manage Data",
+    "manageUsers": "Manage Users",
+    "dataValidationTree": "Data Validation Tree",
+    "downloadedData": "Downloaded Data"
   }
 }
