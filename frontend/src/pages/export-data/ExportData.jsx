@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect } from "react";
 import "./style.scss";
 import {
   Row,
@@ -17,24 +17,24 @@ import {
   ExclamationCircleOutlined,
 } from "@ant-design/icons";
 import { Breadcrumbs, DescriptionPanel, DataTab } from "../../components";
-import { api, store, uiText } from "../../lib";
+import { api, store } from "../../lib";
 import { useNotification } from "../../util/hooks";
+import { getTranslation } from "../../util";
 
-const pagePath = [
+const pagePath = (text) => [
   {
-    title: "Control Center",
+    title: text.controlCenter,
     link: "/control-center",
   },
   {
-    title: "Data Download",
+    title: text.title,
   },
 ];
-const descriptionData = (
+const descriptionData = (text) => (
   <p>
-    This page shows your list of data export requests.
+    {text.descrption1}
     <br />
-    For exports which are already generated, please click on the Download button
-    to download the data.
+    {text.description2}
   </p>
 );
 const ExportData = () => {
@@ -47,9 +47,7 @@ const ExportData = () => {
   const { forms } = store.useState((state) => state);
   const { language } = store.useState((s) => s);
   const { active: activeLang } = language;
-  const text = useMemo(() => {
-    return uiText[activeLang];
-  }, [activeLang]);
+  const text = getTranslation(activeLang, "exportData");
 
   const columns = [
     {
@@ -71,7 +69,7 @@ const ExportData = () => {
             {forms.find((f) => f.id === row.info?.form_id)?.name || "-"}
           </div>
           <div>
-            Filters: <Tag>None</Tag>
+            {text.filters}: <Tag>{text.none}</Tag>
           </div>
         </div>
       ),
@@ -105,7 +103,7 @@ const ExportData = () => {
               : text.download}
           </Button>
           <Button ghost className="dev">
-            Delete
+            {text.delete}
           </Button>
         </Row>
       ),
@@ -188,10 +186,10 @@ const ExportData = () => {
   const loadMore = () => {
     return showLoadMore && dataset.length > 0 ? (
       <Button type="link" onClick={onLoadMore}>
-        Load More
+        {text.loadMore}
       </Button>
     ) : !loading ? (
-      <span className="text-muted">End of List</span>
+      <span className="text-muted">{text.endOfList}</span>
     ) : null;
   };
 
@@ -199,8 +197,8 @@ const ExportData = () => {
     <div id="exportData">
       <Row justify="space-between">
         <Col>
-          <Breadcrumbs pagePath={pagePath} />
-          <DescriptionPanel description={descriptionData} />
+          <Breadcrumbs pagePath={pagePath(text)} />
+          <DescriptionPanel description={descriptionData(text)} />
         </Col>
       </Row>
       <DataTab />
@@ -208,7 +206,7 @@ const ExportData = () => {
         style={{ padding: 0, minHeight: "40vh" }}
         bodyStyle={{ padding: 0 }}
       >
-        <ConfigProvider renderEmpty={() => <Empty description="No data" />}>
+        <ConfigProvider renderEmpty={() => <Empty description={text.noData} />}>
           <Table
             columns={columns}
             dataSource={dataset}
