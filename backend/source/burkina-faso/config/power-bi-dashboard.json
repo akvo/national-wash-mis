@@ -1,6 +1,6 @@
 [
   {
-    "form_id": 519630048,
+    "form_id": 1680838271306,
     "page": "power-bi",
     "name": "Household Data",
     "content": [
@@ -23,30 +23,7 @@
     ]
   },
   {
-    "form_id": 603050002,
-    "page": "power-bi",
-    "name": "Urban Sanitation",
-    "content": [
-      {
-        "key": "title",
-        "text": "Urban Sanitation",
-        "style": {
-          "textAlign": "left",
-          "fontSize": "32px",
-          "color": "#2F58FF"
-        }
-      },
-      {
-        "key": "embed",
-        "link": "https://app.powerbi.com/view?r=eyJrIjoiMDk4ZTNhZDMtMTA0NS00MWJjLTgzMjctN2JhMDUyZmM2MzYwIiwidCI6ImIxNzBlMTE1LWRjM2QtNGU5Mi04NWJlLWU0YjMwMDljNWRjMiIsImMiOjl9",
-        "style": {
-          "marginTop": "24px"
-        }
-      }
-    ]
-  },
-  {
-    "form_id": 533560002,
+    "form_id": 1681077310330,
     "page": "power-bi",
     "name": "Health Facilities Data",
     "content": [
@@ -69,13 +46,59 @@
     ]
   },
   {
-    "form_id": 563350033,
+    "form_id": 1681103820972,
     "page": "power-bi",
     "name": "WASH in Schools Data",
     "content": [
       {
         "key": "title",
         "text": "WASH in Schools Data",
+        "style": {
+          "textAlign": "left",
+          "fontSize": "32px",
+          "color": "#2F58FF"
+        }
+      },
+      {
+        "key": "embed",
+        "link": "https://app.powerbi.com/view?r=eyJrIjoiMDk4ZTNhZDMtMTA0NS00MWJjLTgzMjctN2JhMDUyZmM2MzYwIiwidCI6ImIxNzBlMTE1LWRjM2QtNGU5Mi04NWJlLWU0YjMwMDljNWRjMiIsImMiOjl9",
+        "style": {
+          "marginTop": "24px"
+        }
+      }
+    ]
+  },
+  {
+    "form_id": 1681117698699,
+    "page": "power-bi",
+    "name": "Water Points",
+    "content": [
+      {
+        "key": "title",
+        "text": "Water Points",
+        "style": {
+          "textAlign": "left",
+          "fontSize": "32px",
+          "color": "#2F58FF"
+        }
+      },
+      {
+        "key": "embed",
+        "link": "https://app.powerbi.com/view?r=eyJrIjoiMDk4ZTNhZDMtMTA0NS00MWJjLTgzMjctN2JhMDUyZmM2MzYwIiwidCI6ImIxNzBlMTE1LWRjM2QtNGU5Mi04NWJlLWU0YjMwMDljNWRjMiIsImMiOjl9",
+        "style": {
+          "marginTop": "24px"
+        }
+      }
+    ]
+  },
+  {
+    "form_id": 1681117698699,
+    "page": "power-bi",
+    "name": "CLTS Progress Tracking",
+    "content": [
+      {
+        "key": "title",
+        "text": "CLTS Progress Tracking",
         "style": {
           "textAlign": "left",
           "fontSize": "32px",

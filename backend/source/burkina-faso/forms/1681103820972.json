@@ -1,2377 +1,2319 @@
 {
-    "id": 1681103820972,
-    "form": "School questionnaire",
-    "type": 1,
-    "languages": [
-        "en",
-        "fr"
-    ],
-    "defaultLanguage": "en",
-    "translations": [
+  "id": 1681103820972,
+  "form": "WASH in Schools",
+  "type": 1,
+  "languages": ["en", "fr"],
+  "defaultLanguage": "en",
+  "translations": [
+    {
+      "language": "fr",
+      "name": "Questionnaire Ecoles"
+    }
+  ],
+  "question_groups": [
+    {
+      "id": 1681103820974,
+      "question_group": "Localisation",
+      "order": 1,
+      "repeatable": false,
+      "questions": [
         {
-            "language": "fr",
-            "name": "Questionnaire Ecoles"
+          "id": 1681103820975,
+          "order": 1,
+          "questionGroupId": 1681103820974,
+          "question": "Locality",
+          "type": "administration",
+          "required": true,
+          "meta": true,
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Localite"
+            }
+          ]
+        },
+        {
+          "id": 1681107307245,
+          "order": 2,
+          "questionGroupId": 1681103820974,
+          "question": "Village",
+          "type": "text",
+          "required": false,
+          "meta": true,
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Village"
+            }
+          ]
+        },
+        {
+          "id": 1681107334328,
+          "order": 3,
+          "questionGroupId": 1681103820974,
+          "question": "School GPS coordinates",
+          "type": "geo",
+          "required": true,
+          "meta": true,
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Coordonnes GPS de l'école"
+            }
+          ]
         }
-    ],
-    "question_groups": [
+      ],
+      "translations": [
         {
-            "id": 1681103820974,
-            "question_group": "Localisation",
-            "order": 1,
-            "repeatable": false,
-            "questions": [
-                {
-                    "id": 1681103820975,
-                    "order": 1,
-                    "questionGroupId": 1681103820974,
-                    "question": "Locality",
-                    "type": "cascade",
-                    "required": true,
-                    "meta": false,
-                    "translations": [
-                        {
-                            "language": "fr",
-                            "name": "Localite"
-                        }
-                    ]
-                },
-                {
-                    "id": 1681107307245,
-                    "order": 2,
-                    "questionGroupId": 1681103820974,
-                    "question": "Village",
-                    "type": "text",
-                    "required": false,
-                    "meta": false,
-                    "translations": [
-                        {
-                            "language": "fr",
-                            "name": "Village"
-                        }
-                    ]
-                },
-                {
-                    "id": 1681107334328,
-                    "order": 3,
-                    "questionGroupId": 1681103820974,
-                    "question": "School GPS coordinates",
-                    "type": "geo",
-                    "required": true,
-                    "meta": false,
-                    "translations": [
-                        {
-                            "language": "fr",
-                            "name": "Coordonnes GPS de l'école"
-                        }
-                    ]
-                }
-            ],
-            "translations": [
-                {
-                    "language": "fr",
-                    "name": "Localisation"
-                }
-            ]
-        },
-        {
-            "id": 1681078759978,
-            "question_group": "Consent",
-            "order": 2,
-            "repeatable": false,
-            "questions": [
-                {
-                    "id": 1681078759979,
-                    "order": 1,
-                    "questionGroupId": 1681078759978,
-                    "question": "We carry out this interview to better understand the situation in terms of information and prevention on the COVVI-19 in your area. Do you willing to participate to participate?",
-                    "type": "option",
-                    "required": true,
-                    "meta": false,
-                    "translations": [
-                        {
-                            "language": "fr",
-                            "name": "Nous réalisons cet entretien pour mieux comprendre la situation en matière d’information et de prévention sur la COVID-19 dans votre zone.Acceptez vous volontier de participer?"
-                        }
-                    ],
-                    "options": [
-                        {
-                            "id": 1681078772186,
-                            "code": null,
-                            "name": "Yes",
-                            "order": 1,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Oui"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681078772187,
-                            "code": null,
-                            "name": "No",
-                            "order": 2,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Non"
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ],
-            "translations": [
-                {
-                    "language": "fr",
-                    "name": "Consentement"
-                }
-            ]
-        },
-        {
-            "id": 1681107406122,
-            "question_group": "General Information",
-            "order": 2,
-            "repeatable": false,
-            "questions": [
-                {
-                    "id": 1681107406123,
-                    "order": 1,
-                    "questionGroupId": 1681107406122,
-                    "question": "Last name and first name of the respondent",
-                    "type": "text",
-                    "required": false,
-                    "meta": false,
-                    "translations": [
-                        {
-                            "language": "fr",
-                            "name": "Nom et prénom du répondant"
-                        }
-                    ]
-                },
-                {
-                    "id": 1681107850302,
-                    "order": 2,
-                    "questionGroupId": 1681107406122,
-                    "question": "Sex of the respondent",
-                    "type": "option",
-                    "required": false,
-                    "meta": false,
-                    "translations": [
-                        {
-                            "language": "fr",
-                            "name": "Sexe du répondant"
-                        }
-                    ],
-                    "options": [
-                        {
-                            "id": 1681107856904,
-                            "code": null,
-                            "name": "Male",
-                            "order": 1,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Masculin"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681107856905,
-                            "code": null,
-                            "name": "Female",
-                            "order": 2,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Feminin"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "id": 1681107888369,
-                    "order": 3,
-                    "questionGroupId": 1681107406122,
-                    "question": "Age of the respondent",
-                    "type": "number",
-                    "required": false,
-                    "meta": false,
-                    "translations": [
-                        {
-                            "language": "fr",
-                            "name": "Age du répondant"
-                        }
-                    ]
-                },
-                {
-                    "id": 1681107908959,
-                    "order": 4,
-                    "questionGroupId": 1681107406122,
-                    "question": "Telephone number",
-                    "type": "text",
-                    "required": false,
-                    "meta": false,
-                    "translations": [
-                        {
-                            "language": "fr",
-                            "name": "Numéro de téléphone"
-                        }
-                    ]
-                },
-                {
-                    "id": 1681107934204,
-                    "order": 5,
-                    "questionGroupId": 1681107406122,
-                    "question": "The status of the respondent",
-                    "type": "option",
-                    "required": false,
-                    "meta": false,
-                    "translations": [
-                        {
-                            "language": "fr",
-                            "name": "Statut du répondant"
-                        }
-                    ],
-                    "options": [
-                        {
-                            "id": 1681107948769,
-                            "code": null,
-                            "name": "Director",
-                            "order": 1,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Directeur"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681107948770,
-                            "code": null,
-                            "name": "Teacher - Educator - Trainer",
-                            "order": 2,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Enseignant - Educateur - formateur"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681107964999,
-                            "code": null,
-                            "name": "Administrative staff (secretary - accountant - etc.)",
-                            "order": 3,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Personnel administratif (Sécrétaire - Comptable - etc.)"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681107971625,
-                            "code": null,
-                            "name": "President of the Parents Association (APE)",
-                            "order": 4,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Président de l'Association des Parents d'Elèves (APE)"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681107978785,
-                            "code": null,
-                            "name": "Teacher in charge of health",
-                            "order": 5,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Enseignant chargé de la santé"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "id": 1681108066573,
-                    "order": 6,
-                    "questionGroupId": 1681107406122,
-                    "question": "Basic Education District (CEB) of the school",
-                    "type": "text",
-                    "required": false,
-                    "meta": false,
-                    "translations": [
-                        {
-                            "language": "fr",
-                            "name": "Circonscription d'Education de Base(CEB) de l'école"
-                        }
-                    ]
-                },
-                {
-                    "id": 1681108078143,
-                    "order": 7,
-                    "questionGroupId": 1681107406122,
-                    "question": "School name",
-                    "type": "text",
-                    "required": true,
-                    "meta": false,
-                    "translations": [
-                        {
-                            "language": "fr",
-                            "name": "Nom de l'ecole"
-                        }
-                    ]
-                },
-                {
-                    "id": 1681108101856,
-                    "order": 8,
-                    "questionGroupId": 1681107406122,
-                    "question": "Environment",
-                    "type": "option",
-                    "required": true,
-                    "meta": false,
-                    "translations": [
-                        {
-                            "language": "fr",
-                            "name": "Type de Milieu"
-                        }
-                    ],
-                    "options": [
-                        {
-                            "id": 1681108131872,
-                            "code": null,
-                            "name": "Rural",
-                            "order": 1,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Rural"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681108131873,
-                            "code": null,
-                            "name": "Urban",
-                            "order": 2,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Urban"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "id": 1681108118339,
-                    "order": 9,
-                    "questionGroupId": 1681107406122,
-                    "question": "Statute of the establishment",
-                    "type": "option",
-                    "required": false,
-                    "meta": false,
-                    "translations": [
-                        {
-                            "language": "fr",
-                            "name": "Statut de l'établissement"
-                        }
-                    ],
-                    "options": [
-                        {
-                            "id": 1681108158522,
-                            "code": null,
-                            "name": "Public",
-                            "order": 1,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Public"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681108158523,
-                            "code": null,
-                            "name": "Private",
-                            "order": 2,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Privé"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "id": 1681108181965,
-                    "order": 10,
-                    "questionGroupId": 1681107406122,
-                    "question": "Type of establishment",
-                    "type": "option",
-                    "required": true,
-                    "meta": false,
-                    "translations": [
-                        {
-                            "language": "fr",
-                            "name": "Type d'établissement"
-                        }
-                    ],
-                    "options": [
-                        {
-                            "id": 1681108189006,
-                            "code": null,
-                            "name": "Classic",
-                            "order": 1,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Classique"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681108189007,
-                            "code": null,
-                            "name": "Bilingual",
-                            "order": 2,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Bilingue"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681108211070,
-                            "code": null,
-                            "name": "Franco - arabic",
-                            "order": 3,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Franco - arabe"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681108217671,
-                            "code": null,
-                            "name": "Bridge",
-                            "order": 4,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Passerelle"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "id": 1681108267891,
-                    "order": 11,
-                    "questionGroupId": 1681107406122,
-                    "question": "Number of teachers men in the school",
-                    "type": "number",
-                    "required": false,
-                    "meta": false,
-                    "translations": [
-                        {
-                            "language": "fr",
-                            "name": "Nombre d'enseignant Hommes dans l'établissement scolaire"
-                        }
-                    ]
-                },
-                {
-                    "id": 1681108284525,
-                    "order": 12,
-                    "questionGroupId": 1681107406122,
-                    "question": "Number of teachers women in the school",
-                    "type": "number",
-                    "required": false,
-                    "meta": false,
-                    "translations": [
-                        {
-                            "language": "fr",
-                            "name": "Nombre d'enseignant Femmes dans l'établissement scolaire"
-                        }
-                    ]
-                },
-                {
-                    "id": 1681108301308,
-                    "order": 13,
-                    "questionGroupId": 1681107406122,
-                    "question": "Number of students",
-                    "type": "number",
-                    "required": false,
-                    "meta": false,
-                    "translations": [
-                        {
-                            "language": "fr",
-                            "name": "Nombre d'élèves"
-                        }
-                    ]
-                },
-                {
-                    "id": 1681113500657,
-                    "order": 14,
-                    "questionGroupId": 1681107406122,
-                    "question": "Number of boys",
-                    "type": "number",
-                    "required": false,
-                    "meta": false,
-                    "translations": [
-                        {
-                            "language": "fr",
-                            "name": "Nombre de Garcons"
-                        }
-                    ]
-                },
-                {
-                    "id": 1681108317627,
-                    "order": 15,
-                    "questionGroupId": 1681107406122,
-                    "question": "Number of girls",
-                    "type": "number",
-                    "required": false,
-                    "meta": false,
-                    "translations": [
-                        {
-                            "language": "fr",
-                            "name": "Nombre de Filles"
-                        }
-                    ]
-                }
-            ],
-            "translations": [
-                {
-                    "language": "fr",
-                    "name": "Information Generale"
-                }
-            ]
-        },
-        {
-            "id": 1681107224762,
-            "question_group": "Water",
-            "order": 3,
-            "repeatable": false,
-            "questions": [
-                {
-                    "id": 1681107224764,
-                    "order": 1,
-                    "questionGroupId": 1681107224762,
-                    "question": "Is there a drinking water point provided by the school?",
-                    "type": "option",
-                    "required": true,
-                    "meta": false,
-                    "translations": [
-                        {
-                            "language": "fr",
-                            "name": "Existe t'il un point d’eau de boisson fourni par l’établissement scolaire ?"
-                        }
-                    ],
-                    "options": [
-                        {
-                            "id": 1681108381095,
-                            "code": null,
-                            "name": "Yes",
-                            "order": 1,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Oui"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681108381096,
-                            "code": null,
-                            "name": "No",
-                            "order": 2,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Non"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "id": 1681108436898,
-                    "order": 2,
-                    "questionGroupId": 1681107224762,
-                    "question": "What is the main drinking water point provided by the school?",
-                    "type": "option",
-                    "required": true,
-                    "meta": false,
-                    "dependency": [
-                        {
-                            "id": 1681107224764,
-                            "options": [
-                                "Yes"
-                            ]
-                        }
-                    ],
-                    "variableName": "C21",
-                    "translations": [
-                        {
-                            "language": "fr",
-                            "name": "Quel est le principal point d’eau de boisson fourni par l’établissement scolaire ?"
-                        }
-                    ],
-                    "options": [
-                        {
-                            "id": 1681108456316,
-                            "code": "C21A",
-                            "name": "Pipeline connection / Piped water to yard/plot",
-                            "order": 1,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Branchement ONEA"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681108456317,
-                            "code": "C21B",
-                            "name": "Borehole",
-                            "order": 2,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Forage"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681108556330,
-                            "code": "C21C",
-                            "name": "Modern well",
-                            "order": 3,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Puits Moderne"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681108565845,
-                            "code": "C21D",
-                            "name": "Traditional well",
-                            "order": 4,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Puits Traditionnel"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681108573562,
-                            "code": "C21E",
-                            "name": "Rainwater collection",
-                            "order": 5,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Eaux de pluie"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681108576384,
-                            "code": "C21F",
-                            "name": "Tanker-truck",
-                            "order": 6,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Camion-citerne"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681108590833,
-                            "code": "C21G",
-                            "name": "Standpipe",
-                            "order": 7,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Borne Fontaine"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681108593109,
-                            "code": "C21H",
-                            "name": "Surface water (lake, river, stream)",
-                            "order": 8,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Eaux de surface (rivière/lac/canal)"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681108602042,
-                            "code": "C21I",
-                            "name": "Autonomous Water Supply Post",
-                            "order": 9,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Poste d'Eau Autonome(PEA)"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681108610023,
-                            "code": "C21J",
-                            "name": "No water source",
-                            "order": 10,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Pas d'eau disponible dans ou à proximité de l'école"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681108619955,
-                            "code": "C21K",
-                            "name": "Packaged bottled water",
-                            "order": 11,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Eau en bouteille"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681108622054,
-                            "code": "C21L",
-                            "name": "Cart",
-                            "order": 12,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Chariot"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681108623243,
-                            "code": "C21M",
-                            "name": "Other",
-                            "order": 13,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Autre"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "id": 1681108718081,
-                    "order": 3,
-                    "questionGroupId": 1681107224762,
-                    "question": "Other to specify",
-                    "type": "text",
-                    "required": true,
-                    "meta": false,
-                    "dependency": [
-                        {
-                            "id": 1681108436898,
-                            "options": [
-                                "Other"
-                            ]
-                        }
-                    ],
-                    "translations": [
-                        {
-                            "language": "fr",
-                            "name": "Autre à spécifier"
-                        }
-                    ]
-                },
-                {
-                    "id": 1681108776850,
-                    "order": 4,
-                    "questionGroupId": 1681107224762,
-                    "question": "The drinking water point provided by the school is currently functional",
-                    "type": "option",
-                    "required": true,
-                    "meta": false,
-                    "dependency": [
-                        {
-                            "id": 1681107224764,
-                            "options": [
-                                "Yes"
-                            ]
-                        }
-                    ],
-                    "variableName": "C23",
-                    "translations": [
-                        {
-                            "language": "fr",
-                            "name": "Le point d’eau de boisson fourni par l’établissement scolaire est il actuellement fonctionnel"
-                        }
-                    ],
-                    "options": [
-                        {
-                            "id": 1681108786814,
-                            "code": "C23A",
-                            "name": "Totally Functional",
-                            "order": 1,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Totalement focntionnel"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681108786815,
-                            "code": "C23B",
-                            "name": "Partially functional",
-                            "order": 2,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Partiellement Fonctionnel"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681108880851,
-                            "code": "C23C",
-                            "name": "Broken-down",
-                            "order": 3,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "En panne"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681108882596,
-                            "code": "C23D",
-                            "name": "Abandoned",
-                            "order": 4,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Abandonné"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "id": 1681108935262,
-                    "order": 5,
-                    "questionGroupId": 1681107224762,
-                    "question": "Why?",
-                    "type": "text",
-                    "required": false,
-                    "meta": false,
-                    "dependency": [
-                        {
-                            "id": 1681108776850,
-                            "options": [
-                                "Abandoned"
-                            ]
-                        }
-                    ],
-                    "translations": [
-                        {
-                            "language": "fr",
-                            "name": "Pourquoi ?"
-                        }
-                    ]
-                },
-                {
-                    "id": 1681108950633,
-                    "order": 6,
-                    "questionGroupId": 1681107224762,
-                    "question": "Is drinking water from the main point currently available (sufficient) in the school?",
-                    "type": "option",
-                    "required": true,
-                    "meta": false,
-                    "variableName": "C25",
-                    "dependency": [
-                        {
-                            "id": 1681107224764,
-                            "options": [
-                                "Yes"
-                            ]
-                        }
-                    ],
-                    "translations": [
-                        {
-                            "language": "fr",
-                            "name": "L’eau de boisson provenant du point principal est-elle actuellement disponible (Suffisant) dans l’établissement scolaire ?"
-                        }
-                    ],
-                    "options": [
-                        {
-                            "id": 1681109005891,
-                            "code": null,
-                            "name": "Yes",
-                            "order": 1,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Oui"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681109005892,
-                            "code": null,
-                            "name": "No",
-                            "order": 2,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Non"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "id": 1681109061118,
-                    "order": 7,
-                    "questionGroupId": 1681107224762,
-                    "question": "Is the source of water accessible to disabled children?",
-                    "type": "option",
-                    "required": false,
-                    "meta": false,
-                    "dependency": [
-                        {
-                            "id": 1681107224764,
-                            "options": [
-                                "Yes"
-                            ]
-                        }
-                    ],
-                    "translations": [
-                        {
-                            "language": "fr",
-                            "name": "La source d'eau est elle accessible aux enfants handicapés ?"
-                        }
-                    ],
-                    "options": [
-                        {
-                            "id": 1681109089023,
-                            "code": null,
-                            "name": "Yes",
-                            "order": 1,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Oui"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681109089024,
-                            "code": null,
-                            "name": "No",
-                            "order": 2,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Non"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "id": 1681109157654,
-                    "order": 8,
-                    "questionGroupId": 1681107224762,
-                    "question": "Does school do something to on the main source to have drinking water?",
-                    "type": "option",
-                    "required": true,
-                    "meta": false,
-                    "dependency": [
-                        {
-                            "id": 1681107224764,
-                            "options": [
-                                "Yes"
-                            ]
-                        }
-                    ],
-                    "translations": [
-                        {
-                            "language": "fr",
-                            "name": "L'école fait-elle quelque chose pour rendre l'eau de la source principale potable ?"
-                        }
-                    ],
-                    "options": [
-                        {
-                            "id": 1681109164076,
-                            "code": null,
-                            "name": "Yes",
-                            "order": 1,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Oui"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681109164077,
-                            "code": null,
-                            "name": "No",
-                            "order": 2,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Non"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "id": 1681109249808,
-                    "order": 9,
-                    "questionGroupId": 1681107224762,
-                    "question": "What is the treatment method used?",
-                    "type": "multiple_option",
-                    "required": true,
-                    "meta": false,
-                    "dependency": [
-                        {
-                            "id": 1681109157654,
-                            "options": [
-                                "Yes"
-                            ]
-                        }
-                    ],
-                    "translations": [
-                        {
-                            "language": "fr",
-                            "name": "Quelle est la méthode de traitement utilisée ?"
-                        }
-                    ],
-                    "options": [
-                        {
-                            "id": 1681109268523,
-                            "code": null,
-                            "name": "Filtration",
-                            "order": 1,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Filtration"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681109268524,
-                            "code": null,
-                            "name": "Boil",
-                            "order": 2,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Bouillir"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681109345891,
-                            "code": null,
-                            "name": "Chloration",
-                            "order": 3,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Chloration"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681109347537,
-                            "code": null,
-                            "name": "Ultraviolet disinfection",
-                            "order": 4,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Désinfection aux ultraviolets"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681109363880,
-                            "code": null,
-                            "name": "Sodis",
-                            "order": 5,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "SODIS"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681109370813,
-                            "code": null,
-                            "name": "Other",
-                            "order": 6,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Autre"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "id": 1681110023044,
-                    "order": 10,
-                    "questionGroupId": 1681107224762,
-                    "question": "Other to specify",
-                    "type": "text",
-                    "required": true,
-                    "meta": false,
-                    "dependency": [
-                        {
-                            "id": 1681109249808,
-                            "options": [
-                                "Other"
-                            ]
-                        }
-                    ],
-                    "translations": [
-                        {
-                            "language": "fr",
-                            "name": "Autre à spécifier"
-                        }
-                    ]
-                },
-                {
-                    "id": 1681110132819,
-                    "order": 11,
-                    "questionGroupId": 1681107224762,
-                    "question": "Hygian around PE (Observation)",
-                    "type": "option",
-                    "required": true,
-                    "meta": false,
-                    "dependency": [
-                        {
-                            "id": 1681107224764,
-                            "options": [
-                                "Yes"
-                            ]
-                        }
-                    ],
-                    "translations": [
-                        {
-                            "language": "fr",
-                            "name": "Hygienne autour du PE (Observation)"
-                        }
-                    ],
-                    "options": [
-                        {
-                            "id": 1681110140339,
-                            "code": null,
-                            "name": "Clean",
-                            "order": 1,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Propre"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681110140340,
-                            "code": null,
-                            "name": "Average",
-                            "order": 2,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Moyen"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681110160716,
-                            "code": null,
-                            "name": "Dirty",
-                            "order": 3,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Sale"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "id": 1681110246520,
-                    "order": 12,
-                    "questionGroupId": 1681107224762,
-                    "question": "Photo of the main source of water supply from the school",
-                    "type": "text",
-                    "required": false,
-                    "meta": false,
-                    "dependency": [
-                        {
-                            "id": 1681107224764,
-                            "options": [
-                                "Yes"
-                            ]
-                        }
-                    ],
-                    "translations": [
-                        {
-                            "language": "fr",
-                            "name": "Photo de la principale source d'approvisionnement en eau de l'école"
-                        }
-                    ]
-                }
-            ],
-            "translations": [
-                {
-                    "language": "fr",
-                    "name": "Eau"
-                }
-            ]
-        },
-        {
-            "id": 1681107239044,
-            "question_group": "Sanitation",
-            "order": 4,
-            "repeatable": false,
-            "questions": [
-                {
-                    "id": 1681107239045,
-                    "order": 1,
-                    "questionGroupId": 1681107239044,
-                    "question": "Is there a sanitation infrastructure (toilet) in the school?",
-                    "type": "option",
-                    "required": true,
-                    "meta": false,
-                    "variableName": "C32",
-                    "translations": [
-                        {
-                            "language": "fr",
-                            "name": "Existe t'il un ouvrage d'assainissement (toilette) dans l'école ?"
-                        }
-                    ],
-                    "options": [
-                        {
-                            "id": 1681110339543,
-                            "code": "C32A",
-                            "name": "Yes",
-                            "order": 1,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Oui"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681110339544,
-                            "code": "C32B",
-                            "name": "No",
-                            "order": 2,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Non"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "id": 1681110373320,
-                    "order": 2,
-                    "questionGroupId": 1681107239044,
-                    "question": "If not where the students and teachers defeat?",
-                    "type": "option",
-                    "required": true,
-                    "meta": false,
-                    "dependency": [
-                        {
-                            "id": 1681107239045,
-                            "options": [
-                                "No"
-                            ]
-                        }
-                    ],
-                    "variableName": "C33",
-                    "translations": [
-                        {
-                            "language": "fr",
-                            "name": "Si non où les élèves et enseignants défèquent?"
-                        }
-                    ],
-                    "options": [
-                        {
-                            "id": 1681110382133,
-                            "code": null,
-                            "name": "In the free area",
-                            "order": 1,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "A l'aire libre"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681110382134,
-                            "code": null,
-                            "name": "Neighboring houses",
-                            "order": 2,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Cours voisines"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681110447186,
-                            "code": null,
-                            "name": "Other",
-                            "order": 3,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Autre"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "id": 1681110534234,
-                    "order": 3,
-                    "questionGroupId": 1681107239044,
-                    "question": "Other to specify",
-                    "type": "text",
-                    "required": true,
-                    "meta": false,
-                    "variableName": "C34",
-                    "dependency": [
-                        {
-                            "id": 1681110373320,
-                            "options": [
-                                "Other"
-                            ]
-                        }
-                    ],
-                    "translations": [
-                        {
-                            "language": "fr",
-                            "name": "Autre à spécifier"
-                        }
-                    ]
-                },
-                {
-                    "id": 1681110563714,
-                    "order": 4,
-                    "questionGroupId": 1681107239044,
-                    "question": "What type of toilet/latrines are there for students in the school?",
-                    "type": "option",
-                    "required": true,
-                    "meta": false,
-                    "variableName": "C35",
-                    "dependency": [
-                        {
-                            "id": 1681107239045,
-                            "options": [
-                                "Yes"
-                            ]
-                        }
-                    ],
-                    "translations": [
-                        {
-                            "language": "fr",
-                            "name": "Quel type de toilettes/latrines existe t-il pour les élèves dans l’établissement scolaire ?"
-                        }
-                    ],
-                    "options": [
-                        {
-                            "id": 1681110587234,
-                            "code": "C35A",
-                            "name": "Manual or mechanical flush toilets",
-                            "order": 1,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Toilettes à chasse d’eau manuelle ou mécanique"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681110587235,
-                            "code": "C35B",
-                            "name": "Ventilated Improved Single pit",
-                            "order": 2,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Latrines VIP simple fosse"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681110627202,
-                            "code": "C35C",
-                            "name": "Ventilated Improved double pit",
-                            "order": 3,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Latrines VIP double fosse"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681110628144,
-                            "code": "C35D",
-                            "name": "Latrine ECOSAN",
-                            "order": 4,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Latrine ECOSAN"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681110638006,
-                            "code": "C35E",
-                            "name": "Latrines SANPLAT",
-                            "order": 5,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Latrines SANPLAT"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681110914410,
-                            "code": "C35F",
-                            "name": "Traditional latrines with concrete slab",
-                            "order": 6,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Latrines traditionnelle avec dalle en béton"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681110915992,
-                            "code": "C35G",
-                            "name": "Traditional latrines without concrete slab",
-                            "order": 7,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Latrines traditionnelle sans dalle à béton"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681110916992,
-                            "code": "C35H",
-                            "name": "Other",
-                            "order": 8,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Autre"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "id": 1681110975144,
-                    "order": 5,
-                    "questionGroupId": 1681107239044,
-                    "question": "How many toilets/ cabins for students are currently usable?",
-                    "type": "number",
-                    "required": true,
-                    "meta": false,
-                    "dependency": [
-                        {
-                            "id": 1681107239045,
-                            "options": [
-                                "Yes"
-                            ]
-                        }
-                    ],
-                    "variableName": "C36",
-                    "translations": [
-                        {
-                            "language": "fr",
-                            "name": "Combien de toilettes/cabines destinées aux élèves sont actuellement utilisables ?"
-                        }
-                    ]
-                },
-                {
-                    "id": 1681111021763,
-                    "order": 6,
-                    "questionGroupId": 1681107239044,
-                    "question": "Are there separate toilets/latrines for girls and boys?",
-                    "type": "option",
-                    "required": false,
-                    "meta": false,
-                    "dependency": [
-                        {
-                            "id": 1681107239045,
-                            "options": [
-                                "Yes"
-                            ]
-                        }
-                    ],
-                    "variableName": "C37",
-                    "translations": [
-                        {
-                            "language": "fr",
-                            "name": "Existe-t-il des toilettes/latrines séparées pour les filles et les garçons ?"
-                        }
-                    ],
-                    "options": [
-                        {
-                            "id": 1681111047322,
-                            "code": "C37A",
-                            "name": "Yes",
-                            "order": 1,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Oui"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681111047323,
-                            "code": "C37B",
-                            "name": "No",
-                            "order": 2,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Non"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "id": 1681111103053,
-                    "order": 7,
-                    "questionGroupId": 1681107239044,
-                    "question": "How many toilets/cabins are there in the school reserved for girls?",
-                    "type": "number",
-                    "required": true,
-                    "meta": false,
-                    "dependency": [
-                        {
-                            "id": 1681107239045,
-                            "options": [
-                                "Yes"
-                            ]
-                        }
-                    ],
-                    "translations": [
-                        {
-                            "language": "fr",
-                            "name": "Combien de toilettes/cabines y a-t-il dans l’établissement scolaire réservé aux filles ?"
-                        }
-                    ]
-                },
-                {
-                    "id": 1681111127831,
-                    "order": 8,
-                    "questionGroupId": 1681107239044,
-                    "question": "How many toilets/cabins are there in the school reserved for boys?",
-                    "type": "number",
-                    "required": true,
-                    "meta": false,
-                    "dependency": [
-                        {
-                            "id": 1681107239045,
-                            "options": [
-                                "Yes"
-                            ]
-                        }
-                    ],
-                    "translations": [
-                        {
-                            "language": "fr",
-                            "name": "Combien de toilettes/cabines y a-t-il dans l’établissement scolaire réservé aux garçons ?"
-                        }
-                    ]
-                },
-                {
-                    "id": 1681111176715,
-                    "order": 9,
-                    "questionGroupId": 1681107239044,
-                    "question": "How many times a week to the toilet cleaned?",
-                    "type": "option",
-                    "required": true,
-                    "meta": false,
-                    "dependency": [
-                        {
-                            "id": 1681107239045,
-                            "options": [
-                                "Yes"
-                            ]
-                        }
-                    ],
-                    "variableName": "C40",
-                    "translations": [
-                        {
-                            "language": "fr",
-                            "name": "Combien de fois par semaine les toilettes sont-elles nettoyées ?"
-                        }
-                    ],
-                    "options": [
-                        {
-                            "id": 1681111184640,
-                            "code": null,
-                            "name": "At least once a day",
-                            "order": 1,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Au moins une fois par jour"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681111184641,
-                            "code": null,
-                            "name": "2-4 days/week",
-                            "order": 2,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "2-4 jours/semaine"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681111234870,
-                            "code": null,
-                            "name": "Once a week",
-                            "order": 3,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Une fois par semaine"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681111240227,
-                            "code": null,
-                            "name": "Less than once a week",
-                            "order": 4,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Moins d'une fois par semaine"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "id": 1681111261327,
-                    "order": 10,
-                    "questionGroupId": 1681107239044,
-                    "question": "State of hygiene in cabins (observation)",
-                    "type": "option",
-                    "required": true,
-                    "meta": false,
-                    "dependency": [
-                        {
-                            "id": 1681107239045,
-                            "options": [
-                                "Yes"
-                            ]
-                        }
-                    ],
-                    "variableName": "C41",
-                    "translations": [
-                        {
-                            "language": "fr",
-                            "name": "Etat de l'hygiene dans les cabines (Observation)"
-                        }
-                    ],
-                    "options": [
-                        {
-                            "id": 1681111291130,
-                            "code": "C41A",
-                            "name": "Clean",
-                            "order": 1,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Propre"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681111291131,
-                            "code": "C41B",
-                            "name": "Average",
-                            "order": 2,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Moyen"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681111390237,
-                            "code": "C41C",
-                            "name": "Dirty",
-                            "order": 3,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Sale"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "id": 1681111431662,
-                    "order": 11,
-                    "questionGroupId": 1681107239044,
-                    "question": "How much do you consider the percentage of the students who really use the latrines?",
-                    "type": "option",
-                    "required": true,
-                    "meta": false,
-                    "dependency": [
-                        {
-                            "id": 1681107239045,
-                            "options": [
-                                "Yes"
-                            ]
-                        }
-                    ],
-                    "variableName": "C42",
-                    "translations": [
-                        {
-                            "language": "fr",
-                            "name": "A combien estimez-vous le pourcentage des eleves qui utilisent reellement les latrines ?"
-                        }
-                    ],
-                    "options": [
-                        {
-                            "id": 1681111441752,
-                            "code": null,
-                            "name": "Some rare cases (1-5%)",
-                            "order": 1,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Quelques cas rares (1-5%)"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681111441753,
-                            "code": null,
-                            "name": "Very little (6-10%)",
-                            "order": 2,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Très peu (6-10%)"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681111476664,
-                            "code": null,
-                            "name": "Less than a quarter (11-25%)",
-                            "order": 3,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Moins d'un quart (11-25%)"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681111478350,
-                            "code": null,
-                            "name": "Less than half (26-50%)",
-                            "order": 4,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Moins d'un demi (26-50%)"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681111479283,
-                            "code": null,
-                            "name": "Less than three-quarters (51-75%)",
-                            "order": 5,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Moins du trois-quart (51-75%)"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681114805578,
-                            "code": null,
-                            "name": "Most (> 75%)",
-                            "order": 6,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "La plupart (>75%)"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "id": 1681111530937,
-                    "order": 12,
-                    "questionGroupId": 1681107239044,
-                    "question": "Photo of toilets/latrines in the school establishment",
-                    "type": "text",
-                    "required": true,
-                    "meta": false,
-                    "dependency": [
-                        {
-                            "id": 1681107239045,
-                            "options": [
-                                "Yes"
-                            ]
-                        }
-                    ],
-                    "translations": [
-                        {
-                            "language": "fr",
-                            "name": "Photo de toilettes/latrines dans l'etablissement scolaire"
-                        }
-                    ]
-                }
-            ],
-            "translations": [
-                {
-                    "language": "fr",
-                    "name": "Assainissement"
-                }
-            ]
-        },
-        {
-            "id": 1681107261378,
-            "question_group": "Hygiene",
-            "order": 5,
-            "repeatable": false,
-            "questions": [
-                {
-                    "id": 1681107261379,
-                    "order": 1,
-                    "questionGroupId": 1681107261378,
-                    "question": "Are there hand washing facilities in the school establishment?",
-                    "type": "option",
-                    "required": true,
-                    "meta": false,
-                    "variableName": "C44",
-                    "translations": [
-                        {
-                            "language": "fr",
-                            "name": "Existe-t-il des installations de lavage des mains dans l’établissement scolaire ?"
-                        }
-                    ],
-                    "options": [
-                        {
-                            "id": 1681111612477,
-                            "code": "C44A",
-                            "name": "Yes",
-                            "order": 1,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Oui"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681111612478,
-                            "code": "C44B",
-                            "name": "No",
-                            "order": 2,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Non"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "id": 1681111640583,
-                    "order": 2,
-                    "questionGroupId": 1681107261378,
-                    "question": "Are soap water and soap currently available in hand washing facilities?",
-                    "type": "option",
-                    "required": true,
-                    "meta": false,
-                    "variableName": "C45",
-                    "dependency": [
-                        {
-                            "id": 1681107261379,
-                            "options": [
-                                "Yes"
-                            ]
-                        }
-                    ],
-                    "translations": [
-                        {
-                            "language": "fr",
-                            "name": "De l’eau et du savon sont-ils actuellement disponibles au niveau des installations de lavage des mains ?"
-                        }
-                    ],
-                    "options": [
-                        {
-                            "id": 1681111649764,
-                            "code": "C45A",
-                            "name": "Yes, water and soap",
-                            "order": 1,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Oui, Eau et du savon"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681111649765,
-                            "code": "C45B",
-                            "name": "Water only",
-                            "order": 2,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Eau uniquement"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681111679102,
-                            "code": "C45C",
-                            "name": "Soap only",
-                            "order": 3,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Savon uniquement"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681111680736,
-                            "code": "C45D",
-                            "name": "No water, no soap",
-                            "order": 4,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Ni eau, ni savon"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "id": 1681111752031,
-                    "order": 3,
-                    "questionGroupId": 1681107261378,
-                    "question": "Where are the hand washing devices currently located with water and soap at school?",
-                    "type": "multiple_option",
-                    "required": true,
-                    "meta": false,
-                    "variableName": "C46",
-                    "translations": [
-                        {
-                            "language": "fr",
-                            "name": "Où se trouvent actuellement, les Dispositifs de Lavage des Mains avec de l'eau et du savon à l'école ?"
-                        }
-                    ],
-                    "options": [
-                        {
-                            "id": 1681111768126,
-                            "code": null,
-                            "name": "Bathroom",
-                            "order": 1,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Toilettes"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681111768127,
-                            "code": null,
-                            "name": "Places of the preparation of food",
-                            "order": 2,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Lieux de la préparation des aliments"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681111789767,
-                            "code": null,
-                            "name": "Places of food consumption",
-                            "order": 3,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Lieux de la consommation alimentaire"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681111796038,
-                            "code": null,
-                            "name": "Classroom",
-                            "order": 4,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Salles de classe"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681111801932,
-                            "code": null,
-                            "name": "School playground",
-                            "order": 5,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Cour d'école"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681111809604,
-                            "code": null,
-                            "name": "Others",
-                            "order": 6,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Autres"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "id": 1681111829973,
-                    "order": 4,
-                    "questionGroupId": 1681107261378,
-                    "question": "Other to specify",
-                    "type": "text",
-                    "required": true,
-                    "meta": false,
-                    "dependency": [
-                        {
-                            "id": 1681111752031,
-                            "options": [
-                                "Others"
-                            ]
-                        }
-                    ],
-                    "translations": [
-                        {
-                            "language": "fr",
-                            "name": "Autre à spécifier"
-                        }
-                    ]
-                },
-                {
-                    "id": 1681111858074,
-                    "order": 5,
-                    "questionGroupId": 1681107261378,
-                    "question": "How many hand washing installations with water and soap are currently in school?",
-                    "type": "number",
-                    "required": true,
-                    "meta": false,
-                    "dependency": [
-                        {
-                            "id": 1681107261379,
-                            "options": [
-                                "Yes"
-                            ]
-                        }
-                    ],
-                    "translations": [
-                        {
-                            "language": "fr",
-                            "name": "Combien d'installations de lavage des mains avec de l'eau et du savon se trouvent actuellement dans l'école ?"
-                        }
-                    ]
-                },
-                {
-                    "id": 1681111924265,
-                    "order": 6,
-                    "questionGroupId": 1681107261378,
-                    "question": "How many times a week's washing activities in groups are organized for all students?",
-                    "type": "option",
-                    "required": true,
-                    "meta": false,
-                    "variableName": "C49",
-                    "translations": [
-                        {
-                            "language": "fr",
-                            "name": "Combien de fois par semaine des activités de lavage des mains en groupe sont-elles organisées pour tous les élèves ?"
-                        }
-                    ],
-                    "options": [
-                        {
-                            "id": 1681111943201,
-                            "code": null,
-                            "name": "At least once a day of school",
-                            "order": 1,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Au moins une fois par jour d'école"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681111943202,
-                            "code": null,
-                            "name": "2-4 days/week",
-                            "order": 2,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "2-4 jours/semaine"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681111994125,
-                            "code": null,
-                            "name": "Once a week",
-                            "order": 3,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Une fois par semaine"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681111995406,
-                            "code": null,
-                            "name": "Less than once a week",
-                            "order": 4,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Moins d'une fois par semaine"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681111996678,
-                            "code": null,
-                            "name": "Never",
-                            "order": 5,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Jamais"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681111997456,
-                            "code": null,
-                            "name": "Other",
-                            "order": 6,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Autre"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "id": 1681112035236,
-                    "order": 7,
-                    "questionGroupId": 1681107261378,
-                    "question": "Another to specify",
-                    "type": "text",
-                    "required": true,
-                    "meta": false,
-                    "dependency": [
-                        {
-                            "id": 1681107261379,
-                            "options": [
-                                "Yes"
-                            ]
-                        }
-                    ],
-                    "variableName": "CS50",
-                    "translations": [
-                        {
-                            "language": "fr",
-                            "name": "Autre à spécifier"
-                        }
-                    ]
-                },
-                {
-                    "id": 1681112090793,
-                    "order": 8,
-                    "questionGroupId": 1681107261378,
-                    "question": "State of the hygiene of the hand washing system (observation)",
-                    "type": "option",
-                    "required": true,
-                    "meta": false,
-                    "dependency": [
-                        {
-                            "id": 1681107261379,
-                            "options": [
-                                "Yes"
-                            ]
-                        }
-                    ],
-                    "variableName": "C51",
-                    "translations": [
-                        {
-                            "language": "fr",
-                            "name": "Etat de l'hygiene du dispositif de lavage de main (Observation)"
-                        }
-                    ],
-                    "options": [
-                        {
-                            "id": 1681112175618,
-                            "code": null,
-                            "name": "Clean",
-                            "order": 1,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Propre"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681112175619,
-                            "code": null,
-                            "name": "Average",
-                            "order": 2,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Moyen"
-                                }
-                            ]
-                        },
-                        {
-                            "id": 1681112231959,
-                            "code": null,
-                            "name": "Dirty",
-                            "order": 3,
-                            "translations": [
-                                {
-                                    "language": "fr",
-                                    "name": "Sale"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "id": 1681112259539,
-                    "order": 9,
-                    "questionGroupId": 1681107261378,
-                    "question": "Photo of the hand washing system in the school",
-                    "type": "text",
-                    "required": true,
-                    "meta": false,
-                    "variableName": "C52",
-                    "dependency": [
-                        {
-                            "id": 1681107261379,
-                            "options": [
-                                "Yes"
-                            ]
-                        }
-                    ],
-                    "translations": [
-                        {
-                            "language": "fr",
-                            "name": "Photo du Dispositif de Lavage des Mains (DLM) dans l'établissement scolaire"
-                        }
-                    ]
-                }
-            ],
-            "translations": [
-                {
-                    "language": "fr",
-                    "name": "Hygiene"
-                }
-            ]
+          "language": "fr",
+          "name": "Localisation"
         }
-    ]
+      ]
+    },
+    {
+      "id": 1681078759978,
+      "question_group": "Consent",
+      "order": 2,
+      "repeatable": false,
+      "questions": [
+        {
+          "id": 1681078759979,
+          "order": 1,
+          "questionGroupId": 1681078759978,
+          "question": "We carry out this interview to better understand the situation in terms of information and prevention on the COVVI-19 in your area. Do you willing to participate to participate?",
+          "type": "option",
+          "required": true,
+          "meta": false,
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Nous réalisons cet entretien pour mieux comprendre la situation en matière d’information et de prévention sur la COVID-19 dans votre zone.Acceptez vous volontier de participer?"
+            }
+          ],
+          "options": [
+            {
+              "id": 1681078772186,
+              "code": null,
+              "name": "Yes",
+              "order": 1,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Oui"
+                }
+              ]
+            },
+            {
+              "id": 1681078772187,
+              "code": null,
+              "name": "No",
+              "order": 2,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Non"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "translations": [
+        {
+          "language": "fr",
+          "name": "Consentement"
+        }
+      ]
+    },
+    {
+      "id": 1681107406122,
+      "question_group": "General Information",
+      "order": 2,
+      "repeatable": false,
+      "questions": [
+        {
+          "id": 1681107406123,
+          "order": 1,
+          "questionGroupId": 1681107406122,
+          "question": "Last name and first name of the respondent",
+          "type": "text",
+          "required": false,
+          "meta": true,
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Nom et prénom du répondant"
+            }
+          ]
+        },
+        {
+          "id": 1681107850302,
+          "order": 2,
+          "questionGroupId": 1681107406122,
+          "question": "Sex of the respondent",
+          "type": "option",
+          "required": false,
+          "meta": false,
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Sexe du répondant"
+            }
+          ],
+          "options": [
+            {
+              "id": 1681107856904,
+              "code": null,
+              "name": "Male",
+              "order": 1,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Masculin"
+                }
+              ]
+            },
+            {
+              "id": 1681107856905,
+              "code": null,
+              "name": "Female",
+              "order": 2,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Feminin"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1681107888369,
+          "order": 3,
+          "questionGroupId": 1681107406122,
+          "question": "Age of the respondent",
+          "type": "number",
+          "required": false,
+          "meta": false,
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Age du répondant"
+            }
+          ]
+        },
+        {
+          "id": 1681107908959,
+          "order": 4,
+          "questionGroupId": 1681107406122,
+          "question": "Telephone number",
+          "type": "text",
+          "required": false,
+          "meta": false,
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Numéro de téléphone"
+            }
+          ]
+        },
+        {
+          "id": 1681107934204,
+          "order": 5,
+          "questionGroupId": 1681107406122,
+          "question": "The status of the respondent",
+          "type": "option",
+          "required": false,
+          "meta": false,
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Statut du répondant"
+            }
+          ],
+          "options": [
+            {
+              "id": 1681107948769,
+              "code": null,
+              "name": "Director",
+              "order": 1,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Directeur"
+                }
+              ]
+            },
+            {
+              "id": 1681107948770,
+              "code": null,
+              "name": "Teacher - Educator - Trainer",
+              "order": 2,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Enseignant - Educateur - formateur"
+                }
+              ]
+            },
+            {
+              "id": 1681107964999,
+              "code": null,
+              "name": "Administrative staff (secretary - accountant - etc.)",
+              "order": 3,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Personnel administratif (Sécrétaire - Comptable - etc.)"
+                }
+              ]
+            },
+            {
+              "id": 1681107971625,
+              "code": null,
+              "name": "President of the Parents Association (APE)",
+              "order": 4,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Président de l'Association des Parents d'Elèves (APE)"
+                }
+              ]
+            },
+            {
+              "id": 1681107978785,
+              "code": null,
+              "name": "Teacher in charge of health",
+              "order": 5,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Enseignant chargé de la santé"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1681108066573,
+          "order": 6,
+          "questionGroupId": 1681107406122,
+          "question": "Basic Education District (CEB) of the school",
+          "type": "text",
+          "required": false,
+          "meta": false,
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Circonscription d'Education de Base(CEB) de l'école"
+            }
+          ]
+        },
+        {
+          "id": 1681108078143,
+          "order": 7,
+          "questionGroupId": 1681107406122,
+          "question": "School name",
+          "type": "text",
+          "required": true,
+          "meta": false,
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Nom de l'ecole"
+            }
+          ]
+        },
+        {
+          "id": 1681108101856,
+          "order": 8,
+          "questionGroupId": 1681107406122,
+          "question": "Environment",
+          "type": "option",
+          "required": true,
+          "meta": false,
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Type de Milieu"
+            }
+          ],
+          "attributes": ["advanced_filter", "aggregate", "table", "chart"],
+          "options": [
+            {
+              "id": 1681108131872,
+              "code": null,
+              "name": "Rural",
+              "order": 1,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Rural"
+                }
+              ]
+            },
+            {
+              "id": 1681108131873,
+              "code": null,
+              "name": "Urban",
+              "order": 2,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Urban"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1681108118339,
+          "order": 9,
+          "questionGroupId": 1681107406122,
+          "question": "Statute of the establishment",
+          "type": "option",
+          "required": false,
+          "meta": false,
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Statut de l'établissement"
+            }
+          ],
+          "options": [
+            {
+              "id": 1681108158522,
+              "code": null,
+              "name": "Public",
+              "order": 1,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Public"
+                }
+              ]
+            },
+            {
+              "id": 1681108158523,
+              "code": null,
+              "name": "Private",
+              "order": 2,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Privé"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1681108181965,
+          "order": 10,
+          "questionGroupId": 1681107406122,
+          "question": "Type of establishment",
+          "type": "option",
+          "required": true,
+          "meta": false,
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Type d'établissement"
+            }
+          ],
+          "options": [
+            {
+              "id": 1681108189006,
+              "code": null,
+              "name": "Classic",
+              "order": 1,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Classique"
+                }
+              ]
+            },
+            {
+              "id": 1681108189007,
+              "code": null,
+              "name": "Bilingual",
+              "order": 2,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Bilingue"
+                }
+              ]
+            },
+            {
+              "id": 1681108211070,
+              "code": null,
+              "name": "Franco - arabic",
+              "order": 3,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Franco - arabe"
+                }
+              ]
+            },
+            {
+              "id": 1681108217671,
+              "code": null,
+              "name": "Bridge",
+              "order": 4,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Passerelle"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1681108267891,
+          "order": 11,
+          "questionGroupId": 1681107406122,
+          "question": "Number of teachers men in the school",
+          "type": "number",
+          "required": false,
+          "meta": false,
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Nombre d'enseignant Hommes dans l'établissement scolaire"
+            }
+          ]
+        },
+        {
+          "id": 1681108284525,
+          "order": 12,
+          "questionGroupId": 1681107406122,
+          "question": "Number of teachers women in the school",
+          "type": "number",
+          "required": false,
+          "meta": false,
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Nombre d'enseignant Femmes dans l'établissement scolaire"
+            }
+          ]
+        },
+        {
+          "id": 1681108301308,
+          "order": 13,
+          "questionGroupId": 1681107406122,
+          "question": "Number of students",
+          "type": "number",
+          "required": false,
+          "meta": false,
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Nombre d'élèves"
+            }
+          ]
+        },
+        {
+          "id": 1681113500657,
+          "order": 14,
+          "questionGroupId": 1681107406122,
+          "question": "Number of boys",
+          "type": "number",
+          "required": false,
+          "meta": false,
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Nombre de Garcons"
+            }
+          ]
+        },
+        {
+          "id": 1681108317627,
+          "order": 15,
+          "questionGroupId": 1681107406122,
+          "question": "Number of girls",
+          "type": "number",
+          "required": false,
+          "meta": false,
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Nombre de Filles"
+            }
+          ]
+        }
+      ],
+      "translations": [
+        {
+          "language": "fr",
+          "name": "Information Generale"
+        }
+      ]
+    },
+    {
+      "id": 1681107224762,
+      "question_group": "Water",
+      "order": 3,
+      "repeatable": false,
+      "questions": [
+        {
+          "id": 1681107224764,
+          "order": 1,
+          "questionGroupId": 1681107224762,
+          "question": "Is there a drinking water point provided by the school?",
+          "type": "option",
+          "required": true,
+          "meta": false,
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Existe t'il un point d’eau de boisson fourni par l’établissement scolaire ?"
+            }
+          ],
+          "options": [
+            {
+              "id": 1681108381095,
+              "code": null,
+              "name": "Yes",
+              "order": 1,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Oui"
+                }
+              ]
+            },
+            {
+              "id": 1681108381096,
+              "code": null,
+              "name": "No",
+              "order": 2,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Non"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1681108436898,
+          "order": 2,
+          "questionGroupId": 1681107224762,
+          "question": "What is the main drinking water point provided by the school?",
+          "type": "option",
+          "required": true,
+          "meta": false,
+          "dependency": [
+            {
+              "id": 1681107224764,
+              "options": ["Yes"]
+            }
+          ],
+          "variableName": "C21",
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Quel est le principal point d’eau de boisson fourni par l’établissement scolaire ?"
+            }
+          ],
+          "options": [
+            {
+              "id": 1681108456316,
+              "code": "C21A",
+              "name": "Pipeline connection / Piped water to yard/plot",
+              "order": 1,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Branchement ONEA"
+                }
+              ]
+            },
+            {
+              "id": 1681108456317,
+              "code": "C21B",
+              "name": "Borehole",
+              "order": 2,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Forage"
+                }
+              ]
+            },
+            {
+              "id": 1681108556330,
+              "code": "C21C",
+              "name": "Modern well",
+              "order": 3,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Puits Moderne"
+                }
+              ]
+            },
+            {
+              "id": 1681108565845,
+              "code": "C21D",
+              "name": "Traditional well",
+              "order": 4,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Puits Traditionnel"
+                }
+              ]
+            },
+            {
+              "id": 1681108573562,
+              "code": "C21E",
+              "name": "Rainwater collection",
+              "order": 5,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Eaux de pluie"
+                }
+              ]
+            },
+            {
+              "id": 1681108576384,
+              "code": "C21F",
+              "name": "Tanker-truck",
+              "order": 6,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Camion-citerne"
+                }
+              ]
+            },
+            {
+              "id": 1681108590833,
+              "code": "C21G",
+              "name": "Standpipe",
+              "order": 7,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Borne Fontaine"
+                }
+              ]
+            },
+            {
+              "id": 1681108593109,
+              "code": "C21H",
+              "name": "Surface water (lake, river, stream)",
+              "order": 8,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Eaux de surface (rivière/lac/canal)"
+                }
+              ]
+            },
+            {
+              "id": 1681108602042,
+              "code": "C21I",
+              "name": "Autonomous Water Supply Post",
+              "order": 9,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Poste d'Eau Autonome(PEA)"
+                }
+              ]
+            },
+            {
+              "id": 1681108610023,
+              "code": "C21J",
+              "name": "No water source",
+              "order": 10,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Pas d'eau disponible dans ou à proximité de l'école"
+                }
+              ]
+            },
+            {
+              "id": 1681108619955,
+              "code": "C21K",
+              "name": "Packaged bottled water",
+              "order": 11,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Eau en bouteille"
+                }
+              ]
+            },
+            {
+              "id": 1681108622054,
+              "code": "C21L",
+              "name": "Cart",
+              "order": 12,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Chariot"
+                }
+              ]
+            },
+            {
+              "id": 1681108623243,
+              "code": "C21M",
+              "name": "Other",
+              "order": 13,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Autre"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1681108718081,
+          "order": 3,
+          "questionGroupId": 1681107224762,
+          "question": "Other to specify",
+          "type": "text",
+          "required": true,
+          "meta": false,
+          "dependency": [
+            {
+              "id": 1681108436898,
+              "options": ["Other"]
+            }
+          ],
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Autre à spécifier"
+            }
+          ]
+        },
+        {
+          "id": 1681108776850,
+          "order": 4,
+          "questionGroupId": 1681107224762,
+          "question": "The drinking water point provided by the school is currently functional",
+          "type": "option",
+          "required": true,
+          "meta": false,
+          "dependency": [
+            {
+              "id": 1681107224764,
+              "options": ["Yes"]
+            }
+          ],
+          "variableName": "C23",
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Le point d’eau de boisson fourni par l’établissement scolaire est il actuellement fonctionnel"
+            }
+          ],
+          "options": [
+            {
+              "id": 1681108786814,
+              "code": "C23A",
+              "name": "Totally Functional",
+              "order": 1,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Totalement focntionnel"
+                }
+              ]
+            },
+            {
+              "id": 1681108786815,
+              "code": "C23B",
+              "name": "Partially functional",
+              "order": 2,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Partiellement Fonctionnel"
+                }
+              ]
+            },
+            {
+              "id": 1681108880851,
+              "code": "C23C",
+              "name": "Broken-down",
+              "order": 3,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "En panne"
+                }
+              ]
+            },
+            {
+              "id": 1681108882596,
+              "code": "C23D",
+              "name": "Abandoned",
+              "order": 4,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Abandonné"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1681108935262,
+          "order": 5,
+          "questionGroupId": 1681107224762,
+          "question": "Why?",
+          "type": "text",
+          "required": false,
+          "meta": false,
+          "dependency": [
+            {
+              "id": 1681108776850,
+              "options": ["Abandoned"]
+            }
+          ],
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Pourquoi ?"
+            }
+          ]
+        },
+        {
+          "id": 1681108950633,
+          "order": 6,
+          "questionGroupId": 1681107224762,
+          "question": "Is drinking water from the main point currently available (sufficient) in the school?",
+          "type": "option",
+          "required": true,
+          "meta": false,
+          "variableName": "C25",
+          "dependency": [
+            {
+              "id": 1681107224764,
+              "options": ["Yes"]
+            }
+          ],
+          "translations": [
+            {
+              "language": "fr",
+              "name": "L’eau de boisson provenant du point principal est-elle actuellement disponible (Suffisant) dans l’établissement scolaire ?"
+            }
+          ],
+          "options": [
+            {
+              "id": 1681109005891,
+              "code": null,
+              "name": "Yes",
+              "order": 1,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Oui"
+                }
+              ]
+            },
+            {
+              "id": 1681109005892,
+              "code": null,
+              "name": "No",
+              "order": 2,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Non"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1681109061118,
+          "order": 7,
+          "questionGroupId": 1681107224762,
+          "question": "Is the source of water accessible to disabled children?",
+          "type": "option",
+          "required": false,
+          "meta": false,
+          "dependency": [
+            {
+              "id": 1681107224764,
+              "options": ["Yes"]
+            }
+          ],
+          "translations": [
+            {
+              "language": "fr",
+              "name": "La source d'eau est elle accessible aux enfants handicapés ?"
+            }
+          ],
+          "options": [
+            {
+              "id": 1681109089023,
+              "code": null,
+              "name": "Yes",
+              "order": 1,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Oui"
+                }
+              ]
+            },
+            {
+              "id": 1681109089024,
+              "code": null,
+              "name": "No",
+              "order": 2,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Non"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1681109157654,
+          "order": 8,
+          "questionGroupId": 1681107224762,
+          "question": "Does school do something to on the main source to have drinking water?",
+          "type": "option",
+          "required": true,
+          "meta": false,
+          "dependency": [
+            {
+              "id": 1681107224764,
+              "options": ["Yes"]
+            }
+          ],
+          "translations": [
+            {
+              "language": "fr",
+              "name": "L'école fait-elle quelque chose pour rendre l'eau de la source principale potable ?"
+            }
+          ],
+          "options": [
+            {
+              "id": 1681109164076,
+              "code": null,
+              "name": "Yes",
+              "order": 1,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Oui"
+                }
+              ]
+            },
+            {
+              "id": 1681109164077,
+              "code": null,
+              "name": "No",
+              "order": 2,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Non"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1681109249808,
+          "order": 9,
+          "questionGroupId": 1681107224762,
+          "question": "What is the treatment method used?",
+          "type": "multiple_option",
+          "required": true,
+          "meta": false,
+          "dependency": [
+            {
+              "id": 1681109157654,
+              "options": ["Yes"]
+            }
+          ],
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Quelle est la méthode de traitement utilisée ?"
+            }
+          ],
+          "options": [
+            {
+              "id": 1681109268523,
+              "code": null,
+              "name": "Filtration",
+              "order": 1,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Filtration"
+                }
+              ]
+            },
+            {
+              "id": 1681109268524,
+              "code": null,
+              "name": "Boil",
+              "order": 2,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Bouillir"
+                }
+              ]
+            },
+            {
+              "id": 1681109345891,
+              "code": null,
+              "name": "Chloration",
+              "order": 3,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Chloration"
+                }
+              ]
+            },
+            {
+              "id": 1681109347537,
+              "code": null,
+              "name": "Ultraviolet disinfection",
+              "order": 4,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Désinfection aux ultraviolets"
+                }
+              ]
+            },
+            {
+              "id": 1681109363880,
+              "code": null,
+              "name": "Sodis",
+              "order": 5,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "SODIS"
+                }
+              ]
+            },
+            {
+              "id": 1681109370813,
+              "code": null,
+              "name": "Other",
+              "order": 6,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Autre"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1681110023044,
+          "order": 10,
+          "questionGroupId": 1681107224762,
+          "question": "Other to specify",
+          "type": "text",
+          "required": true,
+          "meta": false,
+          "dependency": [
+            {
+              "id": 1681109249808,
+              "options": ["Other"]
+            }
+          ],
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Autre à spécifier"
+            }
+          ]
+        },
+        {
+          "id": 1681110132819,
+          "order": 11,
+          "questionGroupId": 1681107224762,
+          "question": "Hygian around PE (Observation)",
+          "type": "option",
+          "required": true,
+          "meta": false,
+          "dependency": [
+            {
+              "id": 1681107224764,
+              "options": ["Yes"]
+            }
+          ],
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Hygienne autour du PE (Observation)"
+            }
+          ],
+          "options": [
+            {
+              "id": 1681110140339,
+              "code": null,
+              "name": "Clean",
+              "order": 1,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Propre"
+                }
+              ]
+            },
+            {
+              "id": 1681110140340,
+              "code": null,
+              "name": "Average",
+              "order": 2,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Moyen"
+                }
+              ]
+            },
+            {
+              "id": 1681110160716,
+              "code": null,
+              "name": "Dirty",
+              "order": 3,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Sale"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1681110246520,
+          "order": 12,
+          "questionGroupId": 1681107224762,
+          "question": "Photo of the main source of water supply from the school",
+          "type": "text",
+          "required": false,
+          "meta": false,
+          "dependency": [
+            {
+              "id": 1681107224764,
+              "options": ["Yes"]
+            }
+          ],
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Photo de la principale source d'approvisionnement en eau de l'école"
+            }
+          ]
+        }
+      ],
+      "translations": [
+        {
+          "language": "fr",
+          "name": "Eau"
+        }
+      ]
+    },
+    {
+      "id": 1681107239044,
+      "question_group": "Sanitation",
+      "order": 4,
+      "repeatable": false,
+      "questions": [
+        {
+          "id": 1681107239045,
+          "order": 1,
+          "questionGroupId": 1681107239044,
+          "question": "Is there a sanitation infrastructure (toilet) in the school?",
+          "type": "option",
+          "required": true,
+          "meta": false,
+          "variableName": "C32",
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Existe t'il un ouvrage d'assainissement (toilette) dans l'école ?"
+            }
+          ],
+          "options": [
+            {
+              "id": 1681110339543,
+              "code": "C32A",
+              "name": "Yes",
+              "order": 1,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Oui"
+                }
+              ]
+            },
+            {
+              "id": 1681110339544,
+              "code": "C32B",
+              "name": "No",
+              "order": 2,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Non"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1681110373320,
+          "order": 2,
+          "questionGroupId": 1681107239044,
+          "question": "If not where the students and teachers defeat?",
+          "type": "option",
+          "required": true,
+          "meta": false,
+          "dependency": [
+            {
+              "id": 1681107239045,
+              "options": ["No"]
+            }
+          ],
+          "variableName": "C33",
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Si non où les élèves et enseignants défèquent?"
+            }
+          ],
+          "options": [
+            {
+              "id": 1681110382133,
+              "code": null,
+              "name": "In the free area",
+              "order": 1,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "A l'aire libre"
+                }
+              ]
+            },
+            {
+              "id": 1681110382134,
+              "code": null,
+              "name": "Neighboring houses",
+              "order": 2,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Cours voisines"
+                }
+              ]
+            },
+            {
+              "id": 1681110447186,
+              "code": null,
+              "name": "Other",
+              "order": 3,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Autre"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1681110534234,
+          "order": 3,
+          "questionGroupId": 1681107239044,
+          "question": "Other to specify",
+          "type": "text",
+          "required": true,
+          "meta": false,
+          "variableName": "C34",
+          "dependency": [
+            {
+              "id": 1681110373320,
+              "options": ["Other"]
+            }
+          ],
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Autre à spécifier"
+            }
+          ]
+        },
+        {
+          "id": 1681110563714,
+          "order": 4,
+          "questionGroupId": 1681107239044,
+          "question": "What type of toilet/latrines are there for students in the school?",
+          "type": "option",
+          "required": true,
+          "meta": false,
+          "variableName": "C35",
+          "dependency": [
+            {
+              "id": 1681107239045,
+              "options": ["Yes"]
+            }
+          ],
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Quel type de toilettes/latrines existe t-il pour les élèves dans l’établissement scolaire ?"
+            }
+          ],
+          "options": [
+            {
+              "id": 1681110587234,
+              "code": "C35A",
+              "name": "Manual or mechanical flush toilets",
+              "order": 1,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Toilettes à chasse d’eau manuelle ou mécanique"
+                }
+              ]
+            },
+            {
+              "id": 1681110587235,
+              "code": "C35B",
+              "name": "Ventilated Improved Single pit",
+              "order": 2,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Latrines VIP simple fosse"
+                }
+              ]
+            },
+            {
+              "id": 1681110627202,
+              "code": "C35C",
+              "name": "Ventilated Improved double pit",
+              "order": 3,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Latrines VIP double fosse"
+                }
+              ]
+            },
+            {
+              "id": 1681110628144,
+              "code": "C35D",
+              "name": "Latrine ECOSAN",
+              "order": 4,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Latrine ECOSAN"
+                }
+              ]
+            },
+            {
+              "id": 1681110638006,
+              "code": "C35E",
+              "name": "Latrines SANPLAT",
+              "order": 5,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Latrines SANPLAT"
+                }
+              ]
+            },
+            {
+              "id": 1681110914410,
+              "code": "C35F",
+              "name": "Traditional latrines with concrete slab",
+              "order": 6,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Latrines traditionnelle avec dalle en béton"
+                }
+              ]
+            },
+            {
+              "id": 1681110915992,
+              "code": "C35G",
+              "name": "Traditional latrines without concrete slab",
+              "order": 7,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Latrines traditionnelle sans dalle à béton"
+                }
+              ]
+            },
+            {
+              "id": 1681110916992,
+              "code": "C35H",
+              "name": "Other",
+              "order": 8,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Autre"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1681110975144,
+          "order": 5,
+          "questionGroupId": 1681107239044,
+          "question": "How many toilets/ cabins for students are currently usable?",
+          "type": "number",
+          "required": true,
+          "meta": false,
+          "dependency": [
+            {
+              "id": 1681107239045,
+              "options": ["Yes"]
+            }
+          ],
+          "variableName": "C36",
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Combien de toilettes/cabines destinées aux élèves sont actuellement utilisables ?"
+            }
+          ]
+        },
+        {
+          "id": 1681111021763,
+          "order": 6,
+          "questionGroupId": 1681107239044,
+          "question": "Are there separate toilets/latrines for girls and boys?",
+          "type": "option",
+          "required": false,
+          "meta": false,
+          "dependency": [
+            {
+              "id": 1681107239045,
+              "options": ["Yes"]
+            }
+          ],
+          "variableName": "C37",
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Existe-t-il des toilettes/latrines séparées pour les filles et les garçons ?"
+            }
+          ],
+          "options": [
+            {
+              "id": 1681111047322,
+              "code": "C37A",
+              "name": "Yes",
+              "order": 1,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Oui"
+                }
+              ]
+            },
+            {
+              "id": 1681111047323,
+              "code": "C37B",
+              "name": "No",
+              "order": 2,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Non"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1681111103053,
+          "order": 7,
+          "questionGroupId": 1681107239044,
+          "question": "How many toilets/cabins are there in the school reserved for girls?",
+          "type": "number",
+          "required": true,
+          "meta": false,
+          "dependency": [
+            {
+              "id": 1681107239045,
+              "options": ["Yes"]
+            }
+          ],
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Combien de toilettes/cabines y a-t-il dans l’établissement scolaire réservé aux filles ?"
+            }
+          ]
+        },
+        {
+          "id": 1681111127831,
+          "order": 8,
+          "questionGroupId": 1681107239044,
+          "question": "How many toilets/cabins are there in the school reserved for boys?",
+          "type": "number",
+          "required": true,
+          "meta": false,
+          "dependency": [
+            {
+              "id": 1681107239045,
+              "options": ["Yes"]
+            }
+          ],
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Combien de toilettes/cabines y a-t-il dans l’établissement scolaire réservé aux garçons ?"
+            }
+          ]
+        },
+        {
+          "id": 1681111176715,
+          "order": 9,
+          "questionGroupId": 1681107239044,
+          "question": "How many times a week to the toilet cleaned?",
+          "type": "option",
+          "required": true,
+          "meta": false,
+          "dependency": [
+            {
+              "id": 1681107239045,
+              "options": ["Yes"]
+            }
+          ],
+          "variableName": "C40",
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Combien de fois par semaine les toilettes sont-elles nettoyées ?"
+            }
+          ],
+          "options": [
+            {
+              "id": 1681111184640,
+              "code": null,
+              "name": "At least once a day",
+              "order": 1,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Au moins une fois par jour"
+                }
+              ]
+            },
+            {
+              "id": 1681111184641,
+              "code": null,
+              "name": "2-4 days/week",
+              "order": 2,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "2-4 jours/semaine"
+                }
+              ]
+            },
+            {
+              "id": 1681111234870,
+              "code": null,
+              "name": "Once a week",
+              "order": 3,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Une fois par semaine"
+                }
+              ]
+            },
+            {
+              "id": 1681111240227,
+              "code": null,
+              "name": "Less than once a week",
+              "order": 4,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Moins d'une fois par semaine"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1681111261327,
+          "order": 10,
+          "questionGroupId": 1681107239044,
+          "question": "State of hygiene in cabins (observation)",
+          "type": "option",
+          "required": true,
+          "meta": false,
+          "dependency": [
+            {
+              "id": 1681107239045,
+              "options": ["Yes"]
+            }
+          ],
+          "variableName": "C41",
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Etat de l'hygiene dans les cabines (Observation)"
+            }
+          ],
+          "options": [
+            {
+              "id": 1681111291130,
+              "code": "C41A",
+              "name": "Clean",
+              "order": 1,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Propre"
+                }
+              ]
+            },
+            {
+              "id": 1681111291131,
+              "code": "C41B",
+              "name": "Average",
+              "order": 2,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Moyen"
+                }
+              ]
+            },
+            {
+              "id": 1681111390237,
+              "code": "C41C",
+              "name": "Dirty",
+              "order": 3,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Sale"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1681111431662,
+          "order": 11,
+          "questionGroupId": 1681107239044,
+          "question": "How much do you consider the percentage of the students who really use the latrines?",
+          "type": "option",
+          "required": true,
+          "meta": false,
+          "dependency": [
+            {
+              "id": 1681107239045,
+              "options": ["Yes"]
+            }
+          ],
+          "variableName": "C42",
+          "translations": [
+            {
+              "language": "fr",
+              "name": "A combien estimez-vous le pourcentage des eleves qui utilisent reellement les latrines ?"
+            }
+          ],
+          "options": [
+            {
+              "id": 1681111441752,
+              "code": null,
+              "name": "Some rare cases (1-5%)",
+              "order": 1,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Quelques cas rares (1-5%)"
+                }
+              ]
+            },
+            {
+              "id": 1681111441753,
+              "code": null,
+              "name": "Very little (6-10%)",
+              "order": 2,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Très peu (6-10%)"
+                }
+              ]
+            },
+            {
+              "id": 1681111476664,
+              "code": null,
+              "name": "Less than a quarter (11-25%)",
+              "order": 3,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Moins d'un quart (11-25%)"
+                }
+              ]
+            },
+            {
+              "id": 1681111478350,
+              "code": null,
+              "name": "Less than half (26-50%)",
+              "order": 4,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Moins d'un demi (26-50%)"
+                }
+              ]
+            },
+            {
+              "id": 1681111479283,
+              "code": null,
+              "name": "Less than three-quarters (51-75%)",
+              "order": 5,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Moins du trois-quart (51-75%)"
+                }
+              ]
+            },
+            {
+              "id": 1681114805578,
+              "code": null,
+              "name": "Most (> 75%)",
+              "order": 6,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "La plupart (>75%)"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1681111530937,
+          "order": 12,
+          "questionGroupId": 1681107239044,
+          "question": "Photo of toilets/latrines in the school establishment",
+          "type": "text",
+          "required": true,
+          "meta": false,
+          "dependency": [
+            {
+              "id": 1681107239045,
+              "options": ["Yes"]
+            }
+          ],
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Photo de toilettes/latrines dans l'etablissement scolaire"
+            }
+          ]
+        }
+      ],
+      "translations": [
+        {
+          "language": "fr",
+          "name": "Assainissement"
+        }
+      ]
+    },
+    {
+      "id": 1681107261378,
+      "question_group": "Hygiene",
+      "order": 5,
+      "repeatable": false,
+      "questions": [
+        {
+          "id": 1681107261379,
+          "order": 1,
+          "questionGroupId": 1681107261378,
+          "question": "Are there hand washing facilities in the school establishment?",
+          "type": "option",
+          "required": true,
+          "meta": false,
+          "variableName": "C44",
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Existe-t-il des installations de lavage des mains dans l’établissement scolaire ?"
+            }
+          ],
+          "options": [
+            {
+              "id": 1681111612477,
+              "code": "C44A",
+              "name": "Yes",
+              "order": 1,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Oui"
+                }
+              ]
+            },
+            {
+              "id": 1681111612478,
+              "code": "C44B",
+              "name": "No",
+              "order": 2,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Non"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1681111640583,
+          "order": 2,
+          "questionGroupId": 1681107261378,
+          "question": "Are soap water and soap currently available in hand washing facilities?",
+          "type": "option",
+          "required": true,
+          "meta": false,
+          "variableName": "C45",
+          "dependency": [
+            {
+              "id": 1681107261379,
+              "options": ["Yes"]
+            }
+          ],
+          "translations": [
+            {
+              "language": "fr",
+              "name": "De l’eau et du savon sont-ils actuellement disponibles au niveau des installations de lavage des mains ?"
+            }
+          ],
+          "options": [
+            {
+              "id": 1681111649764,
+              "code": "C45A",
+              "name": "Yes, water and soap",
+              "order": 1,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Oui, Eau et du savon"
+                }
+              ]
+            },
+            {
+              "id": 1681111649765,
+              "code": "C45B",
+              "name": "Water only",
+              "order": 2,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Eau uniquement"
+                }
+              ]
+            },
+            {
+              "id": 1681111679102,
+              "code": "C45C",
+              "name": "Soap only",
+              "order": 3,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Savon uniquement"
+                }
+              ]
+            },
+            {
+              "id": 1681111680736,
+              "code": "C45D",
+              "name": "No water, no soap",
+              "order": 4,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Ni eau, ni savon"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1681111752031,
+          "order": 3,
+          "questionGroupId": 1681107261378,
+          "question": "Where are the hand washing devices currently located with water and soap at school?",
+          "type": "multiple_option",
+          "required": true,
+          "meta": false,
+          "variableName": "C46",
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Où se trouvent actuellement, les Dispositifs de Lavage des Mains avec de l'eau et du savon à l'école ?"
+            }
+          ],
+          "options": [
+            {
+              "id": 1681111768126,
+              "code": null,
+              "name": "Bathroom",
+              "order": 1,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Toilettes"
+                }
+              ]
+            },
+            {
+              "id": 1681111768127,
+              "code": null,
+              "name": "Places of the preparation of food",
+              "order": 2,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Lieux de la préparation des aliments"
+                }
+              ]
+            },
+            {
+              "id": 1681111789767,
+              "code": null,
+              "name": "Places of food consumption",
+              "order": 3,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Lieux de la consommation alimentaire"
+                }
+              ]
+            },
+            {
+              "id": 1681111796038,
+              "code": null,
+              "name": "Classroom",
+              "order": 4,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Salles de classe"
+                }
+              ]
+            },
+            {
+              "id": 1681111801932,
+              "code": null,
+              "name": "School playground",
+              "order": 5,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Cour d'école"
+                }
+              ]
+            },
+            {
+              "id": 1681111809604,
+              "code": null,
+              "name": "Others",
+              "order": 6,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Autres"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1681111829973,
+          "order": 4,
+          "questionGroupId": 1681107261378,
+          "question": "Other to specify",
+          "type": "text",
+          "required": true,
+          "meta": false,
+          "dependency": [
+            {
+              "id": 1681111752031,
+              "options": ["Others"]
+            }
+          ],
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Autre à spécifier"
+            }
+          ]
+        },
+        {
+          "id": 1681111858074,
+          "order": 5,
+          "questionGroupId": 1681107261378,
+          "question": "How many hand washing installations with water and soap are currently in school?",
+          "type": "number",
+          "required": true,
+          "meta": false,
+          "dependency": [
+            {
+              "id": 1681107261379,
+              "options": ["Yes"]
+            }
+          ],
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Combien d'installations de lavage des mains avec de l'eau et du savon se trouvent actuellement dans l'école ?"
+            }
+          ]
+        },
+        {
+          "id": 1681111924265,
+          "order": 6,
+          "questionGroupId": 1681107261378,
+          "question": "How many times a week's washing activities in groups are organized for all students?",
+          "type": "option",
+          "required": true,
+          "meta": false,
+          "variableName": "C49",
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Combien de fois par semaine des activités de lavage des mains en groupe sont-elles organisées pour tous les élèves ?"
+            }
+          ],
+          "options": [
+            {
+              "id": 1681111943201,
+              "code": null,
+              "name": "At least once a day of school",
+              "order": 1,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Au moins une fois par jour d'école"
+                }
+              ]
+            },
+            {
+              "id": 1681111943202,
+              "code": null,
+              "name": "2-4 days/week",
+              "order": 2,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "2-4 jours/semaine"
+                }
+              ]
+            },
+            {
+              "id": 1681111994125,
+              "code": null,
+              "name": "Once a week",
+              "order": 3,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Une fois par semaine"
+                }
+              ]
+            },
+            {
+              "id": 1681111995406,
+              "code": null,
+              "name": "Less than once a week",
+              "order": 4,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Moins d'une fois par semaine"
+                }
+              ]
+            },
+            {
+              "id": 1681111996678,
+              "code": null,
+              "name": "Never",
+              "order": 5,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Jamais"
+                }
+              ]
+            },
+            {
+              "id": 1681111997456,
+              "code": null,
+              "name": "Other",
+              "order": 6,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Autre"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1681112035236,
+          "order": 7,
+          "questionGroupId": 1681107261378,
+          "question": "Another to specify",
+          "type": "text",
+          "required": true,
+          "meta": false,
+          "dependency": [
+            {
+              "id": 1681107261379,
+              "options": ["Yes"]
+            }
+          ],
+          "variableName": "CS50",
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Autre à spécifier"
+            }
+          ]
+        },
+        {
+          "id": 1681112090793,
+          "order": 8,
+          "questionGroupId": 1681107261378,
+          "question": "State of the hygiene of the hand washing system (observation)",
+          "type": "option",
+          "required": true,
+          "meta": false,
+          "dependency": [
+            {
+              "id": 1681107261379,
+              "options": ["Yes"]
+            }
+          ],
+          "variableName": "C51",
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Etat de l'hygiene du dispositif de lavage de main (Observation)"
+            }
+          ],
+          "options": [
+            {
+              "id": 1681112175618,
+              "code": null,
+              "name": "Clean",
+              "order": 1,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Propre"
+                }
+              ]
+            },
+            {
+              "id": 1681112175619,
+              "code": null,
+              "name": "Average",
+              "order": 2,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Moyen"
+                }
+              ]
+            },
+            {
+              "id": 1681112231959,
+              "code": null,
+              "name": "Dirty",
+              "order": 3,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Sale"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1681112259539,
+          "order": 9,
+          "questionGroupId": 1681107261378,
+          "question": "Photo of the hand washing system in the school",
+          "type": "text",
+          "required": true,
+          "meta": false,
+          "variableName": "C52",
+          "dependency": [
+            {
+              "id": 1681107261379,
+              "options": ["Yes"]
+            }
+          ],
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Photo du Dispositif de Lavage des Mains (DLM) dans l'établissement scolaire"
+            }
+          ]
+        }
+      ],
+      "translations": [
+        {
+          "language": "fr",
+          "name": "Hygiene"
+        }
+      ]
+    }
+  ]
 }
