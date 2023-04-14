@@ -623,6 +623,7 @@ exports[`Login and Registration test if the registration form exists: Registrati
                             id="registration-form_confirm"
                             placeholder="Confirm Password"
                             type="password"
+                            value=""
                           />
                           <span
                             class="ant-input-suffix"
