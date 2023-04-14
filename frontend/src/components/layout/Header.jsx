@@ -14,9 +14,9 @@ const Header = ({ className = "header", ...props }) => {
   const { language } = store.useState((s) => s);
   const { active: activeLang } = language;
   const text = getTranslation(activeLang, "header");
-  const dashboards = window?.dashboard;
+  // const dashboards = window?.dashboard;
   const powerBIDashboard = window?.powerBIDashboard;
-  const reports = window?.reports;
+  // const reports = window?.reports;
   const languages = window.languages;
 
   const signOut = async () => {
@@ -59,6 +59,7 @@ const Header = ({ className = "header", ...props }) => {
     </Menu>
   );
 
+  /*
   const DashboardMenu = (
     <Menu>
       {dashboards?.map((d) => (
@@ -78,7 +79,7 @@ const Header = ({ className = "header", ...props }) => {
       ))}
     </Menu>
   );
-
+  */
   const PowerBIMenu = (
     <Menu>
       {powerBIDashboard?.map((d) => (
@@ -148,6 +149,8 @@ const Header = ({ className = "header", ...props }) => {
                   {text?.newDashboard}
                 </a>
               </Dropdown>
+
+              {/* Experimental Dashboard
               <Dropdown overlay={DashboardMenu}>
                 <a
                   className="ant-dropdown-link"
@@ -168,6 +171,7 @@ const Header = ({ className = "header", ...props }) => {
                   {text?.reports}
                 </a>
               </Dropdown>
+              */}
               {/* <a className="dev">Monitoring</a> */}
               {/* <Link className="dev" to="/how-we-work">
               How We Work

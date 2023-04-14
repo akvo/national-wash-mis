@@ -4,7 +4,9 @@
     "dashboards": "Tableaux de bord",
     "reports": "Rapports",
     "newsEvents": "Actualités et évènements",
-    "login": "Connexion"
+    "login": "Connexion",
+    "newDashboard": "Tableaux de bord",
+    "households": "Households"
   },
   "charts": { "showEmpty": "Montrer des valeurs vides" },
   "banner": { "welcomeCta": "Explorer les données nationales" },
