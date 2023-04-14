@@ -1,13 +1,16 @@
 import React from "react";
 import { Tabs } from "antd";
 import { useNavigate } from "react-router-dom";
+import { store } from "../../lib";
+import { getTranslation } from "../../util";
 
 const { TabPane } = Tabs;
 
 const UserTab = ({ tabBarExtraContent }) => {
   const pathname = window.location.pathname;
   const navigate = useNavigate();
-
+  const { active: activeLang } = store.useState((s) => s.language);
+  const text = getTranslation(activeLang, "tabs");
   return (
     <Tabs
       size="large"
@@ -15,10 +18,10 @@ const UserTab = ({ tabBarExtraContent }) => {
       onChange={(key) => navigate(key)}
       tabBarExtraContent={tabBarExtraContent}
     >
-      <TabPane tab="Manage Users" key="/users">
+      <TabPane tab={text.manageUsers} key="/users">
         &nbsp;
       </TabPane>
-      <TabPane tab="Data Validation Tree" key="/approvers/tree">
+      <TabPane tab={text.dataValidationTree} key="/approvers/tree">
         &nbsp;
       </TabPane>
     </Tabs>

@@ -1,0 +1,872 @@
+{
+  "id": 1681117698699,
+  "form": "CLTS Progress Tracking",
+  "type": 1,
+  "languages": ["en", "fr"],
+  "defaultLanguage": "en",
+  "translations": [
+    {
+      "language": "fr",
+      "name": "Fiche de suivi de l'ATPC"
+    }
+  ],
+  "question_groups": [
+    {
+      "id": 1681117698700,
+      "question_group": "Village",
+      "order": 1,
+      "repeatable": false,
+      "questions": [
+        {
+          "id": 1681117698701,
+          "order": 1,
+          "questionGroupId": 1681117698700,
+          "question": "Localisation",
+          "type": "administration",
+          "required": true,
+          "meta": true,
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Localisation de l'enquête"
+            }
+          ]
+        },
+        {
+          "id": 1681117959137,
+          "order": 2,
+          "questionGroupId": 1681117698700,
+          "question": "Neighbourhood",
+          "type": "text",
+          "required": false,
+          "meta": true,
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Quartier"
+            }
+          ]
+        },
+        {
+          "id": 1681117980155,
+          "order": 3,
+          "questionGroupId": 1681117698700,
+          "question": "Neighbourhood/ Activated communities",
+          "type": "text",
+          "required": false,
+          "meta": true,
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Quartiers/communautés déclenchés"
+            }
+          ]
+        },
+        {
+          "id": 1681117997806,
+          "order": 4,
+          "questionGroupId": 1681117698700,
+          "question": "Take the geolocation of the water point",
+          "type": "geo",
+          "required": true,
+          "meta": true,
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Coordonnées GPS"
+            }
+          ]
+        },
+        {
+          "id": 1681118033172,
+          "order": 5,
+          "questionGroupId": 1681117698700,
+          "question": "Population by communities",
+          "type": "number",
+          "required": false,
+          "meta": false,
+          "attributes": ["table"],
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Population par communautés"
+            }
+          ]
+        },
+        {
+          "id": 1681118045556,
+          "order": 6,
+          "questionGroupId": 1681117698700,
+          "question": "Number of concessions",
+          "type": "number",
+          "required": false,
+          "meta": false,
+          "attributes": ["table"],
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Nombre de concessions"
+            }
+          ]
+        },
+        {
+          "id": 1681118065957,
+          "order": 7,
+          "questionGroupId": 1681117698700,
+          "question": "Number of households",
+          "type": "number",
+          "required": false,
+          "meta": false,
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Nombre de ménages"
+            }
+          ]
+        },
+        {
+          "id": 1681118080740,
+          "order": 8,
+          "questionGroupId": 1681117698700,
+          "question": "Trigger date",
+          "type": "date",
+          "required": false,
+          "meta": false,
+          "attributes": ["table"],
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Date de déclenchement"
+            }
+          ]
+        },
+        {
+          "id": 1681118088589,
+          "order": 9,
+          "questionGroupId": 1681117698700,
+          "question": "Number of hand washing stations before ATPC",
+          "type": "number",
+          "required": false,
+          "meta": false,
+          "attributes": ["table"],
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Nombre de stations de lavage des mains avant ATPC"
+            }
+          ]
+        },
+        {
+          "id": 1681118125306,
+          "order": 10,
+          "questionGroupId": 1681117698700,
+          "question": "Number of children's defecation pots before ATPC",
+          "type": "number",
+          "required": false,
+          "meta": false,
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Nombre de pots de défécation des enfants avant ATPC"
+            }
+          ]
+        },
+        {
+          "id": 1681118157245,
+          "order": 11,
+          "questionGroupId": 1681117698700,
+          "question": "Number of latrines before ATPC",
+          "type": "number",
+          "required": false,
+          "meta": false,
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Nombre de latrines avant ATPC"
+            }
+          ]
+        },
+        {
+          "id": 1681118170094,
+          "order": 12,
+          "questionGroupId": 1681117698700,
+          "question": "Number of latrines to build",
+          "type": "number",
+          "required": false,
+          "meta": false,
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Nombre de latrines à construire"
+            }
+          ]
+        },
+        {
+          "id": 1681118205426,
+          "order": 13,
+          "questionGroupId": 1681117698700,
+          "question": "Number of hand washing devices before ATPC",
+          "type": "number",
+          "required": false,
+          "meta": false,
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Nombre de dispositifs de lavage de mains avant ATPC"
+            }
+          ]
+        },
+        {
+          "id": 1681118221757,
+          "order": 14,
+          "questionGroupId": 1681117698700,
+          "question": "Number of children's defecation pots before ATPC",
+          "type": "number",
+          "required": false,
+          "meta": false,
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Nombre de pots de défécation pour enfants avant ATPC"
+            }
+          ]
+        },
+        {
+          "id": 1681118228942,
+          "order": 15,
+          "questionGroupId": 1681117698700,
+          "question": "Number of village or neighborhood sanitation committees (CAV/Q) set up and formed",
+          "type": "number",
+          "required": false,
+          "meta": false,
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Nombre de Comités d'Assainissement Villageois ou de Quartier (CAV/Q) mis en place et formés"
+            }
+          ]
+        }
+      ],
+      "translations": [
+        {
+          "language": "fr",
+          "name": "Village"
+        }
+      ]
+    },
+    {
+      "id": 1681117738567,
+      "question_group": "Latrine",
+      "order": 2,
+      "repeatable": false,
+      "questions": [
+        {
+          "id": 1681117738568,
+          "order": 1,
+          "questionGroupId": 1681117738567,
+          "question": "Latrine geolocation",
+          "type": "geo",
+          "required": true,
+          "meta": false,
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Coordonnées GPS de la latrine"
+            }
+          ]
+        },
+        {
+          "id": 1681118297126,
+          "order": 2,
+          "questionGroupId": 1681117738567,
+          "question": "Latrine photo",
+          "type": "text",
+          "required": false,
+          "meta": false,
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Photo de la latrine"
+            }
+          ]
+        },
+        {
+          "id": 1681118310493,
+          "order": 3,
+          "questionGroupId": 1681117738567,
+          "question": "Picture Handwashing facility",
+          "type": "text",
+          "required": false,
+          "meta": false,
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Photo du DLM"
+            }
+          ]
+        },
+        {
+          "id": 1681118328126,
+          "order": 4,
+          "questionGroupId": 1681117738567,
+          "question": "Collection month",
+          "type": "text",
+          "required": false,
+          "meta": false,
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Mois de collecte"
+            }
+          ]
+        },
+        {
+          "id": 1681118346093,
+          "order": 5,
+          "questionGroupId": 1681117738567,
+          "question": "Latrine status",
+          "type": "option",
+          "required": true,
+          "meta": false,
+          "attributes": ["advanced_filter", "table", "aggregate", "chart"],
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Statut de la latrine"
+            }
+          ],
+          "options": [
+            {
+              "id": 1681118359689,
+              "code": null,
+              "name": "Used",
+              "order": 1,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Utilisée"
+                }
+              ]
+            },
+            {
+              "id": 1681118359690,
+              "code": null,
+              "name": "Abandoned",
+              "order": 2,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Abandonnée"
+                }
+              ]
+            },
+            {
+              "id": 1681118398934,
+              "code": null,
+              "name": "Collapsed",
+              "order": 3,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Effondrée"
+                }
+              ]
+            },
+            {
+              "id": 1681118399747,
+              "code": null,
+              "name": "Newly made",
+              "order": 4,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Nouvellement réalisées"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1681118431027,
+          "order": 6,
+          "questionGroupId": 1681117738567,
+          "question": "Latrine type",
+          "type": "option",
+          "required": true,
+          "meta": false,
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Type de latrine"
+            }
+          ],
+          "options": [
+            {
+              "id": 1681118437520,
+              "code": null,
+              "name": "Tradional latrine (wooden slab + superstructure in seco)",
+              "order": 1,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Latrine tradionnelle (dalle en bois + superstructure en seco)"
+                }
+              ]
+            },
+            {
+              "id": 1681118437521,
+              "code": null,
+              "name": "Tradional latrine (wooden slab + superstructure in Banco)",
+              "order": 2,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Latrine tradionnelle (dalle en bois + superstructure en banco)"
+                }
+              ]
+            },
+            {
+              "id": 1681118454593,
+              "code": null,
+              "name": "Tradional latrine (cement panel + superstructure in seco)",
+              "order": 3,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Latrine tradionnelle (dalle en ciment + superstructure en seco)"
+                }
+              ]
+            },
+            {
+              "id": 1681118455248,
+              "code": null,
+              "name": "Tradional latrine (cement panel + superstructure in Banco)",
+              "order": 4,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Latrine tradionnelle (dalle en ciment + superstructure en banco)"
+                }
+              ]
+            },
+            {
+              "id": 1681118456025,
+              "code": null,
+              "name": "Tradional latrine (cement panel+ superstructure in cement)",
+              "order": 5,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Latrine tradionnelle (dalle en ciment+ superstructure en ciment)"
+                }
+              ]
+            },
+            {
+              "id": 1681118456975,
+              "code": null,
+              "name": "Latrine Sanplat",
+              "order": 6,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Latrine Sanplat"
+                }
+              ]
+            },
+            {
+              "id": 1681118458079,
+              "code": null,
+              "name": "Latrine Vip 1 Fosse",
+              "order": 7,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Latrine VIP 1 fosse"
+                }
+              ]
+            },
+            {
+              "id": 1681118459024,
+              "code": null,
+              "name": "Latrine VIP 2 Fosses",
+              "order": 8,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Latrine VIP 2 fosses"
+                }
+              ]
+            },
+            {
+              "id": 1681118504592,
+              "code": null,
+              "name": "Latrine TCM",
+              "order": 9,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Latrine TCM"
+                }
+              ]
+            },
+            {
+              "id": 1681118511524,
+              "code": null,
+              "name": "Latrine EcoSan",
+              "order": 10,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Latrine EcoSan"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1681118528153,
+          "order": 7,
+          "questionGroupId": 1681117738567,
+          "question": "Year of realization",
+          "type": "number",
+          "required": false,
+          "meta": false,
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Année de réalisation"
+            }
+          ]
+        }
+      ],
+      "translations": [
+        {
+          "language": "fr",
+          "name": "Latrine"
+        }
+      ]
+    },
+    {
+      "id": 1681117797521,
+      "question_group": "Concessions",
+      "order": 3,
+      "repeatable": false,
+      "questions": [
+        {
+          "id": 1681117797522,
+          "order": 1,
+          "questionGroupId": 1681117797521,
+          "question": "GPS contact details of the concession",
+          "type": "geo",
+          "required": true,
+          "meta": false,
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Coordonnées GPS de la concession"
+            }
+          ]
+        },
+        {
+          "id": 1681118644131,
+          "order": 2,
+          "questionGroupId": 1681117797521,
+          "question": "Name of concession",
+          "type": "text",
+          "required": true,
+          "meta": true,
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Nom du chef de concession"
+            }
+          ]
+        },
+        {
+          "id": 1681118666763,
+          "order": 3,
+          "questionGroupId": 1681117797521,
+          "question": "Number of households in the concession",
+          "type": "number",
+          "required": true,
+          "meta": false,
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Nombre de ménages dans la concession"
+            }
+          ]
+        },
+        {
+          "id": 1681118685201,
+          "order": 4,
+          "questionGroupId": 1681117797521,
+          "question": "Number of hand washing device (DLM)",
+          "type": "number",
+          "required": false,
+          "meta": false,
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Nombre de Dispositif de Lavage des Mains (DLM)"
+            }
+          ]
+        },
+        {
+          "id": 1681118712299,
+          "order": 5,
+          "questionGroupId": 1681117797521,
+          "question": "Number pots for children",
+          "type": "number",
+          "required": false,
+          "meta": false,
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Nombre pots pour les enfants"
+            }
+          ]
+        },
+        {
+          "id": 1681118727252,
+          "order": 6,
+          "questionGroupId": 1681117797521,
+          "question": "Number of sumps",
+          "type": "number",
+          "required": false,
+          "meta": false,
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Nombre de puisard"
+            }
+          ]
+        },
+        {
+          "id": 1681118745657,
+          "order": 7,
+          "questionGroupId": 1681117797521,
+          "question": "Garbage collect point",
+          "type": "number",
+          "required": false,
+          "meta": false,
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Nombre de point de collecte d'ordure"
+            }
+          ]
+        },
+        {
+          "id": 1681118761389,
+          "order": 8,
+          "questionGroupId": 1681117797521,
+          "question": "Number of households with storage container and drawing from covered drinking water and sheltered from stains",
+          "type": "number",
+          "required": false,
+          "meta": false,
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Nombre de ménage avec récipient de stockage et puisage d'eau de boisson couvert et à l'abri des souillures"
+            }
+          ]
+        },
+        {
+          "id": 1681118780498,
+          "order": 9,
+          "questionGroupId": 1681117797521,
+          "question": "Number of households regularly scanning their courtyard",
+          "type": "number",
+          "required": false,
+          "meta": false,
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Nombre de ménages balayant régulièrement leur cour"
+            }
+          ]
+        }
+      ],
+      "translations": [
+        {
+          "language": "fr",
+          "name": "Concessions"
+        }
+      ]
+    },
+    {
+      "id": 1681117830005,
+      "question_group": "Evaluation",
+      "order": 4,
+      "repeatable": false,
+      "questions": [
+        {
+          "id": 1681117830006,
+          "order": 1,
+          "questionGroupId": 1681117830005,
+          "question": "Evaluation date",
+          "type": "date",
+          "required": true,
+          "meta": false,
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Date d'évaluation"
+            }
+          ],
+          "attributes": ["table"]
+        },
+        {
+          "id": 1681118844365,
+          "order": 2,
+          "questionGroupId": 1681117830005,
+          "question": "Status",
+          "type": "option",
+          "required": true,
+          "meta": false,
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Statut"
+            }
+          ],
+          "attributes": ["table"],
+          "options": [
+            {
+              "id": 1681118852145,
+              "code": null,
+              "name": "Open defecation free status",
+              "order": 1,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Fdal"
+                }
+              ]
+            },
+            {
+              "id": 1681118852146,
+              "code": null,
+              "name": "Failed",
+              "order": 2,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Recale"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1681118881535,
+          "order": 3,
+          "questionGroupId": 1681117830005,
+          "question": "Name of the animator or supervisor",
+          "type": "text",
+          "required": true,
+          "meta": false,
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Nom de l'animateur ou du superviseur"
+            }
+          ]
+        }
+      ],
+      "translations": [
+        {
+          "language": "fr",
+          "name": "Evaluation"
+        }
+      ]
+    },
+    {
+      "id": 1681117853186,
+      "question_group": "Certification",
+      "order": 5,
+      "repeatable": false,
+      "questions": [
+        {
+          "id": 1681117853187,
+          "order": 1,
+          "questionGroupId": 1681117853186,
+          "question": "Certification date",
+          "type": "date",
+          "required": true,
+          "meta": false,
+          "attributes": ["table"],
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Date De certification"
+            }
+          ]
+        },
+        {
+          "id": 1681118938184,
+          "order": 2,
+          "questionGroupId": 1681117853186,
+          "question": "Status",
+          "type": "option",
+          "required": true,
+          "meta": false,
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Statut"
+            }
+          ],
+          "options": [
+            {
+              "id": 1681118945894,
+              "code": null,
+              "name": "Certified",
+              "order": 1,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Certifie"
+                }
+              ]
+            },
+            {
+              "id": 1681118945895,
+              "code": null,
+              "name": "Failed",
+              "order": 2,
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Recale"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1681118977335,
+          "order": 3,
+          "questionGroupId": 1681117853186,
+          "question": "Name of the animator or supervisor",
+          "type": "text",
+          "required": true,
+          "meta": false,
+          "translations": [
+            {
+              "language": "fr",
+              "name": "Nom de l'animateur ou du superviseur"
+            }
+          ]
+        }
+      ],
+      "translations": [
+        {
+          "language": "fr",
+          "name": "Certification"
+        }
+      ]
+    }
+  ]
+}

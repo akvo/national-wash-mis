@@ -1,14 +1,13 @@
-import React, { useMemo } from "react";
+import React from "react";
 import { Tour } from "../../../components";
-import { store, config, uiText } from "../../../lib";
+import { store, config } from "../../../lib";
+import { getTranslation } from "../../../util";
 
 const ProfileTour = () => {
   const { user: authUser } = store.useState((s) => s);
   const { language } = store.useState((s) => s);
   const { active: activeLang } = language;
-  const text = useMemo(() => {
-    return uiText[activeLang];
-  }, [activeLang]);
+  const text = getTranslation(activeLang, "tour");
 
   const steps = [
     {

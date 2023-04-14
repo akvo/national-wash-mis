@@ -10,6 +10,7 @@ import { Chart } from "../../../components";
 import { api, store } from "../../../lib";
 import { useNotification } from "../../../util/hooks";
 import { generateAdvanceFilterURL } from "../../../util/filter";
+import { getTranslation } from "../../../util";
 
 const { Panel } = Collapse;
 const { Option } = Select;
@@ -25,11 +26,14 @@ const QuestionChart = () => {
     loadingForm,
     questionGroups,
     advancedFilters,
+    language,
   } = store.useState((state) => state);
   const [selectedChartOptions, setSelectedChartOptions] = useState({
     qgid: null,
     qid: null,
   });
+  const { active: activeLang } = language;
+  const text = getTranslation(activeLang);
 
   useEffect(() => {
     if (questionGroups) {
@@ -100,7 +104,7 @@ const QuestionChart = () => {
         .catch(() => {
           notify({
             type: "error",
-            message: "Could not load data",
+            message: text.errorDataLoad,
           });
           setLoading(false);
         });
@@ -186,7 +190,7 @@ const QuestionChart = () => {
                 onChange={(e) => {
                   fetchData(d.id, e);
                 }}
-                placeholder="Select one.."
+                placeholder={`${text.selectOne}..`}
               >
                 {d.question
                   ?.filter((qn) => qn.type === "option")
@@ -220,7 +224,9 @@ const QuestionChart = () => {
           </Row>
           <div style={{ minHeight: "400px" }}>
             {loading ? (
-              <div style={{ color: "#777", margin: "12px 0" }}>Loading..</div>
+              <div style={{ color: "#777", margin: "12px 0" }}>
+                {text.loading}..
+              </div>
             ) : (
               <Chart
                 span={24}

@@ -68,8 +68,6 @@ from api.v1.v1_data.serializers import (
     ListChartCriteriaRequestSerializer,
     ListMapOverviewDataPointSerializer,
     ListMapOverviewDataPointRequestSerializer,
-    ListRawDataSerializer,
-    ListRawDataAnswerSerializer,
 )
 from api.v1.v1_data.functions import (
     get_cache,
@@ -1784,49 +1782,3 @@ def get_glaas_data(request, version, form_id):
         {"counties": counties_data, "national": national_data},
         status=status.HTTP_200_OK,
     )
-
-
-@extend_schema(
-    description="""
-    Get Multi-purpose schema of datapoints to use with third party applications
-    """,
-    responses={200: ListRawDataSerializer(many=True)},
-    parameters=[
-        OpenApiParameter(
-            name="questions",
-            required=False,
-            type={"type": "array", "items": {"type": "number"}},
-            location=OpenApiParameter.QUERY,
-        )
-    ],
-    tags=["Data"],
-    summary="Get Raw data points",
-)
-@api_view(["GET"])
-# @permission_classes([IsAuthenticated])
-def get_raw_data_point(request, version, form_id):
-    form = get_object_or_404(Forms, pk=form_id)
-    serializer = ListFormDataRequestSerializer(data=request.GET)
-    if not serializer.is_valid():
-        return Response(
-            {"message": validate_serializers_message(serializer.errors)},
-            status=status.HTTP_400_BAD_REQUEST,
-        )
-    instance = form.form_form_data.order_by("-created").all()
-    data = ListRawDataSerializer(
-        instance=instance,
-        context={"questions": serializer.validated_data.get("questions")},
-        many=True,
-    ).data
-    filter_data = {}
-    if request.GET.get("questions"):
-        filter_data["question_id__in"] = request.GET.getlist("questions")
-    for d in data:
-        filter_data["data_id"] = d["id"]
-        instance = Answers.objects.filter(**filter_data).all()
-        answers = ListRawDataAnswerSerializer(instance=instance, many=True).data
-        data_answers = {}
-        for a in answers:
-            data_answers.update({a["question"]: a["value"]})
-        d.update({"data": data_answers})
-    return Response(data, status=status.HTTP_200_OK)

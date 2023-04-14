@@ -1,10 +1,11 @@
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useEffect, useState } from "react";
 import "./style.scss";
 import { Row, Col, Spin } from "antd";
 import { LoginForm, RegistrationForm, ResetForm } from "./components";
 import { ContactForm } from "../../components";
 import { Link, useParams } from "react-router-dom";
-import { api, config, store, uiText } from "../../lib";
+import { api, config, store } from "../../lib";
+import { getTranslation } from "../../util";
 
 const styles = {
   side: {
@@ -15,9 +16,9 @@ const styles = {
   },
 };
 
-const ContactUsText = () => (
+const ContactUsText = ({ text }) => (
   <p className="contact-text">
-    Having trouble accessing the platform? Please{" "}
+    {text?.helpText}
     <a
       href="#"
       onClick={() => {
@@ -26,7 +27,7 @@ const ContactUsText = () => (
         });
       }}
     >
-      contact
+      {text?.helpLink}
     </a>
     .
   </p>
@@ -39,9 +40,7 @@ const Login = () => {
 
   const { language } = store.useState((s) => s);
   const { active: activeLang } = language;
-  const text = useMemo(() => {
-    return uiText[activeLang];
-  }, [activeLang]);
+  const text = getTranslation(activeLang, "login");
 
   useEffect(() => {
     if (!location.pathname.includes("forgot-password") && invitationId) {
@@ -76,8 +75,16 @@ const Login = () => {
       <Row className="wrapper" align="middle">
         <Col span={12} className="left-side">
           <div className="title">
-            <h1>{text.welcome}</h1>
-            <h2>{text?.welcomeDesc}</h2>
+            <h1>
+              {text.bannerTitle1}
+              <br />
+              {text.bannerTitle2}
+            </h1>
+            <h2>
+              {text.bannerSubT1}
+              <br />
+              {text.bannerSubT2}
+            </h2>
           </div>
         </Col>
         <Col span={12} className="right-side">
@@ -89,7 +96,7 @@ const Login = () => {
                 <small>{text.forgotDesc}</small>
               </h1>
               <br />
-              <ContactUsText />
+              <ContactUsText text={text} />
               <ResetForm />
             </>
           ) : (
@@ -98,9 +105,9 @@ const Login = () => {
                 <div>
                   <Spin />
                   <h2>
-                    Verifying
+                    {text?.verifying}
                     <br />
-                    <small>Please wait..</small>
+                    <small>{`${text?.pleaseWait}..`}</small>
                   </h2>
                 </div>
               ) : (
@@ -113,7 +120,11 @@ const Login = () => {
                           <h1 data-testid="welcome-title">
                             {text.welcomeShort}, {invitedUser.name}
                             <br />
-                            <small>{text.resetHint}</small>
+                            <small>
+                              {text?.invitedInstruction1}
+                              <br />
+                              {text?.invitedInstruction2}
+                            </small>
                           </h1>
                           <RegistrationForm invite={invitedUser.invite} />
                         </>
@@ -129,8 +140,12 @@ const Login = () => {
                     </div>
                   ) : (
                     <>
-                      <h1>{text.loginTitle}</h1>
-                      <ContactUsText />
+                      <h1>
+                        {text?.welcomeBack}
+                        <br />
+                        <small>{text?.welcomeInstruction}</small>
+                      </h1>
+                      <ContactUsText text={text} />
                       <LoginForm />
                     </>
                   )}

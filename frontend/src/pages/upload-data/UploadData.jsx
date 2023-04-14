@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect } from "react";
 import "./style.scss";
 import {
   Row,
@@ -16,10 +16,11 @@ import { FileTextFilled } from "@ant-design/icons";
 import { Breadcrumbs, DescriptionPanel } from "../../components";
 import { AdministrationDropdown } from "../../components";
 import { useNavigate } from "react-router-dom";
-import { api, store, uiText } from "../../lib";
+import { api, store } from "../../lib";
 import { useNotification } from "../../util/hooks";
 import { snakeCase, takeRight } from "lodash";
 import moment from "moment";
+import { getTranslation } from "../../util";
 
 const allowedFiles = [
   "application/vnd.ms-excel",
@@ -28,13 +29,13 @@ const allowedFiles = [
 const { Option } = Select;
 const { Dragger } = Upload;
 const regExpFilename = /filename="(?<filename>.*)"/;
-const pagePath = [
+const pagePath = (text) => [
   {
-    title: "Control Center",
+    title: text.controlCenter,
     link: "/control-center",
   },
   {
-    title: "Data Upload",
+    title: text.title,
   },
 ];
 const UploadData = () => {
@@ -49,9 +50,7 @@ const UploadData = () => {
   const navigate = useNavigate();
   const { language } = store.useState((s) => s);
   const { active: activeLang } = language;
-  const text = useMemo(() => {
-    return uiText[activeLang];
-  }, [activeLang]);
+  const text = getTranslation(activeLang, "uploadData");
   const exportGenerate = () => {
     const adm_id = takeRight(administration, 1)[0]?.id;
     api
@@ -194,8 +193,19 @@ const UploadData = () => {
     <div id="uploadData">
       <Row justify="space-between">
         <Col>
-          <Breadcrumbs pagePath={pagePath} />
-          <DescriptionPanel description={text.dataUploadText} />
+          <Breadcrumbs pagePath={pagePath(text)} />
+          <DescriptionPanel
+            description={
+              <>
+                {text.thisIsWhereYou}
+                <ul>
+                  <li>{text.uploadDataCan1}</li>
+                  <li>{text.uploadDataCan2}</li>
+                  <li>{text.uploadDataCan3}</li>
+                </ul>
+              </>
+            }
+          />
         </Col>
       </Row>
       <Divider />
@@ -208,24 +218,17 @@ const UploadData = () => {
             status="success"
             title={text?.formSuccessTitle}
             extra={[
-              <p key="phar">
-                Thank you for uploading the data file. Do note that the data
-                will be validated by the system . You will be notified via email
-                if the data fails the validation tests . There will also be an
-                attachment of the validation errors that needs to be corrected.
-                If there are no validation errors , then the data will be
-                forwarded for verification, approval, and certification
-              </p>,
+              <p key="phar">{text.successDesc}</p>,
               <Divider key="divider" />,
               <Button
                 type="primary"
                 key="back-button"
                 onClick={() => setShowSuccess(false)}
               >
-                Upload Another File
+                {text.uploadAnotherButton}
               </Button>,
               <Button key="page" onClick={() => navigate("/control-center")}>
-                Back to Control Center
+                {text.BackToCc}
               </Button>,
             ]}
           />
@@ -251,7 +254,10 @@ const UploadData = () => {
             <Space align="center" size={32}>
               <img src="/assets/data-download.svg" />
               <p>{text.templateDownloadHint}</p>
-              <Select placeholder="Select Form..." onChange={handleChange}>
+              <Select
+                placeholder={`${text.selectForm}...`}
+                onChange={handleChange}
+              >
                 {forms.map((f, fI) => (
                   <Option key={fI} value={f.id}>
                     {f.name}
@@ -263,14 +269,14 @@ const UploadData = () => {
                 type="primary"
                 onClick={downloadTemplate}
               >
-                Download
+                {text.download}
               </Button>
             </Space>
             <Space align="center" size={32}>
               <img src="/assets/data-upload.svg" />
-              <p>Upload your data</p>
+              <p>{text.uploadUrData}</p>
               <Select
-                placeholder="Select Form..."
+                placeholder={`${text.selectForm}...`}
                 value={formId}
                 onChange={handleChange}
               >
@@ -292,7 +298,7 @@ const UploadData = () => {
                     ? uploading
                       ? text.uploading
                       : text.dropFile
-                    : text.selectForm}
+                    : text.pleaseSelectFrom}
                 </p>
                 <Button disabled={!allowBulkUpload} loading={uploading}>
                   {text.browseComputer}

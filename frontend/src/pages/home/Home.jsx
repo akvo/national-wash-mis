@@ -1,16 +1,20 @@
-import React, { useState, useEffect } from "react";
+// import React, { useState, useEffect } from "react";
+import React from "react";
 import "./style.scss";
-import { Row, Col, Tabs, Image, Space, Button, Collapse } from "antd";
+// import { Row, Col, Tabs, Image, Space, Button, Collapse } from "antd";
+import { Row, Col, Image, Space, Button, Collapse } from "antd";
 import { ContactForm, HomeAdministrationChart } from "../../components";
 
 import { HomeMap } from "./components";
-import { queue, store } from "../../lib";
-const { TabPane } = Tabs;
+// import { queue, store } from "../../lib";
+import { store } from "../../lib";
+import { getTranslation } from "../../util";
+// const { TabPane } = Tabs;
 
 const partners = ["us-aid.png", "japan.png", "unicef.png"];
 const { Panel } = Collapse;
 
-export const Visuals = ({ current, mapValues, setMapValues }) => {
+export const Visuals = ({ current, mapValues, setMapValues, text }) => {
   return (
     <div>
       <div className="map-wrapper">
@@ -28,11 +32,7 @@ export const Visuals = ({ current, mapValues, setMapValues }) => {
         className="chart-collapse"
         style={{ display: "none" }}
       >
-        <Panel
-          header="Explore county-wise details"
-          forceRender
-          className="chart-panel"
-        >
+        <Panel header={text?.panelHeader} forceRender className="chart-panel">
           <div className="chart-wrapper">
             {current?.charts?.map(
               (hc, hcI) =>
@@ -55,10 +55,13 @@ export const Visuals = ({ current, mapValues, setMapValues }) => {
 };
 
 const Home = () => {
-  const { highlights } = window;
-  const [currentHighlight, setCurrentHighlight] = useState(highlights?.[0]);
-  const [mapValues, setMapValues] = useState([]);
-
+  // const { highlights } = window;
+  // const [currentHighlight, setCurrentHighlight] = useState(highlights?.[0]);
+  // const [mapValues, setMapValues] = useState([]);
+  const { language } = store.useState((s) => s);
+  const { active: activeLang } = language;
+  const text = getTranslation(activeLang, "home");
+  /*
   const onTabClick = (active) => {
     setCurrentHighlight(highlights.find((x) => x.name === active));
     queue.update((q) => {
@@ -66,30 +69,24 @@ const Home = () => {
       q.wait = null;
     });
   };
-
   useEffect(() => {
     queue.update((q) => {
       q.next = 1;
       q.wait = null;
     });
   }, []);
+  */
 
   return (
     <div id="home">
       <div className="home-odd about">
         <Row>
           <Col span={12} style={{ borderRight: "1px solid #888" }}>
-            <h1>About RUSH</h1>
-            <p>
-              The Kenya Rural Urban Sanitation and Hygiene (RUSH) platform is a
-              real-time monitoring and information system owned by the Ministry
-              of Health. The platform aggregates quantitative and qualitative
-              data from county and national levels and facilitates data
-              analysis, report generation and visualizations.
-            </p>
+            <h1>{text?.title}</h1>
+            <p>{text?.description}</p>
           </Col>
           <Col span={12}>
-            <h1>Partners</h1>
+            <h1>{text?.partners}</h1>
             <Row align="middle" justify="center" style={{ marginTop: "24px" }}>
               <Space size={50} align="center">
                 {partners.map((p) => (
@@ -106,6 +103,7 @@ const Home = () => {
           </Col>
         </Row>
       </div>
+      {/*
       <div className="home-even highlights">
         <div className="body" id="home-visualisation">
           <Tabs
@@ -123,14 +121,16 @@ const Home = () => {
             current={currentHighlight}
             mapValues={mapValues}
             setMapValues={setMapValues}
+            text={text}
           />
         </div>
       </div>
-      <div className="home-odd contact">
-        <h1>Contact Us</h1>
+      */}
+      <div className="home-even contact">
+        <h1>{text?.contactUs}</h1>
         <Row align="middle" justify="center">
           <Space direction="vertical" align="center">
-            <h3>Get in touch with us for support or feedback.</h3>
+            <h3>{text?.getInTouch}</h3>
             <Button
               type="primary"
               onClick={() => {
@@ -139,7 +139,7 @@ const Home = () => {
                 });
               }}
             >
-              Send Feedback
+              {text?.sendFeedback}
             </Button>
           </Space>
         </Row>

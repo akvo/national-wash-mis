@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import { Row, Col, Table, Button, Space, Divider, Tooltip } from "antd";
 import { Link } from "react-router-dom";
 import { api, config, store } from "../../lib";
+import { getTranslation } from "../../util";
 
 const UserDetail = ({ record, setDeleteUser, deleting }) => {
-  const { user } = store.useState((state) => state);
+  const { user, language } = store.useState((state) => state);
+  const { active: activeLang } = language;
+  const text = getTranslation(activeLang, "userDetail");
   const [isFetchDeleteDetail, setIsFetchDeleteDetail] = useState(false);
 
   const handleOnClickDelete = () => {
@@ -16,19 +19,19 @@ const UserDetail = ({ record, setDeleteUser, deleting }) => {
         const value = data[key];
         if (key === "pending_approval") {
           assosiations.push({
-            name: "Pending Data Approval",
+            name: text.pendingApproval,
             count: value,
           });
         }
         if (key === "pending_batch") {
           assosiations.push({
-            name: "Pending Batch Data Submitted",
+            name: text.pendingBatchSubmitted,
             count: value,
           });
         }
         if (key === "data") {
           assosiations.push({
-            name: "Data Submission",
+            name: text.dataSubmission,
             count: value,
           });
         }
@@ -38,15 +41,15 @@ const UserDetail = ({ record, setDeleteUser, deleting }) => {
     });
   };
 
-  const columns = [
+  const columns = (text) => [
     {
-      title: "Field",
+      title: text.fieldCol,
       dataIndex: "field",
       key: "field",
       width: "50%",
     },
     {
-      title: "Value",
+      title: text.valueCol,
       dataIndex: "value",
       key: "value",
     },
@@ -57,36 +60,36 @@ const UserDetail = ({ record, setDeleteUser, deleting }) => {
       <Row justify="center" key="top">
         <Col span={20}>
           <Table
-            columns={columns}
+            columns={columns(text)}
             className="table-child"
             dataSource={[
               {
                 key: "first_name",
-                field: "First Name",
+                field: text.firstName,
                 value: record?.first_name || "",
               },
               {
                 key: "last_name",
-                field: "Last Name",
+                field: text.lastName,
                 value: record?.last_name || "",
               },
               {
                 key: "organisation",
-                field: "Organisation",
+                field: text.organisation,
                 value: record?.organisation?.name || "-",
               },
               {
                 key: "invite",
-                field: "Invitation Code",
+                field: text.invitationCode,
                 value: (
                   <Link to={`/login/${record?.invite}`}>
-                    <Button size="small">Change Password</Button>
+                    <Button size="small">{text.changePassword}</Button>
                   </Link>
                 ),
               },
               {
                 key: "designation",
-                field: "Designation",
+                field: text.designation,
                 value: `${
                   config?.designations?.find(
                     (d) => d.id === parseInt(record.designation)
@@ -95,12 +98,12 @@ const UserDetail = ({ record, setDeleteUser, deleting }) => {
               },
               {
                 key: "phone_number",
-                field: "Phone Number",
+                field: text.phoneNumber,
                 value: `${record?.phone_number || "-"}`,
               },
               {
                 key: "forms",
-                field: "Forms",
+                field: text.forms,
                 value: `${
                   record.forms.length !== 0
                     ? record.forms.map((item) => item.name)
@@ -118,12 +121,12 @@ const UserDetail = ({ record, setDeleteUser, deleting }) => {
       <div>
         <Space>
           <Link to={`/user/${record.id}`}>
-            <Button type="primary">Edit</Button>
+            <Button type="primary">{text.edit}</Button>
           </Link>
           {user && user.email === record.email ? (
-            <Tooltip title="Could not do self deletion">
+            <Tooltip title={text.errorSelfDeletion}>
               <Button danger disabled>
-                Delete
+                {text.delete}
               </Button>
             </Tooltip>
           ) : (
@@ -132,7 +135,7 @@ const UserDetail = ({ record, setDeleteUser, deleting }) => {
               loading={deleting || isFetchDeleteDetail}
               onClick={handleOnClickDelete}
             >
-              Delete
+              {text.delete}
             </Button>
           )}
         </Space>

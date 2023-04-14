@@ -10,6 +10,7 @@ import { takeRight } from "lodash";
 import RemoveFiltersButton from "./RemoveFiltersButton";
 import AdvancedFiltersButton from "./AdvancedFiltersButton";
 import AdvancedFilters from "./AdvancedFilters";
+import { getTranslation } from "../../util";
 
 const DataFilters = ({ loading }) => {
   const {
@@ -18,12 +19,15 @@ const DataFilters = ({ loading }) => {
     loadingForm,
     administration,
     showAdvancedFilters,
+    language,
   } = store.useState((s) => s);
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const { notify } = useNotification();
   const [exporting, setExporting] = useState(false);
   const isUserHasForms = authUser?.forms ? authUser.forms.length : false;
+  const { active: activeLang } = language;
+  const text = getTranslation(activeLang, "controlCenter");
 
   const exportGenerate = () => {
     setExporting(true);
@@ -35,7 +39,7 @@ const DataFilters = ({ loading }) => {
       .then(() => {
         notify({
           type: "success",
-          message: `Data exported successfully`,
+          message: text.successExport,
         });
         setExporting(false);
         navigate("/data/export");
@@ -43,7 +47,7 @@ const DataFilters = ({ loading }) => {
       .catch(() => {
         notify({
           type: "error",
-          message: "Export failed",
+          message: text.errorExport,
         });
         setExporting(false);
       });
@@ -70,11 +74,11 @@ const DataFilters = ({ loading }) => {
                   onClick={exportGenerate}
                   loading={exporting}
                 >
-                  Download Data
+                  {text.dataDownloadButton}
                 </Button>
               )}
               <Link to="/data/upload">
-                <Button type="primary">Bulk Upload</Button>
+                <Button type="primary">{text.bulkUpload}</Button>
               </Link>
               <Link to={`/form/${selectedForm}`}>
                 <Button
@@ -83,7 +87,7 @@ const DataFilters = ({ loading }) => {
                     !isUserHasForms && authUser?.role?.value !== "Super Admin"
                   }
                 >
-                  Add New
+                  {text.addNew}
                 </Button>
               </Link>
             </Space>

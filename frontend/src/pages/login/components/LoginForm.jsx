@@ -1,10 +1,11 @@
-import React, { useState, useMemo } from "react";
+import React, { useState } from "react";
 import { Form, Input, Button, notification } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import { Link, useNavigate } from "react-router-dom";
-import { api, store, config, uiText } from "../../../lib";
+import { api, store, config } from "../../../lib";
 import { useNotification } from "../../../util/hooks";
 import { reloadData } from "../../../util/form";
+import { getTranslation } from "../../../util";
 
 const LoginForm = () => {
   const navigate = useNavigate();
@@ -12,9 +13,7 @@ const LoginForm = () => {
   const { notify } = useNotification();
   const { language } = store.useState((s) => s);
   const { active: activeLang } = language;
-  const text = useMemo(() => {
-    return uiText[activeLang];
-  }, [activeLang]);
+  const text = getTranslation(activeLang, "login");
 
   const onFinish = (values) => {
     setLoading(true);
@@ -75,7 +74,7 @@ const LoginForm = () => {
     >
       <Form.Item
         name="email"
-        label="Email Address"
+        label={text.emailLabel}
         rules={[
           {
             required: true,
@@ -85,12 +84,12 @@ const LoginForm = () => {
       >
         <Input
           prefix={<UserOutlined className="site-form-item-icon" />}
-          placeholder="Email"
+          placeholder={text.email}
         />
       </Form.Item>
       <Form.Item
         name="password"
-        label="Password"
+        label={text.passwordLabel}
         disabled={loading}
         rules={[
           {
@@ -102,17 +101,17 @@ const LoginForm = () => {
         <Input.Password
           prefix={<LockOutlined className="site-form-item-icon" />}
           disabled={loading}
-          placeholder="Password"
+          placeholder={text.passwordLabel}
         />
       </Form.Item>
       <Form.Item>
         <Link className="login-form-forgot" to="/forgot-password">
-          Forgot password
+          {text.forgotPasswordLink}
         </Link>
       </Form.Item>
       <Form.Item>
         <Button type="primary" htmlType="submit" loading={loading}>
-          Log in
+          {text.loginBtn}
         </Button>
       </Form.Item>
       <p className="disclaimer">{text.accountDisclaimer}</p>

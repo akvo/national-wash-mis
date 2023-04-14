@@ -148,6 +148,14 @@
         text-transform: uppercase;
       }
 
+      .language-switcher {
+        margin-top: 5px;
+        background: #25323900;
+        color: #fff;
+        font-weight: 600;
+        border: none;
+        margin-left: 12px;
+      }
       .navigation {
         a {
           color: $color-light;

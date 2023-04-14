@@ -3,6 +3,7 @@ import { Row, Col, Card, Image } from "antd";
 import { get, sum, mean, takeRight } from "lodash";
 import millify from "millify";
 import { store } from "../../../lib";
+import { getTranslation } from "../../../util";
 
 const cardColorPalette = [
   "#CBBFFF",
@@ -30,6 +31,8 @@ const CardVisual = ({ cardConfig, loading, customTotal = false }) => {
     admLevelName,
   } = cardConfig;
   const administration = store.useState((s) => s.administration);
+  const { active: activeLang } = store.useState((s) => s.language);
+  const text = getTranslation(activeLang, "dashboard");
   const currentAdministration = takeRight(administration)?.[0];
 
   const renderData = useMemo(() => {
@@ -147,7 +150,9 @@ const CardVisual = ({ cardConfig, loading, customTotal = false }) => {
           )}
         </Row>
         <h1>{!loading && renderData?.value}</h1>
-        <h4>Last Update : {loading ? "Loading..." : lastUpdate}</h4>
+        <h4>
+          {text.lastUpdate} : {loading ? `${text.loading}...` : lastUpdate}
+        </h4>
       </Card>
     </Col>
   );

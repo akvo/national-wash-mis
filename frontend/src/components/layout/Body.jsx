@@ -10,6 +10,10 @@ const Body = ({ children, className = "body", ...props }) => {
   if (pathname === "/") {
     className += " body-home";
   }
+  const biUrl = /^\/bi\/\d+$/;
+  if (biUrl.test(pathname)) {
+    className += " body-bi";
+  }
   return (
     <div className={className} {...props}>
       {children}

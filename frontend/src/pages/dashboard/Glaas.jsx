@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect } from "react";
 import "./style.scss";
 import { useParams } from "react-router-dom";
 import { Row, Col, Tabs, Affix, Select, Space } from "antd";
-import { uiText, store, config, api } from "../../lib";
+import { store, config, api } from "../../lib";
 import { capitalize } from "lodash";
 import {
   CardVisual,
@@ -19,6 +19,7 @@ import {
 import { generateAdvanceFilterURL } from "../../util/filter";
 import { useNotification } from "../../util/hooks";
 import moment from "moment";
+import { getTranslation } from "../../util";
 
 const { TabPane } = Tabs;
 
@@ -40,9 +41,7 @@ const Dashboard = () => {
   const [selectedCounty, setSelectedCounty] = useState(null);
   const [allData, setAllData] = useState([]);
 
-  const text = useMemo(() => {
-    return uiText[activeLang];
-  }, [activeLang]);
+  const text = getTranslation(activeLang, "dashboard");
 
   useEffect(() => {
     store.update((s) => {
@@ -90,7 +89,7 @@ const Dashboard = () => {
         });
       setLoading(false);
     }
-  }, [formId, text, wait, current, notify, advancedFilters]);
+  }, [formId, wait, current, notify, advancedFilters, text.errorDataLoad]);
 
   useEffect(() => {
     if (!selectedCounty && !Object.keys(dataset).length) {
@@ -188,7 +187,7 @@ const Dashboard = () => {
                 <Space>
                   {/* County filter */}
                   <Select
-                    placeholder="Select County"
+                    placeholder={text?.selectCounty}
                     style={{ width: 200 }}
                     onChange={(e) => {
                       setDataset({});
@@ -268,7 +267,7 @@ const Dashboard = () => {
               );
             })
           ) : (
-            <h4>No data</h4>
+            <h4>{text.noData}</h4>
           )}
         </Col>
       </Row>

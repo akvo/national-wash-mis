@@ -1,14 +1,15 @@
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useEffect, useState } from "react";
 import "./style.scss";
 import { Row, Col, Card, Divider, Table, Tabs, Button } from "antd";
 import { Breadcrumbs } from "../../components";
 import { Link } from "react-router-dom";
 import { PlusSquareOutlined, CloseSquareOutlined } from "@ant-design/icons";
-import { api, store, uiText, config } from "../../lib";
+import { api, store, config } from "../../lib";
 import { columnsApproval } from "./";
 import ApprovalDetails from "./ApprovalDetail";
+import { getTranslation } from "../../util";
 
-const columns = [...columnsApproval, Table.EXPAND_COLUMN];
+const columns = (text) => [...columnsApproval(text), Table.EXPAND_COLUMN];
 
 const { TabPane } = Tabs;
 
@@ -25,13 +26,11 @@ const Approvals = () => {
   const { language } = store.useState((s) => s);
   const { approvalsLiteral } = config;
   const { active: activeLang } = language;
-  const text = useMemo(() => {
-    return uiText[activeLang];
-  }, [activeLang]);
+  const text = getTranslation(activeLang, "approvals");
 
   const pagePath = [
     {
-      title: "Control Center",
+      title: text.controlCenter,
       link: "/control-center",
     },
     {
@@ -98,7 +97,7 @@ const Approvals = () => {
         <Table
           dataSource={batches}
           onChange={handleChange}
-          columns={columns}
+          columns={columns(text)}
           loading={loading}
           pagination={{
             current: currentPage,

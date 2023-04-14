@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect } from "react";
 import "./style.scss";
 import {
   Row,
@@ -18,7 +18,7 @@ import {
   ExclamationCircleOutlined,
   DeleteOutlined,
 } from "@ant-design/icons";
-import { api, store, uiText } from "../../lib";
+import { api, store } from "../../lib";
 import DataDetail from "./DataDetail";
 import {
   DataFilters,
@@ -28,14 +28,15 @@ import {
 } from "../../components";
 import { useNotification } from "../../util/hooks";
 import { generateAdvanceFilterURL } from "../../util/filter";
+import { getTranslation } from "../../util";
 
-const pagePath = [
+const pagePath = (text) => [
   {
-    title: "Control Center",
+    title: text.controlCenter,
     link: "/control-center",
   },
   {
-    title: "Manage Data",
+    title: text.pageTitle,
   },
 ];
 const ManageData = () => {
@@ -50,9 +51,7 @@ const ManageData = () => {
   const [deleting, setDeleting] = useState(false);
   const { language, advancedFilters } = store.useState((s) => s);
   const { active: activeLang } = language;
-  const text = useMemo(() => {
-    return uiText[activeLang];
-  }, [activeLang]);
+  const text = getTranslation(activeLang, "manageData");
 
   const { administration, selectedForm, questionGroups } = store.useState(
     (state) => state
@@ -66,7 +65,7 @@ const ManageData = () => {
 
   const columns = [
     {
-      title: "Name",
+      title: text.nameCol,
       dataIndex: "name",
       key: "name",
       filtered: true,
@@ -81,16 +80,16 @@ const ManageData = () => {
       ),
     },
     {
-      title: "Last Updated",
+      title: text.lastUpdatedCol,
       dataIndex: "updated",
       render: (cell, row) => cell || row.created,
     },
     {
-      title: "User",
+      title: text.userCol,
       dataIndex: "created_by",
     },
     {
-      title: "Region",
+      title: text.regionCol,
       dataIndex: "administration",
     },
     Table.EXPAND_COLUMN,
@@ -116,7 +115,7 @@ const ManageData = () => {
         .catch((err) => {
           notify({
             type: "error",
-            message: "Could not delete datapoint",
+            message: text.errorDeleted,
           });
           console.error(err.response);
         })
@@ -167,8 +166,19 @@ const ManageData = () => {
     <div id="manageData">
       <Row justify="space-between">
         <Col>
-          <Breadcrumbs pagePath={pagePath} />
-          <DescriptionPanel description={text.manageDataText} />
+          <Breadcrumbs pagePath={pagePath(text)} />
+          <DescriptionPanel
+            description={
+              <>
+                {text.thisIsWhereYou}
+                <ul>
+                  <li>{text.manageDataCan1}</li>
+                  <li>{text.manageDataCan2}</li>
+                  <li>{text.manageDataCan3}</li>
+                </ul>
+              </>
+            }
+          />
         </Col>
       </Row>
       <DataTab />
@@ -181,7 +191,7 @@ const ManageData = () => {
         <ConfigProvider
           renderEmpty={() => (
             <Empty
-              description={selectedForm ? "No data" : "No form selected"}
+              description={selectedForm ? text.noData : text.noFormSelected}
             />
           )}
         >
@@ -241,7 +251,7 @@ const ManageData = () => {
                   setDeleteData(null);
                 }}
               >
-                Cancel
+                {text.cancel}
               </Button>
               <Button
                 type="primary"
@@ -249,7 +259,7 @@ const ManageData = () => {
                 loading={deleting}
                 onClick={handleDeleteData}
               >
-                Delete
+                {text.delete}
               </Button>
             </Col>
           </Row>
@@ -259,9 +269,8 @@ const ManageData = () => {
         <Space direction="vertical">
           <DeleteOutlined style={{ fontSize: "50px" }} />
           <p>
-            You are about to delete <i>{`${deleteData?.name}`}</i> data.{" "}
-            <b>Delete a datapoint also will delete the history</b>. Are you sure
-            want to delete this datapoint?
+            {text?.confirmDelete1?.replace(":name:", deleteData?.name)}
+            <b>{text.confirmDelete2}</b>.{text.confirmDelete3}
           </p>
         </Space>
       </Modal>

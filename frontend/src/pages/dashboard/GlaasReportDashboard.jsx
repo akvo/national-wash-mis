@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect } from "react";
 import "./style.scss";
 import { useParams } from "react-router-dom";
 import { Row, Col, Tabs, Affix, Select, Space } from "antd";
-import { uiText, store, config, api } from "../../lib";
+import { store, config, api } from "../../lib";
 import { capitalize } from "lodash";
 import { TableVisual } from "./components";
 import {
@@ -12,6 +12,7 @@ import {
 } from "../../components";
 import { generateAdvanceFilterURL } from "../../util/filter";
 import { useNotification } from "../../util/hooks";
+import { getTranslation } from "../../util";
 
 const { TabPane } = Tabs;
 
@@ -33,9 +34,7 @@ const GlassReportDashboard = () => {
   const [selectedCounty, setSelectedCounty] = useState(null);
   const [allData, setAllData] = useState([]);
 
-  const text = useMemo(() => {
-    return uiText[activeLang];
-  }, [activeLang]);
+  const text = getTranslation(activeLang, "dashboard");
 
   useEffect(() => {
     store.update((s) => {
@@ -83,7 +82,7 @@ const GlassReportDashboard = () => {
         });
       setLoading(false);
     }
-  }, [formId, text, wait, current, notify, advancedFilters]);
+  }, [formId, wait, current, notify, advancedFilters, text.errorDataLoad]);
 
   useEffect(() => {
     if (!selectedCounty && !Object.keys(dataset).length) {
@@ -137,7 +136,7 @@ const GlassReportDashboard = () => {
                 <Space>
                   {/* County filter */}
                   <Select
-                    placeholder="Select County"
+                    placeholder={text.selectCounty}
                     style={{ width: 200 }}
                     onChange={(e) => {
                       setDataset({});
@@ -212,7 +211,7 @@ const GlassReportDashboard = () => {
               );
             })
           ) : (
-            <h4>No data</h4>
+            <h4>{text.noData}</h4>
           )}
         </Col>
       </Row>

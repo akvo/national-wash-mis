@@ -8,21 +8,21 @@ import {
   ExclamationCircleOutlined,
 } from "@ant-design/icons";
 
-export const columnsSelected = [
+export const columnsSelected = (text) => [
   {
-    title: "Dataset",
+    title: text.selectedDatasetCol,
     dataIndex: "name",
     key: "name",
   },
   {
-    title: "Date Uploaded",
+    title: text.selectedDateCol,
     dataIndex: "created",
     key: "created",
     align: "right",
   },
 ];
 
-export const columnsBatch = [
+export const columnsBatch = (text) => [
   {
     title: "",
     dataIndex: "id",
@@ -32,7 +32,7 @@ export const columnsBatch = [
     width: 50,
   },
   {
-    title: "Batch Name",
+    title: text.batchNameCol,
     dataIndex: "name",
     key: "name",
     render: (name, row) => (
@@ -48,19 +48,19 @@ export const columnsBatch = [
     ),
   },
   {
-    title: "Form",
+    title: text.batchFormCol,
     dataIndex: "form",
     key: "form",
     render: (form) => form.name || "",
   },
   {
-    title: "Administration",
+    title: text.batchAdmCol,
     dataIndex: "administration",
     key: "administration",
     render: (administration) => administration.name || "",
   },
   {
-    title: "Status",
+    title: text.batchStatusCol,
     dataIndex: "approvers",
     key: "approvers",
     align: "center",
@@ -94,12 +94,9 @@ export const columnsBatch = [
       }
       return (
         <span>
-          <Popover
-            content="There is no approvers for this data, please contact admin"
-            title="No Approver"
-          >
+          <Popover content={text.batchPopContent} title={text.batchPopTitle}>
             <Tag color="warning" icon={<ExclamationCircleOutlined />}>
-              No Approver
+              {text.batchPopTitle}
             </Tag>
           </Popover>
         </span>
@@ -107,23 +104,23 @@ export const columnsBatch = [
     },
   },
   {
-    title: "Total Data",
+    title: text.batchTotalCol,
     dataIndex: "total_data",
     key: "total_data",
     align: "center",
   },
 ];
 
-export const columnsPending = [
+export const columnsPending = (text) => [
   {
     title: "",
     dataIndex: "id",
     key: "id",
-    render: () => "",
+    render: () => <InfoCircleOutlined />,
     width: 50,
   },
   {
-    title: "Name",
+    title: text.pendingNameCol,
     dataIndex: "name",
     key: "name",
     render: (name, row) => (
@@ -139,25 +136,25 @@ export const columnsPending = [
     ),
   },
   {
-    title: "Administration",
+    title: text.pendingAdmCol,
     dataIndex: "administration",
     key: "administration",
   },
 ];
 
-export const columnsApprover = [
+export const columnsApprover = (text) => [
   {
-    title: "Approver",
+    title: text.approverNameCol,
     dataIndex: "name",
     key: "name",
   },
   {
-    title: "Administration",
+    title: text.approverAdmCol,
     dataIndex: "administration",
     key: "administration",
   },
   {
-    title: "Status",
+    title: text.approverStatusCol,
     dataIndex: "status_text",
     key: "status_text",
     render: (status_text) => (
