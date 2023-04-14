@@ -1,7 +1,7 @@
 [
   {
     "form_id": 1680838271306,
-    "page": "power-bi",
+    "page": "bi",
     "name": "Household Data",
     "content": [
       {
@@ -24,7 +24,7 @@
   },
   {
     "form_id": 1681077310330,
-    "page": "power-bi",
+    "page": "bi",
     "name": "Health Facilities Data",
     "content": [
       {
@@ -47,7 +47,7 @@
   },
   {
     "form_id": 1681103820972,
-    "page": "power-bi",
+    "page": "bi",
     "name": "WASH in Schools Data",
     "content": [
       {
@@ -70,7 +70,7 @@
   },
   {
     "form_id": 1681117698699,
-    "page": "power-bi",
+    "page": "bi",
     "name": "Water Points",
     "content": [
       {
@@ -93,7 +93,7 @@
   },
   {
     "form_id": 1681117698699,
-    "page": "power-bi",
+    "page": "bi",
     "name": "CLTS Progress Tracking",
     "content": [
       {
@@ -116,7 +116,7 @@
   },
   {
     "form_id": 567490004,
-    "page": "power-bi",
+    "page": "bi",
     "name": "Governance and Policy Data",
     "content": [
       {

@@ -4,7 +4,7 @@ import ResponsiveEmbed from "react-responsive-embed";
 import { useParams } from "react-router-dom";
 import "./style.scss";
 
-const PowerBIDashboard = () => {
+const BIDashboard = () => {
   const { formId } = useParams();
   const powerBIDashboard = window?.powerBIDashboard;
   const current = powerBIDashboard?.find((x) => x.form_id === parseInt(formId));
@@ -26,6 +26,7 @@ const PowerBIDashboard = () => {
                 style={c?.style ? c.style : {}}
               >
                 <ResponsiveEmbed src={c.link} />
+                <div className="blank-white" />
               </div>
             );
           default:
@@ -42,4 +43,4 @@ const PowerBIDashboard = () => {
   );
 };
 
-export default React.memo(PowerBIDashboard);
+export default React.memo(BIDashboard);
