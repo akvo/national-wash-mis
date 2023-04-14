@@ -32,9 +32,10 @@ describe("Login and Registration", () => {
     };
     axios.mockResolvedValue({ status: 200, data: fakeUser });
 
-    let registrationPage;
+    // let registrationPage;
     await act(async () => {
-      registrationPage = render(<TestApp entryPoint={"/login/abcd"} />);
+      // registrationPage = render(<TestApp entryPoint={"/login/abcd"} />);
+      render(<TestApp entryPoint={"/login/abcd"} />);
       expect(screen.getByText(/Invalid/i)).toBeInTheDocument();
     });
 
