@@ -28,7 +28,7 @@ exports[`Login and Registration test if the login form exists: LoginPage 1`] = `
             <h1>
               RUSH
               <small>
-                Kenya Rural Urban Sanitation and Hygiene
+                Rural Urban Sanitation and Hygiene
               </small>
             </h1>
           </a>
@@ -316,7 +316,7 @@ exports[`Login and Registration test if the registration form exists: Registrati
             <h1>
               RUSH
               <small>
-                Kenya Rural Urban Sanitation and Hygiene
+                Rural Urban Sanitation and Hygiene
               </small>
             </h1>
           </a>

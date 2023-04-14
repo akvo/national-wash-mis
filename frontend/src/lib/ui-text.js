@@ -5,7 +5,7 @@ const uiText = {
     // Home page
     welcome: (
       <Fragment>
-        Kenya Rural Urban Sanitation
+        Rural Urban Sanitation
         <br />
         and Hygiene (RUSH)
       </Fragment>
@@ -14,7 +14,7 @@ const uiText = {
       <Fragment>
         Real Time Management Information System (NWMIS)
         <br />
-        Updated sanitation and hygiene estimates across Kenya
+        Updated sanitation and hygiene estimates across the Country
       </Fragment>
     ),
     countdownTitle: "Time remaining to achieve national RUSH targets:",
@@ -43,7 +43,7 @@ const uiText = {
     // Footer
     footerAboutTitle: "About Data",
     footerAboutDescription:
-      "All the data contained in the RUSH platform is aggregated from both primary and secondary data sources from the 47 counties in Kenya. The data is updated on a monthly basis.",
+      "All the data contained in the RUSH platform is aggregated from both primary and secondary data sources. The data is updated on a monthly basis.",
     footerContactTitle: "Contacts",
     footerContactAddress:
       "Afya House, Cathedral Road, P.O. Box:30016–00100, Nairobi, Kenya",
