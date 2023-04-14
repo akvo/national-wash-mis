@@ -70,6 +70,7 @@ EXTERNAL_APPS = [
     "django_dbml",
     "django_extensions",
     "django_q",
+    "cli",
 ]
 
 # Add API apps below
