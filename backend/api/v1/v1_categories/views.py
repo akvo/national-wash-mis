@@ -136,14 +136,6 @@ def get_raw_data_point(request, version, form_id):
     Get PowerBI schema of datapoints to use with Power BI
     """,
     responses={200: ListRawDataSerializer(many=True)},
-    parameters=[
-        OpenApiParameter(
-            name="questions",
-            required=False,
-            type={"type": "array", "items": {"type": "number"}},
-            location=OpenApiParameter.QUERY,
-        ),
-    ],
     tags=["Data Categories"],
     summary="Get Power BI data points",
 )
