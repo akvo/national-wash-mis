@@ -49,7 +49,7 @@ class CategoryTestCase(TestCase):
             [f"{str(x[0])}|{x[1]}" for x in list(questions_queryset)],
         )
 
-        # PRIVATE RAW DATA ACCESS (POWER BI)
+        # PRIVATE RAW DATA ACCESS (POWER BI PAGINATION)
         data = self.client.get("/api/v1/raw-data/1?page=1", follow=True, **header)
         self.assertEqual(data.status_code, 200)
         result = data.json()
@@ -62,3 +62,12 @@ class CategoryTestCase(TestCase):
         data = self.client.get("/api/v1/raw-data/1?page=1", follow=True)
         # TODO: AFTER DEMO, FIND HOW PROVIDE AUTHENTICATION IN POWERBI
         self.assertEqual(data.status_code, 200)
+
+        # PRIVATE RAW DATA ACCESS (NO PAGINATED POWER BI)
+        data = self.client.get("/api/v1/power-bi/1", follow=True, **header)
+        self.assertEqual(data.status_code, 200)
+        result = data.json()
+        self.assertEqual(
+            list(result[0]),
+            ["id", "name", "administration", "geo", "data", "categories"],
+        )

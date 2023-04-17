@@ -129,3 +129,48 @@ def get_raw_data_point(request, version, form_id):
         else:
             d.update({"data": data_answers, "categories": {}})
     return paginator.get_paginated_response(data)
+
+
+@extend_schema(
+    description="""
+    Get PowerBI schema of datapoints to use with Power BI
+    """,
+    responses={200: ListRawDataSerializer(many=True)},
+    parameters=[
+        OpenApiParameter(
+            name="questions",
+            required=False,
+            type={"type": "array", "items": {"type": "number"}},
+            location=OpenApiParameter.QUERY,
+        ),
+    ],
+    tags=["Data Categories"],
+    summary="Get Power BI data points",
+)
+@api_view(["GET"])
+# @permission_classes([IsAuthenticated])
+def get_power_bi_data(request, version, form_id):
+    instances = FormData.objects.filter(form_id=form_id).order_by("-created").all()
+    data = ListRawDataSerializer(
+        instance=instances,
+        many=True,
+    ).data
+    categories = DataCategory.objects.filter(
+        form_id=form_id, data_id__in=[d["id"] for d in data]
+    ).all()
+    categories = get_category_results(categories)
+    for d in data:
+        category = list(filter(lambda x: x["id"] == d["id"], categories))
+        answers = Answers.objects.filter(data_id=d["id"]).all()
+        answers = ListRawDataAnswerSerializer(instance=answers, many=True).data
+        data_answers = {}
+        for a in answers:
+            data_answers.update({a["question"]: a["value"]})
+        if category:
+            d.update({"data": data_answers, "categories": category[0]["category"]})
+        else:
+            d.update({"data": data_answers, "categories": {}})
+    return Response(
+        data,
+        status=status.HTTP_200_OK,
+    )
