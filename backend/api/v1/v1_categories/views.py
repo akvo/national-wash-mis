@@ -19,6 +19,8 @@ from api.v1.v1_categories.serializers import (
     ListRawDataAnswerSerializer,
 )
 
+from api.v1.v1_data.functions import get_cache, create_cache
+
 from api.v1.v1_data.serializers import ListFormDataRequestSerializer
 
 
@@ -135,6 +137,15 @@ def get_raw_data_point(request, version, form_id):
     description="""
     Get PowerBI schema of datapoints to use with Power BI
     """,
+    parameters=[
+        OpenApiParameter(
+            name="cache",
+            default="test",
+            required=False,
+            type=OpenApiTypes.STR,
+            location=OpenApiParameter.QUERY,
+        ),
+    ],
     responses={200: ListRawDataSerializer(many=True)},
     tags=["Data Categories"],
     summary="Get Power BI data points",
@@ -142,6 +153,12 @@ def get_raw_data_point(request, version, form_id):
 @api_view(["GET"])
 # @permission_classes([IsAuthenticated])
 def get_power_bi_data(request, version, form_id):
+    cache_name = request.GET.get("cache")
+    if cache_name:
+        cache_name = f"power_bi-{cache_name}"
+        cache_data = get_cache(cache_name)
+        if cache_data:
+            return Response(cache_data, status=status.HTTP_200_OK)
     instances = FormData.objects.filter(form_id=form_id).order_by("-created").all()
     data = ListRawDataSerializer(
         instance=instances,
@@ -162,6 +179,8 @@ def get_power_bi_data(request, version, form_id):
             d.update({"data": data_answers, "categories": category[0]["category"]})
         else:
             d.update({"data": data_answers, "categories": {}})
+    if cache_name:
+        create_cache(cache_name, data)
     return Response(
         data,
         status=status.HTTP_200_OK,
