@@ -1,7 +1,6 @@
 # Create your views here.
 import os
 import datetime
-from math import ceil
 from pathlib import Path
 
 from nwmis.settings import MASTER_DATA
@@ -20,7 +19,6 @@ from jsmin import jsmin
 from rest_framework import status, serializers
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.generics import get_object_or_404
-from rest_framework.pagination import PageNumberPagination
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -43,12 +41,12 @@ from api.v1.v1_users.functions import check_form_approval_assigned, \
 from api.v1.v1_forms.models import Forms
 # from api.v1.v1_data.models import PendingDataBatch, \
 #     PendingDataApproval, FormData
-from nwmis.settings import REST_FRAMEWORK
 from utils.custom_permissions import IsSuperAdmin, IsAdmin
 from utils.custom_serializer_fields import validate_serializers_message
 from utils.default_serializers import DefaultResponseSerializer
 from utils.email_helper import send_email
 from utils.email_helper import ListEmailTypeRequestSerializer, EmailTypes
+from utils.custom_pagination import Pagination
 
 webdomain = os.environ["WEBDOMAIN"]
 
@@ -445,7 +443,6 @@ def list_users(request, version):
         filter_data['password__exact'] = ''
         exclude_data.pop('password__exact')
 
-    page_size = REST_FRAMEWORK.get('PAGE_SIZE')
     the_past = timezone.now() - datetime.timedelta(days=10 * 365)
     # also filter soft deletes
     queryset = SystemUser.objects.filter(deleted_at=None, **filter_data)
@@ -463,15 +460,10 @@ def list_users(request, version):
     queryset = queryset.exclude(**exclude_data).annotate(
         last_updated=Coalesce('updated', Value(the_past))).order_by(
             '-last_updated', '-date_joined')
-    paginator = PageNumberPagination()
+    paginator = Pagination()
     instance = paginator.paginate_queryset(queryset, request)
-    data = {
-        "current": request.GET.get('page'),
-        "data": ListUserSerializer(instance=instance, many=True).data,
-        "total": queryset.count(),
-        "total_page": ceil(queryset.count() / page_size)
-    }
-    return Response(data, status=status.HTTP_200_OK)
+    user_serializer = ListUserSerializer(instance=instance, many=True)
+    return paginator.get_paginated_response(user_serializer.data)
 
 
 @extend_schema(responses={200: UserRoleSerializer(many=True)},
