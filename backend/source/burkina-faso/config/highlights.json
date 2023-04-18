@@ -3,7 +3,7 @@
     "name": "Household",
     "description": "Contains data collected from sampled households from all the villages in all the 47 counties in Kenya. Data is updated on monthly basis.",
     "maps": {
-      "form_id": 519630048,
+      "form_id": 1680838271306,
       "option": "Safely Managed",
       "fetch_api": false,
       "shape": {
@@ -15,20 +15,28 @@
             "name": "Safely Managed",
             "options": [
               {
-                "question": 492490054,
+                "question": 1680842458339,
                 "option": [
-                  "Flush / pour flush",
-                  "Pit latrine with slab",
-                  "Twin pit with slab"
+                  "Dry pit latrine",
+                  "Flush/pour flush",
+                  "Ventilated Improved Single pit",
+                  "Ventilated Improved double pit",
+                  "Latrine ECOSAN",
+                  "Latrine SANPLAT",
+                  "Traditional latrine with concrete slab"
                 ]
               },
               {
-                "question": 513690062,
-                "option": ["No"]
+                "question": 1680849008847,
+                "option": [
+                  "No"
+                ]
               },
               {
-                "question": 513690060,
-                "option": ["To a treatment plant", "Buried in an uncovered pit"]
+                "question": 1680849252617,
+                "option": [
+                  "Yes"
+                ]
               }
             ]
           }
@@ -37,7 +45,7 @@
     },
     "charts": [
       {
-        "form_id": 519630048,
+        "form_id": 1680838271306,
         "type": "CRITERIA",
         "title": "Sanitation by JMP service levels",
         "show_as_map": true,
@@ -48,20 +56,28 @@
             "score": 15,
             "options": [
               {
-                "question": 492490054,
+                "question": 1680842458339,
                 "option": [
-                  "Flush / pour flush",
-                  "Pit latrine with slab",
-                  "Twin pit with slab"
+                  "Dry pit latrine",
+                  "Flush/pour flush",
+                  "Ventilated Improved Single pit",
+                  "Ventilated Improved double pit",
+                  "Latrine ECOSAN",
+                  "Latrine SANPLAT",
+                  "Traditional latrine with concrete slab"
                 ]
               },
               {
-                "question": 513690062,
-                "option": ["No"]
+                "question": 1680849008847,
+                "option": [
+                  "No"
+                ]
               },
               {
-                "question": 513690060,
-                "option": ["To a treatment plant", "Buried in an uncovered pit"]
+                "question": 1680849252617,
+                "option": [
+                  "Yes"
+                ]
               }
             ]
           },
@@ -71,16 +87,22 @@
             "color": "#79BE7D",
             "options": [
               {
-                "question": 492490054,
+                "question": 1680842458339,
                 "option": [
-                  "Flush / pour flush",
-                  "Pit latrine with slab",
-                  "Twin pit with slab"
+                  "Dry pit latrine",
+                  "Flush/pour flush",
+                  "Ventilated Improved Single pit",
+                  "Ventilated Improved double pit",
+                  "Latrine ECOSAN",
+                  "Latrine SANPLAT",
+                  "Traditional latrine with concrete slab"
                 ]
               },
               {
-                "question": 513690062,
-                "option": ["No"]
+                "question": 1680849008847,
+                "option": [
+                  "No"
+                ]
               }
             ]
           },
@@ -90,16 +112,22 @@
             "color": "#FDF177",
             "options": [
               {
-                "question": 492490054,
+                "question": 1680842458339,
                 "option": [
-                  "Flush / pour flush",
-                  "Pit latrine with slab",
-                  "Twin pit with slab"
+                  "Dry pit latrine",
+                  "Flush/pour flush",
+                  "Ventilated Improved Single pit",
+                  "Ventilated Improved double pit",
+                  "Latrine ECOSAN",
+                  "Latrine SANPLAT",
+                  "Traditional latrine with concrete slab"
                 ]
               },
               {
-                "question": 513690062,
-                "option": ["Yes"]
+                "question": 1680849008847,
+                "option": [
+                  "Yes"
+                ]
               }
             ]
           },
@@ -109,12 +137,9 @@
             "color": "#FBD256",
             "options": [
               {
-                "question": 492490054,
+                "question": 1680842458339,
                 "option": [
-                  "Pit latrine without slab / Open pit",
-                  "Twin pit without slab",
-                  "Bucket",
-                  "Hanging toilet / hanging latrine"
+                  "Traditional latrine without concrete slab"
                 ]
               }
             ]
@@ -125,138 +150,9 @@
             "color": "#F1AC2A",
             "options": [
               {
-                "question": 492490054,
-                "option": ["No facility / Bush / Field"]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "form_id": 519630048,
-        "type": "CRITERIA",
-        "title": "Hygiene by JMP service levels",
-        "options": [
-          {
-            "name": "Basic",
-            "score": 10,
-            "color": "#753780",
-            "options": [
-              {
-                "question": 466680043,
+                "question": 1680842458339,
                 "option": [
-                  "Fixed facility observed (sink/tap) In dwelling",
-                  "Fixed facility observed (sink/tap)  In yard/plot",
-                  "Mobile object observed (bucket/jug/kettle)"
-                ]
-              },
-              {
-                "question": 466680045,
-                "option": ["Water is available"]
-              },
-              {
-                "question": 466760036,
-                "option": ["Soap or detergent available ."]
-              }
-            ]
-          },
-          {
-            "name": "Limited",
-            "score": -1,
-            "color": "#FDF177",
-            "options": [
-              {
-                "question": 466680043,
-                "option": [
-                  "Fixed facility observed (sink/tap) In dwelling",
-                  "Fixed facility observed (sink/tap)  In yard/plot",
-                  "Mobile object observed (bucket/jug/kettle)"
-                ]
-              },
-              {
-                "question": 466680045,
-                "option": ["Water is available"]
-              },
-              {
-                "question": 466760036,
-                "option": ["Soap or detergent available ."]
-              }
-            ]
-          },
-          {
-            "name": "No Facility",
-            "score": -2,
-            "color": "#F1AC2A",
-            "options": [
-              {
-                "question": 466680043,
-                "option": [
-                  "No handwashing place in dwelling/yard/plot",
-                  "No permission to see"
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "form_id": 519630048,
-        "type": "CRITERIA",
-        "title": "Menstrual hygiene by JMP service levels",
-        "options": [
-          {
-            "name": "Awareness",
-            "color": "#368541",
-            "score": 15,
-            "options": [
-              {
-                "question": 607250002,
-                "option": ["Yes"]
-              }
-            ]
-          },
-          {
-            "name": "Use of menstrual materials",
-            "score": 10,
-            "color": "#79BE7D",
-            "options": [
-              {
-                "question": 524810057,
-                "option": [
-                  "Cloth/reusable sanitary pads",
-                  "Disposable sanitary pads",
-                  "Tampons",
-                  "Menstrual cup"
-                ]
-              }
-            ]
-          },
-          {
-            "name": "Access",
-            "score": -1,
-            "color": "#FDF177",
-            "options": [
-              {
-                "question": 524810054,
-                "option": ["Yes"]
-              }
-            ]
-          },
-          {
-            "name": "Participation",
-            "score": -2,
-            "color": "#FBD256",
-            "options": [
-              {
-                "question": 524810053,
-                "option": [
-                  "Attending school",
-                  "Paid work",
-                  "Participating in social activities",
-                  "Cooking food?",
-                  "Cooking food",
-                  "Eating with others",
-                  "Bathing in regular place"
+                  "No facility/Bush/Field"
                 ]
               }
             ]
@@ -269,7 +165,7 @@
     "name": "Health Facilities",
     "description": "Contains data collected from all levels of health care facilities in all the 47 counties in Kenya. Data is updated on monthly basis.",
     "maps": {
-      "form_id": 533560002,
+      "form_id": 1681077310330,
       "option": "Basic",
       "fetch_api": false,
       "shape": {
@@ -281,33 +177,46 @@
             "name": "Basic",
             "options": [
               {
-                "question": 555370004,
+                "question": 1681078512668,
                 "option": [
-                  "Flush / Pour-flush toilet to sewer connection",
-                  "Flush / Pour-flush toilet to tank or pit",
-                  "Pit latrine with slab",
-                  "Composting toilet"
+                  "Manual or mechanical flush toilets connected to the sewer network",
+                  "Manual or mechanical flush toilets connected to a pit",
+                  "Ventilated improved single pit",
+                  "Ventilated improved double pit",
+                  "Latrines ECOSAN",
+                  "Latrines SANPLAT"
                 ]
               },
               {
-                "question": 530250002,
-                "option": ["Yes"]
+                "question": 1681089528621,
+                "option": [
+                  "Totally functional",
+                  "Partially functional"
+                ]
               },
               {
-                "question": 555370009,
-                "option": ["Yes"]
+                "question": 1681089690924,
+                "option": [
+                  "Yes"
+                ]
               },
               {
-                "question": 555370003,
-                "option": ["Yes"]
+                "question": 1681089804947,
+                "option": [
+                  "Yes"
+                ]
               },
               {
-                "question": 555370005,
-                "option": ["Yes"]
+                "question": 1681094634451,
+                "option": [
+                  "Yes"
+                ]
               },
               {
-                "question": 555370006,
-                "option": ["Yes"]
+                "question": 1681089868812,
+                "option": [
+                  "Yes"
+                ]
               }
             ]
           }
@@ -316,7 +225,7 @@
     },
     "charts": [
       {
-        "form_id": 533560002,
+        "form_id": 1681077310330,
         "type": "CRITERIA",
         "title": "Sanitation by JMP service levels",
         "show_as_map": true,
@@ -327,33 +236,46 @@
             "score": 15,
             "options": [
               {
-                "question": 555370004,
+                "question": 1681078512668,
                 "option": [
-                  "Flush / Pour-flush toilet to sewer connection",
-                  "Flush / Pour-flush toilet to tank or pit",
-                  "Pit latrine with slab",
-                  "Composting toilet"
+                  "Manual or mechanical flush toilets connected to the sewer network",
+                  "Manual or mechanical flush toilets connected to a pit",
+                  "Ventilated improved single pit",
+                  "Ventilated improved double pit",
+                  "Latrines ECOSAN",
+                  "Latrines SANPLAT"
                 ]
               },
               {
-                "question": 530250002,
-                "option": ["Yes"]
+                "question": 1681089528621,
+                "option": [
+                  "Totally functional",
+                  "Partially functional"
+                ]
               },
               {
-                "question": 555370009,
-                "option": ["Yes"]
+                "question": 1681089690924,
+                "option": [
+                  "Yes"
+                ]
               },
               {
-                "question": 555370003,
-                "option": ["Yes"]
+                "question": 1681089804947,
+                "option": [
+                  "Yes"
+                ]
               },
               {
-                "question": 555370005,
-                "option": ["Yes"]
+                "question": 1681094634451,
+                "option": [
+                  "Yes"
+                ]
               },
               {
-                "question": 555370006,
-                "option": ["Yes"]
+                "question": 1681089868812,
+                "option": [
+                  "Yes"
+                ]
               }
             ]
           },
@@ -363,33 +285,45 @@
             "color": "#79BE7D",
             "options": [
               {
-                "question": 555370004,
+                "question": 1681078512668,
                 "option": [
-                  "Flush / Pour-flush toilet to sewer connection",
-                  "Flush / Pour-flush toilet to tank or pit",
-                  "Pit latrine with slab",
-                  "Composting toilet"
+                  "Manual or mechanical flush toilets connected to the sewer network",
+                  "Manual or mechanical flush toilets connected to a pit",
+                  "Ventilated improved single pit",
+                  "Ventilated improved double pit",
+                  "Latrines ECOSAN",
+                  "Latrines SANPLAT"
                 ]
               },
               {
-                "question": 530250002,
-                "option": ["No"]
+                "question": 1681089528621,
+                "option": [
+                  "Broken-down"
+                ]
               },
               {
-                "question": 555370009,
-                "option": ["No"]
+                "question": 1681089690924,
+                "option": [
+                  "No"
+                ]
               },
               {
-                "question": 555370003,
-                "option": ["No"]
+                "question": 1681089804947,
+                "option": [
+                  "No"
+                ]
               },
               {
-                "question": 555370005,
-                "option": ["No"]
+                "question": 1681094634451,
+                "option": [
+                  "No"
+                ]
               },
               {
-                "question": 555370006,
-                "option": ["No"]
+                "question": 1681089868812,
+                "option": [
+                  "No"
+                ]
               }
             ]
           },
@@ -399,13 +333,12 @@
             "color": "#FDF177",
             "options": [
               {
-                "question": 555370004,
+                "question": 1681078512668,
                 "option": [
-                  "Flush / Pour-flush toilet to open drain",
-                  "Pit latrine without slab/open pit",
-                  "Bucket",
-                  "Hanging toilet/latrine",
-                  "No toilet/latrine"
+                  "Manual or mechanical flush toilets connected to open pipes",
+                  "Traditional latrines without concrete slab",
+                  "No toilet/latrine",
+                  "Other"
                 ]
               }
             ]
@@ -413,7 +346,7 @@
         ]
       },
       {
-        "form_id": 533560002,
+        "form_id": 1681077310330,
         "type": "CRITERIA",
         "title": "Hygiene (Hand washing) by JMP service levels",
         "options": [
@@ -423,12 +356,16 @@
             "score": 15,
             "options": [
               {
-                "question": 551560007,
-                "option": ["Yes"]
+                "question": 1681078526084,
+                "option": [
+                  "Yes"
+                ]
               },
               {
-                "question": 551560004,
-                "option": ["Yes"]
+                "question": 1681090548597,
+                "option": [
+                  "Yes"
+                ]
               }
             ]
           },
@@ -438,14 +375,16 @@
             "color": "#79BE7D",
             "options": [
               {
-                "question": 551560007,
+                "question": 1681078526084,
                 "option": [
-                  "No, there are hand hygiene facilities at points of care but not functional, or lacking soap and water or alcohol-based hand rub."
+                  "Yes"
                 ]
               },
               {
-                "question": 551560004,
-                "option": ["Yes"]
+                "question": 1681090548597,
+                "option": [
+                  "No"
+                ]
               }
             ]
           },
@@ -455,17 +394,9 @@
             "color": "#FDF177",
             "options": [
               {
-                "question": 551560007,
+                "question": 1681078526084,
                 "option": [
-                  "No, there are hand hygiene facilities at points of care but not functional, or lacking soap and water or alcohol-based hand rub.",
-                  "No, no hand hygiene facilities at points of care"
-                ]
-              },
-              {
-                "question": 551560004,
-                "option": [
-                  "No, there are handwashing facilities near the toilets but lacking soap and/or water",
-                  "No, no handwashing facilities near toilets (within 5 meters)"
+                  "No"
                 ]
               }
             ]
@@ -473,7 +404,7 @@
         ]
       },
       {
-        "form_id": 533560002,
+        "form_id": 1681077310330,
         "type": "CRITERIA",
         "title": "Health care waste management service levels",
         "options": [
@@ -483,29 +414,27 @@
             "score": 15,
             "options": [
               {
-                "question": 541950008,
-                "option": ["Yes, waste is segregated into three labelled bins"]
-              },
-              {
-                "question": 541950011,
+                "question": 1681078582119,
                 "option": [
-                  "Autoclaved",
-                  "Incinerated (two chamber, 850-1000 °C incinerator)",
-                  "Incinerated (other)",
-                  "Burning in a protected pit",
-                  "Not treated, but buried in lined, protected pit",
-                  "Not treated, but collected for medical waste disposal off-site"
+                  "Yes"
                 ]
               },
               {
-                "question": 541950005,
+                "question": 1681091176454,
                 "option": [
                   "Autoclaved",
-                  "Incinerated (two chamber, 850-1000 °C incinerator)",
-                  "Incinerated (other)",
-                  "Burning in a protected pit",
-                  "Not treated, but buried in lined, protected pit",
-                  "Not treated, but collected for medical waste disposal off-site"
+                  "Incineration (2 rooms, 850–1,000 \u00b0C)",
+                  "Incineration (other)",
+                  "No treatment, but buried in a protected pit provided for this purpose"
+                ]
+              },
+              {
+                "question": 1681091626938,
+                "option": [
+                  "Autoclaved",
+                  "Incineration (2 rooms, 850–1,000 \u00b0C)",
+                  "Incineration (other)",
+                  "No treatment, but buried in a protected pit provided for this purpose"
                 ]
               }
             ]
@@ -516,31 +445,25 @@
             "color": "#79BE7D",
             "options": [
               {
-                "question": 541950008,
+                "question": 1681078582119,
                 "option": [
-                  "No, bins are present but do not meet all requirements or waste is not correctly segregated"
+                  "Only part only (the trash cans are full, contain other waste, or there is only one or two)"
                 ]
               },
               {
-                "question": 541950011,
+                "question": 1681091176454,
                 "option": [
-                  "Autoclaved",
-                  "Incinerated (two chamber, 850-1000 °C incinerator)",
-                  "Incinerated (other)",
                   "Burning in a protected pit",
-                  "Not treated, but buried in lined, protected pit",
-                  "Not treated, but collected for medical waste disposal off-site"
+                  "Open air burning",
+                  "No treatment but collection for out-of-site elimination"
                 ]
               },
               {
-                "question": 541950005,
+                "question": 1681091626938,
                 "option": [
-                  "Autoclaved",
-                  "Incinerated (two chamber, 850-1000 °C incinerator)",
-                  "Incinerated (other)",
                   "Burning in a protected pit",
-                  "Not treated, but buried in lined, protected pit",
-                  "Not treated, but collected for medical waste disposal off-site"
+                  "Open air burning",
+                  "No treatment but collection for out-of-site elimination"
                 ]
               }
             ]
@@ -551,15 +474,17 @@
             "color": "#FDF177",
             "options": [
               {
-                "question": 541950008,
-                "option": ["No, bins are not present"]
+                "question": 1681078582119,
+                "option": [
+                  "No"
+                ]
               }
             ]
           }
         ]
       },
       {
-        "form_id": 533560002,
+        "form_id": 1681077310330,
         "type": "CRITERIA",
         "title": "Environmental cleaning service levels",
         "options": [
@@ -569,12 +494,16 @@
             "score": 15,
             "options": [
               {
-                "question": 551560009,
-                "option": ["Yes"]
+                "question": 1681078583919,
+                "option": [
+                  "Yes"
+                ]
               },
               {
-                "question": 551560005,
-                "option": ["Yes, all have been trained"]
+                "question": 1681091866178,
+                "option": [
+                  "Yes, all have been trained"
+                ]
               }
             ]
           },
@@ -584,12 +513,16 @@
             "color": "#79BE7D",
             "options": [
               {
-                "question": 551560009,
-                "option": ["Yes"]
+                "question": 1681078583919,
+                "option": [
+                  "Yes"
+                ]
               },
               {
-                "question": 551560005,
-                "option": ["No, some but not all have been trained"]
+                "question": 1681091866178,
+                "option": [
+                  "No, some but not all have been trained"
+                ]
               }
             ]
           },
@@ -599,14 +532,16 @@
             "color": "#FDF177",
             "options": [
               {
-                "question": 551560009,
-                "option": ["Yes but limited"]
+                "question": 1681078583919,
+                "option": [
+                  "Yes"
+                ]
               },
               {
-                "question": 551560005,
+                "question": 1681091866178,
                 "option": [
-                  "No, none have been trained",
-                  "No, there are no staff responsible for cleaning"
+                  "No, none has undergone training",
+                  "No, no staff should perform cleaning duties"
                 ]
               }
             ]
@@ -619,7 +554,7 @@
     "name": "WASH in School",
     "description": "Contains data collected from all the schools in all the 47 counties in Kenya. Data is updated on monthly basis.",
     "maps": {
-      "form_id": 563350033,
+      "form_id": 1681103820972,
       "option": "Basic",
       "fetch_api": false,
       "shape": {
@@ -631,20 +566,25 @@
             "name": "Basic",
             "options": [
               {
-                "question": 551660029,
+                "question": 1681108436898,
                 "option": [
-                  "Flush / Pour-flush toilets",
-                  "Pit latrines with slab",
-                  "Composting toilets"
+                  "Pipeline connection / Piped water to yard/plot",
+                  "Borehole",
+                  "Modern well",
+                  "Traditional well",
+                  "Rainwater collection",
+                  "Standpipe",
+                  "Packaged bottled water",
+                  "Cart",
+                  "Packaged bottled water",
+                  "Autonomous Water Supply Post"
                 ]
               },
               {
-                "question": 579840064,
-                "option": ["Yes"]
-              },
-              {
-                "question": 555460003,
-                "option": ["Yes"]
+                "question": 1681108776850,
+                "option": [
+                  "Totally Functional"
+                ]
               }
             ]
           }
@@ -653,7 +593,7 @@
     },
     "charts": [
       {
-        "form_id": 563350033,
+        "form_id": 1681103820972,
         "type": "CRITERIA",
         "title": "Drinking water by JMP service levels",
         "options": [
@@ -663,18 +603,25 @@
             "color": "#753780",
             "options": [
               {
-                "question": 551660011,
+                "question": 1681108436898,
                 "option": [
-                  "Piped water supply",
-                  "Protected well/spring",
-                  "Rainwater",
-                  "Unprotected well/spring",
-                  "Packaged bottled water"
+                  "Pipeline connection / Piped water to yard/plot",
+                  "Borehole",
+                  "Modern well",
+                  "Traditional well",
+                  "Rainwater collection",
+                  "Standpipe",
+                  "Packaged bottled water",
+                  "Cart",
+                  "Packaged bottled water",
+                  "Autonomous Water Supply Post"
                 ]
               },
               {
-                "question": 551660013,
-                "option": ["Yes"]
+                "question": 1681108776850,
+                "option": [
+                  "Totally Functional"
+                ]
               }
             ]
           },
@@ -684,18 +631,26 @@
             "color": "#FDF177",
             "options": [
               {
-                "question": 551660011,
+                "question": 1681108436898,
                 "option": [
-                  "Piped water supply",
-                  "Protected well/spring",
-                  "Rainwater",
-                  "Unprotected well/spring",
-                  "Packaged bottled water"
+                  "Pipeline connection / Piped water to yard/plot",
+                  "Borehole",
+                  "Modern well",
+                  "Traditional well",
+                  "Rainwater collection",
+                  "Standpipe",
+                  "Packaged bottled water",
+                  "Cart",
+                  "Packaged bottled water",
+                  "Autonomous Water Supply Post"
                 ]
               },
               {
-                "question": 551660013,
-                "option": ["No"]
+                "question": 1681108776850,
+                "option": [
+                  "Partially functional",
+                  "Broken-down"
+                ]
               }
             ]
           },
@@ -705,11 +660,11 @@
             "color": "#F1AC2A",
             "options": [
               {
-                "question": 551660011,
+                "question": 1681108436898,
                 "option": [
-                  "Tanker-truck or cart",
                   "Surface water (lake, river, stream)",
-                  "No water source"
+                  "No water source",
+                  "Other"
                 ]
               }
             ]
@@ -717,7 +672,7 @@
         ]
       },
       {
-        "form_id": 563350033,
+        "form_id": 1681103820972,
         "type": "CRITERIA",
         "title": "Sanitation by JMP service levels",
         "show_as_map": true,
@@ -728,20 +683,28 @@
             "color": "#753780",
             "options": [
               {
-                "question": 551660029,
+                "question": 1681110563714,
                 "option": [
-                  "Flush / Pour-flush toilets",
-                  "Pit latrines with slab",
-                  "Composting toilets"
+                  "Manual or mechanical flush toilets",
+                  "Ventilated Improved Single pit",
+                  "Ventilated Improved double pit",
+                  "Latrine ECOSAN",
+                  "Latrines SANPLAT",
+                  "Traditional latrines with concrete slab"
                 ]
               },
               {
-                "question": 579840064,
-                "option": ["Yes"]
+                "question": 1681111021763,
+                "option": [
+                  "Yes"
+                ]
               },
               {
-                "question": 555460003,
-                "option": ["Yes"]
+                "question": 1681111261327,
+                "option": [
+                  "Clean",
+                  "Average"
+                ]
               }
             ]
           },
@@ -751,20 +714,27 @@
             "color": "#FDF177",
             "options": [
               {
-                "question": 551660029,
+                "question": 1681110563714,
                 "option": [
-                  "Flush / Pour-flush toilets",
-                  "Pit latrines with slab",
-                  "Composting toilets"
+                  "Manual or mechanical flush toilets",
+                  "Ventilated Improved Single pit",
+                  "Ventilated Improved double pit",
+                  "Latrine ECOSAN",
+                  "Latrines SANPLAT",
+                  "Traditional latrines with concrete slab"
                 ]
               },
               {
-                "question": 579840064,
-                "option": ["Yes"]
+                "question": 1681111021763,
+                "option": [
+                  "No"
+                ]
               },
               {
-                "question": 555460003,
-                "option": ["Yes"]
+                "question": 1681111261327,
+                "option": [
+                  "Dirty"
+                ]
               }
             ]
           },
@@ -774,12 +744,10 @@
             "color": "#F1AC2A",
             "options": [
               {
-                "question": 551660029,
+                "question": 1681110563714,
                 "option": [
-                  "Pit latrines without slab",
-                  "Hanging latrines",
-                  "Bucket latrines",
-                  "No toilets or latrines"
+                  "Traditional latrines without concrete slab",
+                  "Other"
                 ]
               }
             ]
@@ -787,7 +755,7 @@
         ]
       },
       {
-        "form_id": 563350033,
+        "form_id": 1681103820972,
         "type": "CRITERIA",
         "title": "Hygiene (handwashing) by JMP service levels",
         "options": [
@@ -797,12 +765,16 @@
             "color": "#753780",
             "options": [
               {
-                "question": 539710052,
-                "option": ["Yes"]
+                "question": 1681107261379,
+                "option": [
+                  "Yes"
+                ]
               },
               {
-                "question": 539710048,
-                "option": ["Yes, water and soap"]
+                "question": 1681111640583,
+                "option": [
+                  "Yes, water and soap"
+                ]
               }
             ]
           },
@@ -812,12 +784,18 @@
             "color": "#FDF177",
             "options": [
               {
-                "question": 539710052,
-                "option": ["Yes"]
+                "question": 1681107261379,
+                "option": [
+                  "Yes"
+                ]
               },
               {
-                "question": 539710048,
-                "option": ["Water only"]
+                "question": 1681111640583,
+                "option": [
+                  "Water only",
+                  "Soap only",
+                  "No water, no soap"
+                ]
               }
             ]
           },
@@ -827,130 +805,9 @@
             "color": "#F1AC2A",
             "options": [
               {
-                "question": 539710052,
-                "option": ["No"]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "form_id": 563350033,
-        "type": "CRITERIA",
-        "title": "Hygiene (MHM) by JMP service levels",
-        "options": [
-          {
-            "name": "Awareness",
-            "score": 10,
-            "color": "#753780",
-            "options": [
-              {
-                "question": 605430054,
-                "option": ["Yes"]
-              }
-            ]
-          },
-          {
-            "name": "Use menstrual materials",
-            "score": -1,
-            "color": "#FDF177",
-            "options": [
-              {
-                "question": 610930003,
+                "question": 1681107261379,
                 "option": [
-                  "Cloth/reusable sanitary pads",
-                  "Disposable sanitary pads",
-                  "Tampons",
-                  "Menstrual cup"
-                ]
-              }
-            ]
-          },
-          {
-            "name": "Access",
-            "score": -2,
-            "color": "#F1AC2A",
-            "options": [
-              {
-                "question": 538000047,
-                "option": [
-                  "Private place / latrine",
-                  "Water",
-                  "Sanitary pads/cloth",
-                  "Soap"
-                ]
-              }
-            ]
-          },
-          {
-            "name": "Participation",
-            "score": -2,
-            "color": "#368541",
-            "options": [
-              {
-                "question": 538000046,
-                "option": [
-                  "Eating some specific type food",
-                  "Entering the church or mosque",
-                  "Touching the cross or holly book",
-                  "Milking animals",
-                  "Participating in public ceremonies",
-                  "Preparing/cooking food"
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "form_id": 563350033,
-        "type": "CRITERIA",
-        "title": "Enviromental cleaning service levels",
-        "options": [
-          {
-            "name": "Basic",
-            "score": 10,
-            "color": "#753780",
-            "options": [
-              {
-                "question": 545530057,
-                "option": ["Yes"]
-              },
-              {
-                "question": 575740004,
-                "option": ["Yes, all have been trained"]
-              }
-            ]
-          },
-          {
-            "name": "Limited",
-            "score": -1,
-            "color": "#FDF177",
-            "options": [
-              {
-                "question": 545530057,
-                "option": ["Yes"]
-              },
-              {
-                "question": 575740004,
-                "option": ["No, some but not all have been trained"]
-              }
-            ]
-          },
-          {
-            "name": "No service",
-            "score": -2,
-            "color": "#F1AC2A",
-            "options": [
-              {
-                "question": 545530057,
-                "option": ["No"]
-              },
-              {
-                "question": 575740004,
-                "option": [
-                  "No, none have been trained",
-                  "No, there are no staff responsible for cleaning"
+                  "No"
                 ]
               }
             ]
@@ -963,7 +820,7 @@
     "name": "Governance and Policy",
     "description": "Contains data collected from all 47 Counties in Kenya as well as data entered at National level. Data is updated on annual basis.",
     "maps": {
-      "form_id": 519630048,
+      "form_id": 1680838271306,
       "option": "Basic",
       "fetch_api": false,
       "shape": {
@@ -974,7 +831,7 @@
     },
     "charts": [
       {
-        "form_id": 519630048,
+        "form_id": 1680838271306,
         "type": "CRITERIA",
         "show_as_map": true,
         "hide": true,
@@ -995,11 +852,15 @@
               },
               {
                 "question": 466680045,
-                "option": ["Water is available"]
+                "option": [
+                  "Water is available"
+                ]
               },
               {
                 "question": 466760036,
-                "option": ["Soap or detergent available ."]
+                "option": [
+                  "Soap or detergent available ."
+                ]
               }
             ]
           }
