@@ -38,8 +38,9 @@ class PendingDataTestCase(TestCase):
                                        **header)
             self.assertEqual(200, response.status_code)
 
-            self.assertEqual(['current', 'total', 'total_page', 'data'],
-                             list(response.json()))
+            self.assertListEqual(
+                ['current', 'total', 'total_page', 'data'], list(response.json())
+            )
 
             if response.json().get('total') > 0:
                 data = response.json().get('data')
