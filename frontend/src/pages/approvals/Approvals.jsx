@@ -54,7 +54,7 @@ const Approvals = () => {
     api
       .get(url)
       .then((res) => {
-        setBatches(res.data.batch);
+        setBatches(res.data.data);
         setTotalCount(res.data.total);
         setLoading(false);
       })
