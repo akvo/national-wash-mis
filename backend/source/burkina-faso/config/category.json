@@ -108,6 +108,8 @@
                         "id": 1681078512668,
                         "text": "Type of toilets/latrines",
                         "options": [
+                            "Manual or mechanical flush toilets connected to the sewer network",
+                            "Manual or mechanical flush toilets connected to a pit",
                             "Ventilated improved single pit",
                             "Ventilated improved double pit",
                             "Latrines ECOSAN",
@@ -720,7 +722,10 @@
                                 ],
                                 "questions": []
                             }
-                        ]
+                        ],
+                        "else": {
+                            "name": "Surface water"
+                        }
                     },
                     {
                         "id": 1680840852470,
