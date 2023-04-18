@@ -38,11 +38,11 @@ class PendingDataTestCase(TestCase):
                                        **header)
             self.assertEqual(200, response.status_code)
 
-            self.assertEqual(['current', 'total', 'total_page', 'batch'],
+            self.assertEqual(['current', 'total', 'total_page', 'data'],
                              list(response.json()))
 
             if response.json().get('total') > 0:
-                data = response.json().get('batch')
+                data = response.json().get('data')
                 self.assertEqual([
                     'id', 'name', 'form', 'administration', 'created_by',
                     'created', 'approver', 'approved', 'total_data'
@@ -136,10 +136,10 @@ class PendingDataTestCase(TestCase):
                                        **header)
             self.assertEqual(200, response.status_code)
             self.assertEqual(
-                response.json().get('batch')[0]['approver']['status'],
+                response.json().get('data')[0]['approver']['status'],
                 DataApprovalStatus.pending)
             self.assertEqual(
-                response.json().get('batch')[0]['approver']['allow_approve'],
+                response.json().get('data')[0]['approver']['allow_approve'],
                 True)
             # subordinate = true
             response = self.client.get(
@@ -147,7 +147,7 @@ class PendingDataTestCase(TestCase):
                 content_type='application/json',
                 **header)
             self.assertEqual(200, response.status_code)
-            self.assertEqual(0, len(response.json().get('batch')))
+            self.assertEqual(0, len(response.json().get('data')))
 
             # get parent level user
             p_approval = PendingDataApproval.objects.filter(
@@ -161,14 +161,14 @@ class PendingDataTestCase(TestCase):
                                        content_type='application/json',
                                        **header)
             self.assertEqual(200, response.status_code)
-            self.assertEqual(0, len(response.json().get('batch')))
+            self.assertEqual(0, len(response.json().get('data')))
             # subordinate = true
             response = self.client.get(
                 '/api/v1/form-pending-batch?page=1&subordinate=true',
                 content_type='application/json',
                 **header)
             self.assertEqual(200, response.status_code)
-            self.assertGreaterEqual(len(response.json().get('batch')), 1)
+            self.assertGreaterEqual(len(response.json().get('data')), 1)
 
             # approve data with child
             payload = {
@@ -188,7 +188,7 @@ class PendingDataTestCase(TestCase):
                 content_type='application/json',
                 **header)
             self.assertEqual(200, response.status_code)
-            self.assertGreaterEqual(len(response.json().get('batch')), 1)
+            self.assertGreaterEqual(len(response.json().get('data')), 1)
 
             # subordinate = false, approved = false
             header = {'HTTP_AUTHORIZATION': f'Bearer {t_parent.access_token}'}
@@ -196,7 +196,7 @@ class PendingDataTestCase(TestCase):
                                        content_type='application/json',
                                        **header)
             self.assertEqual(200, response.status_code)
-            self.assertGreaterEqual(len(response.json().get('batch')), 1)
+            self.assertGreaterEqual(len(response.json().get('data')), 1)
 
             # reject data with child
             payload = {
@@ -218,13 +218,13 @@ class PendingDataTestCase(TestCase):
                 content_type='application/json',
                 **header)
             self.assertEqual(200, response.status_code)
-            self.assertGreaterEqual(len(response.json().get('batch')), 1)
-            status = response.json().get('batch')[0].get('approver').get(
+            self.assertGreaterEqual(len(response.json().get('data')), 1)
+            status = response.json().get('data')[0].get('approver').get(
                 'status')
             self.assertEqual(DataApprovalStatus.rejected, status)
 
             # update rejected data
-            batch_id = response.json().get('batch')[0]['id']
+            batch_id = response.json().get('data')[0]['id']
             pending_data = PendingFormData.objects.filter(
                 batch=batch_id).first()
             question = Questions.objects.filter(
@@ -250,8 +250,8 @@ class PendingDataTestCase(TestCase):
                 content_type='application/json',
                 **header)
             self.assertEqual(200, response.status_code)
-            self.assertGreaterEqual(len(response.json().get('batch')), 1)
-            status = response.json().get('batch')[0].get('approver').get(
+            self.assertGreaterEqual(len(response.json().get('data')), 1)
+            status = response.json().get('data')[0].get('approver').get(
                 'status')
             self.assertEqual(DataApprovalStatus.pending, status)
 
