@@ -33,7 +33,7 @@ const PanelApprovals = () => {
     api
       .get(url)
       .then((res) => {
-        setApprovalsPending(res.data.batch);
+        setApprovalsPending(res.data.data);
         setLoading(false);
       })
       .catch((e) => {

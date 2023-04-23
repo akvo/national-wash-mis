@@ -104,7 +104,7 @@ class UserInvitationTestCase(TestCase):
         users = response.json()
         self.assertEqual(response.status_code, 200)
         self.assertEqual(list(users),
-                         ['current', 'data', 'total', 'total_page'])
+                         ['current', 'total', 'total_page', 'data'])
 
     def test_add_edit_user(self):
         call_command("administration_seeder", "--test")
