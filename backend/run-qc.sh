@@ -10,7 +10,7 @@ flake8
 echo "Running tests"
 COVERAGE_PROCESS_START=./.coveragerc \
   coverage run --parallel-mode --concurrency=multiprocessing --rcfile=./.coveragerc \
-  manage.py test --shuffle --parallel 4
+  manage.py test --shuffle --parallel 4 --verbosity=3
 
 echo "Coverage"
 coverage combine --rcfile=./.coveragerc
