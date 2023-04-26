@@ -305,7 +305,8 @@ class FormDataAddListView(APIView):
             data.updated = timezone.now()
             data.updated_by = user
             data.save()
-            async_task("api.v1.v1_data.functions.refresh_materialized_data")
+            # async_task("api.v1.v1_data.functions.refresh_materialized_data")
+            async_task("api.v1.v1_category.functions.refresh_data_category_views")
             return Response(
                 {"message": "direct update success"}, status=status.HTTP_200_OK
             )

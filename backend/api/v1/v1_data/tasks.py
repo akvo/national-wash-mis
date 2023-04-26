@@ -1,6 +1,8 @@
 from django.utils import timezone
-from api.v1.v1_data.models import FormData, Answers, \
-    PendingAnswers, AnswerHistory
+from api.v1.v1_data.models import FormData, Answers, PendingAnswers, AnswerHistory
+from api.v1.v1_categories.functions import refresh_data_category_views
+
+# from api.v1.v1_data.functions import refresh_materialized_data
 
 
 def seed_approved_data(data):
@@ -15,15 +17,16 @@ def seed_approved_data(data):
         form_data.save()
 
         for answer in data.pending_data_answer.all():
-            form_answer = Answers.objects.get(data=form_data,
-                                              question=answer.question)
+            form_answer = Answers.objects.get(data=form_data, question=answer.question)
 
-            AnswerHistory.objects.create(data=form_answer.data,
-                                         question=form_answer.question,
-                                         name=form_answer.name,
-                                         value=form_answer.value,
-                                         options=form_answer.options,
-                                         created_by=form_answer.created_by)
+            AnswerHistory.objects.create(
+                data=form_answer.data,
+                question=form_answer.question,
+                name=form_answer.name,
+                value=form_answer.value,
+                options=form_answer.options,
+                created_by=form_answer.created_by,
+            )
             form_answer.delete()
 
     else:
@@ -48,3 +51,5 @@ def seed_approved_data(data):
             options=answer.options,
             created_by=answer.created_by,
         )
+    # refresh_materialized_data()
+    refresh_data_category_views()
