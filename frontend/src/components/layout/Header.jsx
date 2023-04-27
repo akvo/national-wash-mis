@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Row, Col, Space, Button, Menu, Dropdown } from "antd";
-import { UserOutlined } from "@ant-design/icons";
+import { UserOutlined, CaretDownOutlined } from "@ant-design/icons";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { config, store } from "../../lib";
 import { eraseCookieFromAllPaths } from "../../util/date";
@@ -212,6 +212,7 @@ const Header = ({ className = "header", ...props }) => {
                 className="language-switcher"
               >
                 {activeLang}
+                <CaretDownOutlined />
               </Button>
             </Dropdown>
           </Space>
