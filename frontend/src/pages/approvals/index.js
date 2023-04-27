@@ -75,7 +75,7 @@ export const columnsApproval = (text) => [
               : "success"
           }
         >
-          {status_text}
+          {status_text || "Approved"}
         </Tag>
       </span>
     ),
@@ -84,7 +84,11 @@ export const columnsApproval = (text) => [
     title: text?.waitingOnCol,
     dataIndex: "waiting_on",
     key: "waiting_on",
-    render: (_, row) => row.approver.name,
+    render: (_, row) => {
+      return Object?.keys(row?.approver)?.length === 0
+        ? "-"
+        : row.approver.name;
+    },
   },
   {
     title: text?.totalDataCol,
