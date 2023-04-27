@@ -28,7 +28,7 @@ def download(form: Forms, administration_ids):
 
 
 def rearrange_columns(col_names: list):
-    col_question = list(filter(lambda x: HText(x).hasnum, col_names))
+    col_question = [col_name for col_name in col_names if HText(col_name).hasnum]
     if len(col_question) == len(col_names):
         return col_question
     col_names = ["id", "created_at", "created_by", "updated_at",
