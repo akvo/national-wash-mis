@@ -5,9 +5,8 @@ from django.utils import timezone
 from django_q.tasks import async_task
 
 from api.v1.v1_profile.constants import UserRoleTypes
-from api.v1.v1_forms.models import Forms
+from api.v1.v1_forms.models import Forms, Questions
 from api.v1.v1_jobs.constants import JobStatus, JobTypes
-from api.v1.v1_jobs.functions import HText
 from api.v1.v1_jobs.models import Jobs
 from api.v1.v1_jobs.seed_data import seed_excel_data
 from api.v1.v1_jobs.validate_upload import validate
@@ -27,8 +26,7 @@ def download(form: Forms, administration_ids):
     return [d.to_data_frame for d in data]
 
 
-def rearrange_columns(col_names: list):
-    col_question = [col_name for col_name in col_names if HText(col_name).hasnum]
+def rearrange_columns(col_names: list, col_question: list):
     if len(col_question) == len(col_names):
         return col_question
     col_names = ["id", "created_at", "created_by", "updated_at",
@@ -65,7 +63,10 @@ def job_generate_download(job_id, **kwargs):
     form = Forms.objects.get(pk=job.info.get('form_id'))
     data = download(form=form, administration_ids=administration_ids)
     df = pd.DataFrame(data)
-    col_names = rearrange_columns(list(df))
+    questions = Questions.objects.filter(form=form).order_by(
+        "question_group__order", "order").all()
+    col_question = ['{0}|{1}'.format(q.id, q.name) for q in questions]
+    col_names = rearrange_columns(list(df), col_question)
     df = df[col_names]
     writer = pd.ExcelWriter(file_path, engine='xlsxwriter')
     df.to_excel(writer, sheet_name='data', index=False)

@@ -12,12 +12,11 @@ const Header = ({ className = "header", ...props }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const { language } = store.useState((s) => s);
-  const { active: activeLang } = language;
+  const { active: activeLang, langs: languages } = language;
   const text = getTranslation(activeLang, "header");
   // const dashboards = window?.dashboard;
   const powerBIDashboard = window?.powerBIDashboard;
   // const reports = window?.reports;
-  const languages = window.languages;
 
   const signOut = async () => {
     eraseCookieFromAllPaths("AUTH_TOKEN");
@@ -92,9 +91,9 @@ const Header = ({ className = "header", ...props }) => {
 
   const langMenu = (
     <Menu onClick={handleLangClick}>
-      {languages?.map((lg) => (
+      {Object.keys(languages)?.map((lg) => (
         <Menu.Item key={lg} className="dashboard-menu-item">
-          {lg}
+          {languages[lg] || lg}
         </Menu.Item>
       ))}
     </Menu>
@@ -206,15 +205,14 @@ const Header = ({ className = "header", ...props }) => {
                 </Link>
               )}
             </div>
-            <Dropdown overlay={langMenu}>
+            <Dropdown overlay={langMenu} placement="bottomRight">
               <Button
                 type="secondary"
                 size="small"
                 className="language-switcher"
               >
-                <Space>
-                  {activeLang} <CaretDownOutlined />
-                </Space>
+                {activeLang}
+                <CaretDownOutlined />
               </Button>
             </Dropdown>
           </Space>

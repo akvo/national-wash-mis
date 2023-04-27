@@ -1,7 +1,7 @@
 [
   {
     "name": "Household Data",
-    "form_id": 519630048,
+    "form_id": 1680838271306,
     "page": "dashboard",
     "tabs": {
       "overview": {
@@ -125,19 +125,10 @@
             },
             {
               "type": "chart",
-              "title": "Hygiene service levels",
+              "title": "Drinking water service levels",
               "calc": "jmp",
-              "path": "data.hygiene service level",
+              "path": "data.drinking water service level",
               "span": 12
-            }
-          ],
-          [
-            {
-              "type": "chart",
-              "title": "Menstrual Hygiene service levels",
-              "calc": "jmp",
-              "path": "data.menstrual hygiene service level",
-              "span": 24
             }
           ],
           [
@@ -150,17 +141,10 @@
             },
             {
               "type": "chart",
-              "title": "Hygiene Service Level by Period",
+              "title": "Drinking Water Service Level by Period",
               "selector": "period",
               "span": 24,
-              "path": "jmp.hygiene service level"
-            },
-            {
-              "type": "chart",
-              "title": "Menstrual Hygiene Service Level by Period",
-              "selector": "period",
-              "span": 24,
-              "path": "jmp.menstrual hygiene service level"
+              "path": "jmp.drinking water service level"
             }
           ]
         ]
@@ -265,7 +249,7 @@
   },
   {
     "name": "Health Facilities Data",
-    "form_id": 533560002,
+    "form_id": 1681077310330,
     "page": "dashboard",
     "tabs": {
       "overview": {
@@ -429,7 +413,7 @@
   },
   {
     "name": "WASH in Schools Data",
-    "form_id": 563350033,
+    "form_id": 1681103820972,
     "page": "dashboard",
     "tabs": {
       "overview": {
@@ -556,20 +540,6 @@
               "calc": "jmp",
               "path": "data.drinking water service level",
               "span": 12
-            },
-            {
-              "type": "chart",
-              "title": "Environmental cleaning service levels",
-              "calc": "jmp",
-              "path": "data.enviromental cleaning service level",
-              "span": 12
-            },
-            {
-              "type": "chart",
-              "title": "Hygiene (MHM) service levels",
-              "calc": "jmp",
-              "path": "data.hygiene (mhm) service level",
-              "span": 24
             }
           ],
           [
