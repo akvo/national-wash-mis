@@ -51,8 +51,8 @@ Object {
   "language": Object {
     "active": "en",
     "langs": Object {
-      "de": "German",
       "en": "English",
+      "fr": "French",
     },
   },
   "levels": Array [
