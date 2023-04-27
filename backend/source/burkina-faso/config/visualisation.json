@@ -1,30 +1,30 @@
 [
   {
-    "id": 519630048,
+    "id": 1680838271306,
     "title": "Household",
     "type": 1,
     "maps": {
       "marker": {
-        "id": 513690068,
-        "title": "Functional household toilet available",
+        "id": 1680848769594,
+        "title": "Specify the funding source",
         "options": [
           {
-            "name": "No toilet observed"
+            "name": "Household only"
           },
           {
-            "name": "Toilet with inadequate privacy"
+            "name": "Several households"
           },
           {
-            "name": "Toilet not functional"
+            "name": "Partial subsidy"
           },
           {
-            "name": "Functional toilet with privacy"
+            "name": "Total subsidy"
           }
         ]
       },
       "shape": {
-        "id": 519660055,
-        "title": "Age of the household head"
+        "id": 1680848921881,
+        "title": "Year of completion of the work"
       }
     },
     "chartListTitle": "JMP",
@@ -39,24 +39,27 @@
             "score": 15,
             "options": [
               {
-                "question": 492490054,
+                "question": 1680842458339,
                 "option": [
-                  "Flush or pour flush toilet",
-                  "Pit latrine",
-                  "VIP latrine"
+                  "Dry pit latrine",
+                  "Flush/pour flush",
+                  "Ventilated Improved Single pit",
+                  "Ventilated Improved double pit",
+                  "Latrine ECOSAN",
+                  "Latrine SANPLAT",
+                  "Traditional latrine with concrete slab"
                 ]
               },
               {
-                "question": 513690062,
+                "question": 1680849008847,
                 "option": [
                   "No"
                 ]
               },
               {
-                "question": 513690060,
+                "question": 1680849252617,
                 "option": [
-                  "To a treatment plant",
-                  "Buried in an uncovered pit"
+                  "Yes"
                 ]
               }
             ]
@@ -67,15 +70,19 @@
             "color": "#79BE7D",
             "options": [
               {
-                "question": 492490054,
+                "question": 1680842458339,
                 "option": [
-                  "Flush or pour flush toilet",
-                  "Pit latrine",
-                  "VIP latrine"
+                  "Dry pit latrine",
+                  "Flush/pour flush",
+                  "Ventilated Improved Single pit",
+                  "Ventilated Improved double pit",
+                  "Latrine ECOSAN",
+                  "Latrine SANPLAT",
+                  "Traditional latrine with concrete slab"
                 ]
               },
               {
-                "question": 513690062,
+                "question": 1680849008847,
                 "option": [
                   "No"
                 ]
@@ -88,15 +95,19 @@
             "color": "#FDF177",
             "options": [
               {
-                "question": 492490054,
+                "question": 1680842458339,
                 "option": [
-                  "Flush or pour flush toilet",
-                  "Pit latrine",
-                  "VIP latrine"
+                  "Dry pit latrine",
+                  "Flush/pour flush",
+                  "Ventilated Improved Single pit",
+                  "Ventilated Improved double pit",
+                  "Latrine ECOSAN",
+                  "Latrine SANPLAT",
+                  "Traditional latrine with concrete slab"
                 ]
               },
               {
-                "question": 513690062,
+                "question": 1680849008847,
                 "option": [
                   "Yes"
                 ]
@@ -109,9 +120,9 @@
             "color": "#FBD256",
             "options": [
               {
-                "question": 492490054,
+                "question": 1680842458339,
                 "option": [
-                  "Bucket"
+                  "Traditional latrine without concrete slab"
                 ]
               }
             ]
@@ -122,9 +133,9 @@
             "color": "#F1AC2A",
             "options": [
               {
-                "question": 513690068,
+                "question": 1680842458339,
                 "option": [
-                  "No"
+                  "No facility/Bush/Field"
                 ]
               }
             ]
@@ -133,136 +144,79 @@
       },
       {
         "type": "CRITERIA",
-        "title": "Hygiene service level",
+        "title": "Drinking water service level",
         "options": [
           {
             "name": "Basic",
+            "color": "#00b8ec",
             "score": 10,
-            "color": "#753780",
             "options": [
               {
-                "question": 466680043,
+                "question": 1680838540278,
                 "option": [
-                  "Sink",
-                  "Tap",
-                  "Mobile object (bucket/jug/kettle)",
-                  "Tippy tap"
+                  "Private connection",
+                  "Standpipe",
+                  "Autonomous Water Supply Post",
+                  "Borehole",
+                  "Modern wells",
+                  "Protected water source"
                 ]
               },
               {
-                "question": 466680045,
+                "question": 1680840852470,
                 "option": [
-                  "Yes"
-                ]
-              },
-              {
-                "question": 466760036,
-                "option": [
-                  "Yes"
+                  "In the concession"
                 ]
               }
             ]
           },
           {
             "name": "Limited",
-            "score": -1,
-            "color": "#FDF177",
+            "color": "#fff176",
+            "score": 1,
             "options": [
               {
-                "question": 466680043,
+                "question": 1680838540278,
                 "option": [
-                  "Sink",
-                  "Tap",
-                  "Mobile object (bucket/jug/kettle)",
-                  "Tippy tap"
+                  "Private connection",
+                  "Standpipe",
+                  "Autonomous Water Supply Post",
+                  "Borehole",
+                  "Modern wells",
+                  "Protected water source"
                 ]
               },
               {
-                "question": 466680045,
-                "group": "A",
+                "question": 1680840852470,
                 "option": [
-                  "No"
-                ]
-              },
-              {
-                "question": 466760036,
-                "group": "A",
-                "option": [
-                  "No"
+                  "In another concession",
+                  "Out of concession"
                 ]
               }
             ]
           },
           {
-            "name": "No Facility",
-            "score": -2,
-            "color": "#F1AC2A",
-            "options": [
-              {
-                "question": 599400071,
-                "option": [
-                  "No"
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "type": "CRITERIA",
-        "title": "Menstrual hygiene service level",
-        "options": [
-          {
-            "name": "Awareness",
-            "color": "#368541",
-            "score": 15,
-            "options": [
-              {
-                "question": 607250002,
-                "option": [
-                  "Yes"
-                ]
-              }
-            ]
-          },
-          {
-            "name": "Use of menstrual materials",
-            "score": 10,
-            "color": "#79BE7D",
-            "options": [
-              {
-                "question": 524810057,
-                "option": [
-                  "Cloth/reusable sanitary pads",
-                  "Disposable sanitary pads",
-                  "Tampons",
-                  "Menstrual cup"
-                ]
-              }
-            ]
-          },
-          {
-            "name": "Access",
+            "name": "Unimproved",
+            "color": "#ffda46",
             "score": -1,
-            "color": "#FDF177",
             "options": [
               {
-                "question": 524810054,
+                "question": 1680838540278,
                 "option": [
-                  "Yes"
+                  "Traditional well"
                 ]
               }
             ]
           },
           {
-            "name": "Participation",
+            "name": "Surface water",
+            "color": "#FEBC11",
             "score": -2,
-            "color": "#FBD256",
             "options": [
               {
-                "question": 524810053,
+                "question": 1680838540278,
                 "option": [
-                  "Yes"
+                  "River, dam, rivers"
                 ]
               }
             ]
@@ -272,7 +226,7 @@
     ]
   },
   {
-    "id": 533560002,
+    "id": 1681077310330,
     "title": "Health Facilities",
     "type": 1,
     "maps": {
@@ -289,7 +243,7 @@
         ]
       },
       "shape": {
-        "id": 555370007,
+        "id": 1681089641512,
         "title": "Number of usable toilets"
       }
     },
@@ -305,40 +259,43 @@
             "score": 15,
             "options": [
               {
-                "question": 555370004,
+                "question": 1681078512668,
                 "option": [
-                  "Flush / Pour-flush toilet",
-                  "VIP latrine",
-                  "Pit latrine",
-                  "Composting toilet"
+                  "Manual or mechanical flush toilets connected to the sewer network",
+                  "Manual or mechanical flush toilets connected to a pit",
+                  "Ventilated improved single pit",
+                  "Ventilated improved double pit",
+                  "Latrines ECOSAN",
+                  "Latrines SANPLAT"
                 ]
               },
               {
-                "question": 530250002,
+                "question": 1681089528621,
                 "option": [
-                  "Yes"
+                  "Totally functional",
+                  "Partially functional"
                 ]
               },
               {
-                "question": 555370009,
-                "option": [
-                  "Yes"
-                ]
-              },
-              {
-                "question": 555370003,
+                "question": 1681089690924,
                 "option": [
                   "Yes"
                 ]
               },
               {
-                "question": 555370005,
+                "question": 1681089804947,
                 "option": [
                   "Yes"
                 ]
               },
               {
-                "question": 555370006,
+                "question": 1681094634451,
+                "option": [
+                  "Yes"
+                ]
+              },
+              {
+                "question": 1681089868812,
                 "option": [
                   "Yes"
                 ]
@@ -351,40 +308,42 @@
             "color": "#79BE7D",
             "options": [
               {
-                "question": 555370004,
+                "question": 1681078512668,
                 "option": [
-                  "Flush / Pour-flush toilet",
-                  "VIP latrine",
-                  "Pit latrine",
-                  "Composting toilet"
+                  "Manual or mechanical flush toilets connected to the sewer network",
+                  "Manual or mechanical flush toilets connected to a pit",
+                  "Ventilated improved single pit",
+                  "Ventilated improved double pit",
+                  "Latrines ECOSAN",
+                  "Latrines SANPLAT"
                 ]
               },
               {
-                "question": 530250002,
+                "question": 1681089528621,
                 "option": [
-                  "No"
+                  "Broken-down"
                 ]
               },
               {
-                "question": 555370009,
-                "option": [
-                  "No"
-                ]
-              },
-              {
-                "question": 555370003,
+                "question": 1681089690924,
                 "option": [
                   "No"
                 ]
               },
               {
-                "question": 555370005,
+                "question": 1681089804947,
                 "option": [
                   "No"
                 ]
               },
               {
-                "question": 555370006,
+                "question": 1681094634451,
+                "option": [
+                  "No"
+                ]
+              },
+              {
+                "question": 1681089868812,
                 "option": [
                   "No"
                 ]
@@ -397,9 +356,12 @@
             "color": "#FDF177",
             "options": [
               {
-                "question": 611790061,
+                "question": 1681078512668,
                 "option": [
-                  "No"
+                  "Manual or mechanical flush toilets connected to open pipes",
+                  "Traditional latrines without concrete slab",
+                  "No toilet/latrine",
+                  "Other"
                 ]
               }
             ]
@@ -416,13 +378,13 @@
             "score": 15,
             "options": [
               {
-                "question": 551560007,
+                "question": 1681078526084,
                 "option": [
                   "Yes"
                 ]
               },
               {
-                "question": 551560004,
+                "question": 1681090548597,
                 "option": [
                   "Yes"
                 ]
@@ -435,15 +397,15 @@
             "color": "#79BE7D",
             "options": [
               {
-                "question": 551560007,
+                "question": 1681078526084,
                 "option": [
-                  "No, there are hand hygiene facilities at points of care but not functional, or lacking soap and water or alcohol-based hand rub."
+                  "Yes"
                 ]
               },
               {
-                "question": 551560004,
+                "question": 1681090548597,
                 "option": [
-                  "Yes"
+                  "No"
                 ]
               }
             ]
@@ -454,17 +416,9 @@
             "color": "#FDF177",
             "options": [
               {
-                "question": 551560007,
+                "question": 1681078526084,
                 "option": [
-                  "No, there are hand hygiene facilities at points of care but not functional, or lacking soap and water or alcohol-based hand rub.",
-                  "No, no hand hygiene facilities at points of care"
-                ]
-              },
-              {
-                "question": 551560004,
-                "option": [
-                  "No, there are handwashing facilities near the toilets but lacking soap and/or water",
-                  "No, no handwashing facilities near toilets (within 5 meters)"
+                  "No"
                 ]
               }
             ]
@@ -481,27 +435,27 @@
             "score": 15,
             "options": [
               {
-                "question": 541950008,
+                "question": 1681078582119,
                 "option": [
-                  "Yes, waste is segregated into three labelled bins"
+                  "Yes"
                 ]
               },
               {
-                "question": 541950011,
+                "question": 1681091176454,
                 "option": [
                   "Autoclaved",
-                  "Incinerated",
-                  "Buried in lined, protected pit",
-                  "Collected for medical waste disposal off-site"
+                  "Incineration (2 rooms, 850–1,000 \u00b0C)",
+                  "Incineration (other)",
+                  "No treatment, but buried in a protected pit provided for this purpose"
                 ]
               },
               {
-                "question": 541950005,
+                "question": 1681091626938,
                 "option": [
                   "Autoclaved",
-                  "Incinerated",
-                  "Buried in lined, protected pit",
-                  "Collected for medical waste disposal off-site"
+                  "Incineration (2 rooms, 850–1,000 \u00b0C)",
+                  "Incineration (other)",
+                  "No treatment, but buried in a protected pit provided for this purpose"
                 ]
               }
             ]
@@ -512,27 +466,25 @@
             "color": "#79BE7D",
             "options": [
               {
-                "question": 541950008,
+                "question": 1681078582119,
                 "option": [
-                  "No, bins are present but do not meet all requirements or waste is not correctly segregated"
+                  "Only part only (the trash cans are full, contain other waste, or there is only one or two)"
                 ]
               },
               {
-                "question": 541950011,
+                "question": 1681091176454,
                 "option": [
-                  "Autoclaved",
-                  "Incinerated",
-                  "Buried in lined, protected pit",
-                  "Collected for medical waste disposal off-site"
+                  "Burning in a protected pit",
+                  "Open air burning",
+                  "No treatment but collection for out-of-site elimination"
                 ]
               },
               {
-                "question": 541950005,
+                "question": 1681091626938,
                 "option": [
-                  "Autoclaved",
-                  "Incinerated",
-                  "Buried in lined, protected pit",
-                  "Collected for medical waste disposal off-site"
+                  "Burning in a protected pit",
+                  "Open air burning",
+                  "No treatment but collection for out-of-site elimination"
                 ]
               }
             ]
@@ -543,9 +495,9 @@
             "color": "#FDF177",
             "options": [
               {
-                "question": 541950008,
+                "question": 1681078582119,
                 "option": [
-                  "No, bins are not present"
+                  "No"
                 ]
               }
             ]
@@ -562,15 +514,15 @@
             "score": 15,
             "options": [
               {
-                "question": 551560009,
+                "question": 1681078583919,
                 "option": [
                   "Yes"
                 ]
               },
               {
-                "question": 551560005,
+                "question": 1681091866178,
                 "option": [
-                  "Yes, all have been trained"
+                  "Yes, they have all undergone training"
                 ]
               }
             ]
@@ -581,15 +533,15 @@
             "color": "#79BE7D",
             "options": [
               {
-                "question": 551560009,
+                "question": 1681078583919,
                 "option": [
                   "Yes"
                 ]
               },
               {
-                "question": 551560005,
+                "question": 1681091866178,
                 "option": [
-                  "No, some but not all have been trained"
+                  "No, some have undergone training but not all"
                 ]
               }
             ]
@@ -600,16 +552,16 @@
             "color": "#FDF177",
             "options": [
               {
-                "question": 551560009,
+                "question": 1681078583919,
                 "option": [
                   "Yes"
                 ]
               },
               {
-                "question": 551560005,
+                "question": 1681091866178,
                 "option": [
-                  "No, none have been trained",
-                  "No, there are no staff responsible for cleaning"
+                  "No, none has undergone training",
+                  "No, no staff should perform cleaning duties"
                 ]
               }
             ]
@@ -619,12 +571,12 @@
     ]
   },
   {
-    "id": 563350033,
+    "id": 1681103820972,
     "title": "WASH in School",
     "type": 2,
     "maps": {
       "marker": {
-        "id": 551660011,
+        "id": 1681108436898,
         "title": "Main source of drinking water"
       },
       "shape": {
@@ -644,19 +596,24 @@
             "color": "#753780",
             "options": [
               {
-                "question": 551660011,
+                "question": 1681108436898,
                 "option": [
-                  "Piped water supply",
-                  "Protected well/spring",
-                  "Rainwater",
-                  "Unprotected well/spring",
-                  "Packaged bottled water"
+                  "Pipeline connection / Piped water to yard/plot",
+                  "Borehole",
+                  "Modern well",
+                  "Traditional well",
+                  "Rainwater collection",
+                  "Standpipe",
+                  "Packaged bottled water",
+                  "Cart",
+                  "Packaged bottled water",
+                  "Autonomous Water Supply Post"
                 ]
               },
               {
-                "question": 551660013,
+                "question": 1681108776850,
                 "option": [
-                  "Yes"
+                  "Totally Functional"
                 ]
               }
             ]
@@ -667,19 +624,25 @@
             "color": "#FDF177",
             "options": [
               {
-                "question": 551660011,
+                "question": 1681108436898,
                 "option": [
-                  "Piped water supply",
-                  "Protected well/spring",
-                  "Rainwater",
-                  "Unprotected well/spring",
-                  "Packaged bottled water"
+                  "Pipeline connection / Piped water to yard/plot",
+                  "Borehole",
+                  "Modern well",
+                  "Traditional well",
+                  "Rainwater collection",
+                  "Standpipe",
+                  "Packaged bottled water",
+                  "Cart",
+                  "Packaged bottled water",
+                  "Autonomous Water Supply Post"
                 ]
               },
               {
-                "question": 551660013,
+                "question": 1681108776850,
                 "option": [
-                  "No"
+                  "Partially functional",
+                  "Broken-down"
                 ]
               }
             ]
@@ -690,11 +653,11 @@
             "color": "#F1AC2A",
             "options": [
               {
-                "question": 551660011,
+                "question": 1681108436898,
                 "option": [
-                  "Tanker-truck or cart",
                   "Surface water (lake, river, stream)",
-                  "No water source"
+                  "No water source",
+                  "Other"
                 ]
               }
             ]
@@ -711,23 +674,27 @@
             "color": "#753780",
             "options": [
               {
-                "question": 551660029,
+                "question": 1681110563714,
                 "option": [
-                  "Flush / Pour-flush toilets",
-                  "Pit latrines with slab",
-                  "Composting toilets"
+                  "Manual or mechanical flush toilets",
+                  "Ventilated Improved Single pit",
+                  "Ventilated Improved double pit",
+                  "Latrine ECOSAN",
+                  "Latrines SANPLAT",
+                  "Traditional latrines with concrete slab"
                 ]
               },
               {
-                "question": 579840064,
+                "question": 1681111021763,
                 "option": [
                   "Yes"
                 ]
               },
               {
-                "question": 555460003,
+                "question": 1681111261327,
                 "option": [
-                  "Yes"
+                  "Clean",
+                  "Average"
                 ]
               }
             ]
@@ -738,23 +705,26 @@
             "color": "#FDF177",
             "options": [
               {
-                "question": 551660029,
+                "question": 1681110563714,
                 "option": [
-                  "Flush / Pour-flush toilets",
-                  "Pit latrines with slab",
-                  "Composting toilets"
+                  "Manual or mechanical flush toilets",
+                  "Ventilated Improved Single pit",
+                  "Ventilated Improved double pit",
+                  "Latrine ECOSAN",
+                  "Latrines SANPLAT",
+                  "Traditional latrines with concrete slab"
                 ]
               },
               {
-                "question": 579840064,
+                "question": 1681111021763,
                 "option": [
                   "No"
                 ]
               },
               {
-                "question": 555460003,
+                "question": 1681111261327,
                 "option": [
-                  "Yes"
+                  "Dirty"
                 ]
               }
             ]
@@ -765,12 +735,10 @@
             "color": "#F1AC2A",
             "options": [
               {
-                "question": 551660029,
+                "question": 1681110563714,
                 "option": [
-                  "Pit latrines without slab",
-                  "Hanging latrines",
-                  "Bucket latrines",
-                  "No toilets or latrines"
+                  "Traditional latrines without concrete slab",
+                  "Other"
                 ]
               }
             ]
@@ -787,13 +755,13 @@
             "color": "#753780",
             "options": [
               {
-                "question": 539710052,
+                "question": 1681107261379,
                 "option": [
                   "Yes"
                 ]
               },
               {
-                "question": 539710048,
+                "question": 1681111640583,
                 "option": [
                   "Yes, water and soap"
                 ]
@@ -806,15 +774,17 @@
             "color": "#FDF177",
             "options": [
               {
-                "question": 539710052,
+                "question": 1681107261379,
                 "option": [
                   "Yes"
                 ]
               },
               {
-                "question": 539710048,
+                "question": 1681111640583,
                 "option": [
-                  "Water only"
+                  "Water only",
+                  "Soap only",
+                  "No water, no soap"
                 ]
               }
             ]
@@ -825,211 +795,9 @@
             "color": "#F1AC2A",
             "options": [
               {
-                "question": 539710052,
+                "question": 1681107261379,
                 "option": [
                   "No"
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "type": "CRITERIA",
-        "title": "Hygiene (MHM) service level",
-        "options": [
-          {
-            "name": "Awareness",
-            "score": 10,
-            "color": "#753780",
-            "options": [
-              {
-                "question": 605430054,
-                "option": [
-                  "Yes"
-                ]
-              }
-            ]
-          },
-          {
-            "name": "Use menstrual materials",
-            "score": 10,
-            "color": "#FDF177",
-            "options": [
-              {
-                "question": 610930003,
-                "option": [
-                  "Cloth/reusable sanitary pads",
-                  "Disposable sanitary pads",
-                  "Tampons",
-                  "Menstrual cup"
-                ]
-              }
-            ]
-          },
-          {
-            "name": "Access",
-            "score": 10,
-            "color": "#F1AC2A",
-            "options": [
-              {
-                "question": 538000047,
-                "option": [
-                  "Private place / latrine",
-                  "Water",
-                  "Sanitary pads/cloth",
-                  "Soap"
-                ]
-              }
-            ]
-          },
-          {
-            "name": "Participation",
-            "score": 10,
-            "color": "#368541",
-            "options": [
-              {
-                "question": 538000046,
-                "option": [
-                  "Yes"
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "type": "CRITERIA",
-        "title": "Enviromental cleaning service level",
-        "options": [
-          {
-            "name": "Basic",
-            "score": 10,
-            "color": "#753780",
-            "options": [
-              {
-                "question": 545530057,
-                "option": [
-                  "Yes"
-                ]
-              },
-              {
-                "question": 575740004,
-                "option": [
-                  "Yes, all have been trained"
-                ]
-              }
-            ]
-          },
-          {
-            "name": "Limited",
-            "score": -1,
-            "color": "#FDF177",
-            "options": [
-              {
-                "question": 545530057,
-                "option": [
-                  "Yes"
-                ]
-              },
-              {
-                "question": 575740004,
-                "option": [
-                  "No, some but not all have been trained"
-                ]
-              }
-            ]
-          },
-          {
-            "name": "No service",
-            "score": -2,
-            "color": "#F1AC2A",
-            "options": [
-              {
-                "question": 545530057,
-                "option": [
-                  "No"
-                ]
-              },
-              {
-                "question": 575740004,
-                "option": [
-                  "No, none have been trained",
-                  "No, there are no staff responsible for cleaning"
-                ]
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "id": 603050002,
-    "title": "Urban Sanitation",
-    "type": 2,
-    "chartListTitle": "JMP",
-    "charts": [
-      {
-        "type": "CRITERIA",
-        "title": "Main type of Sanitation",
-        "options": [
-          {
-            "name": "Onsite sanitation",
-            "score": 1,
-            "color": "#36AE7B",
-            "options": [
-              {
-                "question": 603080002,
-                "option": [
-                  "pit latrines",
-                  "Septic tanks"
-                ]
-              }
-            ]
-          },
-          {
-            "name": "Off site sanitation",
-            "score": -1,
-            "color": "#EB5353",
-            "options": [
-              {
-                "question": 603080002,
-                "option": [
-                  "Sewarage system"
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "type": "CRITERIA",
-        "title": "Sludge Transported",
-        "options": [
-          {
-            "name": "Yes",
-            "score": 1,
-            "color": "#36AE7B",
-            "options": [
-              {
-                "question": 587530063,
-                "option": [
-                  "through the sewer system",
-                  "Using tracks"
-                ]
-              }
-            ]
-          },
-          {
-            "name": "No",
-            "score": -1,
-            "color": "#EB5353",
-            "options": [
-              {
-                "question": 587530063,
-                "option": [
-                  "Its not transported to the treatment plant"
                 ]
               }
             ]

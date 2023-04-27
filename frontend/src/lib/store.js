@@ -12,7 +12,7 @@ const defaultUIState = {
   },
   language: {
     active: "en",
-    langs: { en: "English", de: "German" },
+    langs: { en: "English", fr: "French" },
   },
   administration: [config.fn.administration(1)],
   selectedAdministration: null,
