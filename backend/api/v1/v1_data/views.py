@@ -1,5 +1,4 @@
 # Create your views here.
-from math import ceil
 from collections import defaultdict
 from datetime import datetime, date, timedelta
 from wsgiref.util import FileWrapper
@@ -23,7 +22,6 @@ from drf_spectacular.utils import (
 from rest_framework import serializers, status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.generics import get_object_or_404
-from rest_framework.pagination import PageNumberPagination
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -82,7 +80,6 @@ from api.v1.v1_forms.models import Forms, Questions, ViewJMPCriteria
 from api.v1.v1_profile.models import Administration, Levels
 from api.v1.v1_users.models import SystemUser
 from api.v1.v1_profile.constants import UserRoleTypes
-from nwmis.settings import REST_FRAMEWORK
 from utils.custom_permissions import (
     IsSuperAdmin,
     IsAdmin,
@@ -93,6 +90,7 @@ from utils.custom_permissions import (
 from utils.custom_serializer_fields import validate_serializers_message
 from utils.default_serializers import DefaultResponseSerializer
 from utils.export_form import generate_excel
+from utils.custom_pagination import Pagination
 
 period_length = 60 * 15
 
@@ -176,8 +174,6 @@ class FormDataAddListView(APIView):
             )
             filter_data["pk__in"] = data_ids
 
-        page_size = REST_FRAMEWORK.get("PAGE_SIZE")
-
         the_past = datetime.now() - timedelta(days=10 * 365)
         queryset = (
             form.form_form_data.filter(**filter_data)
@@ -185,19 +181,15 @@ class FormDataAddListView(APIView):
             .order_by("-last_updated", "-created")
         )
 
-        paginator = PageNumberPagination()
+        paginator = Pagination()
         instance = paginator.paginate_queryset(queryset, request)
-        data = {
-            "current": int(request.GET.get("page", "1")),
-            "total": queryset.count(),
-            "total_page": ceil(queryset.count() / page_size),
-            "data": ListFormDataSerializer(
-                instance=instance,
-                context={"questions": serializer.validated_data.get("questions")},
-                many=True,
-            ).data,
-        }
-        return Response(data, status=status.HTTP_200_OK)
+        # Serialize the paginated queryset and return it in the response
+        serializer = ListFormDataSerializer(
+            instance=instance,
+            context={"questions": serializer.validated_data.get("questions")},
+            many=True,
+        )
+        return paginator.get_paginated_response(serializer.data)
 
     @extend_schema(
         request=SubmitFormSerializer,
@@ -313,7 +305,8 @@ class FormDataAddListView(APIView):
             data.updated = timezone.now()
             data.updated_by = user
             data.save()
-            async_task("api.v1.v1_data.functions.refresh_materialized_data")
+            # async_task("api.v1.v1_data.functions.refresh_materialized_data")
+            async_task("api.v1.v1_category.functions.refresh_data_category_views")
             return Response(
                 {"message": "direct update success"}, status=status.HTTP_200_OK
             )
@@ -883,7 +876,6 @@ def list_pending_batch(request, version):
             status=status.HTTP_400_BAD_REQUEST,
         )
     user: SystemUser = request.user
-    page_size = REST_FRAMEWORK.get("PAGE_SIZE")
 
     subordinate = serializer.validated_data.get("subordinate")
     approved = serializer.validated_data.get("approved")
@@ -902,24 +894,18 @@ def list_pending_batch(request, version):
             )
     queryset = queryset.values_list("batch_id", flat=True).order_by("-id")
 
-    paginator = PageNumberPagination()
+    paginator = Pagination()
     instance = paginator.paginate_queryset(queryset, request)
 
     values = PendingDataBatch.objects.filter(id__in=list(instance)).order_by("-created")
-
-    data = {
-        "current": int(request.GET.get("page", "1")),
-        "total": queryset.count(),
-        "total_page": ceil(queryset.count() / page_size),
-        "batch": ListPendingDataBatchSerializer(
-            instance=values,
-            context={
-                "user": user,
-            },
-            many=True,
-        ).data,
-    }
-    return Response(data, status=status.HTTP_200_OK)
+    serializer = ListPendingDataBatchSerializer(
+        instance=values,
+        context={
+            "user": user,
+        },
+        many=True,
+    )
+    return paginator.get_paginated_response(serializer.data)
 
 
 @extend_schema(
@@ -1035,16 +1021,10 @@ class BatchView(APIView):
         queryset = PendingDataBatch.objects.filter(
             user=request.user, approved=serializer.validated_data.get("approved")
         ).order_by("-id")
-        paginator = PageNumberPagination()
+        paginator = Pagination()
         instance = paginator.paginate_queryset(queryset, request)
-        page_size = REST_FRAMEWORK.get("PAGE_SIZE")
-        data = {
-            "current": int(request.GET.get("page", "1")),
-            "total": queryset.count(),
-            "total_page": ceil(queryset.count() / page_size),
-            "data": ListBatchSerializer(instance=instance, many=True).data,
-        }
-        return Response(data, status=status.HTTP_200_OK)
+        serializer = ListBatchSerializer(instance=instance, many=True)
+        return paginator.get_paginated_response(serializer.data)
 
     @extend_schema(
         request=CreateBatchSerializer(),
@@ -1183,22 +1163,14 @@ class PendingFormDataView(APIView):
                 status=status.HTTP_400_BAD_REQUEST,
             )
 
-        page_size = REST_FRAMEWORK.get("PAGE_SIZE")
-
         queryset = form.pending_form_form_data.filter(
             created_by=request.user, batch__isnull=True
         ).order_by("-created")
 
-        paginator = PageNumberPagination()
+        paginator = Pagination()
         instance = paginator.paginate_queryset(queryset, request)
-
-        data = {
-            "current": int(request.GET.get("page", "1")),
-            "total": queryset.count(),
-            "total_page": ceil(queryset.count() / page_size),
-            "data": ListPendingFormDataSerializer(instance=instance, many=True).data,
-        }
-        return Response(data, status=status.HTTP_200_OK)
+        serializer = ListPendingFormDataSerializer(instance=instance, many=True)
+        return paginator.get_paginated_response(serializer.data)
 
     @extend_schema(
         request=SubmitFormDataAnswerSerializer(many=True),
