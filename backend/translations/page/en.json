@@ -98,7 +98,6 @@
     "updateOrganisation": "Update Organization"
   },
   "users": {
-    "updateUser": "Update User",
     "successDeleted": "User deleted",
     "usersLoadFail": "Could not load users",
     "userDeleteFail": "Could not delete user",
@@ -141,6 +140,7 @@
     "existingApproverDescription": "Please update the setup in manage validation tree or remove these forms for the current user",
     "informUser": "Inform User for Changes",
     "addUser": "Add User",
+    "updateUser": "Update User",
     "editUser": "Edit User"
   },
   "approvals": {

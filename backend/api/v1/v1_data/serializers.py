@@ -532,7 +532,6 @@ class ListPendingDataBatchSerializer(serializers.ModelSerializer):
             .first()
         )
         if approval:
-
             data["id"] = approval.user.pk
             data["name"] = approval.user.get_full_name()
             data["status"] = approval.status
@@ -551,12 +550,29 @@ class ListPendingDataBatchSerializer(serializers.ModelSerializer):
                     "administration": rejected.user.user_access.administration.name,
                 }
         else:
-            approval = instance.batch_approval.get(user=user)
-            data["id"] = approval.user.pk
-            data["name"] = approval.user.get_full_name()
-            data["status"] = approval.status
-            data["status_text"] = DataApprovalStatus.FieldStr.get(approval.status)
-            data["allow_approve"] = True
+            a1 = instance.batch_approval.filter(
+                user=user,
+                status__in=[
+                    DataApprovalStatus.pending,
+                    DataApprovalStatus.rejected,
+                ],
+            ).first()
+            # down one level if the current user has approved
+            a2 = instance.batch_approval.filter(
+                level__level=user.user_access.administration.level.level - 1,
+                status__in=[
+                    DataApprovalStatus.pending,
+                    DataApprovalStatus.rejected,
+                ],
+            ).first()
+            approval = a1 if a1 else a2
+            if approval:
+                data["id"] = approval.user.pk
+                data["name"] = approval.user.get_full_name()
+                data["status"] = approval.status
+                data["status_text"] = DataApprovalStatus.FieldStr.get(approval.status)
+                data["allow_approve"] = True
+                data["check"] = user.user_access.administration.level.level - 1
 
         return data
 

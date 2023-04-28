@@ -322,7 +322,7 @@ const UploadDetail = ({ record, setReload }) => {
 
   const ApproverDetail = () => (
     <Table
-      columns={columnsApprover}
+      columns={columnsApprover(text)}
       dataSource={record.approvers?.map((r, ri) => ({
         key: ri,
         ...r,

@@ -100,7 +100,6 @@
     "updateOrganisation": "Mettre à jour l'organisation"
   },
   "users": {
-    "updateUser": "Mettre à jour l'utilisateur",
     "successDeleted": "Utilisateur supprimé",
     "usersLoadFail": "Impossible de charger les utilisateurs",
     "userDeleteFail": "Impossible de supprimer l'utilisateur",
@@ -143,6 +142,7 @@
     "existingApproverDescription": "Veuillez mettre à jour la configuration au niveau de la gestion de l'arbre de validation ou supprimer ces formulaires pour l'utilisation actuelle.",
     "informUser": "Informer l'utilisateur des modifications",
     "addUser": "Ajouter l'utilisateur",
+    "updateUser": "Mettre à jour l'utilisateur",
     "editUser": "Modifier l'utilisateur"
   },
   "approvals": {
