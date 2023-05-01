@@ -62,7 +62,7 @@
   "bannerSubT1": "Système d'information de gestion en temps réel (NWMIS)",
   "bannerSubT2": "Estimations d'assainissement et d'hygiène mises à jour à travers le Burkina Faso",
   "batchAdmCol": "Administration",
-  "batchFormCol": "Former",
+  "batchFormCol": "Formulaire",
   "batchNameCol": "Nom de lot",
   "batchPopContent": "Il n'y a pas d'approverse pour ces données",
   "batchPopTitle": "Pas d'approbateur",
@@ -102,5 +102,7 @@
   "uploadDataCan1": "Télécharger le modèle de téléchargement",
   "uploadDataCan2": "En vrac Télécharger de nouvelles données",
   "uploadDataCan3": "Mise à jour en vrac Données existantes",
-  "validationSetup": "Gérer la configuration de la validation des données"
+  "validationSetup": "Gérer la configuration de la validation des données",
+  "selectForm": "Sélectionner le Formulaire",
+  "selectCounty": "Sélectionner le Comté"
 }
