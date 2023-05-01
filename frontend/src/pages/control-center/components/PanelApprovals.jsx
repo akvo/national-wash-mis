@@ -22,7 +22,7 @@ const PanelApprovals = () => {
 
   const text = getTranslation(activeLang, "approvals");
 
-  const approvalsText = approvalsLiteral(authUser);
+  const approvalsText = approvalsLiteral(authUser, text);
 
   useEffect(() => {
     setLoading(true);

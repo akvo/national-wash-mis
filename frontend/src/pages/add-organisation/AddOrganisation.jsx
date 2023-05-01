@@ -127,9 +127,9 @@ const AddOrganisation = () => {
                 placeholder={text.selectAttributes}
                 mode="multiple"
                 allowClear
-                loading={!organisationAttributes.length || loading}
+                loading={!organisationAttributes()?.length || loading}
               >
-                {organisationAttributes?.map((o, oi) => (
+                {organisationAttributes(text)?.map((o, oi) => (
                   <Option key={`org-attr-${oi}`} value={o.id}>
                     {o.name}
                   </Option>

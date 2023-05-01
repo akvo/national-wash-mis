@@ -80,8 +80,16 @@ const AddUser = () => {
 
   const allowedRoles = useMemo(() => {
     const lookUp = authUser.role?.id === 2 ? 3 : authUser.role?.id || 4;
-    return config.roles.filter((r) => r.id >= lookUp);
-  }, [authUser]);
+    return config.roles(text).filter((r) => r.id >= lookUp);
+    /* eslint-disable react-hooks/exhaustive-deps */
+  }, [
+    authUser,
+    text?.superAdminDesc,
+    text?.countyAdminDesc,
+    text?.dataApproverDesc,
+    text?.dataEntryDesc,
+    text?.institutionalUserDesc,
+  ]);
 
   const onFinish = (values) => {
     if ([3, 5].includes(values.role)) {
@@ -387,7 +395,7 @@ const AddUser = () => {
           <div className="form-row">
             <Form.Item
               name="role"
-              label="Role"
+              label={text?.role}
               rules={[{ required: true, message: text.valRole }]}
             >
               <Select
@@ -405,7 +413,7 @@ const AddUser = () => {
             </Form.Item>
             {role && (
               <span className="role-description">
-                {config.roles.find((r) => r.id === role)?.description}
+                {config.roles(text).find((r) => r.id === role)?.description}
               </span>
             )}
           </div>
@@ -477,7 +485,7 @@ const AddUser = () => {
               ) : (
                 <Form.Item
                   name="forms"
-                  label="Questionnaires"
+                  label={text?.questionnaires}
                   rules={[{ required: false }]}
                 >
                   <Select
@@ -550,11 +558,11 @@ const AddUser = () => {
         <Table
           columns={[
             {
-              title: "Form",
+              title: text?.formCol,
               dataIndex: "form",
             },
             {
-              title: "Administration",
+              title: text?.administration,
               dataIndex: "administration",
             },
           ]}

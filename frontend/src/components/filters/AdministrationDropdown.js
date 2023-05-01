@@ -4,6 +4,7 @@ import { Select, Space } from "antd";
 import { useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 import { store, config } from "../../lib";
+import { getTranslation } from "../../util";
 
 const AdministrationDropdown = ({
   loading = false,
@@ -16,7 +17,11 @@ const AdministrationDropdown = ({
   ...props
 }) => {
   const { pathname } = useLocation();
-  const { user, administration, isLoggedIn } = store.useState((state) => state);
+  const { user, administration, isLoggedIn, language } = store.useState(
+    (state) => state
+  );
+  const { active: activeLang } = language || {};
+  const text = getTranslation(activeLang);
 
   const public_state = config.allowedGlobal
     .map((x) => pathname.includes(x))
@@ -66,7 +71,7 @@ const AdministrationDropdown = ({
                     ""
                   )}
                   <Select
-                    placeholder={`Select ${region?.childLevelName}`}
+                    placeholder={text?.selectCounty}
                     style={{ width: width }}
                     onChange={(e) => {
                       handleChange(e, regionIdx);

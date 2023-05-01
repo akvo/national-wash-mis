@@ -34,7 +34,7 @@ const Approvals = () => {
       link: "/control-center",
     },
     {
-      title: approvalsLiteral(user),
+      title: approvalsLiteral(user, text),
     },
   ];
 

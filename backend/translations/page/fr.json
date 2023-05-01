@@ -143,7 +143,9 @@
     "informUser": "Informer l'utilisateur des modifications",
     "addUser": "Ajouter l'utilisateur",
     "updateUser": "Mettre à jour l'utilisateur",
-    "editUser": "Modifier l'utilisateur"
+    "editUser": "Modifier l'utilisateur",
+    "role": "Rôle",
+    "formCol": "Formulaire"
   },
   "approvals": {
     "approvalsTab1": "Mon demande en attente",
@@ -163,7 +165,7 @@
     "descriptionText1": "Voir les approbations de données en attente en attente de votre approbation",
     "descriptionText2": "Voir les approbations en attente de vos approbateurs subordonnés",
     "descriptionText3": "Attribuer des approbateurs subordonnés",
-    "formCol": "Former",
+    "formCol": "Formulaire",
     "locationCol": "Emplacement",
     "statusCol": "Statut",
     "submissionCol": "Soumission",
@@ -216,7 +218,8 @@
     "formSuccessTitle": "Merci pour la soumission",
     "formSuccessSubTitle": "Sachez que ces données n'ont pas été envoyées pour approbation. Si vous êtes prêt à soumettre pour approbation, veuillez créer un lot et envoyer le à l'approbateur.",
     "formSuccessSubTitleForAdmin": "Sachez que les données soumises par le rôle SUPER ADMIN ne passeront pas par le flux d'approbation et ne seront pas enregistrées en tant que données approuvées.",
-    "fetchingForm": "Forme de récupération .."
+    "fetchingForm": "Forme de récupération ..",
+    "manageDataTitle": "Gérer les données"
   },
   "home": {
     "panelHeader": "Explorez les détails du comté",

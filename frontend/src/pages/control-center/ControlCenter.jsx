@@ -132,7 +132,7 @@ const ControlCenter = () => {
     if (!authUser?.role_detail) {
       return [];
     }
-    const panelOrder = roles.find(
+    const panelOrder = roles().find(
       (r) => r.id === authUser?.role_detail?.id
     )?.control_center_order;
     const panelByAccess = panels.filter((p) =>

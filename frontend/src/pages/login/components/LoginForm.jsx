@@ -24,9 +24,9 @@ const LoginForm = () => {
       })
       .then((res) => {
         api.setToken(res.data.token);
-        const role_details = config.roles.find(
-          (r) => r.id === res.data.role.id
-        );
+        const role_details = config
+          .roles()
+          .find((r) => r.id === res.data.role.id);
         const designation = config.designations.find(
           (d) => d.id === parseInt(res.data?.designation)
         );

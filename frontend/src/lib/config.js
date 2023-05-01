@@ -4,27 +4,27 @@ const config = {
   siteTitle: "RUSH",
   siteSubTitle: "Rural Urban Sanitation and Hygiene",
   siteLogo: "/logo.png",
-  trainedStatus: [
+  trainedStatus: (text = null) => [
     {
-      label: "Trained",
+      label: text?.trained || "Trained",
       value: true,
     },
     {
-      label: "Not Trained",
+      label: text?.notTrained || "Not Trained",
       value: false,
     },
   ],
-  organisationAttributes: [
+  organisationAttributes: (text = null) => [
     {
       id: 1,
-      name: "User Organisation",
+      name: text?.userOrg || "User Organisation",
     },
     {
       id: 2,
-      name: "Partnership Organisation",
+      name: text?.partnershipOrg || "Partnership Organisation",
     },
   ],
-  roles: [
+  roles: (text = null) => [
     {
       id: 1,
       name: "Super Admin",
@@ -45,6 +45,7 @@ const config = {
       ],
       administration_level: [1],
       description:
+        text?.superAdminDesc ||
         "Overall national administrator of the RUSH. Assigns roles to all county admins",
       control_center_order: [
         "manage-user",
@@ -71,6 +72,7 @@ const config = {
       ],
       administration_level: [2],
       description:
+        text?.countyAdminDesc ||
         "Overall County administrator of the RUSH. Assigns roles to all sub county RUSH admins (approvers) in the county under jusridistion.",
       control_center_order: [
         "manage-user",
@@ -94,6 +96,7 @@ const config = {
       ],
       administration_level: [3, 4],
       description:
+        text?.dataApproverdDesc ||
         "Gives final approval to data submitted from the area under jurisdiction. Can edit or return data for correction.",
       control_center_order: ["approvals", "manage-data"],
     },
@@ -111,6 +114,7 @@ const config = {
       ],
       administration_level: [4],
       description:
+        text?.dataEntryDesc ||
         "Overall role to collect data from community/village assigned to them",
       control_center_order: ["submission", "manage-data"],
     },
@@ -120,30 +124,32 @@ const config = {
       filter_form: false,
       page_access: ["profile", "visualisation", "reports"],
       administration_level: [1, 2, 3, 4],
-      description: "Can view and download data from all counties",
+      description:
+        text?.institutionalUserDesc ||
+        "Can view and download data from all counties",
       control_center_order: [],
     },
   ],
   checkAccess: (roles, page) => {
     return roles?.page_access?.includes(page);
   },
-  approvalsLiteral: ({ role, administration, isButton = false }) => {
+  approvalsLiteral: ({ role, administration, isButton = false }, text) => {
     if (role.id === 1 || role.id === 2) {
-      return isButton ? "Certify" : "Certification";
+      return isButton ? text?.certify : text?.certification;
     }
     if (
       role.id === 3 &&
       (administration.level === 0 || administration.level === 1)
     ) {
-      return isButton ? "Certify" : "Certification";
+      return isButton ? text?.certify : text?.certification;
     }
     if (role.id === 3 && administration.level === 2) {
-      return isButton ? "Approve" : "Approvals";
+      return isButton ? text?.approve : text?.approvals;
     }
     if (role.id === 3 && administration.level === 3) {
-      return isButton ? "Verify" : "Verification";
+      return isButton ? text?.verify : text?.verification;
     }
-    return isButton ? "Approve" : "Approvals";
+    return isButton ? text?.approve : text?.approvals;
   },
   designations: [
     {

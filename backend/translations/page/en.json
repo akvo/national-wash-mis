@@ -141,7 +141,9 @@
     "informUser": "Inform User for Changes",
     "addUser": "Add User",
     "updateUser": "Update User",
-    "editUser": "Edit User"
+    "editUser": "Edit User",
+    "role": "Role",
+    "formCol": "Form"
   },
   "approvals": {
     "approvalsTab1": "My Pending",
@@ -214,7 +216,8 @@
     "formSuccessTitle": "Thank you for the submission",
     "formSuccessSubTitle": "Do note that this data has NOT been sent for approval. If you are ready to send the submissions for approval, please create a batch and send to the approver",
     "formSuccessSubTitleForAdmin": "Do note that the data submitted by SUPER ADMIN role will not go through the approval flow and recorded as approved data",
-    "fetchingForm": "Fetching form.."
+    "fetchingForm": "Fetching form..",
+    "manageDataTitle": "Manage Data"
   },
   "home": {
     "panelHeader": "Explore county-wise details",

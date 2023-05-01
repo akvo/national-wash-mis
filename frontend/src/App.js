@@ -215,9 +215,9 @@ const App = () => {
             headers: { Authorization: `Bearer ${cookies.AUTH_TOKEN}` },
           })
           .then((res) => {
-            const role_details = config.roles.find(
-              (r) => r.id === res.data.role.id
-            );
+            const role_details = config
+              .roles()
+              .find((r) => r.id === res.data.role.id);
             const designation = config.designations.find(
               (d) => d.id === parseInt(res.data?.designation)
             );
