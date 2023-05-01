@@ -269,7 +269,7 @@ class PendingDataTestCase(TestCase):
         call_command('fake_pending_data_seeder', '-r', 5, '-t', True, '-b', 5)
         token = user_response.json().get('token')
         header = {'HTTP_AUTHORIZATION': f'Bearer {token}'}
-        response = self.client.get('/api/v1/batch/summary/{0}'.format(
+        response = self.client.get('/api/v1/batch/summary/{0}?lang=en'.format(
             PendingDataBatch.objects.first().id),
             follow=True,
             **header)
