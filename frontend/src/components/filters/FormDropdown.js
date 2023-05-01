@@ -4,6 +4,7 @@ import { Select } from "antd";
 import PropTypes from "prop-types";
 
 import { store } from "../../lib";
+import { getTranslation } from "../../util";
 
 const FormDropdown = ({
   loading: parentLoading = false,
@@ -11,8 +12,12 @@ const FormDropdown = ({
   hidden = false,
   ...props
 }) => {
-  const { forms, selectedForm, loadingForm } = store.useState((state) => state);
+  const { forms, selectedForm, loadingForm, language } = store.useState(
+    (state) => state
+  );
   const filterForms = title ? window.forms : forms;
+  const { active: activeLang } = language || {};
+  const text = getTranslation(activeLang);
 
   const handleChange = useCallback((e) => {
     if (!e) {
@@ -39,7 +44,7 @@ const FormDropdown = ({
   if (filterForms && !hidden) {
     return (
       <Select
-        placeholder={`Select Form`}
+        placeholder={text?.selectForm}
         style={{ width: title ? "100%" : 160 }}
         onChange={(e) => {
           handleChange(e);
