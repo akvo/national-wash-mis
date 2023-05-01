@@ -387,7 +387,7 @@ const AddUser = () => {
           <div className="form-row">
             <Form.Item
               name="role"
-              label="Role"
+              label={text?.role}
               rules={[{ required: true, message: text.valRole }]}
             >
               <Select
@@ -477,7 +477,7 @@ const AddUser = () => {
               ) : (
                 <Form.Item
                   name="forms"
-                  label="Questionnaires"
+                  label={text?.questionnaires}
                   rules={[{ required: false }]}
                 >
                   <Select
@@ -550,11 +550,11 @@ const AddUser = () => {
         <Table
           columns={[
             {
-              title: "Form",
+              title: text?.formCol,
               dataIndex: "form",
             },
             {
-              title: "Administration",
+              title: text?.administration,
               dataIndex: "administration",
             },
           ]}
