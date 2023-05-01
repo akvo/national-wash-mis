@@ -16,7 +16,7 @@ const filterFormByAssigment = (profile = {}) => {
   if (!Object.keys(profile).length) {
     return window.forms;
   }
-  const role_details = config.roles.find((r) => r.id === profile.role.id);
+  const role_details = config.roles().find((r) => r.id === profile.role.id);
   // filter form by config
   let filterForm = role_details.filter_form
     ? window.forms.filter((x) => x.type === role_details.filter_form)

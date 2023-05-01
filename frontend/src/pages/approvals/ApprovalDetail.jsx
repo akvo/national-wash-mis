@@ -191,7 +191,7 @@ const ApprovalDetail = ({
       return;
     }
     if (e === "data-summary") {
-      setColumns(summaryColumns);
+      setColumns(summaryColumns(text));
     } else {
       setExpandedRowKeys([]);
       setColumns(columnsRawData(text));
@@ -208,7 +208,7 @@ const ApprovalDetail = ({
           const data = res.data.map((r, i) => {
             return { key: `Q-${i}`, ...r };
           });
-          setColumns(summaryColumns);
+          setColumns(summaryColumns(text));
           setValues(data);
           setLoading(false);
         })
@@ -221,7 +221,7 @@ const ApprovalDetail = ({
       api
         .get(`/form-pending-data-batch/${record.id}`)
         .then((res) => {
-          setColumns(columnsRawData);
+          setColumns(columnsRawData(text));
           setRawValues(
             res.data.map((x) => ({
               key: x.id,
@@ -237,7 +237,17 @@ const ApprovalDetail = ({
           setLoading(false);
         });
     }
-  }, [selectedTab, record]);
+    /* eslint-disable react-hooks/exhaustive-deps */
+  }, [
+    selectedTab,
+    record,
+    text.name,
+    text.administration,
+    text.dateCol,
+    text.createdByCol,
+    text.QuestionCol,
+    text.valueCol,
+  ]);
 
   const updateCell = (key, parentId, value) => {
     let prev = JSON.parse(JSON.stringify(rawValues));
@@ -507,7 +517,7 @@ const ApprovalDetail = ({
             : false
         }
       />
-      <h3>Notes {"&"} Feedback</h3>
+      <h3>{text?.notesNFeedback}</h3>
       {!!comments.length && (
         <div className="comments">
           <List
@@ -560,7 +570,7 @@ const ApprovalDetail = ({
               onClick={() => handleApprove(record.id, 2)}
               disabled={!approve}
             >
-              {approvalsLiteral({ ...authUser, isButton: true })}
+              {approvalsLiteral({ ...authUser, isButton: true }, text)}
             </Button>
           </Space>
         </Col>

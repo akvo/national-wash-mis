@@ -42,7 +42,7 @@ const Forms = () => {
       title:
         authUser?.role?.value === "Data Entry Staff"
           ? authUser.name
-          : "Manage Data",
+          : text.manageDataTitle,
       link:
         authUser?.role?.value === "Data Entry Staff"
           ? "/profile"

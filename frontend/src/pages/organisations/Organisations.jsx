@@ -70,7 +70,8 @@ const Organisations = () => {
           ? attributes
               .map(
                 (a) =>
-                  organisationAttributes.find((o) => o.id === a.type_id)?.name
+                  organisationAttributes(text)?.find((o) => o.id === a.type_id)
+                    ?.name
               )
               .join(", ")
           : "-",
@@ -221,7 +222,7 @@ const Organisations = () => {
               onChange={setAttributes}
               allowClear
             >
-              {organisationAttributes?.map((o, oi) => (
+              {organisationAttributes(text)?.map((o, oi) => (
                 <Option key={`org-${oi}`} value={o.id}>
                   {o.name}
                 </Option>
