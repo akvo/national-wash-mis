@@ -517,7 +517,7 @@ const ApprovalDetail = ({
             : false
         }
       />
-      <h3>Notes {"&"} Feedback</h3>
+      <h3>{text?.notesNFeedback}</h3>
       {!!comments.length && (
         <div className="comments">
           <List
@@ -570,7 +570,7 @@ const ApprovalDetail = ({
               onClick={() => handleApprove(record.id, 2)}
               disabled={!approve}
             >
-              {approvalsLiteral({ ...authUser, isButton: true })}
+              {approvalsLiteral({ ...authUser, isButton: true }, text)}
             </Button>
           </Space>
         </Col>
