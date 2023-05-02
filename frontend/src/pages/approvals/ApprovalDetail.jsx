@@ -337,7 +337,7 @@ const ApprovalDetail = ({
   const fetchData = (recordId, questionGroups) => {
     setDataLoading(recordId);
     api
-      .get(`pending-data/${recordId}`)
+      .get(`pending-data/${recordId}?lang=${activeLang}`)
       .then((res) => {
         const data = questionGroups.map((qg) => {
           return {
@@ -346,8 +346,14 @@ const ApprovalDetail = ({
               const findValue = res.data.find(
                 (d) => d.question === q.id
               )?.value;
+              const qname =
+                activeLang === "en"
+                  ? q.name
+                  : q?.translations?.find((ts) => ts?.language === activeLang)
+                      ?.name || q?.name;
               return {
                 ...q,
+                name: qname,
                 value: findValue || findValue === 0 ? findValue : null,
                 history:
                   res.data.find((d) => d.question === q.id)?.history || false,
