@@ -204,6 +204,7 @@ class FormDataListQuestionSerializer(serializers.ModelSerializer):
     option = serializers.SerializerMethodField()
     type = serializers.SerializerMethodField()
     attributes = serializers.SerializerMethodField()
+    translations = serializers.ReadOnlyField()
 
     @extend_schema_field(ListOptionSerializer(many=True))
     def get_option(self, instance: Questions):
@@ -246,7 +247,7 @@ class FormDataListQuestionSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'form', 'question_group', 'name', 'text', 'order', 'meta',
             'api', 'type', 'required', 'rule', 'option', 'dependency',
-            'attributes'
+            'attributes', 'translations'
         ]
 
 
