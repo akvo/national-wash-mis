@@ -195,7 +195,7 @@ const UploadDetail = ({ record, setReload }) => {
           setLoading(false);
         });
     }
-  }, [selectedTab, record]);
+  }, [selectedTab, record, activeLang]);
 
   const updateCell = (key, parentId, value) => {
     let prev = JSON.parse(JSON.stringify(rawValues));
