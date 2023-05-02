@@ -79,7 +79,7 @@ class UpdatePendingDataTestCase(TestCase):
 
         # get list of pending data
         data = self.client.get(
-            '/api/v1/form-pending-data/{0}'.format(form_id),
+            '/api/v1/form-pending-data/{0}?lang=en'.format(form_id),
             **{'HTTP_AUTHORIZATION': f'Bearer {token}'})
         self.assertEqual(data.status_code, 200)
         data = data.json()
