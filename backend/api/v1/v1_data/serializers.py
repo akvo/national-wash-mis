@@ -462,6 +462,24 @@ class ListPendingDataAnswerSerializer(serializers.ModelSerializer):
 
     @extend_schema_field(OpenApiTypes.ANY)
     def get_value(self, instance: Answers):
+        lang = self.context.get("lang", "en")
+        if (
+            instance.question.type != QuestionTypes.geo
+            and lang != "en"
+            and instance.options
+        ):
+            options = []
+            for opt in instance.options:
+                fo = QuestionOptions.objects.filter(name=opt).first()
+                if fo and fo.translations:
+                    ft = list(
+                        filter(
+                            lambda t: t["language"] == lang, fo.translations
+                        )
+                    ).pop()
+                    if ft:
+                        options.append(ft["name"])
+            return options if len(options) else instance.options
         return get_answer_value(instance)
 
     class Meta:
