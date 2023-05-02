@@ -161,7 +161,7 @@ const UploadDetail = ({ record, setReload }) => {
     setLoading(true);
     if (selectedTab === "data-summary") {
       api
-        .get(`/batch/summary/${record.id}`)
+        .get(`/batch/summary/${record.id}?lang=${activeLang}`)
         .then((res) => {
           const data = res.data.map((r, i) => {
             return { key: `Q-${i}`, ...r };
@@ -195,7 +195,7 @@ const UploadDetail = ({ record, setReload }) => {
           setLoading(false);
         });
     }
-  }, [selectedTab, record]);
+  }, [selectedTab, record, activeLang]);
 
   const updateCell = (key, parentId, value) => {
     let prev = JSON.parse(JSON.stringify(rawValues));
@@ -285,7 +285,7 @@ const UploadDetail = ({ record, setReload }) => {
   const fetchData = (recordId, questionGroups) => {
     setDataLoading(recordId);
     api
-      .get(`pending-data/${recordId}`)
+      .get(`pending-data/${recordId}?lang=${activeLang}`)
       .then((res) => {
         const data = questionGroups.map((qg) => {
           return {
@@ -294,8 +294,14 @@ const UploadDetail = ({ record, setReload }) => {
               const findValue = res.data.find(
                 (d) => d.question === q.id
               )?.value;
+              const qname =
+                activeLang === "en"
+                  ? q.name
+                  : q?.translations?.find((ts) => ts?.language === activeLang)
+                      ?.name || q?.name;
               return {
                 ...q,
+                name: qname,
                 value: findValue || findValue === 0 ? findValue : null,
                 history:
                   res.data.find((d) => d.question === q.id)?.history || false,
@@ -403,11 +409,11 @@ const UploadDetail = ({ record, setReload }) => {
                                 rowKey="id"
                                 columns={[
                                   {
-                                    title: "Question",
+                                    title: text?.QuestionCol,
                                     dataIndex: "name",
                                   },
                                   {
-                                    title: "Response",
+                                    title: text?.responseCol,
                                     render: (row) => (
                                       <EditableCell
                                         record={row}

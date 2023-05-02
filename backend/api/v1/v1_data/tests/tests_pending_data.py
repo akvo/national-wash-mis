@@ -48,10 +48,13 @@ class PendingDataTestCase(TestCase):
                     'id', 'name', 'form', 'administration', 'created_by',
                     'created', 'approver', 'approved', 'total_data'
                 ], list(data[0]))
-                response = self.client.get('/api/v1/pending-data/{0}'.format(
-                    data[0].get('id')),
-                    content_type='application/json',
-                    **header)
+                response = self.client.get(
+                    "/api/v1/pending-data/{0}?lang=en".format(
+                        data[0].get("id")
+                    ),
+                    content_type="application/json",
+                    **header,
+                )
                 self.assertEqual(200, response.status_code)
                 self.assertEqual(['history', 'question', 'value'],
                                  list(response.json()[0]))
@@ -269,7 +272,7 @@ class PendingDataTestCase(TestCase):
         call_command('fake_pending_data_seeder', '-r', 5, '-t', True, '-b', 5)
         token = user_response.json().get('token')
         header = {'HTTP_AUTHORIZATION': f'Bearer {token}'}
-        response = self.client.get('/api/v1/batch/summary/{0}'.format(
+        response = self.client.get('/api/v1/batch/summary/{0}?lang=en'.format(
             PendingDataBatch.objects.first().id),
             follow=True,
             **header)

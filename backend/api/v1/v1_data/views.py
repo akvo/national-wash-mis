@@ -931,13 +931,24 @@ class PendingDataDetailDeleteView(APIView):
     @extend_schema(
         responses={200: ListPendingDataAnswerSerializer(many=True)},
         tags=["Pending Data"],
+        parameters=[
+            OpenApiParameter(
+                name="lang",
+                default="en",
+                required=False,
+                type=OpenApiTypes.STR,
+                location=OpenApiParameter.QUERY,
+            )
+        ],
         summary="To get list of answers for pending data",
     )
     def get(self, request, pending_data_id, version):
         data = get_object_or_404(PendingFormData, pk=pending_data_id)
         return Response(
             ListPendingDataAnswerSerializer(
-                instance=data.pending_data_answer.all(), many=True
+                instance=data.pending_data_answer.all(),
+                many=True,
+                context={"lang": request.GET["lang"]},
             ).data,
             status=status.HTTP_200_OK,
         )
@@ -1050,6 +1061,15 @@ class BatchSummaryView(APIView):
     @extend_schema(
         responses={200: ListBatchSummarySerializer(many=True)},
         tags=["Pending Data"],
+        parameters=[
+            OpenApiParameter(
+                name="lang",
+                default="en",
+                required=False,
+                type=OpenApiTypes.STR,
+                location=OpenApiParameter.QUERY,
+            )
+        ],
         summary="To get batch summary",
     )
     def get(self, request, batch_id, version):
@@ -1065,7 +1085,9 @@ class BatchSummaryView(APIView):
         ).distinct("question")
         return Response(
             ListBatchSummarySerializer(
-                instance=instance, many=True, context={"batch": batch}
+                instance=instance,
+                many=True,
+                context={"batch": batch, "lang": request.GET["lang"]},
             ).data,
             status=status.HTTP_200_OK,
         )
