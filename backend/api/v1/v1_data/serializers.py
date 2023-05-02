@@ -462,6 +462,24 @@ class ListPendingDataAnswerSerializer(serializers.ModelSerializer):
 
     @extend_schema_field(OpenApiTypes.ANY)
     def get_value(self, instance: Answers):
+        lang = self.context.get("lang", "en")
+        if (
+            instance.question.type != QuestionTypes.geo
+            and lang != "en"
+            and instance.options
+        ):
+            options = []
+            for opt in instance.options:
+                fo = QuestionOptions.objects.filter(name=opt).first()
+                if fo and fo.translations:
+                    ft = list(
+                        filter(
+                            lambda t: t["language"] == lang, fo.translations
+                        )
+                    ).pop()
+                    if ft:
+                        options.append(ft["name"])
+            return options if len(options) else instance.options
         return get_answer_value(instance)
 
     class Meta:
@@ -857,7 +875,7 @@ class ListBatchSerializer(serializers.ModelSerializer):
 
 class ListBatchSummarySerializer(serializers.ModelSerializer):
     id = serializers.ReadOnlyField(source="question.id")
-    question = serializers.ReadOnlyField(source="question.text")
+    question = serializers.SerializerMethodField()
     type = serializers.SerializerMethodField()
     value = serializers.SerializerMethodField()
 
@@ -887,14 +905,41 @@ class ListBatchSummarySerializer(serializers.ModelSerializer):
             )
         else:
             data = []
+            lang = self.context.get("lang", "en")
             for option in instance.question.question_question_options.all():
                 val = PendingAnswers.objects.filter(
                     pending_data__batch=batch,
                     question_id=instance.question.id,
                     options__contains=option.name,
                 ).count()
-                data.append({"type": option.name, "total": val})
+                ft = (
+                    list(
+                        filter(
+                            lambda t: t["language"] == lang,
+                            option.translations
+                        )
+                    )
+                    if option.translations
+                    else []
+                )
+                tn = ft[0]["name"] if len(ft) > 0 else option.name
+                data.append({"type": tn, "total": val})
             return data
+
+    @extend_schema_field(OpenApiTypes.STR)
+    def get_question(self, instance):
+        lang = self.context.get("lang", "en")
+        fl = (
+            list(
+                filter(
+                    lambda ts: ts["language"] == lang,
+                    instance.question.translations,
+                )
+            )
+            if instance.question.translations
+            else []
+        )
+        return fl[0]["name"] if len(fl) > 0 else instance.question.text
 
     class Meta:
         model = PendingAnswers

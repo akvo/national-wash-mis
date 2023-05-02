@@ -315,7 +315,7 @@ class FormDataUpdateTestCase(TestCase):
         self.assertEqual(data['data'][0]['data_id'], data_id)
         pending_data_id = data['data'][0]['id']  # get pending_data_id here
         # Get pending answer by pending_data_id
-        data = self.client.get(f'/api/v1/pending-data/{pending_data_id}',
+        data = self.client.get(f'/api/v1/pending-data/{pending_data_id}?lang=en',
                                content_type='application/json',
                                **{'HTTP_AUTHORIZATION':
                                    f'Bearer {data_entry_user_token}'})
@@ -507,7 +507,7 @@ class FormDataUpdateTestCase(TestCase):
         self.assertEqual(data['data'][0]['data_id'], data_id)
         pending_data_id = data['data'][0]['id']  # get pending_data_id here
         # Get pending answer by pending_data_id
-        data = self.client.get(f'/api/v1/pending-data/{pending_data_id}',
+        data = self.client.get(f'/api/v1/pending-data/{pending_data_id}?lang=en',
                                content_type='application/json',
                                **{'HTTP_AUTHORIZATION':
                                    f'Bearer {county_admin_token}'})
