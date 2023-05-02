@@ -161,7 +161,7 @@ const UploadDetail = ({ record, setReload }) => {
     setLoading(true);
     if (selectedTab === "data-summary") {
       api
-        .get(`/batch/summary/${record.id}`)
+        .get(`/batch/summary/${record.id}?lang=${activeLang}`)
         .then((res) => {
           const data = res.data.map((r, i) => {
             return { key: `Q-${i}`, ...r };
