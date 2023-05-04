@@ -1572,7 +1572,7 @@
           "meta": false,
           "dependency": [
             {
-              "id": 1681107239045,
+              "id": 1681111021763,
               "options": ["Yes"]
             }
           ],
@@ -1593,7 +1593,7 @@
           "meta": false,
           "dependency": [
             {
-              "id": 1681107239045,
+              "id": 1681111021763,
               "options": ["Yes"]
             }
           ],
@@ -1996,6 +1996,12 @@
               "name": "Où se trouvent actuellement, les Dispositifs de Lavage des Mains avec de l'eau et du savon à l'école ?"
             }
           ],
+          "dependency": [
+            {
+              "id": 1681107261379,
+              "options": ["Yes"]
+            }
+          ],
           "options": [
             {
               "id": 1681111768126,
@@ -2128,6 +2134,14 @@
               "name": "Combien de fois par semaine des activités de lavage des mains en groupe sont-elles organisées pour tous les élèves ?"
             }
           ],
+          "dependency": [
+            {
+              "id": 1681107261379,
+              "options": [
+                "Yes"
+              ]
+            }
+          ],
           "options": [
             {
               "id": 1681111943201,
@@ -2213,8 +2227,8 @@
           "meta": false,
           "dependency": [
             {
-              "id": 1681107261379,
-              "options": ["Yes"]
+              "id": 1681111924265,
+              "options": ["Other"]
             }
           ],
           "variableName": "CS50",
