@@ -68,7 +68,7 @@
           "questionGroupId": 1681117698700,
           "question": "Take the geolocation of the water point",
           "type": "geo",
-          "required": true,
+          "required": false,
           "meta": true,
           "translations": [
             {
@@ -266,7 +266,7 @@
           "questionGroupId": 1681117738567,
           "question": "Latrine geolocation",
           "type": "geo",
-          "required": true,
+          "required": false,
           "meta": false,
           "translations": [
             {
@@ -326,7 +326,7 @@
           "questionGroupId": 1681117738567,
           "question": "Latrine status",
           "type": "option",
-          "required": true,
+          "required": false,
           "meta": false,
           "attributes": ["advanced_filter", "table", "aggregate", "chart"],
           "translations": [
@@ -392,7 +392,7 @@
           "questionGroupId": 1681117738567,
           "question": "Latrine type",
           "type": "option",
-          "required": true,
+          "required": false,
           "meta": false,
           "translations": [
             {
@@ -558,7 +558,7 @@
           "questionGroupId": 1681117797521,
           "question": "GPS contact details of the concession",
           "type": "geo",
-          "required": true,
+          "required": false,
           "meta": false,
           "translations": [
             {
@@ -573,7 +573,7 @@
           "questionGroupId": 1681117797521,
           "question": "Name of concession",
           "type": "text",
-          "required": true,
+          "required": false,
           "meta": true,
           "translations": [
             {
@@ -588,7 +588,7 @@
           "questionGroupId": 1681117797521,
           "question": "Number of households in the concession",
           "type": "number",
-          "required": true,
+          "required": false,
           "meta": false,
           "translations": [
             {
@@ -707,7 +707,7 @@
           "questionGroupId": 1681117830005,
           "question": "Evaluation date",
           "type": "date",
-          "required": true,
+          "required": false,
           "meta": false,
           "translations": [
             {
@@ -723,7 +723,7 @@
           "questionGroupId": 1681117830005,
           "question": "Status",
           "type": "option",
-          "required": true,
+          "required": false,
           "meta": false,
           "translations": [
             {
@@ -765,7 +765,7 @@
           "questionGroupId": 1681117830005,
           "question": "Name of the animator or supervisor",
           "type": "text",
-          "required": true,
+          "required": false,
           "meta": false,
           "translations": [
             {
@@ -794,7 +794,7 @@
           "questionGroupId": 1681117853186,
           "question": "Certification date",
           "type": "date",
-          "required": true,
+          "required": false,
           "meta": false,
           "attributes": ["table"],
           "translations": [
@@ -810,7 +810,7 @@
           "questionGroupId": 1681117853186,
           "question": "Status",
           "type": "option",
-          "required": true,
+          "required": false,
           "meta": false,
           "translations": [
             {
@@ -851,7 +851,7 @@
           "questionGroupId": 1681117853186,
           "question": "Name of the animator or supervisor",
           "type": "text",
-          "required": true,
+          "required": false,
           "meta": false,
           "translations": [
             {
