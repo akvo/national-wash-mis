@@ -851,7 +851,7 @@
             {
               "id": 1681081460487,
               "code": null,
-              "name": "Own",
+              "name": "Clean",
               "order": 1,
               "translations": [
                 {
@@ -875,7 +875,7 @@
             {
               "id": 1681081476350,
               "code": null,
-              "name": "Sale",
+              "name": "Dirty",
               "order": 3,
               "translations": [
                 {
@@ -1180,6 +1180,12 @@
               "language": "fr",
               "name": "Quel est le pourcentage?"
             }
+          ],
+          "dependency": [
+            {
+              "id": 1681088728738,
+              "options": ["Yes"]
+            }
           ]
         },
         {
@@ -1287,7 +1293,7 @@
           "dependency": [
             {
               "id": 1681089528621,
-              "options": ["Totally functional"]
+              "options": ["Totally functional", "Partially functional"]
             }
           ],
           "translations": [
@@ -1591,6 +1597,23 @@
               "name": "Existe t'il une toilette réservée aux personnes à mobilité réduite ?"
             }
           ],
+          "dependency": [
+            {
+              "id": 1681078512668,
+              "options": [
+                "Manual or mechanical flush toilets connected to the sewer network",
+                "Manual or mechanical flush toilets connected to a pit",
+                "Manual or mechanical flush toilets connected to open pipes",
+                "Ventilated improved single pit",
+                "Ventilated improved double pit",
+                "Latrines ECOSAN",
+                "Latrines SANPLAT",
+                "Traditional latrines with concrete slab",
+                "Traditional latrines without concrete slab",
+                "Other"
+              ]
+            }
+          ],
           "options": [
             {
               "id": 1681090154409,
@@ -1630,6 +1653,23 @@
             {
               "language": "fr",
               "name": "Hygienne autour des latrines (Observation)"
+            }
+          ],
+          "dependency": [
+            {
+              "id": 1681078512668,
+              "options": [
+                "Manual or mechanical flush toilets connected to the sewer network",
+                "Manual or mechanical flush toilets connected to a pit",
+                "Manual or mechanical flush toilets connected to open pipes",
+                "Ventilated improved single pit",
+                "Ventilated improved double pit",
+                "Latrines ECOSAN",
+                "Latrines SANPLAT",
+                "Traditional latrines with concrete slab",
+                "Traditional latrines without concrete slab",
+                "Other"
+              ]
             }
           ],
           "options": [
