@@ -1,12 +1,20 @@
 import math
 import os
 
+import logging
 import pandas as pd
 import numpy as np
 
 from django.utils import timezone
-from api.v1.v1_data.models import PendingAnswers, PendingDataBatch, \
-    PendingFormData, PendingDataApproval, Answers, FormData, AnswerHistory
+from api.v1.v1_data.models import (
+    PendingAnswers,
+    PendingDataBatch,
+    PendingFormData,
+    PendingDataApproval,
+    Answers,
+    FormData,
+    AnswerHistory,
+)
 from api.v1.v1_forms.models import Forms
 from api.v1.v1_forms.constants import QuestionTypes
 from api.v1.v1_forms.models import Questions, FormApprovalAssignment
@@ -17,6 +25,8 @@ from api.v1.v1_users.models import SystemUser
 from api.v1.v1_profile.constants import UserRoleTypes
 from utils.email_helper import send_email, EmailTypes
 
+logger = logging.getLogger(__name__)
+
 
 def collect_answers(user: SystemUser, dp: dict, qs: dict, data_id):
     is_super_admin = user.user_access.role == UserRoleTypes.super_admin
@@ -26,9 +36,11 @@ def collect_answers(user: SystemUser, dp: dict, qs: dict, data_id):
     answerlist = []
     answer_history_list = []
     for a in dp:
-        if a == 'data_id':
+        if a == "data_id":
             continue
-        aw = dp[a]
+        aw = dp.get(a)
+        if not aw:
+            continue
         if aw != aw:
             continue
         if isinstance(aw, str):
@@ -46,8 +58,10 @@ def collect_answers(user: SystemUser, dp: dict, qs: dict, data_id):
                 if len(adm_list):
                     parent = adm_list[ix - 1]
                     adm_list.append(
-                        Administration.objects.get(name=adm,
-                                                   parent_id=parent.id))
+                        Administration.objects.get(
+                            name__iexact=adm.lower(), parent_id=parent.id
+                        )
+                    )
                 else:
                     adm_list.append(Administration.objects.get(name=adm))
 
@@ -58,7 +72,7 @@ def collect_answers(user: SystemUser, dp: dict, qs: dict, data_id):
 
         if q.type == QuestionTypes.geo:
             if aw:
-                aw = aw.strip().replace('|', ',')
+                aw = aw.strip().replace("|", ",")
                 geo = [float(g) for g in aw.split(",")]
                 answer.options = geo
             else:
@@ -83,30 +97,36 @@ def collect_answers(user: SystemUser, dp: dict, qs: dict, data_id):
                 if q.meta:
                     names.append(str(aw))
         if q.type == QuestionTypes.option:
-            answer.options = [aw] if aw else None
+            answer.options = [str(aw)]
             if q.meta and aw:
                 names.append(aw)
         if q.type == QuestionTypes.multiple_option:
-            answer.options = aw.split('|')
+            answer.options = str(aw).split("|")
             if q.meta:
-                names = names + aw.replace('|', '-')
+                names = names + str(aw).replace("|", "-")
         if valid:
             if data_id:
                 try:
                     form_answer = Answers.objects.get(
-                        data_id=data_id, question_id=answer.question_id)
-                    if not (form_answer.name == answer.name
-                            and form_answer.options == answer.options
-                            and form_answer.value == answer.value):
+                        data_id=data_id, question_id=answer.question_id
+                    )
+                    if not (
+                        form_answer.name == answer.name
+                        and form_answer.options == answer.options
+                        and form_answer.value == answer.value
+                    ):
                         if is_super_admin:
                             # prev answer to answer history
-                            answer_history_list.append(AnswerHistory(
-                                data=form_answer.data,
-                                question=form_answer.question,
-                                name=form_answer.name,
-                                value=form_answer.value,
-                                options=form_answer.options,
-                                created_by=user))
+                            answer_history_list.append(
+                                AnswerHistory(
+                                    data=form_answer.data,
+                                    question=form_answer.question,
+                                    name=form_answer.name,
+                                    value=form_answer.value,
+                                    options=form_answer.options,
+                                    created_by=user,
+                                )
+                            )
                             answer.updated = timezone.now()
                             # delete prev answer
                             form_answer.delete()
@@ -117,23 +137,24 @@ def collect_answers(user: SystemUser, dp: dict, qs: dict, data_id):
                 answerlist.append(answer)
     name = " - ".join([str(n) for n in names])
     res = {
-        'administration': administration,
-        'geo': geo,
-        'answerlist': answerlist,
-        'name': name,
-        'answer_history_list': answer_history_list}
+        "administration": administration,
+        "geo": geo,
+        "answerlist": answerlist,
+        "name": name,
+        "answer_history_list": answer_history_list,
+    }
     return res
 
 
 def save_data(user: SystemUser, dp: dict, qs: dict, form_id: int, batch_id):
     is_super_admin = user.user_access.role == UserRoleTypes.super_admin
-    data_id = None if math.isnan(dp['data_id']) else dp['data_id']
+    data_id = None if math.isnan(dp["data_id"]) else dp["data_id"]
     temp = collect_answers(user=user, dp=dp, qs=qs, data_id=data_id)
-    administration = temp.get('administration')
-    geo = temp.get('geo')
-    answerlist = temp.get('answerlist')
-    name = temp.get('name')
-    answer_history_list = temp.get('answer_history_list')
+    administration = temp.get("administration")
+    geo = temp.get("geo")
+    answerlist = temp.get("answerlist")
+    name = temp.get("name")
+    answer_history_list = temp.get("answer_history_list")
 
     if is_super_admin:
         data = FormData.objects.create(
@@ -141,7 +162,23 @@ def save_data(user: SystemUser, dp: dict, qs: dict, form_id: int, batch_id):
             form_id=form_id,
             administration_id=administration,
             geo=geo,
-            created_by=user)
+            created_by=user,
+        )
+        answer_to_create = []
+        for val in answerlist:
+            answer_to_create.append(
+                Answers(
+                    data=data,
+                    question_id=val.question_id,
+                    name=val.name,
+                    value=val.value,
+                    options=val.options,
+                    created_by=val.created_by,
+                )
+            )
+        Answers.objects.bulk_create(answer_to_create)
+        if answer_history_list:
+            AnswerHistory.objects.bulk_create(answer_history_list)
     else:
         data = PendingFormData.objects.create(
             name=name,
@@ -150,21 +187,8 @@ def save_data(user: SystemUser, dp: dict, qs: dict, form_id: int, batch_id):
             geo=geo,
             data_id=data_id,
             batch_id=batch_id,
-            created_by=user)
-    if is_super_admin:
-        answer_to_create = []
-        for val in answerlist:
-            answer_to_create.append(Answers(
-                data=data,
-                question_id=val.question_id,
-                name=val.name,
-                value=val.value,
-                options=val.options,
-                created_by=val.created_by))
-        Answers.objects.bulk_create(answer_to_create)
-        if answer_history_list:
-            AnswerHistory.objects.bulk_create(answer_history_list)
-    else:
+            created_by=user,
+        )
         for val in answerlist:
             val.pending_data = data
         PendingAnswers.objects.bulk_create(answerlist)
@@ -176,59 +200,69 @@ def seed_excel_data(job: Jobs):
     file = f"./tmp/{job.info.get('file')}"
     df = pd.read_excel(file, sheet_name="data")
     if "id" in list(df):
-        df = df.rename(columns={'id': 'data_id'})
+        df = df.rename(columns={"id": "data_id"})
     if "data_id" not in list(df):
         df["data_id"] = np.nan
-    df = df[list(filter(lambda x: "|" in x, list(df))) + ['data_id']]
+    df = df[list(filter(lambda x: "|" in x, list(df))) + ["data_id"]]
     questions = {}
     columns = {}
     for q in list(df):
-        if q != 'data_id':
+        if q != "data_id":
             id = q.split("|")[0]
             columns.update({q: id})
             question = Questions.objects.get(pk=id)
             questions.update({id: question})
     df = df.rename(columns=columns)
     datapoints = df.to_dict("records")
-    form_id = job.info.get('form')
+    form_id = job.info.get("form")
     if not is_super_admin:
         batch = PendingDataBatch.objects.create(
             form_id=form_id,
-            administration_id=job.info.get('administration'),
+            administration_id=job.info.get("administration"),
             user=job.user,
-            name=job.info.get('file'))
+            name=job.info.get("file"),
+        )
     records = []
     for datapoint in datapoints:
-        if is_super_admin:
-            data: FormData = save_data(
-                user=job.user, dp=datapoint, qs=questions,
-                form_id=form_id, batch_id=None)
-            answer_count = data.data_answer.count()
-        else:
-            data: PendingFormData = save_data(
-                user=job.user, dp=datapoint, qs=questions,
-                form_id=form_id, batch_id=batch.id)
-            answer_count = data.pending_data_answer.count()
-        if answer_count:
-            records.append(data)
-        else:
-            data.delete()
+        try:
+            if is_super_admin:
+                data: FormData = save_data(
+                    user=job.user,
+                    dp=datapoint,
+                    qs=questions,
+                    form_id=form_id,
+                    batch_id=None,
+                )
+                answer_count = data.data_answer.count()
+            else:
+                data: PendingFormData = save_data(
+                    user=job.user,
+                    dp=datapoint,
+                    qs=questions,
+                    form_id=form_id,
+                    batch_id=batch.id,
+                )
+                answer_count = data.pending_data_answer.count()
+            if answer_count:
+                records.append(data)
+            else:
+                data.delete()
+        except Exception as e:
+            logger.error(e)
     if len(records) == 0:
         form = Forms.objects.filter(pk=int(form_id)).first()
         context = {
-            'send_to': [job.user.email],
-            'form': form.name,
-            'user': job.user,
-            'listing': [{
-                'name': "Upload Date",
-                'value': job.created.strftime("%m-%d-%Y, %H:%M:%S"),
-            }, {
-                'name': "Questionnaire",
-                'value': form.name
-            }, {
-                'name': "Number of Records",
-                'value': df.shape[0]
-            }],
+            "send_to": [job.user.email],
+            "form": form.name,
+            "user": job.user,
+            "listing": [
+                {
+                    "name": "Upload Date",
+                    "value": job.created.strftime("%m-%d-%Y, %H:%M:%S"),
+                },
+                {"name": "Questionnaire", "value": form.name},
+                {"name": "Number of Records", "value": df.shape[0]},
+            ],
         }
         send_email(context=context, type=EmailTypes.unchanged_data)
         if not is_super_admin:
@@ -236,32 +270,27 @@ def seed_excel_data(job: Jobs):
         os.remove(file)
         return None
     if not is_super_admin:
-        path = '{0}{1}'.format(
-            batch.administration.path, batch.administration_id)
-        for administration in Administration.objects.filter(
-                id__in=path.split('.')):
+        path = "{0}{1}".format(batch.administration.path, batch.administration_id)
+        for administration in Administration.objects.filter(id__in=path.split(".")):
             assignment = FormApprovalAssignment.objects.filter(
-                form_id=batch.form_id, administration=administration).first()
+                form_id=batch.form_id, administration=administration
+            ).first()
             if assignment:
                 level = assignment.user.user_access.administration.level_id
                 PendingDataApproval.objects.create(
-                    batch=batch, user=assignment.user, level_id=level)
+                    batch=batch, user=assignment.user, level_id=level
+                )
                 context = {
-                    'send_to': [assignment.user.email],
-                    'listing': [{
-                        'name': "Batch Name",
-                        'value': batch.name
-                    }, {
-                        'name': "Questionnaire",
-                        'value': batch.form.name
-                    }, {
-                        'name': "Number of Records",
-                        'value': df.shape[0]
-                    }, {
-                        'name': "Submitter",
-                        'value':
-                            f"{job.user.name}, {job.user.designation_name}"
-                    }]
+                    "send_to": [assignment.user.email],
+                    "listing": [
+                        {"name": "Batch Name", "value": batch.name},
+                        {"name": "Questionnaire", "value": batch.form.name},
+                        {"name": "Number of Records", "value": df.shape[0]},
+                        {
+                            "name": "Submitter",
+                            "value": f"{job.user.name}, {job.user.designation_name}",
+                        },
+                    ],
                 }
                 send_email(context=context, type=EmailTypes.pending_approval)
     os.remove(file)
