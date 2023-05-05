@@ -76,6 +76,9 @@ def job_generate_download(job_id, **kwargs):
         .all()
     )
     col_question = ["{0}|{1}".format(q.id, q.name) for q in questions]
+    for cq in col_question:
+        if cq not in list(df):
+            df[cq] = ""
     col_names = rearrange_columns(list(df), col_question)
     df = df[col_names]
     writer = pd.ExcelWriter(file_path, engine="xlsxwriter")
@@ -160,8 +163,7 @@ def seed_data_job(job_id):
     try:
         job = Jobs.objects.get(pk=job_id)
         seed_excel_data(job)
-    except Exception as e:
-        print(e)
+    except Exception:
         return False
     return True
 

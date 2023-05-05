@@ -8,3 +8,4 @@ db.dbml
 **.min.js
 /error.log
 /access.log
+/worker.log

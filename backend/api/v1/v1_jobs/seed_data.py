@@ -1,6 +1,7 @@
 import math
 import os
 
+import logging
 import pandas as pd
 import numpy as np
 
@@ -23,6 +24,8 @@ from api.v1.v1_profile.models import Administration
 from api.v1.v1_users.models import SystemUser
 from api.v1.v1_profile.constants import UserRoleTypes
 from utils.email_helper import send_email, EmailTypes
+
+logger = logging.getLogger(__name__)
 
 
 def collect_answers(user: SystemUser, dp: dict, qs: dict, data_id):
@@ -243,7 +246,7 @@ def seed_excel_data(job: Jobs):
             else:
                 data.delete()
         except Exception as e:
-            print(str(e))
+            logger.error(e)
     if len(records) == 0:
         form = Forms.objects.filter(pk=int(form_id)).first()
         context = {

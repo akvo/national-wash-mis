@@ -16,6 +16,7 @@ services:
     volumes:
       - ../akvo-config/k8s-secrets/test/nwmis-${NWMIS_INSTANCE}:/credentials/:ro
     environment:
+      - LOG_FILE=worker.log
       - GOOGLE_APPLICATION_CREDENTIALS=/credentials/nwmis-service-account.json
       - MAILJET_APIKEY=$MAILJET_APIKEY
       - MAILJET_SECRET=$MAILJET_SECRET

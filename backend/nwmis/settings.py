@@ -21,6 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = environ["DJANGO_SECRET"]
+LOG_FILE = environ.get("LOG_FILE") or "error.log"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True if "DEBUG" in environ else False
@@ -35,7 +36,7 @@ LOGGING = {
         },
         "file": {
             "class": "logging.handlers.WatchedFileHandler",
-            "filename": "./error.log",
+            "filename": f"./{LOG_FILE}",
             "level": "ERROR",
         },
     },
@@ -45,6 +46,14 @@ LOGGING = {
             "level": "ERROR",
             "propagate": True,
         },
+        "nwmis": {
+            "handlers": ["console", "file"],
+            "level": "DEBUG",
+            "propagate": True,
+        },
+    },
+    "formatters": {
+        "verbose": {"format": "%(asctime)s [%(levelname)s] %(name)s: %(message)s"},
     },
 }
 
