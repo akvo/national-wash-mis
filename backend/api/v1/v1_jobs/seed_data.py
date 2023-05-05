@@ -58,7 +58,9 @@ def collect_answers(user: SystemUser, dp: dict, qs: dict, data_id):
                 if len(adm_list):
                     parent = adm_list[ix - 1]
                     adm_list.append(
-                        Administration.objects.get(name=adm, parent_id=parent.id)
+                        Administration.objects.get(
+                            name__iexact=adm.lower(), parent_id=parent.id
+                        )
                     )
                 else:
                     adm_list.append(Administration.objects.get(name=adm))
