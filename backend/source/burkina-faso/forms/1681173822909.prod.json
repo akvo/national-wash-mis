@@ -55,7 +55,7 @@
           "questionGroupId": 1681173822910,
           "question": "Take the geolocation of the water point",
           "type": "geo",
-          "required": true,
+          "required": false,
           "meta": true,
           "variableName": "D3",
           "translations": [
@@ -598,7 +598,7 @@
           "order": 2,
           "questionGroupId": 1681174038994,
           "question": "System elements",
-          "type": "option",
+          "type": "multiple_option",
           "required": true,
           "meta": false,
           "dependency": [
@@ -808,13 +808,19 @@
           "questionGroupId": 1681174052310,
           "question": "Drilling protection system",
           "type": "option",
-          "required": true,
+          "required": false,
           "meta": false,
           "variableName": "D18",
           "translations": [
             {
               "language": "fr",
               "name": "Système de protection du forage"
+            }
+          ],
+          "dependency": [
+            {
+              "id": 1681175864467,
+              "options": ["Borehole"]
             }
           ],
           "options": [
@@ -896,7 +902,7 @@
           "questionGroupId": 1681174052310,
           "question": "Borehole with a meter reader",
           "type": "option",
-          "required": true,
+          "required": false,
           "meta": false,
           "dependency": [
             {
@@ -988,7 +994,7 @@
           "questionGroupId": 1681174052310,
           "question": "GPS coordinates of borehole",
           "type": "geo",
-          "required": true,
+          "required": false,
           "meta": false,
           "variableName": "D23",
           "dependency": [
@@ -1054,7 +1060,7 @@
           "questionGroupId": 1681174052310,
           "question": "Borehole functionality",
           "type": "option",
-          "required": true,
+          "required": false,
           "meta": false,
           "variableName": "D26",
           "dependency": [
@@ -1136,7 +1142,7 @@
           "questionGroupId": 1681174052310,
           "question": "Borehole seasonality",
           "type": "option",
-          "required": true,
+          "required": false,
           "meta": false,
           "variableName": "D28",
           "translations": [
@@ -1252,12 +1258,12 @@
           "questionGroupId": 1681174084162,
           "question": "Source of energy",
           "type": "option",
-          "required": true,
+          "required": false,
           "meta": false,
           "dependency": [
             {
               "id": 1681175767016,
-              "options": ["The resource"]
+              "options": ["The source of energy"]
             }
           ],
           "variableName": "D32",
@@ -1383,7 +1389,7 @@
           "questionGroupId": 1681174290311,
           "question": "Water chateau counter",
           "type": "option",
-          "required": true,
+          "required": false,
           "meta": false,
           "dependency": [
             {
@@ -1457,7 +1463,7 @@
           "questionGroupId": 1681174290311,
           "question": "Water tower materials",
           "type": "option",
-          "required": true,
+          "required": false,
           "meta": false,
           "dependency": [
             {
@@ -1590,7 +1596,7 @@
           "questionGroupId": 1681174311528,
           "question": "Order number",
           "type": "number",
-          "required": true,
+          "required": false,
           "meta": false,
           "variableName": "D39",
           "dependency": [
@@ -1614,7 +1620,7 @@
           "questionGroupId": 1681174311528,
           "question": "Year of realization of the standpipe",
           "type": "number",
-          "required": true,
+          "required": false,
           "meta": false,
           "dependency": [
             {
@@ -1685,7 +1691,7 @@
           "questionGroupId": 1681174311528,
           "question": "Gustatory quality of water from the fountain terminal",
           "type": "option",
-          "required": true,
+          "required": false,
           "meta": false,
           "dependency": [
             {
@@ -1747,7 +1753,7 @@
           "questionGroupId": 1681174311528,
           "question": "Meter at the standpipe",
           "type": "option",
-          "required": true,
+          "required": false,
           "meta": false,
           "variableName": "D44",
           "dependency": [
@@ -1841,7 +1847,7 @@
           "questionGroupId": 1681174311528,
           "question": "Functionality of the standpipe",
           "type": "option",
-          "required": true,
+          "required": false,
           "meta": false,
           "variableName": "D47",
           "dependency": [
@@ -1923,6 +1929,12 @@
               "language": "fr",
               "name": "Si BF abandonné, pourquoi ?"
             }
+          ],
+          "dependency": [
+            {
+              "id": 1681178668786,
+              "options": ["Abandoned"]
+            }
           ]
         },
         {
@@ -1931,7 +1943,7 @@
           "questionGroupId": 1681174311528,
           "question": "Number of water breaking days in the last 12 months",
           "type": "number",
-          "required": true,
+          "required": false,
           "meta": false,
           "variableName": "D49",
           "dependency": [
@@ -1955,7 +1967,7 @@
           "questionGroupId": 1681174311528,
           "question": "Number of breakdown in the last 12 months",
           "type": "number",
-          "required": true,
+          "required": false,
           "meta": false,
           "variableName": "D50",
           "dependency": [
@@ -2043,7 +2055,7 @@
           "questionGroupId": 1681174341612,
           "question": "Number of private connections",
           "type": "number",
-          "required": true,
+          "required": false,
           "meta": false,
           "variableName": "D52",
           "dependency": [
@@ -2065,7 +2077,7 @@
           "questionGroupId": 1681174341612,
           "question": "Number of villages served",
           "type": "number",
-          "required": true,
+          "required": false,
           "meta": false,
           "dependency": [
             {
@@ -2101,7 +2113,7 @@
           "questionGroupId": 1681174361313,
           "question": "Year of realization of the PEM",
           "type": "number",
-          "required": true,
+          "required": false,
           "meta": false,
           "variableName": "D54",
           "dependency": [
@@ -2123,7 +2135,7 @@
           "questionGroupId": 1681174361313,
           "question": "Type of modern water point",
           "type": "option",
-          "required": true,
+          "required": false,
           "meta": false,
           "dependency": [
             {
@@ -2201,7 +2213,7 @@
             {
               "id": 1681180064343,
               "code": null,
-              "name": "Unquiced",
+              "name": "Not equipped",
               "order": 2,
               "translations": [
                 {
@@ -2242,7 +2254,7 @@
           "questionGroupId": 1681174361313,
           "question": "Brand of the PEM",
           "type": "option",
-          "required": true,
+          "required": false,
           "meta": false,
           "dependency": [
             {
@@ -2446,7 +2458,7 @@
           "questionGroupId": 1681174361313,
           "question": "PEM counter",
           "type": "option",
-          "required": true,
+          "required": false,
           "meta": false,
           "variableName": "D58",
           "dependency": [
@@ -2538,7 +2550,7 @@
           "questionGroupId": 1681174361313,
           "question": "Surronding infrastructure",
           "type": "option",
-          "required": true,
+          "required": false,
           "meta": false,
           "variableName": "D61",
           "dependency": [
@@ -2610,7 +2622,7 @@
           "questionGroupId": 1681174361313,
           "question": "PEM functionality",
           "type": "option",
-          "required": true,
+          "required": false,
           "meta": false,
           "variableName": "D62",
           "dependency": [
@@ -2682,7 +2694,7 @@
           "questionGroupId": 1681174361313,
           "question": "Number of water breaking days in the last 12 months",
           "type": "number",
-          "required": true,
+          "required": false,
           "meta": false,
           "variableName": "D63",
           "dependency": [
@@ -2704,7 +2716,7 @@
           "questionGroupId": 1681174361313,
           "question": "Number of breakdowns in the last 12 months",
           "type": "number",
-          "required": true,
+          "required": false,
           "meta": false,
           "variableName": "D64",
           "dependency": [
@@ -2774,7 +2786,7 @@
           "questionGroupId": 1681174361313,
           "question": "Gustatory quality of PEM water",
           "type": "option",
-          "required": true,
+          "required": false,
           "meta": false,
           "dependency": [
             {
@@ -2837,12 +2849,6 @@
           "required": false,
           "meta": false,
           "variableName": "D67",
-          "dependency": [
-            {
-              "id": 1681180057650,
-              "options": ["Equipped"]
-            }
-          ],
           "translations": [
             {
               "language": "fr",
@@ -2856,7 +2862,7 @@
           "questionGroupId": 1681174361313,
           "question": "Type of financing",
           "type": "option",
-          "required": true,
+          "required": false,
           "meta": false,
           "dependency": [
             {
@@ -2950,7 +2956,7 @@
           "questionGroupId": 1681174361313,
           "question": "Specify the project name",
           "type": "text",
-          "required": true,
+          "required": false,
           "meta": false,
           "variableName": "D70",
           "dependency": [
@@ -3143,7 +3149,7 @@
             {
               "id": 1681181527705,
               "code": null,
-              "name": "Incommensurate",
+              "name": "Not applicable",
               "order": 3,
               "translations": [
                 {
@@ -3337,7 +3343,7 @@
           "questionGroupId": 1681174361313,
           "question": "Observations",
           "type": "text",
-          "required": true,
+          "required": false,
           "meta": false,
           "dependency": [
             {
