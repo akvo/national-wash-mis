@@ -7,21 +7,21 @@ python manage.py migrate
 python manage.py generate_config > /dev/null &
 python manage.py generate_views
 
-# function log {
-#    echo "$(date +"%T") - START INFO - $*"
-# }
-#
-# _term() {
-#   echo "Caught SIGTERM signal!"
-#   kill -TERM "$child" 2>/dev/null
-# }
+function log {
+   echo "$(date +"%T") - START INFO - $*"
+}
 
-# trap _term SIGTERM
+_term() {
+  echo "Caught SIGTERM signal!"
+  kill -TERM "$child" 2>/dev/null
+}
 
-# log Starting gunicorn in background
+trap _term SIGTERM
+
+log Starting gunicorn in background
 gunicorn nwmis.wsgi --workers 6 --timeout 600 \
 	--bind 0.0.0.0:8000 \
-	--access-logfile ./access.log --error-logfile ./error.log
+	--access-logfile ./access.log --error-logfile ./error.log &
 
-# child=$!
-# wait "$child"
+child=$!
+wait "$child"
