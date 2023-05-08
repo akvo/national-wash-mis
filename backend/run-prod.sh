@@ -19,9 +19,9 @@ _term() {
 trap _term SIGTERM
 
 log Starting gunicorn in background
-gunicorn nwmis.wsgi --workers 6 --timeout 300 \
+gunicorn nwmis.wsgi --workers 6 --timeout 600 \
 	--bind 0.0.0.0:8000 \
-	--access-logfile ./access.log --error-logfile ./error.log &
+	--access-logfile ./access.log --error-logfile ./error.log
 
 child=$!
 wait "$child"
