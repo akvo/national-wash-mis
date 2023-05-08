@@ -19,8 +19,8 @@ spec:
         run: ${INSTANCE_NAME}
         ${INSTANCE_NAME}-version: "${CI_COMMIT}"
       annotations:
-        prometheus.io/scrape: 'true'
-        prometheus.io/port: '3000'
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "3000"
     spec:
       containers:
         - name: frontend
@@ -93,16 +93,6 @@ spec:
               value: "TRUE"
             - name: GOOGLE_APPLICATION_CREDENTIALS
               value: /secrets/credentials.json
-          readinessProbe:
-            httpGet:
-              path: /api/v1/health/check
-              port: 8000
-            initialDelaySeconds: 30
-          livenessProbe:
-            httpGet:
-              path: /api/v1/health/check
-              port: 8000
-            initialDelaySeconds: 30
           volumeMounts:
             - name: ${INSTANCE_NAME}-secrets
               mountPath: /secrets/credentials.json
@@ -110,8 +100,8 @@ spec:
               readOnly: true
           resources:
             requests:
-              cpu: "100m"
-              memory: "256Mi"
+              cpu: "500m"
+              memory: "512Mi"
             limits:
               cpu: "1000m"
               memory: "1024Mi"
@@ -177,10 +167,10 @@ spec:
               readOnly: true
           resources:
             requests:
-              cpu: "100m"
-              memory: "256Mi"
-            limits:
               cpu: "500m"
+              memory: "512Mi"
+            limits:
+              cpu: "1000m"
               memory: "1024Mi"
       volumes:
         - name: ${INSTANCE_NAME}-secrets
