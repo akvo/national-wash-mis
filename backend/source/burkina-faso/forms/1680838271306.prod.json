@@ -2115,12 +2115,27 @@
           "questionGroupId": 1680855466552,
           "question": "Does the household share this infrastructure with others?",
           "type": "option",
-          "required": false,
+          "required": true,
           "meta": false,
           "translations": [
             {
               "language": "fr",
               "name": "Le ménage partage-t-il cet ouvrage avec d’autres ?"
+            }
+          ],
+          "dependency": [
+            {
+              "id": 1680842458339,
+              "options": [
+                "Dry pit latrine",
+                "Flush/pour flush",
+                "Ventilated Improved Single pit",
+                "Ventilated Improved double pit",
+                "Latrine ECOSAN",
+                "Latrine SANPLAT",
+                "Traditional latrine without concrete slab",
+                "Traditional latrine with concrete slab"
+              ]
             }
           ],
           "options": [
