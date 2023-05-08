@@ -94,7 +94,7 @@
           "questionGroupId": 1680838271307,
           "question": "Number of households in the village/sector",
           "type": "number",
-          "required": true,
+          "required": false,
           "meta": false,
           "translations": [
             {
@@ -195,7 +195,7 @@
           "questionGroupId": 1680838271307,
           "question": "Household geolocation",
           "type": "geo",
-          "required": true,
+          "required": false,
           "meta": true,
           "translations": [
             {
@@ -224,7 +224,7 @@
           "questionGroupId": 1680838524777,
           "question": "Observations",
           "type": "text",
-          "required": true,
+          "required": false,
           "meta": false,
           "translations": [
             {
@@ -926,7 +926,7 @@
           "questionGroupId": 1680838540277,
           "question": "What are the water sources used by the household for drinking water ?",
           "type": "option",
-          "required": true,
+          "required": false,
           "meta": false,
           "translations": [
             {
@@ -1039,7 +1039,7 @@
           "questionGroupId": 1680838540277,
           "question": "Where is the source located?",
           "type": "option",
-          "required": true,
+          "required": false,
           "meta": false,
           "translations": [
             {
@@ -1092,7 +1092,7 @@
           "questionGroupId": 1680838540277,
           "question": "Does the household share the source with others?",
           "type": "option",
-          "required": true,
+          "required": false,
           "meta": false,
           "translations": [
             {
@@ -1358,7 +1358,7 @@
           "questionGroupId": 1680838540277,
           "question": "What is your appreciation for the water quality of the source?",
           "type": "option",
-          "required": true,
+          "required": false,
           "meta": false,
           "translations": [
             {
@@ -1424,7 +1424,7 @@
           "order": 1,
           "questionGroupId": 1680838583689,
           "question": "In your neighborhood/village is there an user water association and/or a manager of water points?",
-          "type": "option",
+          "type": "multiple_option",
           "required": true,
           "meta": false,
           "translations": [
@@ -1578,7 +1578,7 @@
           "questionGroupId": 1680838583689,
           "question": "In the past 12 months, how many days have you had difficulty getting drinking water?",
           "type": "number",
-          "required": true,
+          "required": false,
           "meta": false,
           "translations": [
             {
@@ -1750,7 +1750,7 @@
           "questionGroupId": 1680855466552,
           "question": "What kind of toilet facility do members of your household usually use?",
           "type": "option",
-          "required": true,
+          "required": false,
           "meta": false,
           "translations": [
             {
@@ -2047,7 +2047,7 @@
           "questionGroupId": 1680855466552,
           "question": "Year of completion of the work",
           "type": "number",
-          "required": true,
+          "required": false,
           "meta": false,
           "translations": [
             {
@@ -2062,7 +2062,7 @@
           "questionGroupId": 1680855466552,
           "question": "Where is the infrastucture located?",
           "type": "option",
-          "required": true,
+          "required": false,
           "meta": false,
           "translations": [
             {
@@ -2121,6 +2121,21 @@
             {
               "language": "fr",
               "name": "Le ménage partage-t-il cet ouvrage avec d’autres ?"
+            }
+          ],
+          "dependency": [
+            {
+              "id": 1680842458339,
+              "options": [
+                "Dry pit latrine",
+                "Flush/pour flush",
+                "Ventilated Improved Single pit",
+                "Ventilated Improved double pit",
+                "Latrine ECOSAN",
+                "Latrine SANPLAT",
+                "Traditional latrine without concrete slab",
+                "Traditional latrine with concrete slab"
+              ]
             }
           ],
           "options": [
@@ -2386,7 +2401,7 @@
           "questionGroupId": 1680838608225,
           "question": "How are the wastewater of your household managed?",
           "type": "option",
-          "required": true,
+          "required": false,
           "meta": false,
           "translations": [
             {
@@ -2549,7 +2564,7 @@
           "questionGroupId": 1680838640390,
           "question": "Sex",
           "type": "option",
-          "required": true,
+          "required": false,
           "meta": false,
           "translations": [
             {
@@ -2590,7 +2605,7 @@
           "questionGroupId": 1680838640390,
           "question": "Link with the head of household",
           "type": "option",
-          "required": true,
+          "required": false,
           "meta": false,
           "translations": [
             {
@@ -2691,7 +2706,7 @@
           "questionGroupId": 1680838640390,
           "question": "Age greater than 12 years?",
           "type": "option",
-          "required": true,
+          "required": false,
           "meta": false,
           "translations": [
             {
@@ -3061,7 +3076,7 @@
           "questionGroupId": 1680838640390,
           "question": "Level of satisfaction",
           "type": "option",
-          "required": true,
+          "required": false,
           "meta": false,
           "dependency": [
             {

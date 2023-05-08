@@ -1,3 +1,4 @@
+from datetime import timedelta
 from django.http import Http404
 from drf_spectacular.types import OpenApiTypes
 from drf_spectacular.utils import (
@@ -180,7 +181,7 @@ def get_power_bi_data(request, version, form_id):
         else:
             d.update({"data": data_answers, "categories": {}})
     if cache_name:
-        create_cache(cache_name, data)
+        create_cache(cache_name, data, timeout=timedelta(minutes=5))
     return Response(
         data,
         status=status.HTTP_200_OK,
