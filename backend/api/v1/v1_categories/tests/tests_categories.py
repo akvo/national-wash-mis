@@ -1,7 +1,9 @@
+import pandas as pd
+from io import StringIO
 from django.core.management import call_command
 from django.test import TestCase
 from django.test.utils import override_settings
-from api.v1.v1_data.models import Questions
+from api.v1.v1_data.models import Answers, Questions
 
 
 @override_settings(USE_TZ=False)
@@ -71,3 +73,41 @@ class CategoryTestCase(TestCase):
             list(result[0]),
             ["id", "name", "administration", "geo", "data", "categories"],
         )
+
+    def test_csv_endpoint(self):
+        call_command("administration_seeder", "--test")
+        user_payload = {"email": "admin@rush.com", "password": "Test105*"}
+        self.client.post("/api/v1/login", user_payload, content_type="application/json")
+        call_command("form_seeder", "--test")
+        call_command("fake_data_seeder", "-r", 1, "-t", True)
+
+        # Call the function and get the response
+        response = self.client.get("/api/v1/raw-data-csv/1", follow=True)
+
+        # Verify the response
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response["Content-Type"], "text/csv")
+        self.assertEqual(
+            response["Content-Disposition"], 'attachment; filename="data.csv"'
+        )
+
+        # Test the generated CSV content
+        csv_string = response.content.decode("utf-8")
+        csv_content = StringIO(csv_string)
+        df = pd.read_csv(csv_content, sep=",")
+        for data_id in list(df["id"]):
+            answers = Answers.objects.filter(data_id=data_id).all()
+            row_value = df[df["id"] == data_id]
+            for a in answers:
+                csv_answer = row_value[f"{a.question.id}|{a.question.name}"][0]
+                if csv_answer != csv_answer:
+                    csv_answer = None
+                db_answer = None
+                if a.options:
+                    db_answer = "|".join([str(b) for b in a.options])
+                if a.value:
+                    db_answer = a.value
+                if a.name:
+                    db_answer = a.name
+                self.assertEqual(db_answer, csv_answer)
+        # ... Perform assertions on the CSV content based on the expected values
