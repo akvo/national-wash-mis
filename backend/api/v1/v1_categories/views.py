@@ -1,3 +1,5 @@
+import pandas as pd
+from io import StringIO
 from django.http import Http404
 from drf_spectacular.types import OpenApiTypes
 from drf_spectacular.utils import (
@@ -5,18 +7,21 @@ from drf_spectacular.utils import (
     inline_serializer,
     OpenApiParameter,
 )
+from django.http import HttpResponse
 from rest_framework import serializers, status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from utils.custom_serializer_fields import validate_serializers_message
 from utils.custom_pagination import Pagination
 
-from api.v1.v1_categories.functions import get_category_results
+from api.v1.v1_categories.functions import get_category_results, get_category
 from api.v1.v1_categories.models import DataCategory
 from api.v1.v1_data.models import FormData, Answers
+from api.v1.v1_forms.models import Questions
 from api.v1.v1_categories.serializers import (
     ListRawDataSerializer,
     ListRawDataAnswerSerializer,
+    ListCsvDataAnswerSerializer,
 )
 
 from api.v1.v1_data.functions import get_cache, create_cache
@@ -185,3 +190,66 @@ def get_power_bi_data(request, version, form_id):
         data,
         status=status.HTTP_200_OK,
     )
+
+
+def generate_data(instances):
+    for instance in instances:
+        data = ListRawDataSerializer(instance=instance).data
+        answers = Answers.objects.filter(data_id=data["id"]).all()
+        answers = ListCsvDataAnswerSerializer(instance=answers, many=True).data
+        data.update({a["question"]: a["value"] for a in answers})
+        categories = DataCategory.objects.filter(data_id=data["id"]).all()
+        if categories:
+            for c in categories:
+                category = get_category(c.options)
+                if category:
+                    data.update({c.name: category})
+        yield data
+
+
+@extend_schema(
+    description="""
+    Get csv datapoints along with JMP data
+    """,
+    parameters=[
+        OpenApiParameter(
+            name="cache",
+            default="test",
+            required=False,
+            type=OpenApiTypes.STR,
+            location=OpenApiParameter.QUERY,
+        ),
+    ],
+    tags=["Data Categories"],
+    summary="Get csv datapoints along with JMP data",
+)
+@api_view(["GET"])
+# @permission_classes([IsAuthenticated])
+def get_raw_csv_data(request, version, form_id):
+    cache_name = request.GET.get("cache")
+    if cache_name:
+        cache_name = f"power_bi-csv-{cache_name}"
+        cache_data = get_cache(cache_name)
+        if cache_data:
+            response = HttpResponse(cache_data, content_type="text/csv")
+            response["Content-Disposition"] = 'attachment; filename="data.csv"'
+            return response
+    instances = FormData.objects.filter(form_id=form_id).order_by("-created").all()
+    data = generate_data(instances)
+    df = pd.DataFrame(data)
+    questions = Questions.objects.filter(form_id=form_id).all()
+    column_names = {}
+    for question in questions:
+        if question.id not in list(df):
+            df[f"{question.id}|{question.name}"] = ""
+        else:
+            column_names.update({question.id: f"{question.id}|{question.name}"})
+    df = df.rename(columns=column_names)
+    csv_data = StringIO()
+    df.to_csv(csv_data, sep=",", index=False)
+    csv_text = csv_data.getvalue()
+    if cache_name:
+        create_cache(cache_name, csv_text)
+    response = HttpResponse(csv_text, content_type="text/csv")
+    response["Content-Disposition"] = 'attachment; filename="data.csv"'
+    return response
