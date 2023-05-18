@@ -84,13 +84,13 @@ EXTERNAL_APPS = [
 
 # Add API apps below
 API_APPS = [
-    "AkvoDjangoFormGateway",
     "api.v1.v1_users",
     "api.v1.v1_profile",
     "api.v1.v1_forms",
     "api.v1.v1_data",
     "api.v1.v1_categories",
     "api.v1.v1_jobs",
+    "AkvoDjangoFormGateway",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + API_APPS + EXTERNAL_APPS

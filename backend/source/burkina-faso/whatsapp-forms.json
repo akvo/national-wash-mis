@@ -6,7 +6,7 @@
     "questions": [
       {
         "id": 1,
-        "question": "Details of the complaint",
+        "question": "Détails de la plainte",
         "order": 1,
         "required": true,
         "type": "text"
@@ -20,40 +20,10 @@
       },
       {
         "id": 3,
-        "question": "GPS",
+        "question": "Merci de partager votre position (Geolocation)",
         "order": 3,
         "required": true,
         "type": "geo"
-      },
-      {
-        "id": 4,
-        "question": "Phone Number",
-        "order": 4,
-        "required": true,
-        "type": "number"
-      },
-      {
-        "id": 5,
-        "question": "Single Option",
-        "order": 5,
-        "options": [{ "name": "option 1" }, { "name": "option 2" }],
-        "type": "option"
-      },
-      {
-        "id": 6,
-        "question": "Multiple Options",
-        "order": 6,
-        "options": [
-          { "name": "multi 1" },
-          { "name": "multi 2" },
-          { "name": "multi 3" }
-        ],
-        "type": "multiple_option"
-      },
-      {
-        "id": 7,
-        "question": "Date Question",
-        "type": "date"
       }
     ]
   }
