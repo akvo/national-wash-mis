@@ -8,6 +8,9 @@ services:
       - ./:/app:delegated
       - ${SERVICE_ACCOUNT}:/credentials/:ro
     environment:
+      - TWILIO_ACCOUNT_SID=abc
+      - TWILIO_AUTH_TOKEN=xyz
+      - TWILIO_PHONE_NUMBER=12345678
       - DB_USER=akvo
       - DB_PASSWORD=password
       - DB_HOST=db
