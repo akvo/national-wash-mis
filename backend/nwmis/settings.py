@@ -194,11 +194,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.0/howto/static-files/
-
-STATIC_URL = "static-files/"
-
 # For Caching API call
 CACHES = {
     "default": {
@@ -218,6 +213,17 @@ AUTH_USER_MODEL = "v1_users.SystemUser"
 
 INSTANCE = environ["NWMIS_INSTANCE"]
 MASTER_DATA = f"./source/{INSTANCE}"
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/4.0/howto/static-files/
+
+STATIC_URL = "static-files/"
+
+STATICFILES_DIRS = [
+    f"{MASTER_DATA}/assets/"
+]
+
+STATIC_ROOT = "/var/static/"
 
 FORM_GEO_VALUE = {
     "default": {"lat": 9.145, "lng": 40.4897},
