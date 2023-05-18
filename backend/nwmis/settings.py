@@ -90,6 +90,7 @@ API_APPS = [
     "api.v1.v1_data",
     "api.v1.v1_categories",
     "api.v1.v1_jobs",
+    "AkvoDjangoFormGateway",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + API_APPS + EXTERNAL_APPS
@@ -242,3 +243,8 @@ Q_CLUSTER = {
     "bulk": 10,
     "orm": "default",
 }
+
+# TWILIO_ACCOUNT
+TWILIO_ACCOUNT_SID = environ.get("TWILIO_ACCOUNT_SID")
+TWILIO_AUTH_TOKEN = environ.get("TWILIO_AUTH_TOKEN")
+TWILIO_PHONE_NUMBER = environ.get("TWILIO_PHONE_NUMBER")
