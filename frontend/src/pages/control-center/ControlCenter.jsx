@@ -108,6 +108,22 @@ const ControlCenter = () => {
         image: "/assets/organisation.svg",
       },
       {
+        key: "manage-complains",
+        title: text.manageComplainTitle,
+        buttonLabel: text.manageComplainButton,
+        access: "data",
+        description: (
+          <div>
+            {text.thisIsWhereYou}
+            <ul>
+              <li>{text.manageComplainCan1}</li>
+            </ul>
+          </div>
+        ),
+        link: "/complains",
+        image: "/assets/big-data.png",
+      },
+      {
         key: "approvals",
         access: "approvals",
         render: (
