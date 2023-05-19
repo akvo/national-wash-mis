@@ -217,7 +217,6 @@ MASTER_DATA = f"./source/{INSTANCE}"
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-# TODO:: Need to add "python manage.py collectstatic --no-input" command to .sh command
 STATIC_URL = "static-files/"
 
 STATICFILES_DIRS = [
