@@ -195,7 +195,10 @@
     "addNew": "Ajouter un nouveau",
     "dataDownloadCan1": "Accéder aux données téléchargées",
     "errorExport": "Échec de l'exportation",
-    "successExport": "Données exportées avec succès"
+    "successExport": "Données exportées avec succès",
+    "manageComplainTitle": "Gérer la plainte",
+    "manageComplainButton": "Gérer la plainte",
+    "manageComplainCan1": "Afficher la plainte"
   },
   "dashboard": {
     "lastUpdate": "Dernière mise à jour",
@@ -363,5 +366,22 @@
     "downloadedData": "Données téléchargées",
     "manageData": "Gérer les données",
     "manageUsers": "gérer les utilisateurs"
+  },
+  "complains": {
+    "pageTitle": "Gérer la plainte",
+    "manageComplainCan1": "Afficher la plainte",
+    "statusCol": "Statut",
+    "formCol": "Formulaire",
+    "nameCol": "Nom",
+    "phoneCol": "Téléphone",
+    "createdCol": "Créé",
+    "updatedCol": "Mis à jour",
+    "questionCol": "Question",
+    "valueCol": "Valeur",
+    "geoCol": "Géopoint",
+    "complainsLoadFail": "Impossible de charger des plaintes",
+    "draftStatus": "Brouillon",
+    "submittedStatus": "Soumis",
+    "answerDetails": "Répondre aux détails"
   }
 }
