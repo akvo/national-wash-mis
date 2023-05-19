@@ -33,27 +33,12 @@ const ManageComplain = () => {
   const { isLoggedIn } = store.useState((state) => state);
   const { notify } = useNotification();
 
-  const STATUS_TEXT = {
-    1: text.draftStatus,
-    2: text.submittedStatus,
-  };
-
   const columns = [
     {
-      title: text.statusCol,
-      dataIndex: "status",
-      key: "status",
-      render: (status) => STATUS_TEXT[status] || text.draftStatus,
-    },
-    {
-      title: text.formCol,
-      dataIndex: "form_name",
-      key: "form_name",
-    },
-    {
-      title: text.nameCol,
-      dataIndex: "name",
-      key: "name",
+      title: "#",
+      dataIndex: "id",
+      key: "id",
+      render: (text, record, index) => index + 1,
     },
     {
       title: text.geoCol,
