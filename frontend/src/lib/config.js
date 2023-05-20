@@ -51,6 +51,7 @@ const config = {
         "manage-user",
         "manage-data",
         "manage-organisation",
+        "manage-complains",
         "approvals",
       ],
     },

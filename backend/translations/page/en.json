@@ -193,7 +193,10 @@
     "addNew": "Add New",
     "dataDownloadCan1": "Access downloaded data",
     "successExport": "Data exported successfully",
-    "errorExport": "Export failed"
+    "errorExport": "Export failed",
+    "manageComplainTitle": "Manage complain",
+    "manageComplainButton": "Manage complain",
+    "manageComplainCan1": "View complain"
   },
   "dashboard": {
     "lastUpdate": "Last Update",
@@ -361,5 +364,22 @@
     "manageUsers": "Manage Users",
     "dataValidationTree": "Data Validation Tree",
     "downloadedData": "Downloaded Data"
+  },
+  "complains": {
+    "pageTitle": "Manage complain",
+    "manageComplainCan1": "View complain",
+    "statusCol": "Status",
+    "formCol": "Form",
+    "nameCol": "Name",
+    "phoneCol": "Phone",
+    "createdCol": "Created",
+    "updatedCol": "Updated",
+    "questionCol": "Question",
+    "valueCol": "Value",
+    "geoCol": "Geopoint",
+    "complainsLoadFail": "Could not load complains",
+    "draftStatus": "Draft",
+    "submittedStatus": "Submitted",
+    "answerDetails": "Answer details"
   }
 }
