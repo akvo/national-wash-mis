@@ -53,7 +53,7 @@ def email_context(context: dict, type: str):
     webdomain = os.environ["WEBDOMAIN"]
     context.update({
         "webdomain": webdomain,
-        "logo": f"{webdomain}/logo.png",
+        "logo": f"{webdomain}/static-files/logo.png",
         "site_name": "MOH"
     })
     if type == EmailTypes.user_register:

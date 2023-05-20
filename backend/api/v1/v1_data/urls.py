@@ -29,6 +29,9 @@ from api.v1.v1_users.views import (
     get_translation_config_file,
 )
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     re_path(
         r"^(?P<version>(v1))/form-data/(?P<form_id>[0-9]+)",
@@ -88,4 +91,4 @@ urlpatterns = [
     re_path(r"^(?P<version>(v1))/config.js", get_config_file),
     re_path(r"^(?P<version>(v1))/i18n.js", get_translation_config_file),
     re_path(r"^(?P<version>(v1))/email_template", email_template),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
