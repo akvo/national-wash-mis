@@ -1,8 +1,10 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { Table, Space, Spin } from "antd";
+import { Table, Space, Spin, Image } from "antd";
 import { LoadingOutlined } from "@ant-design/icons";
 import { api, store } from "../../lib";
 import { getTranslation } from "../../util";
+
+const twilioMediaRegex = /^https:\/\/api\.twilio\.com\//;
 
 const ComplainDetail = ({ record }) => {
   const [dataset, setDataset] = useState(null);
@@ -57,6 +59,16 @@ const ComplainDetail = ({ record }) => {
             {
               title: text.valueCol,
               dataIndex: "value",
+              render: (val) => {
+                if (twilioMediaRegex.test(val)) {
+                  return (
+                    <div>
+                      <Image src={val} preview={false} />
+                    </div>
+                  );
+                }
+                return val;
+              },
             },
           ]}
         />
