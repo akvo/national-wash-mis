@@ -10,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 from datetime import timedelta
-from os import environ
+from os import path, environ
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -105,6 +105,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "middleware.user_activity.UserActivity",
     "middleware.logger.ErrorLoggingMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = "nwmis.urls"
@@ -218,13 +219,14 @@ MASTER_DATA = f"./source/{INSTANCE}"
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = "static-files/"
+STATIC_URL = "/static-files/"
 
-STATICFILES_DIRS = [
-    f"{MASTER_DATA}/assets/"
-]
+STATICFILES_DIRS = [f"{MASTER_DATA}/assets/"]
 
-STATIC_ROOT = "/var/static/"
+STATIC_ROOT = path.join(BASE_DIR, "staticfiles")
+
+# Static files whitenoise
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 FORM_GEO_VALUE = {
     "default": {"lat": 9.145, "lng": 40.4897},

@@ -9,3 +9,4 @@ db.dbml
 /error.log
 /access.log
 /worker.log
+/staticfiles/
