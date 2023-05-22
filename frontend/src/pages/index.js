@@ -29,3 +29,4 @@ export { default as Glaas } from "./dashboard/Glaas";
 export { default as ReportDashboard } from "./dashboard/ReportDashboard";
 export { default as GlaasReportDashboard } from "./dashboard/GlaasReportDashboard";
 export { default as BIDashboard } from "./bi/BIDashboard";
+export { default as ManageComplain } from "./manage-complain/ManageComplain";

@@ -90,6 +90,7 @@ API_APPS = [
     "api.v1.v1_data",
     "api.v1.v1_categories",
     "api.v1.v1_jobs",
+    "AkvoDjangoFormGateway",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + API_APPS + EXTERNAL_APPS
@@ -194,11 +195,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.0/howto/static-files/
-
-STATIC_URL = "static-files/"
-
 # For Caching API call
 CACHES = {
     "default": {
@@ -218,6 +214,17 @@ AUTH_USER_MODEL = "v1_users.SystemUser"
 
 INSTANCE = environ["NWMIS_INSTANCE"]
 MASTER_DATA = f"./source/{INSTANCE}"
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/4.0/howto/static-files/
+
+STATIC_URL = "static-files/"
+
+STATICFILES_DIRS = [
+    f"{MASTER_DATA}/assets/"
+]
+
+STATIC_ROOT = "/var/static/"
 
 FORM_GEO_VALUE = {
     "default": {"lat": 9.145, "lng": 40.4897},
@@ -242,3 +249,8 @@ Q_CLUSTER = {
     "bulk": 10,
     "orm": "default",
 }
+
+# TWILIO_ACCOUNT
+TWILIO_ACCOUNT_SID = environ.get("TWILIO_ACCOUNT_SID")
+TWILIO_AUTH_TOKEN = environ.get("TWILIO_AUTH_TOKEN")
+TWILIO_PHONE_NUMBER = environ.get("TWILIO_PHONE_NUMBER")

@@ -3,7 +3,7 @@ import { orderBy } from "lodash";
 const config = {
   siteTitle: "RUSH",
   siteSubTitle: "Rural Urban Sanitation and Hygiene",
-  siteLogo: "/logo.png",
+  siteLogo: "/static-files/logo.png",
   trainedStatus: (text = null) => [
     {
       label: text?.trained || "Trained",
@@ -51,6 +51,7 @@ const config = {
         "manage-user",
         "manage-data",
         "manage-organisation",
+        "manage-complains",
         "approvals",
       ],
     },

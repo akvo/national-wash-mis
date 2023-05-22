@@ -22,8 +22,8 @@ exports[`Login and Registration test if the login form exists: LoginPage 1`] = `
             href="/"
           >
             <img
-              alt="/logo.png"
-              src="/logo.png"
+              alt="/static-files/logo.png"
+              src="/static-files/logo.png"
             />
             <h1>
               RUSH

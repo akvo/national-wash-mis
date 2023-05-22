@@ -31,6 +31,7 @@ import {
   ReportDashboard,
   GlaasReportDashboard,
   BIDashboard,
+  ManageComplain,
   // Visualisation,
 } from "./pages";
 import { useCookies } from "react-cookie";
@@ -152,6 +153,10 @@ const RouteList = () => {
       <Route
         path="/reports"
         element={<Private element={Reports} alias="reports" />}
+      />
+      <Route
+        path="/complains"
+        element={<Private element={ManageComplain} alias="data" />}
       />
       <Route
         path="/report/:templateId"

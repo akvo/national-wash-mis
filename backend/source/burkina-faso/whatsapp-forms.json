@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "form": "Form Complaint",
+    "description": "Collect complaint data from customers",
+    "questions": [
+      {
+        "id": 1,
+        "question": "Détails de la plainte",
+        "order": 1,
+        "required": true,
+        "type": "text"
+      },
+      {
+        "id": 2,
+        "question": "Photo",
+        "order": 2,
+        "required": true,
+        "type": "photo"
+      },
+      {
+        "id": 3,
+        "question": "Merci de partager votre position (Geolocation)",
+        "order": 3,
+        "required": true,
+        "type": "geo"
+      }
+    ]
+  }
+]
