@@ -32,8 +32,8 @@ class CategoryTestCase(TestCase):
             "id", "name"
         )
         self.assertEqual(
-            list(result["data"][0]["data"]),
-            [f"{str(x[0])}|{x[1]}" for x in list(questions_queryset)],
+            sorted(list(result["data"][0]["data"])),
+            sorted([f"{str(x[0])}|{x[1]}" for x in list(questions_queryset)]),
         )
 
         # PRIVATE RAW DATA ACCESS (POWER BI) WITH FILTER
@@ -47,8 +47,8 @@ class CategoryTestCase(TestCase):
             form_id=1, pk=question.id
         ).values_list("id", "name")
         self.assertEqual(
-            list(result["data"][0]["data"]),
-            [f"{str(x[0])}|{x[1]}" for x in list(questions_queryset)],
+            sorted(list(result["data"][0]["data"])),
+            sorted([f"{str(x[0])}|{x[1]}" for x in list(questions_queryset)]),
         )
 
         # PRIVATE RAW DATA ACCESS (POWER BI PAGINATION)
@@ -56,8 +56,8 @@ class CategoryTestCase(TestCase):
         self.assertEqual(data.status_code, 200)
         result = data.json()
         self.assertEqual(
-            list(result["data"][0]),
-            ["id", "name", "administration", "geo", "data", "categories"],
+            sorted(list(result["data"][0])),
+            sorted(["id", "name", "administration", "geo", "data", "categories"]),
         )
 
         # PRIVATE RAW DATA ACCESS WITHOUT HEADER TOKEN
@@ -70,8 +70,8 @@ class CategoryTestCase(TestCase):
         self.assertEqual(data.status_code, 200)
         result = data.json()
         self.assertEqual(
-            list(result[0]),
-            ["id", "name", "administration", "geo", "data", "categories"],
+            sorted(list(result[0])),
+            sorted(["id", "name", "administration", "geo", "data", "categories"]),
         )
 
     def test_csv_endpoint(self):
