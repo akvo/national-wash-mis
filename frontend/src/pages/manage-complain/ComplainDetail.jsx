@@ -59,8 +59,11 @@ const ComplainDetail = ({ record }) => {
             {
               title: text.valueCol,
               dataIndex: "value",
-              render: (val) => {
-                if (twilioMediaRegex.test(val)) {
+              render: (val, record) => {
+                if (
+                  twilioMediaRegex.test(val) ||
+                  record?.question_type?.toLowerCase() === "photo"
+                ) {
                   return (
                     <div>
                       <Image src={val} preview={false} />
