@@ -47,6 +47,7 @@ class ListRawDataSerializer(serializers.ModelSerializer):
             filter(lambda x: x != "", instance.administration.path.split("."))
         )
         administration_path = [int(x) for x in administration_path]
+        administration_path += [instance.administration.id]
         all_administrations = (
             Administration.objects.filter(pk__in=administration_path)
             .order_by("level")
