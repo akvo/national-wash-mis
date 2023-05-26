@@ -1,10 +1,12 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { Table, Space, Spin, Image } from "antd";
+import { Table, Space, Spin, Image, Card } from "antd";
 import { LoadingOutlined } from "@ant-design/icons";
 import { api, store } from "../../lib";
 import { getTranslation } from "../../util";
 
 const twilioMediaRegex = /^https:\/\/api\.twilio\.com\//;
+
+const { Meta } = Card;
 
 const ComplainDetail = ({ record }) => {
   const [dataset, setDataset] = useState(null);
@@ -68,6 +70,23 @@ const ComplainDetail = ({ record }) => {
                     <div>
                       <Image src={val} preview={false} />
                     </div>
+                  );
+                }
+                if (record?.question_type?.toLowerCase() === "geo") {
+                  return (
+                    <Card
+                      className="card-maps"
+                      cover={
+                        <iframe
+                          src={`https://maps.google.com/maps?q=${val?.lat},${val?.lng}&z=16&ie=UTF8&iwloc=near&output=embed`}
+                        />
+                      }
+                    >
+                      <Meta
+                        title={text.addressCol}
+                        description={val?.address || "-"}
+                      />
+                    </Card>
                   );
                 }
                 return val;
