@@ -382,6 +382,7 @@
     "complainsLoadFail": "Impossible de charger des plaintes",
     "draftStatus": "Brouillon",
     "submittedStatus": "Soumis",
-    "answerDetails": "Répondre aux détails"
+    "answerDetails": "Répondre aux détails",
+    "addressCol": "Adresse"
   }
 }
