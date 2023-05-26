@@ -104,6 +104,11 @@ spec:
                 secretKeyRef:
                   name: ${INSTANCE_NAME}
                   key: twilio-phone-number
+            - name: GOOGLE_MAPS_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: ${INSTANCE_NAME}
+                  key: google-maps-api-key
             - name: PROD
               value: "TRUE"
             - name: GOOGLE_APPLICATION_CREDENTIALS
