@@ -380,6 +380,7 @@
     "complainsLoadFail": "Could not load complains",
     "draftStatus": "Draft",
     "submittedStatus": "Submitted",
-    "answerDetails": "Answer details"
+    "answerDetails": "Answer details",
+    "addressCol": "Address"
   }
 }

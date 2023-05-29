@@ -34,21 +34,19 @@ const ManageComplain = () => {
   const { notify } = useNotification();
 
   const columns = [
+    Table.EXPAND_COLUMN,
     {
       title: "#",
       dataIndex: "id",
       key: "id",
       render: (text, record, index) => index + 1,
-    },
-    {
-      title: text.geoCol,
-      dataIndex: "geo",
-      key: "geo",
+      width: 50,
     },
     {
       title: text.phoneCol,
       dataIndex: "phone",
       key: "phone",
+      width: 300,
     },
     {
       title: text.createdCol,
@@ -61,7 +59,6 @@ const ManageComplain = () => {
             )
           : "-",
     },
-    Table.EXPAND_COLUMN,
   ];
   const handleChange = (e) => {
     setCurrentPage(e.current);
