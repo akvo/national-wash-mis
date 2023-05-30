@@ -57,6 +57,7 @@ const ComplainDetail = ({ record }) => {
             {
               title: text.questionCol,
               dataIndex: "question_text",
+              style: { verticalAlign: "top" },
             },
             {
               title: text.valueCol,
@@ -68,7 +69,7 @@ const ComplainDetail = ({ record }) => {
                 ) {
                   return (
                     <div>
-                      <Image src={val} preview={false} />
+                      <Image src={val} height={200} />
                     </div>
                   );
                 }

@@ -17,4 +17,11 @@
     height: 200px;
     border: 0;
   }
+  #manageData {
+    .data-detail {
+      .ant-table-cell {
+        vertical-align: top;
+      }
+    }
+  }
 }
