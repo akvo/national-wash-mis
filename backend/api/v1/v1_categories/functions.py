@@ -101,7 +101,8 @@ def get_category_results(data):
     for d in categories:
         d.update({"category": get_category(d["opt"])})
     categories = [
-        {"id": c["data"], "category": {c["name"]: c["category"]}} for c in categories
+        {"id": c["data"], "category": {c["name"]: c["category"]}}
+        for c in categories
     ]
     updated_data = {}
     for item in categories:
@@ -111,3 +112,29 @@ def get_category_results(data):
             updated_data[item["id"]] = item
     updated_data = list(updated_data.values())
     return updated_data
+
+
+def get_category_by_lang(lang: str) -> dict:
+    file_config = f"{MASTER_DATA}/config/category-trans.json"
+    with open(file_config) as config_file:
+        configs = json.load(config_file)
+    return [
+        {"key": key, "value": value[lang]}
+        for key, value in configs.items()
+        if lang in value
+    ]
+
+
+def get_category_trans(categories: dict, trans: list) -> dict:
+    cs = {}
+    for ck, cv in categories.items():
+        cs[ck] = (
+            (
+                list(filter(lambda ct: ct["key"] == cv, trans))
+                .pop()
+                .get("value", cv)
+            )
+            if trans
+            else cv
+        )
+    return cs
