@@ -3,12 +3,20 @@ from io import StringIO
 from django.core.management import call_command
 from django.test import TestCase
 from django.test.utils import override_settings
-from api.v1.v1_data.models import Answers, Questions
+from api.v1.v1_users.models import SystemUser
+from api.v1.v1_data.models import Answers, Questions, FormData
+from api.v1.v1_categories.functions import (
+    get_category_by_lang,
+    get_category_trans,
+)
+from api.v1.v1_forms.constants import QuestionTypes
+from utils.functions import get_answer_value
 
 
 @override_settings(USE_TZ=False)
 class CategoryTestCase(TestCase):
-    def test_powerbi_endpoint(self):
+    def setUp(self):
+        super().setUp()
         call_command("administration_seeder", "--test")
         user_payload = {"email": "admin@rush.com", "password": "Test105*"}
         user_response = self.client.post(
@@ -19,9 +27,15 @@ class CategoryTestCase(TestCase):
         call_command("form_seeder", "--test")
         call_command("fake_data_seeder", "-r", 1, "-t", True)
         header = {"HTTP_AUTHORIZATION": f"Bearer {token}"}
+        self.header = header
+
+    def test_powerbi_endpoint(self):
+        header = self.header
 
         # PRIVATE RAW DATA ACCESS (POWER BI)
-        data = self.client.get("/api/v1/raw-data/1?page=1", follow=True, **header)
+        data = self.client.get(
+            "/api/v1/raw-data/1?page=1", follow=True, **header
+        )
         self.assertEqual(data.status_code, 200)
         result = data.json()
         self.assertEqual(
@@ -39,7 +53,9 @@ class CategoryTestCase(TestCase):
         # PRIVATE RAW DATA ACCESS (POWER BI) WITH FILTER
         question = Questions.objects.filter(form_id=1).first()
         data = self.client.get(
-            f"/api/v1/raw-data/1?questions={question.id}&page=1", follow=True, **header
+            f"/api/v1/raw-data/1?questions={question.id}&page=1",
+            follow=True,
+            **header,
         )
         self.assertEqual(data.status_code, 200)
         result = data.json()
@@ -52,12 +68,16 @@ class CategoryTestCase(TestCase):
         )
 
         # PRIVATE RAW DATA ACCESS (POWER BI PAGINATION)
-        data = self.client.get("/api/v1/raw-data/1?page=1", follow=True, **header)
+        data = self.client.get(
+            "/api/v1/raw-data/1?page=1", follow=True, **header
+        )
         self.assertEqual(data.status_code, 200)
         result = data.json()
         self.assertEqual(
             sorted(list(result["data"][0])),
-            sorted(["id", "name", "administration", "geo", "data", "categories"]),
+            sorted(
+                ["id", "name", "administration", "geo", "data", "categories"]
+            ),
         )
 
         # PRIVATE RAW DATA ACCESS WITHOUT HEADER TOKEN
@@ -71,13 +91,65 @@ class CategoryTestCase(TestCase):
         result = data.json()
         self.assertEqual(
             sorted(list(result[0])),
-            sorted(["id", "name", "administration", "geo", "data", "categories"]),
+            sorted(
+                ["id", "name", "administration", "geo", "data", "categories"]
+            ),
+        )
+
+    def test_get_answer_value(self):
+        # Create dummy answer
+        question = Questions.objects.filter(type=QuestionTypes.option).first()
+        answer = Answers.objects.create(
+            data=FormData.objects.first(),
+            question=question,
+            created_by=SystemUser.objects.first(),
+            options=["Female"],
+        )
+        # French translation
+        trans = [
+            {"key": "Female", "question": question.id, "value": "Femelle"}
+        ]
+        self.assertEqual(
+            get_answer_value(answer=answer, toString=True, trans=trans),
+            "Femelle",
+        )
+
+    def test_translated_categories(self):
+        # Non english
+        categories = {
+            "Water": "Basic",
+            "Sanitation": "Limited",
+            "Hygiene": "No Service",
+        }
+        trans = get_category_by_lang(lang="fr")
+        self.assertEqual(
+            list(trans[0]),
+            ["key", "value"],
+        )
+        res = get_category_trans(categories=categories, trans=trans)
+        self.assertEqual(
+            res,
+            {
+                "Water": "Basique",
+                "Sanitation": "Limité",
+                "Hygiene": "Pas de service",
+            },
+        )
+        # English
+        trans = get_category_by_lang(lang="en")
+        self.assertEqual(trans, [])
+        res = get_category_trans(categories=categories, trans=trans)
+        self.assertEqual(
+            res,
+            categories,
         )
 
     def test_csv_endpoint(self):
         call_command("administration_seeder", "--test")
         user_payload = {"email": "admin@rush.com", "password": "Test105*"}
-        self.client.post("/api/v1/login", user_payload, content_type="application/json")
+        self.client.post(
+            "/api/v1/login", user_payload, content_type="application/json"
+        )
         call_command("form_seeder", "--test")
         call_command("fake_data_seeder", "-r", 1, "-t", True)
 
@@ -110,4 +182,5 @@ class CategoryTestCase(TestCase):
                 if a.name:
                     db_answer = a.name
                 self.assertEqual(db_answer, csv_answer)
-        # ... Perform assertions on the CSV content based on the expected values
+        # ... Perform assertions on the CSV content
+        # based on the expected values
