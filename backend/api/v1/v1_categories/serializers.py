@@ -25,7 +25,9 @@ class ListRawDataAnswerSerializer(serializers.ModelSerializer):
 
     @extend_schema_field(OpenApiTypes.ANY)
     def get_value(self, instance: Answers):
-        return get_answer_value(instance, toString=True)
+        return get_answer_value(
+            instance, toString=True, trans=self.context.get("trans")
+        )
 
     @extend_schema_field(OpenApiTypes.STR)
     def get_question(self, instance: Answers):
