@@ -87,47 +87,67 @@ class CategoryTestCase(TestCase):
 
     def test_get_powerbi_default_language(self):
         header = self.header
-        # PRIVATE RAW DATA ACCESS (NO PAGINATED POWER BI)
+        lang = "en"
         data = self.client.get(
-            "/api/v1/power-bi/1?lang=en", follow=True, **header
+            f"/api/v1/power-bi/1?lang={lang}", follow=True, **header
         )
         self.assertEqual(data.status_code, 200)
         result = data.json()
-        question = Questions.objects.filter(type=QuestionTypes.option).first()
-        options = question.question_question_options.all()
-        options = [option.name for option in options]
         self.assertEqual(
             sorted(list(result[0])),
             sorted(
                 ["id", "name", "administration", "geo", "data", "categories"]
             ),
         )
+
+        question = Questions.objects.filter(type=QuestionTypes.option).first()
+        question_opt = question.question_question_options.all()
+        translations = [
+            list(filter(lambda o: o["language"] == lang, opt.translations))
+            for opt in question_opt
+        ]
+        translations = [item for sublist in translations for item in sublist]
+        if len(translations) == 0:
+            translations = [o.name for o in question_opt]
+
+        # all options are in english
+        self.assertEqual(translations, ["Male", "Female", "Other"])
         keys = list(
             filter(lambda k: str(question.id) in k, result[0]["data"].keys())
         )
-        self.assertIn(result[0]["data"][keys[0]], options)
+        self.assertIn(result[0]["data"][keys[0]], translations)
 
     def test_get_powerbi_french_language(self):
         header = self.header
-        # PRIVATE RAW DATA ACCESS (NO PAGINATED POWER BI)
+        lang = "fr"
         data = self.client.get(
-            "/api/v1/power-bi/1?lang=fr", follow=True, **header
+            f"/api/v1/power-bi/1?lang={lang}", follow=True, **header
         )
         self.assertEqual(data.status_code, 200)
         result = data.json()
-        question = Questions.objects.filter(type=QuestionTypes.option).first()
-        options = question.question_question_options.all()
-        options = [option.translations[0].get("name") for option in options]
         self.assertEqual(
             sorted(list(result[0])),
             sorted(
                 ["id", "name", "administration", "geo", "data", "categories"]
             ),
         )
+
+        question = Questions.objects.filter(type=QuestionTypes.option).first()
+        question_opt = question.question_question_options.all()
+        translations = [
+            list(filter(lambda o: o["language"] == lang, opt.translations))
+            for opt in question_opt
+        ]
+        translations = [
+            item["name"] for sublist in translations for item in sublist
+        ]
+        # all options are in french
+        self.assertEqual(translations, ["Mâle", "Femelle", "Autre"])
+
         keys = list(
             filter(lambda k: str(question.id) in k, result[0]["data"].keys())
         )
-        self.assertIn(result[0]["data"][keys[0]], options)
+        self.assertIn(result[0]["data"][keys[0]], translations)
 
     def test_get_answer_value(self):
         # Create dummy answer
