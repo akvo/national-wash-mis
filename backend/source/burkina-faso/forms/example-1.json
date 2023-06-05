@@ -25,13 +25,31 @@
           ],
           "options": [
             {
-              "name": "Male"
+              "name": "Male",
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Mâle"
+                }
+              ]
             },
             {
-              "name": "Female"
+              "name": "Female",
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Femelle"
+                }
+              ]
             },
             {
-              "name": "Other"
+              "name": "Other",
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Autre"
+                }
+              ]
             }
           ]
         },
@@ -70,13 +88,31 @@
           "required": true,
           "options": [
             {
-              "name": "Wife / Husband / Partner"
+              "name": "Wife / Husband / Partner",
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Épouse / mari / partenaire"
+                }
+              ]
             },
             {
-              "name": "Children"
+              "name": "Children",
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Enfants"
+                }
+              ]
             },
             {
-              "name": "Parent"
+              "name": "Parent",
+              "translations": [
+                {
+                  "language": "fr",
+                  "name": "Parent"
+                }
+              ]
             }
           ]
         },
