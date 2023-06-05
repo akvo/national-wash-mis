@@ -14,10 +14,15 @@ from rest_framework.response import Response
 from utils.custom_serializer_fields import validate_serializers_message
 from utils.custom_pagination import Pagination
 
-from api.v1.v1_categories.functions import get_category_results, get_category
+from api.v1.v1_categories.functions import (
+    get_category_results,
+    get_category,
+    get_category_by_lang,
+    get_category_trans,
+)
 from api.v1.v1_categories.models import DataCategory
 from api.v1.v1_data.models import FormData, Answers
-from api.v1.v1_forms.models import Questions
+from api.v1.v1_forms.models import Questions, QuestionOptions
 from api.v1.v1_categories.serializers import (
     ListRawDataSerializer,
     ListRawDataAnswerSerializer,
@@ -67,7 +72,9 @@ from api.v1.v1_data.serializers import ListFormDataRequestSerializer
 )
 @api_view(["GET"])
 def get_data_with_category(request, version, form_id):
-    queryset = FormData.objects.filter(form_id=form_id).values_list("pk", flat=True)
+    queryset = FormData.objects.filter(form_id=form_id).values_list(
+        "pk", flat=True
+    )
     if not len(queryset):
         raise Http404("DataCategory does not exist")
     paginator = Pagination()
@@ -132,7 +139,9 @@ def get_raw_data_point(request, version, form_id):
         for a in answers:
             data_answers.update({a["question"]: a["value"]})
         if category:
-            d.update({"data": data_answers, "categories": category[0]["category"]})
+            d.update(
+                {"data": data_answers, "categories": category[0]["category"]}
+            )
         else:
             d.update({"data": data_answers, "categories": {}})
     return paginator.get_paginated_response(data)
@@ -150,6 +159,13 @@ def get_raw_data_point(request, version, form_id):
             type=OpenApiTypes.STR,
             location=OpenApiParameter.QUERY,
         ),
+        OpenApiParameter(
+            name="lang",
+            default="en",
+            required=False,
+            type=OpenApiTypes.STR,
+            location=OpenApiParameter.QUERY,
+        ),
     ],
     responses={200: ListRawDataSerializer(many=True)},
     tags=["Data Categories"],
@@ -159,12 +175,35 @@ def get_raw_data_point(request, version, form_id):
 # @permission_classes([IsAuthenticated])
 def get_power_bi_data(request, version, form_id):
     cache_name = request.GET.get("cache")
+    lang = request.GET.get("lang")
+    lang = "en" if not lang else str(lang).lower()
+    opts = []
+
+    non_eng = lang != "en"
+    if non_eng:
+        opts = QuestionOptions.objects.filter(
+            question__form=form_id, translations__isnull=False
+        ).all()
+        opts = [
+            {
+                "question": t.question.id,
+                "key": t.name,
+                "value": list(
+                    filter(lambda tr: tr["language"] == lang, t.translations)
+                )
+                .pop()
+                .get("name", t.name),
+            }
+            for t in opts
+        ]
     if cache_name:
-        cache_name = f"power_bi-{cache_name}"
+        cache_name = f"power_bi-{lang}-{cache_name}"
         cache_data = get_cache(cache_name)
         if cache_data:
             return Response(cache_data, status=status.HTTP_200_OK)
-    instances = FormData.objects.filter(form_id=form_id).order_by("-created").all()
+    instances = (
+        FormData.objects.filter(form_id=form_id).order_by("-created").all()
+    )
     data = ListRawDataSerializer(
         instance=instances,
         many=True,
@@ -173,15 +212,21 @@ def get_power_bi_data(request, version, form_id):
         form_id=form_id, data_id__in=[d["id"] for d in data]
     ).all()
     categories = get_category_results(categories)
+    category_t = get_category_by_lang(lang=lang)
     for d in data:
         category = list(filter(lambda x: x["id"] == d["id"], categories))
         answers = Answers.objects.filter(data_id=d["id"]).all()
-        answers = ListRawDataAnswerSerializer(instance=answers, many=True).data
+        answers = ListRawDataAnswerSerializer(
+            instance=answers, context={"trans": opts}, many=True
+        ).data
         data_answers = {}
         for a in answers:
             data_answers.update({a["question"]: a["value"]})
         if category:
-            d.update({"data": data_answers, "categories": category[0]["category"]})
+            cs = category[0]["category"]
+            if non_eng:
+                cs = get_category_trans(categories=cs, trans=category_t)
+            d.update({"data": data_answers, "categories": cs})
         else:
             d.update({"data": data_answers, "categories": {}})
     if cache_name:
@@ -234,7 +279,9 @@ def get_raw_csv_data(request, version, form_id):
             response = HttpResponse(cache_data, content_type="text/csv")
             response["Content-Disposition"] = 'attachment; filename="data.csv"'
             return response
-    instances = FormData.objects.filter(form_id=form_id).order_by("-created").all()
+    instances = (
+        FormData.objects.filter(form_id=form_id).order_by("-created").all()
+    )
     data = generate_data(instances)
     df = pd.DataFrame(data)
     questions = Questions.objects.filter(form_id=form_id).all()
@@ -243,7 +290,9 @@ def get_raw_csv_data(request, version, form_id):
         if question.id not in list(df):
             df[f"{question.id}|{question.name}"] = ""
         else:
-            column_names.update({question.id: f"{question.id}|{question.name}"})
+            column_names.update(
+                {question.id: f"{question.id}|{question.name}"}
+            )
     df = df.rename(columns=column_names)
     csv_data = StringIO()
     df.to_csv(csv_data, sep=",", index=False)

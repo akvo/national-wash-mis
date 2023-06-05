@@ -1,0 +1,26 @@
+{
+    "Safely Managed": {
+        "fr": "Géré en toute sécurité"
+    },
+    "Basic": {
+        "fr": "Basique"
+    },
+    "Limited": {
+        "fr": "Limité"
+    },
+    "No Service": {
+        "fr": "Pas de service"
+    },
+    "No Facility": {
+        "fr": "Aucune installation"
+    },
+    "Open defecation": {
+        "fr": "défécation à l'air libre"
+    },
+    "Unimproved": {
+        "fr": "Non amélioré"
+    },
+    "Surface water": {
+        "fr": "Les eaux de surface"
+    }
+}
