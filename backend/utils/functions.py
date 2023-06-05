@@ -20,16 +20,21 @@ def get_answer_value(
         ops = answer.options
         if ops and trans and answer.question.type != QuestionTypes.geo:
             ops = [
-                list(
-                    filter(
-                        lambda t: t["key"] == op
-                        and t["question"] == answer.question.id,
-                        trans,
-                    )
+                (
+                    list(
+                        filter(
+                            lambda t: t["key"] == op
+                            and t["question"] == answer.question.id,
+                            trans,
+                        )
+                    ),
+                    op,
                 )
-                .pop()
-                .get("value", op)
                 for op in ops
+            ]
+            ops = [
+                o[0].pop().get("value", o[1]) if len(o[0]) else o[1]
+                for o in ops
             ]
         if toString:
             return "|".join([str(o) for o in ops]) if ops else None
