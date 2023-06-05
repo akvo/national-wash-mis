@@ -176,9 +176,10 @@ def get_raw_data_point(request, version, form_id):
 def get_power_bi_data(request, version, form_id):
     cache_name = request.GET.get("cache")
     lang = request.GET.get("lang")
+    lang = "en" if not lang else str(lang).lower()
     opts = []
 
-    non_eng = lang and lang != "en"
+    non_eng = lang != "en"
     if non_eng:
         opts = QuestionOptions.objects.filter(
             question__form=form_id, translations__isnull=False
