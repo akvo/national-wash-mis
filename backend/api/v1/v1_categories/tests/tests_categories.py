@@ -85,16 +85,49 @@ class CategoryTestCase(TestCase):
         # TODO: AFTER DEMO, FIND HOW PROVIDE AUTHENTICATION IN POWERBI
         self.assertEqual(data.status_code, 200)
 
+    def test_get_powerbi_default_language(self):
+        header = self.header
         # PRIVATE RAW DATA ACCESS (NO PAGINATED POWER BI)
-        data = self.client.get("/api/v1/power-bi/1", follow=True, **header)
+        data = self.client.get(
+            "/api/v1/power-bi/1?lang=en", follow=True, **header
+        )
         self.assertEqual(data.status_code, 200)
         result = data.json()
+        question = Questions.objects.filter(type=QuestionTypes.option).first()
+        options = question.question_question_options.all()
+        options = [option.name for option in options]
         self.assertEqual(
             sorted(list(result[0])),
             sorted(
                 ["id", "name", "administration", "geo", "data", "categories"]
             ),
         )
+        keys = list(
+            filter(lambda k: str(question.id) in k, result[0]["data"].keys())
+        )
+        self.assertIn(result[0]["data"][keys[0]], options)
+
+    def test_get_powerbi_french_language(self):
+        header = self.header
+        # PRIVATE RAW DATA ACCESS (NO PAGINATED POWER BI)
+        data = self.client.get(
+            "/api/v1/power-bi/1?lang=fr", follow=True, **header
+        )
+        self.assertEqual(data.status_code, 200)
+        result = data.json()
+        question = Questions.objects.filter(type=QuestionTypes.option).first()
+        options = question.question_question_options.all()
+        options = [option.translations[0].get("name") for option in options]
+        self.assertEqual(
+            sorted(list(result[0])),
+            sorted(
+                ["id", "name", "administration", "geo", "data", "categories"]
+            ),
+        )
+        keys = list(
+            filter(lambda k: str(question.id) in k, result[0]["data"].keys())
+        )
+        self.assertIn(result[0]["data"][keys[0]], options)
 
     def test_get_answer_value(self):
         # Create dummy answer
