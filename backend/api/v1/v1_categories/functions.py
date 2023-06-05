@@ -125,16 +125,11 @@ def get_category_by_lang(lang: str) -> dict:
     ]
 
 
-def get_category_trans(categories: dict, trans: list) -> dict:
+def get_category_trans(categories: dict, trans: list = []) -> dict:
     cs = {}
     for ck, cv in categories.items():
-        cs[ck] = (
-            (
-                list(filter(lambda ct: ct["key"] == cv, trans))
-                .pop()
-                .get("value", cv)
-            )
-            if trans
-            else cv
-        )
+        cs[ck] = cv
+        ts = list(filter(lambda ct: ct["key"] == cv, trans))
+        if len(ts):
+            cs[ck] = ts.pop().get("value", cv)
     return cs
