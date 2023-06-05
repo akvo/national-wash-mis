@@ -85,7 +85,32 @@ class CategoryTestCase(TestCase):
         # TODO: AFTER DEMO, FIND HOW PROVIDE AUTHENTICATION IN POWERBI
         self.assertEqual(data.status_code, 200)
 
-    def test_get_powerbi_default_language(self):
+    def test_get_powerbi_non_lang_param(self):
+        header = self.header
+
+        data = self.client.get("/api/v1/power-bi/1", follow=True, **header)
+        self.assertEqual(data.status_code, 200)
+        result = data.json()
+        self.assertEqual(
+            sorted(list(result[0])),
+            sorted(
+                ["id", "name", "administration", "geo", "data", "categories"]
+            ),
+        )
+
+        question = Questions.objects.filter(type=QuestionTypes.option).first()
+        question_opt = question.question_question_options.all()
+        # default options are in english
+        translations = [o.name for o in question_opt]
+
+        # all options are in english
+        self.assertEqual(translations, ["Male", "Female", "Other"])
+        keys = list(
+            filter(lambda k: str(question.id) in k, result[0]["data"].keys())
+        )
+        self.assertIn(result[0]["data"][keys[0]], translations)
+
+    def test_get_powerbi_english_language(self):
         header = self.header
         lang = "en"
         data = self.client.get(
@@ -143,6 +168,42 @@ class CategoryTestCase(TestCase):
         ]
         # all options are in french
         self.assertEqual(translations, ["Mâle", "Femelle", "Autre"])
+
+        keys = list(
+            filter(lambda k: str(question.id) in k, result[0]["data"].keys())
+        )
+        self.assertIn(result[0]["data"][keys[0]], translations)
+
+    def test_powerbi_no_translations_in_french(self):
+        # Get first question type option
+        question = Questions.objects.filter(type=QuestionTypes.option).first()
+        question_opt = question.question_question_options.all()
+        # Set translations null
+        for option in question_opt:
+            option.translations = None
+            option.save()
+
+        header = self.header
+        lang = "fr"
+        data = self.client.get(
+            f"/api/v1/power-bi/1?lang={lang}", follow=True, **header
+        )
+        self.assertEqual(data.status_code, 200)
+        result = data.json()
+        self.assertEqual(
+            sorted(list(result[0])),
+            sorted(
+                ["id", "name", "administration", "geo", "data", "categories"]
+            ),
+        )
+        translations = [
+            list(filter(lambda o: o["language"] == lang, opt.translations))
+            if opt.translations
+            else opt.name
+            for opt in question_opt
+        ]
+        # all options are in english
+        self.assertEqual(translations, ["Male", "Female", "Other"])
 
         keys = list(
             filter(lambda k: str(question.id) in k, result[0]["data"].keys())
