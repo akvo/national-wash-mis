@@ -58,6 +58,7 @@ const Banner = () => {
           <br />
           {text?.bannerSubT2}
         </h2>
+        <br />
         <Row>
           <Button
             size="large"
