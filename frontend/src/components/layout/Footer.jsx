@@ -18,30 +18,16 @@ const Footer = ({ className = "footer", ...props }) => {
   }
   const footerExternalLinkItems = [
     {
-      text: "JMP",
-      url: "https://washdata.org/how-we-work/about-jmp#:~:text=Background,hygiene%20(WASH)%20since%201990",
+      text: "https://eauburkina.com",
+      url: "https://eauburkina.com/",
     },
     {
-      text: "CLTS NWMIS",
-      url: " http://wash.health.go.ke/clts/index.jsp",
+      text: "https://www.environnement.gov.bf/accueil",
+      url: "https://www.environnement.gov.bf/accueil",
     },
     {
-      text: "GLAAS",
-      url: "https://www.who.int/teams/environment-climate-change-and-health/water-sanitation-and-health/monitoring-and-evidence/wash-systems-monitoring/un-water-global-analysis-and-assessment-of-sanitation-and-drinking-water",
-    },
-  ];
-  const footerResourcesItems = [
-    {
-      text: "International Resources",
-      url: "#",
-    },
-    {
-      text: "National Resources",
-      url: "#",
-    },
-    {
-      text: "County Resources",
-      url: "#",
+      text: "Direction Générale de l'Assainissement des Eaux Usées et Excreta",
+      url: "https://www.facebook.com/p/Direction-G%C3%A9n%C3%A9rale-de-lAssainissement-des-Eaux-Us%C3%A9es-et-Excreta-100069316415266",
     },
   ];
   const footerQuickLinkItems = [
@@ -68,22 +54,10 @@ const Footer = ({ className = "footer", ...props }) => {
             </a>
           ))}
         </Col>
-        <Col span={4}>
+        <Col span={6}>
           <h2>{text?.footerExternalLinkTitle}</h2>
           <ul>
             {footerExternalLinkItems.map((x, xi) => (
-              <li key={`ext-link-${xi}`}>
-                <a target="_blank" rel="noreferrer" href={x.url}>
-                  {x.text}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </Col>
-        <Col span={4}>
-          <h2>{text?.footerResourcesTitle}</h2>
-          <ul>
-            {footerResourcesItems.map((x, xi) => (
               <li key={`ext-link-${xi}`}>
                 <a target="_blank" rel="noreferrer" href={x.url}>
                   {x.text}
