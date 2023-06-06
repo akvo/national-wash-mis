@@ -49,7 +49,7 @@ Object {
   ],
   "isLoggedIn": false,
   "language": Object {
-    "active": "en",
+    "active": "fr",
     "langs": Object {
       "en": "English",
       "fr": "French",
