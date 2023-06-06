@@ -23,7 +23,7 @@
     "forgotDesc": "Enter the email associated with your account and we&apos;ll Send an email with instructions to reset your password",
     "instructionsMailed": "Instructions mailed successfully",
     "sendInstructions": "Send Instructions",
-    "welcomeShort": "Welcome to RUSH",
+    "welcomeShort": "Welcome to PDHA",
     "resetHint1": "Please set your password for the platform.",
     "resetHint2": "Your password must include:",
     "invalidInviteTitle": "Invalid Invite Code",
@@ -49,12 +49,12 @@
   },
   "footer": {
     "footerAboutTitle": "About Data",
-    "footerAboutDescription": "All the data contained in the RUSH platform is aggregated from both primary and secondary data sources from Burkina Faso. The data is updated on a monthly basis.",
+    "footerAboutDescription": "The data used is as tests and exercise of EHA data collection field. They are not validated by the ministry. They are used to present the possibilities of national and international Wash indicator visualizations. They do not act as real proportions of the country's Wash indicators.",
     "footerContactTitle": "Contacts",
     "footerContactAddress": "9G45+GX9, rue 29.13, Ouagadougou, Burkina Faso",
     "footerContactPhone": "+25x-xx-xxxxx",
-    "footerContactEmail": "xxx@health.go.ke",
-    "footerExternalLinkTitle": "External Links",
+    "footerContactEmail": "info@environnement.gov.bf",
+    "footerExternalLinkTitle": "Links to other platforms",
     "footerResourcesTitle": "Resources",
     "footerQuickLinkTitle": "Quick Links"
   },
@@ -81,7 +81,7 @@
     "attributesCol": "Attributes"
   },
   "organisationForm": {
-    "descriptionData ": "This page allows you to add organisations to the RUSH platform.",
+    "descriptionData ": "This page allows you to add organisations to the PDHA platform.",
     "name": "Organization Name",
     "attributes": "Organization Attributes",
     "selectAttributes": "Select attributes..",
@@ -103,7 +103,7 @@
     "userDeleteFail": "Could not delete user",
     "deleteUserHint": "Deleting this user will not delete the data association(s)",
     "deleteUserTitle": "You are about to delete the user",
-    "deleteUserDesc": "The User will no longer be able to access the RUSH platform as an Enumrator/Admin etc",
+    "deleteUserDesc": "The User will no longer be able to access the PDHA platform as an Enumrator/Admin etc",
     "userAssociations": "This user has following data association(s)",
     "roleCol": "Role",
     "regionCol": "Region",
@@ -120,7 +120,7 @@
   "userForm": {
     "successAdded": "User added",
     "successUpdated": "User updated",
-    "descriptionData1": "This page allows you to add users to the RUSH platform.You will only be able to add users for regions under your jurisdisction.",
+    "descriptionData1": "This page allows you to add users to the PDHA platform.You will only be able to add users for regions under your jurisdisction.",
     "descriptionData2": "Once you have added the user, the user will be notified by email to set their password and access the platform",
     "errorAdded": "User could not be added",
     "errorUpdated": "User could not be updated",
@@ -224,8 +224,8 @@
   },
   "home": {
     "panelHeader": "Explore county-wise details",
-    "title": "About RUSH",
-    "description": "The Burkina Faso Rural Urban Sanitation and Hygiene (RUSH) platform is a real-time monitoring and information system owned by the Ministry of Health. The platform aggregates quantitative and qualitative data from county and national levels and facilitates data analysis, report generation and visualizations.",
+    "title": "About PDHA",
+    "description": "The hygiene and sanitation data platform (PDHA) in Burkina Faso provides information relating to access, households, health care establishments, and schools, water points, works of Hygiene and sanitation (EHA) and total sanitation pilot by communities (ATPC) in four regions of Burkina Faso.",
     "contactUs": "Contact Us",
     "getInTouch": "Get in touch with us for support or feedback.",
     "sendFeedback": "Send Feedback",
