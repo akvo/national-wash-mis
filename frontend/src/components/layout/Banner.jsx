@@ -3,8 +3,6 @@ import { Row, Col, Button, Dropdown, Menu } from "antd";
 import { DownOutlined } from "@ant-design/icons";
 import { Link, useLocation } from "react-router-dom";
 import ComingSoon from "./custom/ComingSoon";
-import Countdown from "react-countdown";
-import moment from "moment";
 import { store } from "../../lib";
 import { getTranslation } from "../../util";
 
@@ -30,63 +28,6 @@ const Banner = () => {
   ) {
     return "";
   }
-
-  const renderer = ({ days, hours, minutes, seconds, completed }) => {
-    if (completed) {
-      return "";
-    }
-    const futureDate = moment().add(days, "days");
-    const duration = moment.duration(futureDate.diff(moment()));
-    const year = duration.years();
-    const month = duration.months();
-    const day = duration.days();
-    return (
-      <Row className="countdown" align="bottom" gutter={[6, 6]}>
-        <Col className="countdown-col">
-          <div className="countdown-timer">{year}</div>
-          <div className="countdown-text">
-            {text?.year}
-            {year !== 1 && "s"}
-          </div>
-        </Col>
-        <Col className="countdown-col">
-          <div className="countdown-timer">{month}</div>
-          <div className="countdown-text">
-            {text?.month}
-            {month !== 1 && "s"}
-          </div>
-        </Col>
-        <Col className="countdown-col">
-          <div className="countdown-timer">{day}</div>
-          <div className="countdown-text">
-            {text?.day}
-            {day !== 1 && "s"}
-          </div>
-        </Col>
-        <Col className="countdown-col">
-          <div className="countdown-timer">{hours}</div>
-          <div className="countdown-text">
-            {text?.hour}
-            {hours !== 1 && "s"}
-          </div>
-        </Col>
-        <Col className="countdown-col">
-          <div className="countdown-timer">{minutes}</div>
-          <div className="countdown-text">
-            {text?.minute}
-            {minutes !== 1 && "s"}
-          </div>
-        </Col>
-        <Col className="countdown-col">
-          <div className="countdown-timer">{seconds}</div>
-          <div className="countdown-text">
-            {text?.second}
-            {seconds !== 1 && "s"}
-          </div>
-        </Col>
-      </Row>
-    );
-  };
 
   const HomeBanner = () => {
     const scrollToView = () => {
@@ -117,10 +58,6 @@ const Banner = () => {
           <br />
           {text?.bannerSubT2}
         </h2>
-        <div className="launching">
-          <h4>{text?.countdownTitle}</h4>
-          <Countdown date="2025-12-31T09:00:00" renderer={renderer} />
-        </div>
         <Row>
           <Button
             size="large"
