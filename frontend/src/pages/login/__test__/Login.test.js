@@ -15,13 +15,13 @@ beforeAll(() => {
 describe("Login and Registration", () => {
   test("test if the login form exists", () => {
     const { asFragment } = render(<TestApp />);
-    userEvent.click(screen.getByText(/Log In/i), { button: 0 });
-    expect(screen.getByText(/Welcome back/i)).toBeInTheDocument();
+    userEvent.click(screen.getByText(/Connexion/i), { button: 0 });
+    expect(screen.getByText(/Content de te revoir/i)).toBeInTheDocument();
     expect(
-      screen.getByText(/Please enter your account details/i)
+      screen.getByText(/Veuillez saisir les détails de votre compte/i)
     ).toBeInTheDocument();
-    expect(screen.getByText(/Email Address/i)).toBeInTheDocument();
-    expect(screen.getByText(/Forgot password/i)).toBeInTheDocument();
+    expect(screen.getByText(/Adresse e-mail/i)).toBeInTheDocument();
+    expect(screen.getByText(/Mot de passe oublié/i)).toBeInTheDocument();
     expect(asFragment()).toMatchSnapshot("LoginPage");
   });
 
@@ -36,16 +36,18 @@ describe("Login and Registration", () => {
     await act(async () => {
       // registrationPage = render(<TestApp entryPoint={"/login/abcd"} />);
       render(<TestApp entryPoint={"/login/abcd"} />);
-      expect(screen.getByText(/Invalid/i)).toBeInTheDocument();
+      expect(screen.getByText(/non/i)).toBeInTheDocument();
     });
 
     const welcome = screen.getByTestId("welcome-title");
     expect(welcome.textContent).toBe(
-      `Welcome to RUSH, ${fakeUser.name}Please set your password for the platform.Your password must include:`
+      `Bienvenue sur PDHA, ${fakeUser.name}Veuillez définir votre mot de passe pour la plate-forme.Votre mot de passe doit inclure:`
     );
 
-    expect(screen.getByText(/Confirm Password/i)).toBeInTheDocument();
-    expect(screen.getByText(/Set New Password/i)).toBeInTheDocument();
+    expect(screen.getByText(/Confirmez le mot de passe/i)).toBeInTheDocument();
+    expect(
+      screen.getByText(/Definir un nouveau mot de passe/i)
+    ).toBeInTheDocument();
     // expect(registrationPage.asFragment()).toMatchSnapshot("RegistrationPage");
   });
 });
