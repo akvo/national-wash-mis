@@ -209,7 +209,89 @@ def seed_data_job_result(task):
 def validate_excel(job_id):
     job = Jobs.objects.get(pk=job_id)
     storage.download(f"upload/{job.info.get('file')}")
-    data = validate(
+    data, total_data = validate(
+        job.info.get("form"),
+        job.info.get("administration"),
+        f"./tmp/{job.info.get('file')}",
+    )
+    # add total rows of data to job
+    job.total = total_data
+    job.save()
+
+    if len(data):
+        form_id = job.info.get("form")
+        form = Forms.objects.filter(pk=int(form_id)).first()
+        file = job.info.get("file")
+        df = pd.read_excel(f"./tmp/{file}", sheet_name="data")
+        error_list = pd.DataFrame(data)
+        error_list = error_list[
+            list(filter(lambda x: x != "error", list(error_list)))
+        ]
+        error_file = f"./tmp/error-{job_id}.csv"
+        error_list.to_csv(error_file, index=False)
+        data = {
+            "send_to": [job.user.email],
+            "listing": [
+                {
+                    "name": "Upload Date",
+                    "value": job.created.strftime("%m-%d-%Y, %H:%M:%S"),
+                },
+                {"name": "Questionnaire", "value": form.name},
+                {"name": "Number of Records", "value": df.shape[0]},
+            ],
+        }
+        send_email(
+            context=data,
+            type=EmailTypes.upload_error,
+            path=error_file,
+            content_type="text/csv",
+        )
+        return False
+    return total_data if total_data else True
+
+
+def validate_excel_result(task):
+    job = Jobs.objects.get(task_id=task.id)
+    job.attempt = job.attempt + 1
+    if task.result:
+        job.status = JobStatus.done
+        job.available = timezone.now()
+        job.save()
+        new_job = Jobs.objects.create(
+            result=job.info.get("file"),
+            type=JobTypes.seed_data,
+            status=JobStatus.on_progress,
+            user=job.user,
+            info={
+                "file": job.info.get("file"),
+                "form": job.info.get("form"),
+                "administration": job.info.get("administration"),
+                "ref_job_id": job.id,
+            },
+            total=(
+                task.result
+                if isinstance(task.result, (int))
+                else None
+            )
+        )
+        task_id = async_task(
+            "api.v1.v1_jobs.job.seed_data_job",
+            new_job.id,
+            # hook nya ini ke seed data lagi jadinya
+            hook="api.v1.v1_jobs.job.seed_data_job_result",
+        )
+        new_job.task_id = task_id
+        new_job.save()
+    else:
+        job.status = JobStatus.failed
+        job.save()
+
+
+# Original function
+def org_validate_excel(job_id):
+    job = Jobs.objects.get(pk=job_id)
+    storage.download(f"upload/{job.info.get('file')}")
+    data, total_data = validate(
         job.info.get("form"),
         job.info.get("administration"),
         f"./tmp/{job.info.get('file')}",
@@ -245,7 +327,8 @@ def validate_excel(job_id):
     return True
 
 
-def validate_excel_result(task):
+# Original function
+def org_validate_excel_result(task):
     job = Jobs.objects.get(task_id=task.id)
     job.attempt = job.attempt + 1
     if task.result:
@@ -267,7 +350,7 @@ def validate_excel_result(task):
         task_id = async_task(
             "api.v1.v1_jobs.job.seed_data_job",
             new_job.id,
-            hook="api.v1.v1_jobs.job.seed_data_job_result",  # hook nya ini ke seed data lagi jadinya
+            hook="api.v1.v1_jobs.job.seed_data_job_result",
         )
         new_job.task_id = task_id
         new_job.save()

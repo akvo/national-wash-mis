@@ -23,6 +23,14 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='jobs',
             name='status',
-            field=models.IntegerField(choices=[(1, 'pending'), (2, 'on_progress'), (3, 'failed'), (4, 'done'), (5, 'chunk')], default=1),
+            field=models.IntegerField(
+                choices=[
+                    (1, 'pending'),
+                    (2, 'on_progress'),
+                    (3, 'failed'),
+                    (4, 'done'),
+                    (5, 'chunk')
+                ],
+                default=1),
         ),
     ]
