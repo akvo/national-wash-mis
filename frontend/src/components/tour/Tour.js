@@ -72,6 +72,11 @@ const Tour = ({ steps, title = "Help" }) => {
               <img src={step.image} height={300} />
               <h3>{step.title}</h3>
               <p>{step.description}</p>
+              {step.url && (
+                <a href={step.url} target="_blank" rel="noreferrer">
+                  {text.learnMore}
+                </a>
+              )}
             </div>
           ))}
         </Carousel>
