@@ -11,7 +11,18 @@ import { store } from "../../lib";
 import { getTranslation } from "../../util";
 // const { TabPane } = Tabs;
 
-const partners = ["us-aid.png", "japan.png", "unicef.png"];
+const partners = [
+  {
+    alt: "Government of the Netherlands",
+    src: "gov-of-the-netherlands.png",
+    width: 120,
+  },
+  {
+    alt: "UNICEF",
+    src: "unicef.png",
+    width: 160,
+  },
+];
 const { Panel } = Collapse;
 
 export const Visuals = ({ current, mapValues, setMapValues, text }) => {
@@ -89,12 +100,12 @@ const Home = () => {
             <h1>{text?.partners}</h1>
             <Row align="middle" justify="center" style={{ marginTop: "24px" }}>
               <Space size={50} align="center">
-                {partners.map((p) => (
+                {partners.map((p, px) => (
                   <Image
-                    key={p}
-                    alt={p}
-                    src={`/assets/partners/${p}`}
-                    width={160}
+                    key={px}
+                    alt={p.alt}
+                    src={`/assets/partners/${p.src}`}
+                    width={p.width}
                     preview={false}
                   />
                 ))}

@@ -13,7 +13,7 @@ describe("Store", () => {
         organisation: null,
       },
       language: {
-        active: "en",
+        active: "fr",
         langs: { en: "English", fr: "French" },
       },
       administration: [],

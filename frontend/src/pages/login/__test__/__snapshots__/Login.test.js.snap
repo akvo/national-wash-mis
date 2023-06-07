@@ -43,14 +43,14 @@ exports[`Login and Registration test if the login form exists: LoginPage 1`] = `
               class="title"
             >
               <h1>
-                Kenya Rural Urban Sanitation
+                Plateforme des données de
                 <br />
-                and Hygiene (RUSH)
+                l'Hygiène et de l'Assainissement (PDHA)
               </h1>
               <h2>
-                Real Time Management Information System (NWMIS)
+                Plateforme des données de l'Hygiène et de l'Assainissement (PDHA)
                 <br />
-                Updated sanitation and hygiene estimates across Kenya
+                Estimations d'assainissement et d'hygiène mises à jour à travers le Burkina Faso
               </h2>
             </div>
           </div>
@@ -58,20 +58,20 @@ exports[`Login and Registration test if the login form exists: LoginPage 1`] = `
             class="ant-col ant-col-12 right-side"
           >
             <h1>
-              Welcome back
+              Content de te revoir
               <br />
               <small>
-                Please enter your account details
+                Veuillez saisir les détails de votre compte
               </small>
             </h1>
             <p
               class="contact-text"
             >
-              Having trouble accessing the platform?
+              Vous avez du mal à accéder à la plate-forme?
               <a
                 href="#"
               >
-                Please contact
+                S'il vous plaît contactez
               </a>
               .
             </p>
@@ -88,9 +88,9 @@ exports[`Login and Registration test if the login form exists: LoginPage 1`] = `
                   <label
                     class="ant-form-item-required"
                     for="login-form_email"
-                    title="Email Address"
+                    title="Adresse e-mail"
                   >
-                    Email Address
+                    Adresse e-mail
                   </label>
                 </div>
                 <div
@@ -148,9 +148,9 @@ exports[`Login and Registration test if the login form exists: LoginPage 1`] = `
                   <label
                     class="ant-form-item-required"
                     for="login-form_password"
-                    title="Password"
+                    title="Mot de passe"
                   >
-                    Password
+                    Mot de passe
                   </label>
                 </div>
                 <div
@@ -192,7 +192,7 @@ exports[`Login and Registration test if the login form exists: LoginPage 1`] = `
                           action="click"
                           class="ant-input"
                           id="login-form_password"
-                          placeholder="Password"
+                          placeholder="Mot de passe"
                           type="password"
                           value=""
                         />
@@ -244,7 +244,7 @@ exports[`Login and Registration test if the login form exists: LoginPage 1`] = `
                         class="login-form-forgot"
                         href="/forgot-password"
                       >
-                        Forgot password
+                        Mot de passe oublié
                       </a>
                     </div>
                   </div>
@@ -267,7 +267,7 @@ exports[`Login and Registration test if the login form exists: LoginPage 1`] = `
                         type="submit"
                       >
                         <span>
-                          Log in
+                          Connexion
                         </span>
                       </button>
                     </div>
@@ -277,7 +277,7 @@ exports[`Login and Registration test if the login form exists: LoginPage 1`] = `
               <p
                 class="disclaimer"
               >
-                The user is accountable for his/her account and in case there are any changes (Transfers, retirement, any kind of leave, resignation etc) this should be communicated to the County Administrator or National Super Admin who might be able to assign the roles to the new officer.
+                L'utilisateur est responsable de son compte et en cas de changement (transfert, retraite, congé, démission, etc.), il doit en informer l'administrateur régional ou le superadministrateur national, qui pourra éventuellement attribuer les rôles au nouvel agent.
               </p>
             </form>
           </div>

@@ -11,7 +11,7 @@ const defaultUIState = {
     organisation: null,
   },
   language: {
-    active: "en",
+    active: "fr",
     langs: { en: "English", fr: "French" },
   },
   administration: [config.fn.administration(1)],

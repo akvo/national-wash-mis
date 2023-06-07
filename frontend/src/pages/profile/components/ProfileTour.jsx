@@ -8,19 +8,21 @@ const ProfileTour = () => {
   const { language } = store.useState((s) => s);
   const { active: activeLang } = language;
   const text = getTranslation(activeLang, "tour");
+  const permalinks = config.permalinks;
 
   const steps = [
     {
       image: "/assets/tour/profile/1.png",
-      title: "Control Center",
+      title: text.controlCenter,
       description: text.tourControlCenter,
     },
     ...(config.checkAccess(authUser?.role_detail, "form")
       ? [
           {
             image: "/assets/tour/profile/2.png",
-            title: "Data Uploads",
+            title: text.tourDataUploadsTitle,
             description: text.tourDataUploads,
+            url: permalinks.tourDataUploads,
           },
         ]
       : []),
@@ -28,13 +30,15 @@ const ProfileTour = () => {
       ? [
           {
             image: "/assets/tour/profile/3.png",
-            title: "Manage Approvals",
-            description: text.tourApprovals,
+            title: text.tourSubmittingTitle,
+            description: text.tourSubmitting,
+            url: permalinks.tourSubmitting,
           },
           {
             image: "/assets/tour/profile/4.png",
-            title: "Manage Approvers",
-            description: text.tourApprovers,
+            title: text.tourApprovalTitle,
+            description: text.tourApproval,
+            url: permalinks.tourApproval,
           },
         ]
       : []),
