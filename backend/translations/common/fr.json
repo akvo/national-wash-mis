@@ -118,5 +118,6 @@
   "dataEntryDesc": "Rôle global pour collecter des données auprès de la communauté / village qui leur est attribuée",
   "institutionalUserDesc": "Peut afficher et télécharger des données de tous les comtés",
   "userOrg": "Organisation d'utilisateurs",
-  "partnershipOrg": "Organisation de partenariat"
+  "partnershipOrg": "Organisation de partenariat",
+  "learnMore": "Apprendre encore plus"
 }

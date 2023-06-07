@@ -866,6 +866,22 @@ const config = {
       },
     },
   },
+  permalinks: {
+    tourManageData:
+      "https://national-wash-mis.readthedocs.io/en/latest/dataManagement.html#",
+    tourExports:
+      "https://national-wash-mis.readthedocs.io/en/latest/dataManagement.html#downloading-data",
+    tourDataUploads:
+      "https://national-wash-mis.readthedocs.io/en/latest/inputChannel.html#bulk-upload",
+    tourUserManagementData:
+      "https://national-wash-mis.readthedocs.io/en/latest/administration.html",
+    tourValidationSetup:
+      "https://national-wash-mis.readthedocs.io/en/latest/administration.html#manage-data-validation-setup",
+    tourSubmitting:
+      "https://national-wash-mis.readthedocs.io/en/latest/approval.html",
+    tourApproval:
+      "https://national-wash-mis.readthedocs.io/en/latest/approval.html#approving-data",
+  },
 };
 
 export default config;

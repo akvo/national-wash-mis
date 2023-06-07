@@ -307,21 +307,21 @@
     "selectForm": "Select Form"
   },
   "tour": {
-    "tourControlCenter": "Lorem ipsum dolor sit, amet consectetur adipisicing elit",
-    "tourDataUploads": "Velit amet omnis dolores. Ad eveniet ex beatae dolorum",
-    "tourApprovals": "Placeat impedit iure quaerat neque sit quasi",
-    "tourApprovers": "Magni provident aliquam harum cupiditate iste",
-    "tourManageData": "Lorem ipsum dolor sit, amet consectetur adipisicing elit",
-    "tourExports": "Velit amet omnis dolores. Ad eveniet ex beatae dolorum",
-    "tourUserManagement": "Magni provident aliquam harum cupiditate iste",
-    "tourDataUploadsPanel": "Velit amet omnis dolores. Ad eveniet ex beatae dolorum",
+    "tourControlCenter": "The control centre serves as a centralized hub for managing system-wide settings.",
+    "tourDataUploads": "With the data uploads feature, users can easily import or upload data into the system.",
+    "tourSubmitting": "All data that is pending submission for approval will appear on the pending submission tab.",
+    "tourApproval": "All datasets that are pending approval will appear in the My Pending Approvals tab of the Approvals section.",
+    "tourManageData": "This feature allows users to effectively organize and control their data within a system",
+    "tourExports": "The exports feature enables users to extract and download data from the system in excel format.",
+    "tourUserManagement": "User management provides administrators with tools to control and administer user accounts within the system.",
+    "tourValidationSetup": "Here, you can assign approvers for each questionnaire for every administrative region.",
     "tourManageDataTitle": "Manage Data",
     "tourExportsTitle": "Exports",
     "tourDataUploadsTitle": "Data Uploads",
     "tourUserMngTitle": "User Management",
-    "tourDataUploadsPanelTitle": "Data Uploads Panel",
-    "tourApprovalsTitle": "Manage Approvals",
-    "tourApproversTitle": "Manage Approvers"
+    "tourValidationSetupTitle": "Validation Setup",
+    "tourSubmittingTitle": "Submitting Data for Approval",
+    "tourApprovalTitle": "Manage Approvals"
   },
   "contactForm": {
     "title": "Please use this form for registering your feedback / issues.",

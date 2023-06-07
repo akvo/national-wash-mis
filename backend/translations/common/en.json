@@ -118,5 +118,6 @@
   "dataEntryDesc": "Overall role to collect data from community/village assigned to them",
   "institutionalUserDesc": "Can view and download data from all counties",
   "userOrg": "User Organisation",
-  "partnershipOrg": "Partnership Organisation"
+  "partnershipOrg": "Partnership Organisation",
+  "learnMore": "Learn more"
 }
