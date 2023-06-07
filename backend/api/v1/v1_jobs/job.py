@@ -164,6 +164,7 @@ def seed_data_job(job_id):
         job = Jobs.objects.get(pk=job_id)
         seed_excel_data(job)
     except Exception:
+        # kirim email kalau ada error (ke tech.consultancy)
         return False
     return True
 
@@ -266,7 +267,7 @@ def validate_excel_result(task):
         task_id = async_task(
             "api.v1.v1_jobs.job.seed_data_job",
             new_job.id,
-            hook="api.v1.v1_jobs.job.seed_data_job_result",
+            hook="api.v1.v1_jobs.job.seed_data_job_result",  # hook nya ini ke seed data lagi jadinya
         )
         new_job.task_id = task_id
         new_job.save()
