@@ -195,120 +195,249 @@ def save_data(user: SystemUser, dp: dict, qs: dict, form_id: int, batch_id):
     return data
 
 
-def seed_excel_data(job: Jobs):
+def seed_excel_data(job: Jobs, completed: int, chunksize: int):
     records = []
     is_super_admin = job.user.user_access.role == UserRoleTypes.super_admin
     file = f"./tmp/{job.info.get('file')}"
-    # try to add chunk
-    # df = pd.read_excel(file, sheet_name="data")
-    for df in pd.read_excel(file, sheet_name="data", chunksize=100):
-        if "id" in list(df):
-            df = df.rename(columns={"id": "data_id"})
-        if "data_id" not in list(df):
-            df["data_id"] = np.nan
-        df = df[list(filter(lambda x: "|" in x, list(df))) + ["data_id"]]
-        questions = {}
-        columns = {}
-        for q in list(df):
-            if q != "data_id":
-                id = q.split("|")[0]
-                columns.update({q: id})
-                question = Questions.objects.get(pk=id)
-                questions.update({id: question})
-        df = df.rename(columns=columns)
-        datapoints = df.to_dict("records")
-        form_id = job.info.get("form")
+    df_header = pd.read_excel(file, nrows=0)
+    df = pd.read_excel(
+        file, sheet_name="data",
+        skiprows=completed, nrows=chunksize)
+    df.columns = df_header.columns
+    if "id" in list(df):
+        df = df.rename(columns={"id": "data_id"})
+    if "data_id" not in list(df):
+        df["data_id"] = np.nan
+    df = df[list(filter(lambda x: "|" in x, list(df))) + ["data_id"]]
+    questions = {}
+    columns = {}
+    for q in list(df):
+        if q != "data_id":
+            id = q.split("|")[0]
+            columns.update({q: id})
+            question = Questions.objects.get(pk=id)
+            questions.update({id: question})
+    df = df.rename(columns=columns)
+    datapoints = df.to_dict("records")
+    form_id = job.info.get("form")
+    # TODO:: need to move this
+    if not is_super_admin:
+        batch = PendingDataBatch.objects.create(
+            form_id=form_id,
+            administration_id=job.info.get("administration"),
+            user=job.user,
+            name=job.info.get("file"),
+        )
+    # EOL need to move this
+    for datapoint in datapoints:
+        try:
+            if is_super_admin:
+                data: FormData = save_data(
+                    user=job.user,
+                    dp=datapoint,
+                    qs=questions,
+                    form_id=form_id,
+                    batch_id=None,
+                )
+                answer_count = data.data_answer.count()
+            else:
+                data: PendingFormData = save_data(
+                    user=job.user,
+                    dp=datapoint,
+                    qs=questions,
+                    form_id=form_id,
+                    batch_id=batch.id,
+                )
+                answer_count = data.pending_data_answer.count()
+            if answer_count:
+                records.append(data)
+            else:
+                data.delete()
+        except Exception as e:
+            logger.error(e)
+
+    # TODO:: need to move this because we run chunk
+    # if len(records) == 0:
+    #     form = Forms.objects.filter(pk=int(form_id)).first()
+    #     context = {
+    #         "send_to": [job.user.email],
+    #         "form": form.name,
+    #         "user": job.user,
+    #         "listing": [{
+    #             "name": "Upload Date",
+    #             "value": job.created.strftime("%m-%d-%Y, %H:%M:%S"),
+    #         }, {
+    #             "name": "Questionnaire",
+    #             "value": form.name
+    #         }, {
+    #             "name": "Number of Records",
+    #             "value": df.shape[0]
+    #         }],
+    #     }
+    #     send_email(context=context, type=EmailTypes.unchanged_data)
+    #     if not is_super_admin:
+    #         batch.delete()
+    #     # os.remove(file)
+    #     return None, file
+    # EOL need to move this because we run chunk
+
+    # TODO:: also need to move this email function
+    # if not is_super_admin:
+    #     path = "{0}{1}".format(
+    #         batch.administration.path,
+    #         batch.administration_id
+    #     )
+    #     for administration in Administration.objects.filter(
+    #         id__in=path.split(".")
+    #     ):
+    #         assignment = FormApprovalAssignment.objects.filter(
+    #             form_id=batch.form_id, administration=administration
+    #         ).first()
+    #         if assignment:
+    #             level = assignment.user.user_access.administration.level_id
+    #             PendingDataApproval.objects.create(
+    #                 batch=batch, user=assignment.user, level_id=level
+    #             )
+    #             submitter = f"{job.user.name}, {job.user.designation_name}"
+    #             context = {
+    #                 "send_to": [assignment.user.email],
+    #                 "listing": [{
+    #                     "name": "Batch Name",
+    #                     "value": batch.name
+    #                 }, {
+    #                     "name": "Questionnaire",
+    #                     "value": batch.form.name
+    #                 }, {
+    #                     "name": "Number of Records",
+    #                     "value": df.shape[0]
+    #                 }, {
+    #                     "name": "Submitter",
+    #                     "value": submitter,
+    #                 }],
+    #             }
+    #             send_email(
+    #                 context=context,
+    #                 type=EmailTypes.pending_approval
+    #             )
+        # EOL also need to move this email function
+
+    # os.remove(file)
+    return records, file
+
+
+# Original function
+def org_seed_excel_data(job: Jobs):
+    records = []
+    is_super_admin = job.user.user_access.role == UserRoleTypes.super_admin
+    file = f"./tmp/{job.info.get('file')}"
+    df = pd.read_excel(file, sheet_name="data")
+    if "id" in list(df):
+        df = df.rename(columns={"id": "data_id"})
+    if "data_id" not in list(df):
+        df["data_id"] = np.nan
+    df = df[list(filter(lambda x: "|" in x, list(df))) + ["data_id"]]
+    questions = {}
+    columns = {}
+    for q in list(df):
+        if q != "data_id":
+            id = q.split("|")[0]
+            columns.update({q: id})
+            question = Questions.objects.get(pk=id)
+            questions.update({id: question})
+    df = df.rename(columns=columns)
+    datapoints = df.to_dict("records")
+    form_id = job.info.get("form")
+    if not is_super_admin:
+        batch = PendingDataBatch.objects.create(
+            form_id=form_id,
+            administration_id=job.info.get("administration"),
+            user=job.user,
+            name=job.info.get("file"),
+        )
+    for datapoint in datapoints:
+        try:
+            if is_super_admin:
+                data: FormData = save_data(
+                    user=job.user,
+                    dp=datapoint,
+                    qs=questions,
+                    form_id=form_id,
+                    batch_id=None,
+                )
+                answer_count = data.data_answer.count()
+            else:
+                data: PendingFormData = save_data(
+                    user=job.user,
+                    dp=datapoint,
+                    qs=questions,
+                    form_id=form_id,
+                    batch_id=batch.id,
+                )
+                answer_count = data.pending_data_answer.count()
+            if answer_count:
+                records.append(data)
+            else:
+                data.delete()
+        except Exception as e:
+            logger.error(e)
+    if len(records) == 0:
+        form = Forms.objects.filter(pk=int(form_id)).first()
+        context = {
+            "send_to": [job.user.email],
+            "form": form.name,
+            "user": job.user,
+            "listing": [{
+                "name": "Upload Date",
+                "value": job.created.strftime("%m-%d-%Y, %H:%M:%S"),
+            }, {
+                "name": "Questionnaire",
+                "value": form.name
+            }, {
+                "name": "Number of Records",
+                "value": df.shape[0]
+            }],
+        }
+        send_email(context=context, type=EmailTypes.unchanged_data)
         if not is_super_admin:
-            batch = PendingDataBatch.objects.create(
-                form_id=form_id,
-                administration_id=job.info.get("administration"),
-                user=job.user,
-                name=job.info.get("file"),
-            )
-        for datapoint in datapoints:
-            try:
-                if is_super_admin:
-                    data: FormData = save_data(
-                        user=job.user,
-                        dp=datapoint,
-                        qs=questions,
-                        form_id=form_id,
-                        batch_id=None,
-                    )
-                    answer_count = data.data_answer.count()
-                else:
-                    data: PendingFormData = save_data(
-                        user=job.user,
-                        dp=datapoint,
-                        qs=questions,
-                        form_id=form_id,
-                        batch_id=batch.id,
-                    )
-                    answer_count = data.pending_data_answer.count()
-                if answer_count:
-                    records.append(data)
-                else:
-                    data.delete()
-            except Exception as e:
-                logger.error(e)
-        if len(records) == 0:
-            form = Forms.objects.filter(pk=int(form_id)).first()
-            context = {
-                "send_to": [job.user.email],
-                "form": form.name,
-                "user": job.user,
-                "listing": [{
-                    "name": "Upload Date",
-                    "value": job.created.strftime("%m-%d-%Y, %H:%M:%S"),
-                }, {
-                    "name": "Questionnaire",
-                    "value": form.name
-                }, {
-                    "name": "Number of Records",
-                    "value": df.shape[0]
-                }],
-            }
-            send_email(context=context, type=EmailTypes.unchanged_data)
-            if not is_super_admin:
-                batch.delete()
-            os.remove(file)
-            return None
-        if not is_super_admin:
-            path = "{0}{1}".format(
-                batch.administration.path,
-                batch.administration_id
-            )
-            for administration in Administration.objects.filter(
-                id__in=path.split(".")
-            ):
-                assignment = FormApprovalAssignment.objects.filter(
-                    form_id=batch.form_id, administration=administration
-                ).first()
-                if assignment:
-                    level = assignment.user.user_access.administration.level_id
-                    PendingDataApproval.objects.create(
-                        batch=batch, user=assignment.user, level_id=level
-                    )
-                    submitter = f"{job.user.name}, {job.user.designation_name}"
-                    context = {
-                        "send_to": [assignment.user.email],
-                        "listing": [{
-                            "name": "Batch Name",
-                            "value": batch.name
-                        }, {
-                            "name": "Questionnaire",
-                            "value": batch.form.name
-                        }, {
-                            "name": "Number of Records",
-                            "value": df.shape[0]
-                        }, {
-                            "name": "Submitter",
-                            "value": submitter,
-                        }],
-                    }
-                    send_email(
-                        context=context,
-                        type=EmailTypes.pending_approval
-                    )
+            batch.delete()
+        os.remove(file)
+        return None
+    if not is_super_admin:
+        path = "{0}{1}".format(
+            batch.administration.path,
+            batch.administration_id
+        )
+        for administration in Administration.objects.filter(
+            id__in=path.split(".")
+        ):
+            assignment = FormApprovalAssignment.objects.filter(
+                form_id=batch.form_id, administration=administration
+            ).first()
+            if assignment:
+                level = assignment.user.user_access.administration.level_id
+                PendingDataApproval.objects.create(
+                    batch=batch, user=assignment.user, level_id=level
+                )
+                submitter = f"{job.user.name}, {job.user.designation_name}"
+                context = {
+                    "send_to": [assignment.user.email],
+                    "listing": [{
+                        "name": "Batch Name",
+                        "value": batch.name
+                    }, {
+                        "name": "Questionnaire",
+                        "value": batch.form.name
+                    }, {
+                        "name": "Number of Records",
+                        "value": df.shape[0]
+                    }, {
+                        "name": "Submitter",
+                        "value": submitter,
+                    }],
+                }
+                send_email(
+                    context=context,
+                    type=EmailTypes.pending_approval
+                )
     os.remove(file)
     return records

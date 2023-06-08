@@ -1,5 +1,6 @@
 import os
 
+import logging
 import pandas as pd
 from django.utils import timezone
 from django_q.tasks import async_task
@@ -16,6 +17,8 @@ from utils.email_helper import send_email, EmailTypes
 from utils.export_form import generate_definition_sheet
 from utils.functions import update_date_time_format
 from utils.storage import upload
+
+logger = logging.getLogger(__name__)
 
 
 def download(form: Forms, administration_ids):
@@ -159,21 +162,63 @@ def job_generate_download_result(task):
     job.save()
 
 
-def seed_data_job(job_id):
+def seed_data_job(job_id, completed=0):
+    logger.error("===================================================")
+    logger.error(f"Seed data job started, job_id: {job_id}, completed: {completed}")
+    res = None
     try:
+        chunksize = 2
         job = Jobs.objects.get(pk=job_id)
-        seed_excel_data(job)
-    except Exception:
-        # kirim email kalau ada error (ke tech.consultancy)
+        logger.error(f"LOG - find job: {job.id}")
+        res, file = seed_excel_data(
+            job=job, completed=completed, chunksize=chunksize
+        )
+        res = len(res) if isinstance(res, list) else res
+        logger.error(f"LOG - Res: {res}")
+        # run async task for next chunk
+        job.attempt = job.attempt + 1
+        # check if total == completed data
+        logger.error(f"LOG - job total: {job.total}")
+        if isinstance(res, int) and job.completed != job.total:
+            logger.error("LOG - True condition")
+            # update job with completed rows
+            completed = res + job.completed
+            job.completed = completed
+            job.status = JobStatus.chunk
+            job.save()
+            # run another job
+            async_task(
+                "api.v1.v1_jobs.job.seed_data_job",
+                job_id=job.id,
+                completed=completed,
+            )
+        else:
+            logger.error("LOG - False condition")
+            # run result job
+            async_task(
+                "api.v1.v1_jobs.job.seed_data_job_result",
+                job_id=job.id,
+                success=True
+            )
+            os.remove(file)
+        return True
+    except Exception as e:
+        logger.error(f"LOG - Exception: {e}")
+        # send error notification email
+        async_task(
+            "api.v1.v1_jobs.job.seed_data_job_result",
+            job_id=job_id,
+            success=False
+        )
         return False
-    return True
 
 
-def seed_data_job_result(task):
-    job = Jobs.objects.get(task_id=task.id)
+def seed_data_job_result(job_id, success):
+    logger.error(f"LOG - seed data job result => job_id: {job_id}, success: {success}")
+    job = Jobs.objects.get(pk=job_id)
     job.attempt = job.attempt + 1
     is_super_admin = job.user.user_access.role == UserRoleTypes.super_admin
-    if task.result:
+    if success:
         job.status = JobStatus.done
         job.available = timezone.now()
         form_id = job.info.get("form")
@@ -247,7 +292,7 @@ def validate_excel(job_id):
             content_type="text/csv",
         )
         return False
-    return total_data if total_data else True
+    return total_data or True
 
 
 def validate_excel_result(task):
@@ -272,19 +317,73 @@ def validate_excel_result(task):
                 task.result
                 if isinstance(task.result, (int))
                 else None
-            )
+            ),
+            completed=0
         )
         task_id = async_task(
             "api.v1.v1_jobs.job.seed_data_job",
-            new_job.id,
-            # hook nya ini ke seed data lagi jadinya
-            hook="api.v1.v1_jobs.job.seed_data_job_result",
+            job_id=new_job.id,
+            # TODO::
+            # * DONE indicator => total == completed rows data
+            # * Shall we use recursive strategy?
+            # * Or we create other job to check if any job status in chunk?
+            # * we also need to check the memory usage,
+            # * * try to implement yield for recursive
+            # hook="api.v1.v1_jobs.job.seed_data_job_result",
         )
         new_job.task_id = task_id
         new_job.save()
     else:
         job.status = JobStatus.failed
         job.save()
+
+
+# Original function
+def org_seed_data_job(job_id):
+    try:
+        job = Jobs.objects.get(pk=job_id)
+        seed_excel_data(job)
+    except Exception:
+        return False
+    return True
+
+
+# Original function
+def org_seed_data_job_result(task):
+    job = Jobs.objects.get(task_id=task.id)
+    job.attempt = job.attempt + 1
+    is_super_admin = job.user.user_access.role == UserRoleTypes.super_admin
+    if task.result:
+        job.status = JobStatus.done
+        job.available = timezone.now()
+        form_id = job.info.get("form")
+        form = Forms.objects.filter(pk=int(form_id)).first()
+        file = job.info.get("file")
+        storage.download(f"upload/{file}")
+        df = pd.read_excel(f"./tmp/{file}", sheet_name="data")
+        subject = (
+            "New Data Uploaded"
+            if is_super_admin
+            else "New Request @{0}".format(job.user.get_full_name())
+        )
+        data = {
+            "subject": subject,
+            "title": "New Data Submission",
+            "send_to": [job.user.email],
+            "listing": [
+                {
+                    "name": "Upload Date",
+                    "value": job.created.strftime("%m-%d-%Y, %H:%M:%S"),
+                },
+                {"name": "Questionnaire", "value": form.name},
+                {"name": "Number of Records", "value": df.shape[0]},
+            ],
+            "is_super_admin": is_super_admin,
+        }
+        send_email(context=data, type=EmailTypes.new_request)
+    else:
+        job.status = JobStatus.failed
+    job.save()
 
 
 # Original function
