@@ -119,5 +119,7 @@
   "institutionalUserDesc": "Can view and download data from all counties",
   "userOrg": "User Organisation",
   "partnershipOrg": "Partnership Organisation",
-  "learnMore": "Learn more"
+  "learnMore": "Learn more",
+  "siteTitle": "PDHA",
+  "siteSubTitle": "Hygiene and sanitation data platform"
 }

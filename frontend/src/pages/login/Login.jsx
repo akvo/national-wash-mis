@@ -67,8 +67,8 @@ const Login = () => {
         <Link to="/">
           <img src={config.siteLogo} alt={config.siteLogo} />
           <h1>
-            {config.siteTitle}
-            <small>{config.siteSubTitle}</small>
+            {text.siteTitle}
+            <small>{text.siteSubTitle}</small>
           </h1>
         </Link>
       </div>
