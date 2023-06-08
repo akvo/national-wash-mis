@@ -13,7 +13,7 @@ from api.v1.v1_forms.models import (
 )
 from api.v1.v1_jobs.constants import JobStatus, JobTypes
 from api.v1.v1_jobs.models import Jobs
-from api.v1.v1_jobs.seed_data import seed_excel_data
+from api.v1.v1_jobs.seed_data import seed_excel_data, org_seed_excel_data
 from api.v1.v1_jobs.validate_upload import validate
 from api.v1.v1_profile.models import Administration, Levels
 from api.v1.v1_data.models import (
@@ -223,6 +223,7 @@ def seed_data_job(job_id, batch=None, completed=0):
         return True
     except Exception as e:
         logger.error(f"LOG - Exception: {e}")
+        # TODO:
         # send technical error notification email to akvo
         form_id = job.info.get("form")
         form = Forms.objects.filter(pk=int(form_id)).first()
@@ -467,7 +468,7 @@ def validate_excel_result(task):
 def org_seed_data_job(job_id):
     try:
         job = Jobs.objects.get(pk=job_id)
-        seed_excel_data(job)
+        org_seed_excel_data(job)
     except Exception:
         return False
     return True
@@ -572,9 +573,9 @@ def org_validate_excel_result(task):
             },
         )
         task_id = async_task(
-            "api.v1.v1_jobs.job.seed_data_job",
+            "api.v1.v1_jobs.job.org_seed_data_job",
             new_job.id,
-            hook="api.v1.v1_jobs.job.seed_data_job_result",
+            hook="api.v1.v1_jobs.job.org_seed_data_job_result",
         )
         new_job.task_id = task_id
         new_job.save()
