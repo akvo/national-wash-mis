@@ -26,9 +26,9 @@ exports[`Login and Registration test if the login form exists: LoginPage 1`] = `
               src="/static-files/logo.png"
             />
             <h1>
-              RUSH
+              PDHA
               <small>
-                Rural Urban Sanitation and Hygiene
+                Plateforme des données de l'Hygiène et de l'Assainissement
               </small>
             </h1>
           </a>
