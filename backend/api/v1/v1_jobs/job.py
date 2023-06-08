@@ -6,12 +6,20 @@ from django.utils import timezone
 from django_q.tasks import async_task
 
 from api.v1.v1_profile.constants import UserRoleTypes
-from api.v1.v1_forms.models import Forms, Questions
+from api.v1.v1_forms.models import (
+    Forms,
+    Questions,
+    FormApprovalAssignment
+)
 from api.v1.v1_jobs.constants import JobStatus, JobTypes
 from api.v1.v1_jobs.models import Jobs
 from api.v1.v1_jobs.seed_data import seed_excel_data
 from api.v1.v1_jobs.validate_upload import validate
 from api.v1.v1_profile.models import Administration, Levels
+from api.v1.v1_data.models import (
+    PendingDataBatch,
+    PendingDataApproval
+)
 from utils import storage
 from utils.email_helper import send_email, EmailTypes
 from utils.export_form import generate_definition_sheet
@@ -162,23 +170,31 @@ def job_generate_download_result(task):
     job.save()
 
 
-def seed_data_job(job_id, completed=0):
-    logger.error("===================================================")
-    logger.error(f"Seed data job started, job_id: {job_id}, completed: {completed}")
+def seed_data_job(job_id, batch=None, completed=0):
+    logger.error("============================")
+    logger.error("Seed data job started")
+    chunksize = 100
     res = None
+    job = Jobs.objects.get(pk=job_id)
     try:
-        chunksize = 2
-        job = Jobs.objects.get(pk=job_id)
-        logger.error(f"LOG - find job: {job.id}")
+        # create batch
+        is_super_admin = job.user.user_access.role == UserRoleTypes.super_admin
+        if not is_super_admin and not batch:
+            form_id = job.info.get("form")
+            batch = PendingDataBatch.objects.create(
+                form_id=form_id,
+                administration_id=job.info.get("administration"),
+                user=job.user,
+                name=job.info.get("file"),
+            )
+        # EOL need to move this
         res, file = seed_excel_data(
-            job=job, completed=completed, chunksize=chunksize
+            job=job, batch=batch,
+            completed=completed, chunksize=chunksize
         )
         res = len(res) if isinstance(res, list) else res
-        logger.error(f"LOG - Res: {res}")
-        # run async task for next chunk
         job.attempt = job.attempt + 1
-        # check if total == completed data
-        logger.error(f"LOG - job total: {job.total}")
+        # run async task for next chunk
         if isinstance(res, int) and job.completed != job.total:
             logger.error("LOG - True condition")
             # update job with completed rows
@@ -191,34 +207,103 @@ def seed_data_job(job_id, completed=0):
                 "api.v1.v1_jobs.job.seed_data_job",
                 job_id=job.id,
                 completed=completed,
+                batch=batch
             )
         else:
             logger.error("LOG - False condition")
             # run result job
+            os.remove(file)
             async_task(
                 "api.v1.v1_jobs.job.seed_data_job_result",
                 job_id=job.id,
-                success=True
+                batch=batch,
+                completed=job.completed,
+                success=True,
             )
-            os.remove(file)
         return True
     except Exception as e:
+        # TODO:: send error notification email
         logger.error(f"LOG - Exception: {e}")
-        # send error notification email
         async_task(
             "api.v1.v1_jobs.job.seed_data_job_result",
-            job_id=job_id,
-            success=False
+            job_id=job.id,
+            batch=batch,
+            completed=job.completed,
+            success=False,
         )
         return False
 
 
-def seed_data_job_result(job_id, success):
-    logger.error(f"LOG - seed data job result => job_id: {job_id}, success: {success}")
+def seed_data_job_result(job_id, completed, success, batch):
+    logger.error(f"LOG - seed data job result => success: {success}")
     job = Jobs.objects.get(pk=job_id)
+    form_id = job.info.get("form")
     job.attempt = job.attempt + 1
+    # check if completed data is 0
     is_super_admin = job.user.user_access.role == UserRoleTypes.super_admin
+    if success and completed == 0:
+        form = Forms.objects.filter(pk=int(form_id)).first()
+        context = {
+            "send_to": [job.user.email],
+            "form": form.name,
+            "user": job.user,
+            "listing": [{
+                "name": "Upload Date",
+                "value": job.created.strftime("%m-%d-%Y, %H:%M:%S"),
+            }, {
+                "name": "Questionnaire",
+                "value": form.name
+            }, {
+                "name": "Number of Records",
+                "value": completed
+            }],
+        }
+        send_email(context=context, type=EmailTypes.unchanged_data)
+        if not is_super_admin:
+            batch.delete()
+        job.save()
+        return None
+    # email pending batch to approver
+    if success and not is_super_admin:
+        path = "{0}{1}".format(
+            batch.administration.path,
+            batch.administration_id
+        )
+        for administration in Administration.objects.filter(
+            id__in=path.split(".")
+        ):
+            assignment = FormApprovalAssignment.objects.filter(
+                form_id=batch.form_id, administration=administration
+            ).first()
+            if assignment:
+                level = assignment.user.user_access.administration.level_id
+                PendingDataApproval.objects.create(
+                    batch=batch, user=assignment.user, level_id=level
+                )
+                submitter = f"{job.user.name}, {job.user.designation_name}"
+                context = {
+                    "send_to": [assignment.user.email],
+                    "listing": [{
+                        "name": "Batch Name",
+                        "value": batch.name
+                    }, {
+                        "name": "Questionnaire",
+                        "value": batch.form.name
+                    }, {
+                        "name": "Number of Records",
+                        "value": completed
+                    }, {
+                        "name": "Submitter",
+                        "value": submitter,
+                    }],
+                }
+                send_email(
+                    context=context,
+                    type=EmailTypes.pending_approval
+                )
+    # success
     if success:
+        is_super_admin = job.user.user_access.role == UserRoleTypes.super_admin
         job.status = JobStatus.done
         job.available = timezone.now()
         form_id = job.info.get("form")
@@ -323,13 +408,6 @@ def validate_excel_result(task):
         task_id = async_task(
             "api.v1.v1_jobs.job.seed_data_job",
             job_id=new_job.id,
-            # TODO::
-            # * DONE indicator => total == completed rows data
-            # * Shall we use recursive strategy?
-            # * Or we create other job to check if any job status in chunk?
-            # * we also need to check the memory usage,
-            # * * try to implement yield for recursive
-            # hook="api.v1.v1_jobs.job.seed_data_job_result",
         )
         new_job.task_id = task_id
         new_job.save()

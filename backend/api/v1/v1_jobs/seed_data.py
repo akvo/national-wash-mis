@@ -195,7 +195,10 @@ def save_data(user: SystemUser, dp: dict, qs: dict, form_id: int, batch_id):
     return data
 
 
-def seed_excel_data(job: Jobs, completed: int, chunksize: int):
+def seed_excel_data(
+    job: Jobs, batch: PendingDataBatch,
+    completed: int, chunksize: int
+):
     records = []
     is_super_admin = job.user.user_access.role == UserRoleTypes.super_admin
     file = f"./tmp/{job.info.get('file')}"
@@ -220,15 +223,6 @@ def seed_excel_data(job: Jobs, completed: int, chunksize: int):
     df = df.rename(columns=columns)
     datapoints = df.to_dict("records")
     form_id = job.info.get("form")
-    # TODO:: need to move this
-    if not is_super_admin:
-        batch = PendingDataBatch.objects.create(
-            form_id=form_id,
-            administration_id=job.info.get("administration"),
-            user=job.user,
-            name=job.info.get("file"),
-        )
-    # EOL need to move this
     for datapoint in datapoints:
         try:
             if is_super_admin:
@@ -255,73 +249,6 @@ def seed_excel_data(job: Jobs, completed: int, chunksize: int):
                 data.delete()
         except Exception as e:
             logger.error(e)
-
-    # TODO:: need to move this because we run chunk
-    # if len(records) == 0:
-    #     form = Forms.objects.filter(pk=int(form_id)).first()
-    #     context = {
-    #         "send_to": [job.user.email],
-    #         "form": form.name,
-    #         "user": job.user,
-    #         "listing": [{
-    #             "name": "Upload Date",
-    #             "value": job.created.strftime("%m-%d-%Y, %H:%M:%S"),
-    #         }, {
-    #             "name": "Questionnaire",
-    #             "value": form.name
-    #         }, {
-    #             "name": "Number of Records",
-    #             "value": df.shape[0]
-    #         }],
-    #     }
-    #     send_email(context=context, type=EmailTypes.unchanged_data)
-    #     if not is_super_admin:
-    #         batch.delete()
-    #     # os.remove(file)
-    #     return None, file
-    # EOL need to move this because we run chunk
-
-    # TODO:: also need to move this email function
-    # if not is_super_admin:
-    #     path = "{0}{1}".format(
-    #         batch.administration.path,
-    #         batch.administration_id
-    #     )
-    #     for administration in Administration.objects.filter(
-    #         id__in=path.split(".")
-    #     ):
-    #         assignment = FormApprovalAssignment.objects.filter(
-    #             form_id=batch.form_id, administration=administration
-    #         ).first()
-    #         if assignment:
-    #             level = assignment.user.user_access.administration.level_id
-    #             PendingDataApproval.objects.create(
-    #                 batch=batch, user=assignment.user, level_id=level
-    #             )
-    #             submitter = f"{job.user.name}, {job.user.designation_name}"
-    #             context = {
-    #                 "send_to": [assignment.user.email],
-    #                 "listing": [{
-    #                     "name": "Batch Name",
-    #                     "value": batch.name
-    #                 }, {
-    #                     "name": "Questionnaire",
-    #                     "value": batch.form.name
-    #                 }, {
-    #                     "name": "Number of Records",
-    #                     "value": df.shape[0]
-    #                 }, {
-    #                     "name": "Submitter",
-    #                     "value": submitter,
-    #                 }],
-    #             }
-    #             send_email(
-    #                 context=context,
-    #                 type=EmailTypes.pending_approval
-    #             )
-        # EOL also need to move this email function
-
-    # os.remove(file)
     return records, file
 
 

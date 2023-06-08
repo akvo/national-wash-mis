@@ -287,7 +287,7 @@ def validate(form: int, administration: int, file: str):
         return [{
             "error": ExcelError.sheet,
             "error_message": ValidationText.file_empty_validation.value,
-        }]
+        }], total_data
     excel_head = {}
     excel_cols = list(itertools.islice(generate_excel_columns(), df.shape[1]))
     for index, header in enumerate(list(df)):
