@@ -222,8 +222,35 @@ def seed_data_job(job_id, batch=None, completed=0):
             )
         return True
     except Exception as e:
-        # TODO:: send error notification email
         logger.error(f"LOG - Exception: {e}")
+        # send technical error notification email to akvo
+        form_id = job.info.get("form")
+        form = Forms.objects.filter(pk=int(form_id)).first()
+        context = {
+            "send_to": ["tech.consultancy@akvo.org", "galih@akvo.org"],
+            "form": form.name,
+            "user": "Akvo Tech Consultancy",
+            "listing": [{
+                "name": "Upload Date",
+                "value": job.created.strftime("%m-%d-%Y, %H:%M:%S"),
+            }, {
+                "name": "Questionnaire",
+                "value": form.name
+            }, {
+                "name": "Number of Records Completed",
+                "value": completed
+            }, {
+                "name": "Total of Records Remaining",
+                "value": job.completed - job.total
+            }, {
+                "name": "Total Rows of Records",
+                "value": job.total
+            }, {
+                "name": "Error detail",
+                "value": e
+            }],
+        }
+        send_email(context=context, type=EmailTypes.seed_error)
         async_task(
             "api.v1.v1_jobs.job.seed_data_job_result",
             job_id=job.id,
@@ -302,12 +329,12 @@ def seed_data_job_result(job_id, completed, success, batch):
                     type=EmailTypes.pending_approval
                 )
     # success
+    form_id = job.info.get("form")
+    form = Forms.objects.filter(pk=int(form_id)).first()
     if success:
         is_super_admin = job.user.user_access.role == UserRoleTypes.super_admin
         job.status = JobStatus.done
         job.available = timezone.now()
-        form_id = job.info.get("form")
-        form = Forms.objects.filter(pk=int(form_id)).first()
         subject = (
             "New Data Uploaded"
             if is_super_admin
@@ -330,6 +357,29 @@ def seed_data_job_result(job_id, completed, success, batch):
         send_email(context=data, type=EmailTypes.new_request)
     else:
         job.status = JobStatus.failed
+        # send seed error notification email to user
+        context = {
+            "send_to": [job.user.email],
+            "form": form.name,
+            "user": job.user,
+            "listing": [{
+                "name": "Upload Date",
+                "value": job.created.strftime("%m-%d-%Y, %H:%M:%S"),
+            }, {
+                "name": "Questionnaire",
+                "value": form.name
+            }, {
+                "name": "Number of Records Completed",
+                "value": completed
+            }, {
+                "name": "Total of Records Remaining",
+                "value": job.completed - job.total
+            }, {
+                "name": "Total Rows of Records",
+                "value": job.total
+            }],
+        }
+        send_email(context=context, type=EmailTypes.seed_error)
     job.save()
 
 

@@ -206,6 +206,7 @@ def seed_excel_data(
     df = pd.read_excel(
         file, sheet_name="data",
         skiprows=completed, nrows=chunksize)
+    # add columns to chunked df
     df.columns = df_header.columns
     if "id" in list(df):
         df = df.rename(columns={"id": "data_id"})
