@@ -308,9 +308,6 @@ def seed_data_job_result(job_id, completed, success, batch):
         job.available = timezone.now()
         form_id = job.info.get("form")
         form = Forms.objects.filter(pk=int(form_id)).first()
-        file = job.info.get("file")
-        storage.download(f"upload/{file}")
-        df = pd.read_excel(f"./tmp/{file}", sheet_name="data")
         subject = (
             "New Data Uploaded"
             if is_super_admin
@@ -326,7 +323,7 @@ def seed_data_job_result(job_id, completed, success, batch):
                     "value": job.created.strftime("%m-%d-%Y, %H:%M:%S"),
                 },
                 {"name": "Questionnaire", "value": form.name},
-                {"name": "Number of Records", "value": df.shape[0]},
+                {"name": "Number of Records", "value": completed},
             ],
             "is_super_admin": is_super_admin,
         }
