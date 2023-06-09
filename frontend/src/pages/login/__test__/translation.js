@@ -59,6 +59,9 @@ export const loginTrans = {
       },
     },
     common: {
+      siteTitle: "PDHA",
+      siteSubTitle:
+        "Plateforme des données de l'Hygiène et de l'Assainissement",
       pleaseWait: "S'il vous plaît, attendez",
       bannerTitle1: "Plateforme des données de",
       bannerTitle2: "l'Hygiène et de l'Assainissement (PDHA)",

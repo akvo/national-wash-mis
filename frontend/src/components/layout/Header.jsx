@@ -122,8 +122,8 @@ const Header = ({ className = "header", ...props }) => {
               alt={config.siteLogo}
             />
             <h1>
-              {config.siteTitle}
-              <small>{config.siteSubTitle}</small>
+              {text.siteTitle}
+              <small>{text.siteSubTitle}</small>
             </h1>
           </Link>
         </div>
