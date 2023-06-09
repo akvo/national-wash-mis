@@ -119,5 +119,7 @@
   "institutionalUserDesc": "Peut afficher et télécharger des données de tous les comtés",
   "userOrg": "Organisation d'utilisateurs",
   "partnershipOrg": "Organisation de partenariat",
-  "learnMore": "Apprendre encore plus"
+  "learnMore": "Apprendre encore plus",
+  "siteTitle": "PDHA",
+  "siteSubTitle": "Plateforme des données de l'Hygiène et de l'Assainissement"
 }

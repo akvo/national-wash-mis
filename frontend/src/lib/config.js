@@ -1,8 +1,6 @@
 import { orderBy } from "lodash";
 
 const config = {
-  siteTitle: "RUSH",
-  siteSubTitle: "Rural Urban Sanitation and Hygiene",
   siteLogo: "/static-files/logo.png",
   trainedStatus: (text = null) => [
     {

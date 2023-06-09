@@ -29,7 +29,7 @@ class ListOptionSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = QuestionOptions
-        fields = ['id', 'name', 'order']
+        fields = ['id', 'name', 'order', 'translations']
 
 
 class ListQuestionSerializer(serializers.ModelSerializer):

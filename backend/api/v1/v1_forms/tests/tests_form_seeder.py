@@ -130,7 +130,7 @@ class FormSeederTestCase(TestCase):
         self.assertEqual(3, response["question_group"][0]["question"][2]["order"])
         self.assertEqual('option', response["question_group"][0]["question"][2]["type"])
         self.assertEqual(
-            ['id', 'name', 'order'],
+            ['id', 'name', 'order', 'translations'],
             list(response["question_group"][0]["question"][2]['option'][0]))
         self.assertEqual(
             ["chart", "aggregate", "table", "advanced_filter"],
