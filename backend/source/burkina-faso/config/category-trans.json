@@ -1,26 +1,26 @@
 {
-    "Safely Managed": {
+    "safely-managed": {
         "fr": "Géré en toute sécurité"
     },
-    "Basic": {
+    "basic": {
         "fr": "Basique"
     },
-    "Limited": {
+    "limited": {
         "fr": "Limité"
     },
-    "No Service": {
+    "no-service": {
         "fr": "Pas de service"
     },
-    "No Facility": {
+    "no-facility": {
         "fr": "Aucune installation"
     },
-    "Open defecation": {
-        "fr": "défécation à l'air libre"
+    "open-defecation": {
+        "fr": "Défécation à l'air libre"
     },
-    "Unimproved": {
+    "unimproved": {
         "fr": "Non amélioré"
     },
-    "Surface water": {
+    "surface-water": {
         "fr": "Les eaux de surface"
     }
 }
