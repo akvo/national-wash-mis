@@ -298,3 +298,20 @@ class CategoryTestCase(TestCase):
                 self.assertEqual(db_answer, csv_answer)
         # ... Perform assertions on the CSV content
         # based on the expected values
+
+    def test_translated_categories_case_insensitive(self):
+        categories = {
+            "Water": "surface water",
+            "Sanitation": "Open Defecation",
+            "Hygiene": "No service",
+        }
+        trans = get_category_by_lang(lang="fr")
+        res = get_category_trans(categories=categories, trans=trans)
+        self.assertEqual(
+            res,
+            {
+                "Water": "Les eaux de surface",
+                "Sanitation": "Défécation à l'air libre",
+                "Hygiene": "Pas de service",
+            },
+        )
