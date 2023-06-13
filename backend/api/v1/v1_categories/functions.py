@@ -1,4 +1,5 @@
 import json
+import re
 from nwmis.settings import MASTER_DATA
 from django.db import transaction, connection
 
@@ -129,7 +130,8 @@ def get_category_trans(categories: dict, trans: list = []) -> dict:
     cs = {}
     for ck, cv in categories.items():
         cs[ck] = cv
-        ts = list(filter(lambda ct: ct["key"] == cv, trans))
+        ts_key = re.sub(r'\s', "-", str(cv).lower())
+        ts = list(filter(lambda ct: ct["key"] == ts_key, trans))
         if len(ts):
             cs[ck] = ts.pop().get("value", cv)
     return cs
