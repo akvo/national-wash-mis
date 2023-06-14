@@ -20,11 +20,7 @@ const Breadcrumbs = ({ pagePath }) => {
           (k) => k === kebabCase(path.title)
         );
         let pathTitle = path.title;
-        if (
-          !path.link &&
-          formTrans[keyTrans] &&
-          formTrans[keyTrans][activeLang]
-        ) {
+        if (!path.link && formTrans?.[keyTrans]?.[activeLang]) {
           pathTitle = formTrans[keyTrans][activeLang];
         }
         return (
