@@ -280,13 +280,14 @@ def validate(form: int, administration: int, file: str):
     questions = Questions.objects.filter(form_id=form)
     header_names = [q.to_excel_header for q in questions]
     df = pd.read_excel(file, sheet_name='data')
+    total_data = df.shape[0]
     if 'id' in list(df):
         df = df.rename(columns={'id': 'data_id'})
     if df.shape[0] == 0:
         return [{
             "error": ExcelError.sheet,
             "error_message": ValidationText.file_empty_validation.value,
-        }]
+        }], total_data
     excel_head = {}
     excel_cols = list(itertools.islice(generate_excel_columns(), df.shape[1]))
     for index, header in enumerate(list(df)):
@@ -335,4 +336,5 @@ def validate(form: int, administration: int, file: str):
                                                adm)
                     if errors:
                         data_error.append(errors)
-    return header_error + data_error
+    all_erros = header_error + data_error
+    return all_erros, total_data

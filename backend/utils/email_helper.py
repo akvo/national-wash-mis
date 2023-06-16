@@ -24,6 +24,7 @@ class EmailTypes:
     new_request = 'new_request'
     unchanged_data = 'unchanged_data'
     feedback = 'feedback'
+    seed_error = 'seed_error'
 
     FieldStr = {
         user_register: 'user_register',
@@ -251,6 +252,16 @@ def email_context(context: dict, type: str):
         context.update({
             "image": None,
             "explore_button": False
+        })
+    if type == EmailTypes.seed_error:
+        context.update({
+            "subject": "Seed Datapoint Error",
+            "info_text": '''Your data seed for the RUSH platform failed.''',
+            "image": f"{webdomain}/email-icons/close-circle.png",
+            "failed_text": "Seed Datapoint Error",
+            "extend_body": "",
+            "align": "left",
+            "explore_button": True
         })
     # prevent multiline if inside html template
     show_content = context.get('message_list') \

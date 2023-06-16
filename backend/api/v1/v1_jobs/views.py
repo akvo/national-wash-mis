@@ -160,8 +160,9 @@ def upload_excel(request, form_id, version):
             {'message': validate_serializers_message(serializer.errors)},
             status=status.HTTP_400_BAD_REQUEST)
     fs = FileSystemStorage()
-    file = fs.save(f"./tmp/{serializer.validated_data.get('file').name}",
-                   serializer.validated_data.get('file'))
+    file = fs.save(
+        f"./tmp/{serializer.validated_data.get('file').name}",
+        serializer.validated_data.get('file'))
     file_path = fs.path(file)
     # filename format: form_name--user_name-<4_digit_autogerated>
     uuid = "_".join(str(uuid4()).split("-")[:-1])
@@ -170,18 +171,26 @@ def upload_excel(request, form_id, version):
     form_name = re.sub(r'[\W_]+', '_', form.name)
     filename = f"{form_name}-{user_name}-{uuid}.xlsx"
     storage.upload(file=file_path, filename=filename, folder='upload')
-    job = Jobs.objects.create(type=JobTypes.validate_data,
-                              status=JobStatus.on_progress,
-                              user=request.user,
-                              info={
-                                  'file': filename,
-                                  'form': form_id,
-                                  'administration':
-                                  request.user.user_access.administration_id
-                              })
-    task_id = async_task('api.v1.v1_jobs.job.validate_excel',
-                         job.id,
-                         hook='api.v1.v1_jobs.job.validate_excel_result')
+    job = Jobs.objects.create(
+        type=JobTypes.validate_data,
+        status=JobStatus.on_progress,
+        user=request.user,
+        info={
+            'file': filename,
+            'form': form_id,
+            'administration':
+            request.user.user_access.administration_id
+        })
+    # job with chunk
+    task_id = async_task(
+        'api.v1.v1_jobs.job.validate_excel',
+        job.id,
+        hook='api.v1.v1_jobs.job.validate_excel_result')
+    # job without chunk - #TODO:: delete
+    # task_id = async_task(
+    #     'api.v1.v1_jobs.job.org_validate_excel',
+    #     job.id,
+    #     hook='api.v1.v1_jobs.job.org_validate_excel_result')
     job.task_id = task_id
     job.save()
 
