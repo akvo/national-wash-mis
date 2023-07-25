@@ -13,6 +13,7 @@ from api.v1.v1_profile.constants import UserRoleTypes, OrganisationTypes
 from api.v1.v1_profile.models import Administration, Access, Levels
 from api.v1.v1_users.models import SystemUser, \
         Organisation, OrganisationAttribute
+from api.v1.v1_mobile.models import MobileAssignment
 from utils.custom_serializer_fields import CustomEmailField, CustomCharField, \
     CustomPrimaryKeyRelatedField, CustomChoiceField, CustomBooleanField, \
     CustomMultipleChoiceField
@@ -275,6 +276,7 @@ class AddEditUserSerializer(serializers.ModelSerializer):
         Access.objects.create(user=user,
                               administration=administration,
                               role=role)
+        MobileAssignment.objects.create_assignment(user=user)
         # add new user forms
         if forms:
             for form in forms:
