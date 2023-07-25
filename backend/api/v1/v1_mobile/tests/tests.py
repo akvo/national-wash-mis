@@ -3,7 +3,6 @@ from api.v1.v1_users.models import SystemUser
 from api.v1.v1_profile.models import Administration, Access
 from api.v1.v1_profile.constants import UserRoleTypes
 from django.core.management import call_command
-from django.contrib.auth.hashers import check_password
 
 
 class MobileAssignmentManagerTest(TestCase):
@@ -24,13 +23,16 @@ class MobileAssignmentManagerTest(TestCase):
 
     def test_create_mobile_assignment_without_passcode(self):
         from api.v1.v1_mobile.models import MobileAssignment
+        from utils.custom_helper import CustomPasscode
 
         # Test without passcode
         mobile_assignment = MobileAssignment.objects.create_assignment(user=self.user)
         self.assertEqual(mobile_assignment.user, self.user)
-        self.assertTrue(mobile_assignment.passcode.startswith("pbkdf2_sha256"))
-        passcode_check = check_password("test1234", mobile_assignment.passcode)
-        self.assertFalse(passcode_check)
+        # Passcode is not stored in plain text
+        self.assertNotEqual(len(mobile_assignment.get_passcode()), 8)
+        passcode = mobile_assignment.get_passcode()
+        passcode = CustomPasscode().decode(passcode)
+        self.assertEqual(len(passcode), 8)
         self.assertTrue(
             mobile_assignment.token.startswith("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9")
         )
@@ -38,15 +40,19 @@ class MobileAssignmentManagerTest(TestCase):
     def test_create_mobile_assignment_with_passcode(self):
         import datetime
         from api.v1.v1_mobile.models import MobileAssignment
-        from utils.custom_helper import CustomJWT
+        from utils.custom_helper import CustomJWT, CustomPasscode
 
         # Test with passcode
         mobile_assignment = MobileAssignment.objects.create_assignment(
             user=self.user, passcode="passcode1234"
         )
         self.assertEqual(mobile_assignment.user, self.user)
-        passcode_check = check_password("passcode1234", mobile_assignment.passcode)
-        self.assertTrue(passcode_check)
+        # Passcode is not stored in plain text
+        mobile_assignment = MobileAssignment.objects.get(user=self.user)
+        self.assertNotEqual(mobile_assignment.passcode, "passcode1234")
+        passcode = mobile_assignment.get_passcode()
+        passcode = CustomPasscode().decode(passcode)
+        self.assertEqual(passcode, "passcode1234")
         decoded_token = CustomJWT().decode(mobile_assignment.token)
         self.assertEqual(
             {
@@ -62,19 +68,23 @@ class MobileAssignmentManagerTest(TestCase):
 
         # Test update passcode
         from api.v1.v1_mobile.models import MobileAssignment
+        from utils.custom_helper import CustomPasscode
 
         mobile_assignment = MobileAssignment.objects.create_assignment(
             user=self.user, passcode="passcode1234"
         )
         self.assertEqual(mobile_assignment.user, self.user)
-        passcode_check = check_password("passcode1234", mobile_assignment.passcode)
-        self.assertTrue(mobile_assignment.passcode.startswith("pbkdf2_sha256"))
-        self.assertTrue(passcode_check)
+        passcode = mobile_assignment.get_passcode()
+        passcode = CustomPasscode().decode(passcode)
+        self.assertEqual(passcode, "passcode1234")
 
         # Update passcode
-        mobile_assignment = MobileAssignment.objects.update_passcode(
-            user=self.user, passcode="newpasscode1234"
+        mobile_assignment = MobileAssignment.objects.get(
+            user=self.user
         )
-        self.assertTrue(mobile_assignment.passcode.startswith("pbkdf2_sha256"))
-        passcode_check = check_password("newpasscode1234", mobile_assignment.passcode)
-        self.assertTrue(passcode_check)
+        mobile_assignment.set_passcode("newpasscode1234")
+        mobile_assignment.save()
+        passcode = mobile_assignment.get_passcode()
+        passcode = CustomPasscode().decode(passcode)
+        self.assertNotEqual(mobile_assignment.passcode, "newpasscode1234")
+        self.assertEqual(passcode, "newpasscode1234")
