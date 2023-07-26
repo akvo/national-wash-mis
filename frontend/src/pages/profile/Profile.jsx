@@ -111,7 +111,7 @@ const Profile = () => {
               >
                 {showPasscode ? <EyeInvisibleOutlined /> : <EyeOutlined />}
               </span>
-              <span>
+              <span style={{ fontWeight: "bold", fontSize: "18px" }}>
                 {authUser?.passcode
                   ? showPasscode
                     ? authUser.passcode

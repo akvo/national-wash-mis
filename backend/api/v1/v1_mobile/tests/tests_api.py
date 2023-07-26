@@ -5,6 +5,7 @@ from api.v1.v1_profile.constants import UserRoleTypes
 from django.core.management import call_command
 from api.v1.v1_mobile.models import MobileAssignment
 from api.v1.v1_forms.models import Forms, UserForms
+from rest_framework import status
 
 
 class MobileAssignmentManagerTest(TestCase):
@@ -46,7 +47,6 @@ class MobileAssignmentManagerTest(TestCase):
         )
 
     def test_mobile_assignment_form_api(self):
-        from rest_framework import status
 
         code = {"code": self.passcode}
         response = self.client.post(
@@ -55,3 +55,54 @@ class MobileAssignmentManagerTest(TestCase):
             content_type="application/json",
         )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(
+            response.data["syncToken"], self.mobile_assignment.token
+        )
+        self.assertEqual(
+            dict(response.data["formsUrl"][0]),
+            {
+                "id": self.forms[0].id,
+                "version": str(self.forms[0].version),
+                "url": f"/api/v1/mobile-form/{self.forms[0].id}",
+            },
+        )
+
+    def test_mobile_assignment_form_api_of_admin(self):
+
+        # delete all user forms
+        UserForms.objects.all().delete()
+        code = {"code": self.passcode}
+        response = self.client.post(
+            "/api/v1/mobile-forms",
+            code,
+            content_type="application/json",
+        )
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(
+            response.data["syncToken"], self.mobile_assignment.token
+        )
+        # since user has no forms assigned, formsUrl should be empty
+        self.assertEqual(response.data["formsUrl"], [])
+
+        # modify user access to super admin
+        self.user_access.role = UserRoleTypes.super_admin
+        self.user_access.save()
+
+        response = self.client.post(
+            "/api/v1/mobile-forms",
+            code,
+            content_type="application/json",
+        )
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(
+            response.data["syncToken"], self.mobile_assignment.token
+        )
+        # formsUrl should be all forms
+        self.assertEqual(
+            dict(response.data["formsUrl"][0]),
+            {
+                "id": self.forms[0].id,
+                "version": str(self.forms[0].version),
+                "url": f"/api/v1/mobile-form/{self.forms[0].id}",
+            },
+        )
