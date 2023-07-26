@@ -23,6 +23,7 @@ urlpatterns = [
     path("api/", include("api.v1.v1_data.urls"), name="v1_data"),
     path("api/", include("api.v1.v1_jobs.urls"), name="v1_jobs"),
     path("api/", include("api.v1.v1_categories.urls"), name="v1_categories"),
+    path("api/", include("api.v1.v1_mobile.urls"), name="v1_mobile"),
     path("api/schema/", SpectacularAPIView.as_view(), name="schema"),
     re_path(
         r"api/gateway/",
