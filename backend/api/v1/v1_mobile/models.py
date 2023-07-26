@@ -8,18 +8,18 @@ from utils.custom_helper import generate_random_string, CustomJWT, CustomPasscod
 class MobileAssignmentManager(models.Manager):
     def create_assignment(self, user, passcode=None):
         access = Access.objects.filter(user=user).first()
-        token = CustomJWT().encode({
-            "id": user.id,
-            "email": user.email,
-            "created_at": format(datetime.datetime.now(), "%Y-%m-%d"),
-            "administration_id": access.administration.id if access else None,
-        })
+        token = CustomJWT().encode(
+            {
+                "id": user.id,
+                "email": user.email,
+                "created_at": format(datetime.datetime.now(), "%Y-%m-%d"),
+                "administration_id": access.administration.id if access else None,
+            }
+        )
         if not passcode:
             passcode = generate_random_string(8)
         mobile_assignment = self.create(
-            user=user,
-            token=token,
-            passcode=CustomPasscode().encode(passcode)
+            user=user, token=token, passcode=CustomPasscode().encode(passcode)
         )
         return mobile_assignment
 
@@ -29,7 +29,7 @@ class MobileAssignment(models.Model):
     user = models.OneToOneField(
         SystemUser, on_delete=models.CASCADE, related_name="mobile_assignments"
     )
-    token = models.CharField(max_length=256)
+    token = models.CharField(max_length=500)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def set_passcode(self, passcode):

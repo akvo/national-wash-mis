@@ -18,6 +18,7 @@ def create_mobile_assignment(apps, schema_editor):
             "email": user.email,
             "created_at": format(datetime.datetime.now(), "%Y-%m-%d"),
             "administration_id": access.administration.id,
+            "exp": datetime.datetime.now() + datetime.timedelta(days=365253),
         })
         passcode = generate_random_string(8)
         MobileAssignment.objects.create(

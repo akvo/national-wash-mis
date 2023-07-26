@@ -58,8 +58,10 @@ class MobileAssignmentManagerTest(TestCase):
             {
                 "id": self.user.id,
                 "email": self.user.email,
+                "exp": decoded_token["exp"],
                 "created_at": format(datetime.datetime.now(), "%Y-%m-%d"),
                 "administration_id": self.administration.id,
+                "iss": "NWMIS"
             },
             decoded_token,
         )

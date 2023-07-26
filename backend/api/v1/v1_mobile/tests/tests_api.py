@@ -55,9 +55,7 @@ class MobileAssignmentManagerTest(TestCase):
             content_type="application/json",
         )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(
-            response.data["syncToken"], self.mobile_assignment.token
-        )
+        self.assertEqual(response.data["syncToken"], self.mobile_assignment.token)
         self.assertEqual(
             dict(response.data["formsUrl"][0]),
             {
@@ -78,9 +76,7 @@ class MobileAssignmentManagerTest(TestCase):
             content_type="application/json",
         )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(
-            response.data["syncToken"], self.mobile_assignment.token
-        )
+        self.assertEqual(response.data["syncToken"], self.mobile_assignment.token)
         # since user has no forms assigned, formsUrl should be empty
         self.assertEqual(response.data["formsUrl"], [])
 
@@ -94,9 +90,7 @@ class MobileAssignmentManagerTest(TestCase):
             content_type="application/json",
         )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(
-            response.data["syncToken"], self.mobile_assignment.token
-        )
+        self.assertEqual(response.data["syncToken"], self.mobile_assignment.token)
         # formsUrl should be all forms
         self.assertEqual(
             dict(response.data["formsUrl"][0]),
@@ -115,9 +109,34 @@ class MobileAssignmentManagerTest(TestCase):
             code,
             content_type="application/json",
         )
+
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
         # response should be error
+        self.assertEqual(response.json(), {"error": {"code": ["Invalid passcode"]}})
+
+    def test_get_individual_forms_with_token(self):
+
+        # get token
+        code = {"code": self.passcode}
+        auth = self.client.post(
+            "/api/v1/device-forms",
+            code,
+            content_type="application/json",
+        )
+        token = auth.data["syncToken"]
+        forms_url = auth.data["formsUrl"]
+
+        self.assertEqual(auth.status_code, status.HTTP_200_OK)
+        self.assertEqual(forms_url[0]["url"], f"/api/v1/device-form/{self.forms[0].id}")
+
+        response = self.client.get(
+            forms_url[0]["url"],
+            follow=True,
+            content_type="application/json",
+            headers={"Token": f"Bearer {token}"},
+        )
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(
-            response.json(), {'error': {'code': ['Invalid passcode']}}
+            list(response.data), ["name", "question_group", "translations"]
         )

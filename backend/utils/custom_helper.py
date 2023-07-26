@@ -1,4 +1,5 @@
 import random
+from datetime import datetime, timedelta
 import string
 import jwt
 from nwmis.settings import SECRET_KEY
@@ -10,11 +11,22 @@ def generate_random_string(length):
     return "".join(random.choice(letters) for i in range(length))
 
 
+def generate_random_number(length):
+    numbers = string.digits
+    return "".join(random.choice(numbers) for i in range(length))
+
+
 class CustomJWT():
     def __init__(self):
         pass
 
     def encode(self, payload):
+        payload.update(
+            {
+                "exp": datetime.now() + timedelta(days=365253),
+                "iss": "NWMIS",
+            }
+        )
         token = jwt.encode(payload, SECRET_KEY, algorithm="HS256")
         return token
 
