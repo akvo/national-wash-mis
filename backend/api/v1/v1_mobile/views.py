@@ -39,16 +39,16 @@ def get_mobile_forms(request, version):
     return Response(serializer.data, status=status.HTTP_200_OK)
 
 
-# @extend_schema(responses={200: WebFormDetailSerializer},
-#                tags=["Mobile Device Form"],
-#                summary='To get form in mobile form format')
-# @api_view(['GET'])
-# @permission_classes([IsAuthenticated])
-# def get_mobile_form_details(request, version, form_id):
-#     token = request.data.get('token')
-#     print(token)
-#     instance = get_object_or_404(Forms, pk=form_id)
-#     instance = WebFormDetailSerializer(
-#             instance=instance,
-#             context={'user': request.user}).data
-#     return Response(instance, status=status.HTTP_200_OK)
+@extend_schema(responses={200: WebFormDetailSerializer},
+               tags=["Mobile Device Form"],
+               summary='To get form in mobile form format')
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_mobile_form_details(request, version, form_id):
+    token = request.data.get('token')
+    print(token)
+    instance = get_object_or_404(Forms, pk=form_id)
+    instance = WebFormDetailSerializer(
+            instance=instance,
+            context={'user': request.user}).data
+    return Response(instance, status=status.HTTP_200_OK)
