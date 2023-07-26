@@ -42,7 +42,7 @@ class MobileAssignmentManagerTest(TestCase):
             {
                 "id": self.forms[0].id,
                 "version": str(self.forms[0].version),
-                "url": f"/api/v1/mobile-form/{self.forms[0].id}",
+                "url": f"/api/v1/device-form/{self.forms[0].id}",
             },
         )
 
@@ -50,7 +50,7 @@ class MobileAssignmentManagerTest(TestCase):
 
         code = {"code": self.passcode}
         response = self.client.post(
-            "/api/v1/mobile-forms",
+            "/api/v1/device-forms",
             code,
             content_type="application/json",
         )
@@ -63,7 +63,7 @@ class MobileAssignmentManagerTest(TestCase):
             {
                 "id": self.forms[0].id,
                 "version": str(self.forms[0].version),
-                "url": f"/api/v1/mobile-form/{self.forms[0].id}",
+                "url": f"/api/v1/device-form/{self.forms[0].id}",
             },
         )
 
@@ -73,7 +73,7 @@ class MobileAssignmentManagerTest(TestCase):
         UserForms.objects.all().delete()
         code = {"code": self.passcode}
         response = self.client.post(
-            "/api/v1/mobile-forms",
+            "/api/v1/device-forms",
             code,
             content_type="application/json",
         )
@@ -89,7 +89,7 @@ class MobileAssignmentManagerTest(TestCase):
         self.user_access.save()
 
         response = self.client.post(
-            "/api/v1/mobile-forms",
+            "/api/v1/device-forms",
             code,
             content_type="application/json",
         )
@@ -103,6 +103,21 @@ class MobileAssignmentManagerTest(TestCase):
             {
                 "id": self.forms[0].id,
                 "version": str(self.forms[0].version),
-                "url": f"/api/v1/mobile-form/{self.forms[0].id}",
+                "url": f"/api/v1/device-form/{self.forms[0].id}",
             },
+        )
+
+    def test_mobile_assignment_form_api_with_invalid_passcode(self):
+        # wrong passcode
+        code = {"code": "wrong code"}
+        response = self.client.post(
+            "/api/v1/device-forms",
+            code,
+            content_type="application/json",
+        )
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+
+        # response should be error
+        self.assertEqual(
+            response.json(), {'error': {'code': ['Invalid passcode']}}
         )
