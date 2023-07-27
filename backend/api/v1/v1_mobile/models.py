@@ -1,25 +1,18 @@
-import datetime
 from django.db import models
 from api.v1.v1_users.models import SystemUser
-from api.v1.v1_profile.models import Access
-from utils.custom_helper import generate_random_string, CustomJWT, CustomPasscode
+from utils.custom_helper import generate_random_string, CustomPasscode
+from rest_framework_simplejwt.tokens import RefreshToken
 
 
 class MobileAssignmentManager(models.Manager):
     def create_assignment(self, user, passcode=None):
-        access = Access.objects.filter(user=user).first()
-        token = CustomJWT().encode(
-            {
-                "id": user.id,
-                "email": user.email,
-                "created_at": format(datetime.datetime.now(), "%Y-%m-%d"),
-                "administration_id": access.administration.id if access else None,
-            }
-        )
+        token = RefreshToken.for_user(user)
         if not passcode:
             passcode = generate_random_string(8)
         mobile_assignment = self.create(
-            user=user, token=token, passcode=CustomPasscode().encode(passcode)
+            user=user,
+            token=token.access_token,
+            passcode=CustomPasscode().encode(passcode)
         )
         return mobile_assignment
 

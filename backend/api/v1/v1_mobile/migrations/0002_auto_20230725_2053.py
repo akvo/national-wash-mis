@@ -2,28 +2,23 @@
 
 from django.db import migrations
 from utils.custom_helper import CustomPasscode
+from rest_framework_simplejwt.tokens import RefreshToken
 
 def create_mobile_assignment(apps, schema_editor):
     MobileAssignment = apps.get_model('v1_mobile', 'MobileAssignment')
     SystemUser = apps.get_model('v1_users', 'SystemUser')
     Access = apps.get_model('v1_profile', 'Access')
-    from utils.custom_helper import generate_random_string, CustomJWT
+    from utils.custom_helper import generate_random_string
     import datetime
     for user in SystemUser.objects.all():
         access = Access.objects.filter(user=user).first()
         if not access:
             continue
-        token = CustomJWT().encode({
-            "id": user.id,
-            "email": user.email,
-            "created_at": format(datetime.datetime.now(), "%Y-%m-%d"),
-            "administration_id": access.administration.id,
-            "exp": datetime.datetime.now() + datetime.timedelta(days=365253),
-        })
+        token = RefreshToken.for_user(user)
         passcode = generate_random_string(8)
         MobileAssignment.objects.create(
             user=user,
-            token=token,
+            token=token.access_token,
             passcode=CustomPasscode().encode(passcode)
         )
 

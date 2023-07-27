@@ -130,6 +130,12 @@ TEMPLATES = [
 WSGI_APPLICATION = "nwmis.wsgi.application"
 
 # Rest Settings
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=3560),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=3560),
+}
+
+
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_simplejwt.authentication.JWTAuthentication",

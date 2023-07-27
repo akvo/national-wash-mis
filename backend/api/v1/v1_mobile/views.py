@@ -1,14 +1,14 @@
 from drf_spectacular.utils import extend_schema
 from rest_framework import status
 from rest_framework.response import Response
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
 from rest_framework.generics import get_object_or_404
+from rest_framework.permissions import IsAuthenticated
 from .serializers import MobileAssignmentFormsSerializer
 from .models import MobileAssignment
 from api.v1.v1_forms.models import Forms
-from api.v1.v1_users.models import SystemUser
 from api.v1.v1_forms.serializers import WebFormDetailSerializer
-from utils.custom_helper import CustomPasscode, CustomJWT
+from utils.custom_helper import CustomPasscode
 
 
 @extend_schema(
@@ -43,33 +43,10 @@ def get_mobile_forms(request, version):
                tags=["Mobile Device Form"],
                summary='To get form in mobile form format')
 @api_view(['GET'])
+@permission_classes([IsAuthenticated])
 def get_mobile_form_details(request, version, form_id):
-    token = request.META.get("headers")
-    if not token:
-        return Response(
-            {"error": "Unauthorized."},
-            status=status.HTTP_401_UNAUTHORIZED,
-        )
-    token = token.get("Token")
-    if not token:
-        return Response(
-            {"error": "Unauthorized."},
-            status=status.HTTP_401_UNAUTHORIZED,
-        )
-    token = CustomJWT().decode(token.split(" ")[1])
-    if not token:
-        return Response(
-            {"error": "Unauthorized."},
-            status=status.HTTP_401_UNAUTHORIZED,
-        )
-    user = SystemUser.objects.get(id=token.get("id"))
-    if not user:
-        return Response(
-            {"error": "Unauthorized."},
-            status=status.HTTP_401_UNAUTHORIZED,
-        )
     instance = get_object_or_404(Forms, pk=form_id)
     instance = WebFormDetailSerializer(
             instance=instance,
-            context={'user': user}).data
+            context={'user': request.user}).data
     return Response(instance, status=status.HTTP_200_OK)

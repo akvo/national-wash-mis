@@ -134,7 +134,7 @@ class MobileAssignmentManagerTest(TestCase):
             forms_url[0]["url"],
             follow=True,
             content_type="application/json",
-            headers={"Token": f"Bearer {token}"},
+            **{'HTTP_AUTHORIZATION': f'Bearer {token}'}
         )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(

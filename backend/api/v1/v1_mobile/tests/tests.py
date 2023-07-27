@@ -33,14 +33,11 @@ class MobileAssignmentManagerTest(TestCase):
         passcode = mobile_assignment.get_passcode()
         passcode = CustomPasscode().decode(passcode)
         self.assertEqual(len(passcode), 8)
-        self.assertTrue(
-            mobile_assignment.token.startswith("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9")
-        )
+        self.assertTrue(mobile_assignment.token)
 
     def test_create_mobile_assignment_with_passcode(self):
-        import datetime
         from api.v1.v1_mobile.models import MobileAssignment
-        from utils.custom_helper import CustomJWT, CustomPasscode
+        from utils.custom_helper import CustomPasscode
 
         # Test with passcode
         mobile_assignment = MobileAssignment.objects.create_assignment(
@@ -53,18 +50,6 @@ class MobileAssignmentManagerTest(TestCase):
         passcode = mobile_assignment.get_passcode()
         passcode = CustomPasscode().decode(passcode)
         self.assertEqual(passcode, "passcode1234")
-        decoded_token = CustomJWT().decode(mobile_assignment.token)
-        self.assertEqual(
-            {
-                "id": self.user.id,
-                "email": self.user.email,
-                "exp": decoded_token["exp"],
-                "created_at": format(datetime.datetime.now(), "%Y-%m-%d"),
-                "administration_id": self.administration.id,
-                "iss": "NWMIS"
-            },
-            decoded_token,
-        )
 
     def test_update_mobile_assignment_passcode(self):
 
