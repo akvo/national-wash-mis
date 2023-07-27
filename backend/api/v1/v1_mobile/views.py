@@ -66,6 +66,9 @@ def get_mobile_form_details(request, version, form_id):
                 "duration": serializers.IntegerField(),
                 "submittedAt": serializers.DateTimeField(),
                 "submitter": serializers.CharField(),
+                "geo": serializers.ListField(
+                    child=serializers.IntegerField()
+                ),
                 "answers": serializers.ListField(
                     child=serializers.DictField()
                 ),
@@ -80,21 +83,28 @@ def sync_pending_form_data(request, version):
     form = get_object_or_404(Forms, pk=request.data.get("formId"))
     user = request.user
     administration = Access.objects.filter(user=user).first().administration
+    answers = []
+    qna = request.data.get("answers")
+    for q in qna:
+        answers.append({
+            "question": q,
+            "value": qna[q]
+        })
     data = {
-        "administration": administration.id,
-        "name": request.data.get("name"),
+        "data": {
+            "administration": administration.id,
+            "name": request.data.get("name"),
+            "geo": request.data.get("geo")
+        },
+        "answer": answers
     }
     serializer = SubmitPendingFormSerializer(
         data=data, context={"user": request.user, "form": form}
     )
     if not serializer.is_valid():
-        return Response(
-            {
+        return Response({
                 "message": validate_serializers_message(serializer.errors),
                 "details": serializer.errors,
-            },
-            status=status.HTTP_400_BAD_REQUEST,
-        )
-
+            }, status=status.HTTP_400_BAD_REQUEST)
     serializer.save()
     return Response({"message": "ok"}, status=status.HTTP_200_OK)

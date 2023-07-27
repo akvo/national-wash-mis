@@ -5,6 +5,7 @@ from api.v1.v1_profile.constants import UserRoleTypes
 from django.core.management import call_command
 from api.v1.v1_mobile.models import MobileAssignment
 from api.v1.v1_forms.models import Forms, UserForms
+from api.v1.v1_data.models import PendingFormData, PendingAnswers
 from rest_framework import status
 
 
@@ -38,38 +39,34 @@ class MobileAssignmentApiSyncTest(TestCase):
             f"/api/v1/device/form/{self.form.id}",
             follow=True,
             content_type="application/json",
-            **{'HTTP_AUTHORIZATION': f'Bearer {self.token}'}
+            **{"HTTP_AUTHORIZATION": f"Bearer {self.token}"},
         )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         json_form = response.json()
         questions = []
-        json_form['question_group']
-        for question_group in json_form['question_group']:
-            for question in question_group['question']:
+        json_form["question_group"]
+        for question_group in json_form["question_group"]:
+            for question in question_group["question"]:
                 questions.append(question)
+
         answers = {}
         for question in questions:
-            if question['type'] == 'option':
-                answers[question['id']] = [question['option'][0]['name']]
-            if question['type'] == 'multiple_option':
-                answers[question['id']] = [question['option'][0]['name']]
-            if question['type'] == 'number':
-                answers[question['id']] = 123324
-            if question['type'] == 'text':
-                answers[question['id']] = 'test'
-            if question['type'] == 'geo':
-                answers[question['id']] = {
-                    "latitude": 0,
-                    "longitude": 0,
-                }
-            if question['type'] == 'date':
-                answers[question['id']] = "2021-01-01T00:00:00.000Z"
-            if question['type'] == 'photo':
-                answers[question['id']] = "https://picsum.photos/200/300"
-            if question['type'] == 'cascade':
-                answers[question['id']] = self.administration.id
-
-        self.assertEqual(len(answers), len(questions))
+            if question["type"] == "option":
+                answers[question["id"]] = [question["option"][0]["name"]]
+            if question["type"] == "multiple_option":
+                answers[question["id"]] = [question["option"][0]["name"]]
+            if question["type"] == "number":
+                answers[question["id"]] = 123324
+            if question["type"] == "text":
+                answers[question["id"]] = "test"
+            if question["type"] == "geo":
+                answers[question["id"]] = [0, 0]
+            if question["type"] == "date":
+                answers[question["id"]] = "2021-01-01T00:00:00.000Z"
+            if question["type"] == "photo":
+                answers[question["id"]] = "https://picsum.photos/200/300"
+            if question["type"] == "cascade":
+                answers[question["id"]] = self.administration.id
 
         post_data = {
             "formId": self.form.id,
@@ -77,15 +74,37 @@ class MobileAssignmentApiSyncTest(TestCase):
             "duration": 3000,
             "submittedAt": "2021-01-01T00:00:00.000Z",
             "submitter": "Testing",
-            "answers": answers
+            "geo": [0, 0],
+            "answers": answers,
         }
 
+        self.assertEqual(len(answers), len(questions))
+
+        # Submit correct data
         response = self.client.post(
             "/api/v1/device/sync",
             post_data,
             follow=True,
             content_type="application/json",
-            **{'HTTP_AUTHORIZATION': f'Bearer {self.token}'}
+            **{"HTTP_AUTHORIZATION": f"Bearer {self.token}"},
+        )
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+        pending_data = PendingFormData.objects.filter(created_by=self.user).all()
+        self.assertEqual(pending_data.count(), 1)
+        answer_data = PendingAnswers.objects.filter(
+            pending_data=pending_data[0]
+        ).count()
+        self.assertEqual(answer_data, len(list(answers)))
+        self.assertTrue(pending_data[0].geo)
+
+        # Submit invalid data
+        response = self.client.post(
+            "/api/v1/device/sync",
+            {},  # data is empty
+            follow=True,
+            content_type="application/json",
+            **{"HTTP_AUTHORIZATION": f"Bearer {self.token}"},
         )
 
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertNotEqual(response.status_code, status.HTTP_200_OK)
