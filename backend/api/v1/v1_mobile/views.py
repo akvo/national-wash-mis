@@ -1,14 +1,18 @@
 from drf_spectacular.utils import extend_schema
-from rest_framework import status
+from rest_framework import status, serializers
 from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.generics import get_object_or_404
 from rest_framework.permissions import IsAuthenticated
+from drf_spectacular.utils import inline_serializer
 from .serializers import MobileAssignmentFormsSerializer
 from .models import MobileAssignment
 from api.v1.v1_forms.models import Forms
 from api.v1.v1_forms.serializers import WebFormDetailSerializer
+from api.v1.v1_data.serializers import SubmitPendingFormSerializer
 from utils.custom_helper import CustomPasscode
+from utils.default_serializers import DefaultResponseSerializer
+from utils.custom_serializer_fields import validate_serializers_message
 
 
 @extend_schema(
@@ -50,3 +54,40 @@ def get_mobile_form_details(request, version, form_id):
             instance=instance,
             context={'user': request.user}).data
     return Response(instance, status=status.HTTP_200_OK)
+
+
+@extend_schema(
+        request=inline_serializer(
+            name="SyncDeviceFormData",
+            fields={
+                "formId": serializers.IntegerField(),
+                "name": serializers.CharField(),
+                "duration": serializers.IntegerField(),
+                "submittedAt": serializers.DateTimeField(),
+                "submitter": serializers.CharField(),
+                "answers": serializers.ListField(
+                    child=serializers.DictField()
+                ),
+            },
+        ),
+        responses={200: DefaultResponseSerializer},
+        tags=["Mobile Device Form"],
+        summary="Submit pending form data",
+    )
+@api_view(['POST'])
+def sync_pending_form_data(self, request, version):
+    form = get_object_or_404(Forms, pk=request.data.get("formId"))
+    serializer = SubmitPendingFormSerializer(
+        data=request.data, context={"user": request.user, "form": form}
+    )
+    if not serializer.is_valid():
+        return Response(
+            {
+                "message": validate_serializers_message(serializer.errors),
+                "details": serializer.errors,
+            },
+            status=status.HTTP_400_BAD_REQUEST,
+        )
+
+    serializer.save()
+    return Response({"message": "ok"}, status=status.HTTP_200_OK)

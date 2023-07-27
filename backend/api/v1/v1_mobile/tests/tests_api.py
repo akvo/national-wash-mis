@@ -42,7 +42,7 @@ class MobileAssignmentManagerTest(TestCase):
             {
                 "id": self.forms[0].id,
                 "version": str(self.forms[0].version),
-                "url": f"/api/v1/device-form/{self.forms[0].id}",
+                "url": f"/form/{self.forms[0].id}",
             },
         )
 
@@ -50,7 +50,7 @@ class MobileAssignmentManagerTest(TestCase):
 
         code = {"code": self.passcode}
         response = self.client.post(
-            "/api/v1/device-forms",
+            "/api/v1/device/auth",
             code,
             content_type="application/json",
         )
@@ -61,7 +61,7 @@ class MobileAssignmentManagerTest(TestCase):
             {
                 "id": self.forms[0].id,
                 "version": str(self.forms[0].version),
-                "url": f"/api/v1/device-form/{self.forms[0].id}",
+                "url": f"/form/{self.forms[0].id}",
             },
         )
 
@@ -71,7 +71,7 @@ class MobileAssignmentManagerTest(TestCase):
         UserForms.objects.all().delete()
         code = {"code": self.passcode}
         response = self.client.post(
-            "/api/v1/device-forms",
+            "/api/v1/device/auth",
             code,
             content_type="application/json",
         )
@@ -85,7 +85,7 @@ class MobileAssignmentManagerTest(TestCase):
         self.user_access.save()
 
         response = self.client.post(
-            "/api/v1/device-forms",
+            "/api/v1/device/auth",
             code,
             content_type="application/json",
         )
@@ -97,7 +97,7 @@ class MobileAssignmentManagerTest(TestCase):
             {
                 "id": self.forms[0].id,
                 "version": str(self.forms[0].version),
-                "url": f"/api/v1/device-form/{self.forms[0].id}",
+                "url": f"/form/{self.forms[0].id}",
             },
         )
 
@@ -105,7 +105,7 @@ class MobileAssignmentManagerTest(TestCase):
         # wrong passcode
         code = {"code": "wrong code"}
         response = self.client.post(
-            "/api/v1/device-forms",
+            "/api/v1/device/auth",
             code,
             content_type="application/json",
         )
@@ -120,7 +120,7 @@ class MobileAssignmentManagerTest(TestCase):
         # get token
         code = {"code": self.passcode}
         auth = self.client.post(
-            "/api/v1/device-forms",
+            "/api/v1/device/auth",
             code,
             content_type="application/json",
         )
@@ -128,10 +128,12 @@ class MobileAssignmentManagerTest(TestCase):
         forms_url = auth.data["formsUrl"]
 
         self.assertEqual(auth.status_code, status.HTTP_200_OK)
-        self.assertEqual(forms_url[0]["url"], f"/api/v1/device-form/{self.forms[0].id}")
+        self.assertEqual(forms_url[0]["url"], f"/form/{self.forms[0].id}")
+
+        form_url = forms_url[0]["url"]
 
         response = self.client.get(
-            forms_url[0]["url"],
+            f"/api/v1/device{form_url}",
             follow=True,
             content_type="application/json",
             **{'HTTP_AUTHORIZATION': f'Bearer {token}'}

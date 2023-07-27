@@ -15,7 +15,7 @@ class MobileFormSerializer(serializers.ModelSerializer):
 
     @extend_schema_field(OpenApiTypes.URI)
     def get_url(self, obj):
-        return f"/api/v1/device-form/{obj.id}"
+        return f"/form/{obj.id}"
 
     class Meta:
         model = Forms
