@@ -8,7 +8,7 @@ from api.v1.v1_forms.models import Forms, UserForms
 from rest_framework import status
 
 
-class MobileAssignmentManagerTest(TestCase):
+class MobileAssignmentApiTest(TestCase):
     def setUp(self):
         call_command("administration_seeder", "--test")
         call_command("form_seeder", "--test")
@@ -140,5 +140,5 @@ class MobileAssignmentManagerTest(TestCase):
         )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(
-            list(response.data), ["name", "question_group", "translations"]
+            list(response.data), ["name", "version", "question_group", "translations"]
         )

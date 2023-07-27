@@ -179,7 +179,7 @@ class WebFormDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Forms
-        fields = ['name', 'question_group', 'translations']
+        fields = ['name', 'version', 'question_group', 'translations']
 
 
 class ListFormRequestSerializer(serializers.Serializer):

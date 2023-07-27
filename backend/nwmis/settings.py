@@ -131,8 +131,7 @@ WSGI_APPLICATION = "nwmis.wsgi.application"
 
 # Rest Settings
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(days=3560),
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=3560),
+    'ACCESS_TOKEN_LIFETIME': None,
 }
 
 
