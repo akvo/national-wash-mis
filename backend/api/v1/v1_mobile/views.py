@@ -2,7 +2,6 @@ import os
 import mimetypes
 from nwmis.settings import MASTER_DATA, BASE_DIR
 from drf_spectacular.utils import extend_schema
-from wsgiref.util import FileWrapper
 from django.http import HttpResponse
 from rest_framework import status, serializers
 from rest_framework.response import Response
