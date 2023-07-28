@@ -40,6 +40,7 @@ class ListQuestionSerializer(serializers.ModelSerializer):
     name = serializers.SerializerMethodField()
     rule = serializers.SerializerMethodField()
     extra = serializers.SerializerMethodField()
+    source = serializers.SerializerMethodField()
 
     @extend_schema_field(ListOptionSerializer(many=True))
     def get_option(self, instance: Questions):
@@ -84,6 +85,26 @@ class ListQuestionSerializer(serializers.ModelSerializer):
             return instance.api
         return None
 
+    @extend_schema_field(
+        inline_serializer('QuestionSourceFormat',
+                          fields={
+                              'file': serializers.CharField(),
+                              'parent': serializers.IntegerField(),
+                          }))
+    def get_source(self, instance: Questions):
+        user = self.context.get('user')
+        if instance.type == QuestionTypes.cascade:
+            return {
+                "file": "organisation.sqlite",
+                "parent_id": 0
+            }
+        if instance.type == QuestionTypes.administration:
+            return {
+                "file": "administrator.sqlite",
+                "parent_id": user.user_access.administration.id or 0
+            }
+        return None
+
     @extend_schema_field(GeoFormatSerializer)
     def get_center(self, instance: Questions):
         if instance.type == QuestionTypes.geo:
@@ -122,7 +143,7 @@ class ListQuestionSerializer(serializers.ModelSerializer):
         model = Questions
         fields = [
             'id', 'name', 'order', 'type', 'required', 'dependency', 'option',
-            'center', 'api', 'meta', 'rule', 'extra', 'translations'
+            'center', 'api', 'meta', 'rule', 'extra', 'translations', 'source'
         ]
 
 
@@ -167,6 +188,7 @@ class ListAdministrationCascadeSerializer(serializers.ModelSerializer):
 
 class WebFormDetailSerializer(serializers.ModelSerializer):
     question_group = serializers.SerializerMethodField()
+    cascades = serializers.SerializerMethodField()
 
     @extend_schema_field(ListQuestionGroupSerializer(many=True))
     def get_question_group(self, instance: Forms):
@@ -177,9 +199,22 @@ class WebFormDetailSerializer(serializers.ModelSerializer):
                 'user': self.context.get('user')
             }).data
 
+    @extend_schema_field(serializers.ListField())
+    def get_cascades(self, instance: Forms):
+        cascade_questions = Questions.objects.filter(type__in=[
+            QuestionTypes.cascade, QuestionTypes.administration
+        ], form=instance).all()
+        source = []
+        for cascade_question in cascade_questions:
+            if cascade_question.type == QuestionTypes.administration:
+                source.append("/sqlite/administrator.sqlite")
+            else:
+                source.append("/sqlite/organisation.sqlite")
+        return source
+
     class Meta:
         model = Forms
-        fields = ['name', 'version', 'question_group', 'translations']
+        fields = ['name', 'version', 'cascades', 'question_group', 'translations']
 
 
 class ListFormRequestSerializer(serializers.Serializer):
