@@ -90,6 +90,7 @@ API_APPS = [
     "api.v1.v1_data",
     "api.v1.v1_categories",
     "api.v1.v1_jobs",
+    "api.v1.v1_mobile",
     "AkvoDjangoFormGateway",
 ]
 
@@ -129,6 +130,11 @@ TEMPLATES = [
 WSGI_APPLICATION = "nwmis.wsgi.application"
 
 # Rest Settings
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': None,
+}
+
+
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
         "rest_framework_simplejwt.authentication.JWTAuthentication",

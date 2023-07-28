@@ -69,7 +69,8 @@
     "designation": "Désignation",
     "administration": "Administration",
     "questionnaires": "Questionnaires",
-    "lastlogin": "Dernière connexion"
+    "lastLogin": "Dernière connexion",
+    "formPasscode": "Code d'accès du Formulaire"
   },
   "organisation": {
     "successDeleted": "Organisation supprimée",

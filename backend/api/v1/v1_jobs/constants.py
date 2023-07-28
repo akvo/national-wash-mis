@@ -17,10 +17,12 @@ class JobStatus:
     on_progress = 2
     failed = 3
     done = 4
+    chunk = 5
 
     FieldStr = {
         pending: 'pending',
         on_progress: 'on_progress',
         failed: 'failed',
         done: 'done',
+        chunk: 'chunk'
     }
