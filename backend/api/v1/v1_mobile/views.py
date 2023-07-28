@@ -1,7 +1,8 @@
 import os
+import mimetypes
 from nwmis.settings import MASTER_DATA, BASE_DIR
 from drf_spectacular.utils import extend_schema
-import mimetypes
+from wsgiref.util import FileWrapper
 from django.http import HttpResponse
 from rest_framework import status, serializers
 from rest_framework.response import Response
@@ -132,7 +133,6 @@ def download_sqlite_file(request, version, file_name):
 
     # Create the response and set the appropriate headers
     response = HttpResponse(file_content, content_type=content_type)
-    response[
-        "Content-Disposition"
-    ] = f'attachment; filename="{os.path.basename(file_path)}"'
+    response["Content-Length"] = os.path.getsize(file_path)
+    response["Content-Disposition"] = "attachment; filename=%s" % file_name
     return response
