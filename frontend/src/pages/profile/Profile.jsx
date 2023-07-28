@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import "./style.scss";
 import { Space, Card, Divider, Row, Tag } from "antd";
 import { store } from "../../lib";
@@ -6,8 +6,10 @@ import { Breadcrumbs, DescriptionPanel } from "../../components";
 import { ProfileTour } from "./components";
 import moment from "moment";
 import { getTranslation } from "../../util";
+import { EyeOutlined, EyeInvisibleOutlined } from "@ant-design/icons";
 
 const Profile = () => {
+  const [showPasscode, setShowPasscode] = useState(false);
   const { forms, user: authUser, language } = store.useState((s) => s);
   const { trained } = authUser;
   const { active: activeLang } = language;
@@ -98,6 +100,24 @@ const Profile = () => {
               {forms.map((qi, qiI) => (
                 <span key={qiI}>{qi.name}</span>
               ))}
+            </Space>
+          </li>
+          <li>
+            <h3>{text.formPasscode}</h3>
+            <Space size="large" align="center">
+              <span
+                onClick={() => setShowPasscode(!showPasscode)}
+                style={{ cursor: "pointer" }}
+              >
+                {showPasscode ? <EyeInvisibleOutlined /> : <EyeOutlined />}
+              </span>
+              <span style={{ fontWeight: "bold", fontSize: "18px" }}>
+                {authUser?.passcode
+                  ? showPasscode
+                    ? authUser.passcode
+                    : "********"
+                  : "-"}
+              </span>
             </Space>
           </li>
           <li>

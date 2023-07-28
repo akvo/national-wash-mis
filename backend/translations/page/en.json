@@ -67,7 +67,8 @@
     "designation": "Designation",
     "administration": "Administration",
     "questionnaires": "Questionnaires",
-    "lastLogin": "Last login"
+    "lastLogin": "Last login",
+    "formPasscode": "Form Passcode"
   },
   "organisation": {
     "successDeleted": "Organisation deleted",

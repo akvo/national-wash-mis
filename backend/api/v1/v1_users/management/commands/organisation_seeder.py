@@ -17,9 +17,16 @@ class Command(BaseCommand):
                             const=1,
                             default=False,
                             type=int)
+        parser.add_argument("-t",
+                            "--test",
+                            nargs="?",
+                            const=1,
+                            default=False,
+                            type=int)
 
     def handle(self, *args, **options):
         clean = options.get("clean")
+        test = options.get("test")
         if clean:
             Organisation.objects.all().delete()
             self.stdout.write('-- Organisation Cleared')
@@ -34,10 +41,12 @@ class Command(BaseCommand):
             organisation = Organisation.objects.filter(pk=org["id"]).first()
             if not organisation:
                 organisation = Organisation(id=org.get("id"), name=name)
-                print(f"ADDED: {name}")
+                if not test:
+                    print(f"ADDED: {name}")
             if organisation:
                 if organisation.name != name:
-                    print(f"UPDATED: {organisation.name} -> {name}")
+                    if not test:
+                        print(f"UPDATED: {organisation.name} -> {name}")
                     organisation.name = name
             organisation.save()
             for tp in types:
