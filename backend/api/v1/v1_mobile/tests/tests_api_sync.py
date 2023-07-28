@@ -51,22 +51,23 @@ class MobileAssignmentApiSyncTest(TestCase):
 
         answers = {}
         for question in questions:
+            print(question["type"])
             if question["type"] == "option":
                 answers[question["id"]] = [question["option"][0]["name"]]
-            if question["type"] == "multiple_option":
+            elif question["type"] == "multiple_option":
                 answers[question["id"]] = [question["option"][0]["name"]]
-            if question["type"] == "number":
-                answers[question["id"]] = 123324
-            if question["type"] == "text":
-                answers[question["id"]] = "test"
-            if question["type"] == "geo":
+            elif question["type"] == "number":
+                answers[question["id"]] = 12
+            elif question["type"] == "geo":
                 answers[question["id"]] = [0, 0]
-            if question["type"] == "date":
+            elif question["type"] == "date":
                 answers[question["id"]] = "2021-01-01T00:00:00.000Z"
-            if question["type"] == "photo":
+            elif question["type"] == "photo":
                 answers[question["id"]] = "https://picsum.photos/200/300"
-            if question["type"] == "cascade":
-                answers[question["id"]] = self.administration.id
+            elif question["type"] == "cascade":
+                answers[question["id"]] = Administration.objects.last().id
+            else:
+                answers[question["id"]] = "testing"
 
         post_data = {
             "formId": self.form.id,

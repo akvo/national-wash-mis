@@ -73,7 +73,7 @@ def get_mobile_form_details(request, version, form_id):
             "submittedAt": serializers.DateTimeField(),
             "submitter": serializers.CharField(),
             "geo": serializers.ListField(child=serializers.IntegerField()),
-            "answers": serializers.ListField(child=serializers.DictField()),
+            "answers": serializers.DictField(),
         },
     ),
     responses={200: DefaultResponseSerializer},
@@ -87,7 +87,7 @@ def sync_pending_form_data(request, version):
     administration = Access.objects.filter(user=user).first().administration
     answers = []
     qna = request.data.get("answers")
-    for q in qna:
+    for q in list(qna):
         answers.append({"question": q, "value": qna[q]})
     data = {
         "data": {
