@@ -32,6 +32,7 @@ from api.v1.v1_users.models import SystemUser, Organisation
 from utils.custom_serializer_fields import (
     CustomPrimaryKeyRelatedField,
     UnvalidatedField,
+    CustomIntegerField,
     CustomListField,
     CustomCharField,
     CustomChoiceField,
@@ -473,9 +474,7 @@ class ListPendingDataAnswerSerializer(serializers.ModelSerializer):
                 fo = QuestionOptions.objects.filter(name=opt).first()
                 if fo and fo.translations:
                     ft = list(
-                        filter(
-                            lambda t: t["language"] == lang, fo.translations
-                        )
+                        filter(lambda t: t["language"] == lang, fo.translations)
                     ).pop()
                     if ft:
                         options.append(ft["name"])
@@ -913,12 +912,7 @@ class ListBatchSummarySerializer(serializers.ModelSerializer):
                     options__contains=option.name,
                 ).count()
                 ft = (
-                    list(
-                        filter(
-                            lambda t: t["language"] == lang,
-                            option.translations
-                        )
-                    )
+                    list(filter(lambda t: t["language"] == lang, option.translations))
                     if option.translations
                     else []
                 )
@@ -1055,6 +1049,9 @@ class SubmitPendingFormDataSerializer(serializers.ModelSerializer):
         queryset=Administration.objects.none()
     )
     name = CustomCharField()
+    submitter = CustomCharField(required=False)
+    duration = CustomIntegerField(required=False)
+    geo = CustomListField(required=False)
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -1062,7 +1059,7 @@ class SubmitPendingFormDataSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = PendingFormData
-        fields = ["name", "geo", "administration"]
+        fields = ["name", "geo", "administration", "submitter", "duration"]
 
 
 class SubmitPendingFormDataAnswerSerializer(serializers.ModelSerializer):

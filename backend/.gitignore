@@ -6,6 +6,7 @@ __pycache__
 .coverage.*
 db.dbml
 **.min.js
+**.sqlite
 /error.log
 /access.log
 /worker.log
