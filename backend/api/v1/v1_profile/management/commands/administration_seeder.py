@@ -6,29 +6,14 @@ from nwmis.settings import MASTER_DATA
 from django.core.management import BaseCommand
 from api.v1.v1_profile.models import Levels, Administration
 
-geo_config = [{
-    "id": 1,
-    "level": 0,
-    "name": "NAME_0",
-    "alias": "National"
-}, {
-    "id": 2,
-    "level": 1,
-    "name": "NAME_1",
-    "alias": "County"
-}, {
-    "id": 3,
-    "level": 2,
-    "name": "NAME_2",
-    "alias": "Sub-County"
-}, {
-    "id": 4,
-    "level": 3,
-    "name": "NAME_3",
-    "alias": "Ward"
-}]
+geo_config = [
+    {"id": 1, "level": 0, "name": "NAME_0", "alias": "National"},
+    {"id": 2, "level": 1, "name": "NAME_1", "alias": "County"},
+    {"id": 3, "level": 2, "name": "NAME_2", "alias": "Sub-County"},
+    {"id": 4, "level": 3, "name": "NAME_3", "alias": "Ward"},
+]
 
-source_file = f'./{MASTER_DATA}/map.topojson'
+source_file = f"./{MASTER_DATA}/map.topojson"
 
 
 def get_parent_id(df, x):
@@ -49,30 +34,25 @@ def seed_levels():
 def seed_administration_test():
     seed_levels()
     level = Levels.objects.filter(level=0).first()
-    administration = Administration(id=1,
-                                    name="Indonesia",
-                                    parent=None,
-                                    level=level)
+    administration = Administration(id=1, name="Indonesia", parent=None, level=level)
     administration.save()
     for index, name in enumerate(["Jakarta", "East Jakarta", "Kramat Jati"]):
         id = index + 2
         level = Levels.objects.filter(level=index + 1).first()
-        path = '{0}.'.format(administration.id)
+        path = "{0}.".format(administration.id)
         if index:
-            path = '{0}{1}.'.format(administration.path, administration.id)
-        administration = Administration(id=id,
-                                        name=name,
-                                        parent=administration,
-                                        level=level,
-                                        path=path)
+            path = "{0}{1}.".format(administration.path, administration.id)
+        administration = Administration(
+            id=id, name=name, parent=administration, level=level, path=path
+        )
         administration.save()
 
 
 def get_path(df, parent, current=[]):
-    p = df[df['id'] == parent]
-    current = current + list(p['id'])
+    p = df[df["id"] == parent]
+    current = current + list(p["id"])
     if p.shape[0]:
-        return get_path(df, list(p['parent'])[0], current)
+        return get_path(df, list(p["parent"])[0], current)
     current.reverse()
     path = ".".join([str(c) for c in current])
     if len(path):
@@ -82,14 +62,12 @@ def get_path(df, parent, current=[]):
 
 def seed_administration_prod():
     seed_levels()
-    geo = open(source_file, 'r')
+    geo = open(source_file, "r")
     geo = json.load(geo)
     ob = geo["objects"]
     ob_name = list(ob)[0]
     levels = [c["name"] for c in geo_config]
-    properties = [
-        d for d in [p["properties"] for p in ob[ob_name]["geometries"]]
-    ]
+    properties = [d for d in [p["properties"] for p in ob[ob_name]["geometries"]]]
     df = pd.DataFrame(properties)
     rec = df[levels].to_dict("records")
     res = []
@@ -108,48 +86,48 @@ def seed_administration_prod():
     res = pd.DataFrame(res)
     res = res.dropna(subset=["name"]).reset_index()
     subset = ["name", "p", "level"]
-    res = res.drop_duplicates(subset=subset).sort_values(["level", "name"
-                                                          ]).reset_index()
+    res = (
+        res.drop_duplicates(subset=subset).sort_values(["level", "name"]).reset_index()
+    )
     res = res[subset]
     res["id"] = res.index + 1
     res["parent"] = res.apply(lambda x: get_parent_id(res, x), axis=1)
     res = res[["id", "parent", "name", "level"]]
     res["path"] = res["parent"].apply(lambda x: get_path(res, x))
     res = res.replace({np.nan: None})
-    res = res.to_dict('records')
+    res = res.to_dict("records")
     for r in res:
         administration = Administration(
             id=r.get("id"),
             name=r.get("name"),
             parent=Administration.objects.filter(id=r.get("parent")).first(),
             level=Levels.objects.filter(level=r.get("level")).first(),
-            path=r.get("path"))
+            path=r.get("path"),
+        )
         administration.save()
 
 
 class Command(BaseCommand):
     def add_arguments(self, parser):
-        parser.add_argument("-t",
-                            "--test",
-                            nargs="?",
-                            const=1,
-                            default=False,
-                            type=int)
-        parser.add_argument("-c",
-                            "--clean",
-                            nargs="?",
-                            const=1,
-                            default=False,
-                            type=int)
+        parser.add_argument("-t", "--test", nargs="?", const=1, default=False, type=int)
+        parser.add_argument(
+            "-vv", "--verbose", nargs="?", const=1, default=False, type=int
+        )
+        parser.add_argument(
+            "-c", "--clean", nargs="?", const=1, default=False, type=int
+        )
 
     def handle(self, *args, **options):
         test = options.get("test")
         clean = options.get("clean")
+        verbose = options.get("verbose")
         if clean:
             Administration.objects.all().delete()
-            self.stdout.write('-- Administration Cleared')
+            if verbose:
+                self.stdout.write("-- Administration Cleared")
         if test:
             seed_administration_test()
         if not test:
             seed_administration_prod()
-            self.stdout.write('-- FINISH')
+        if verbose:
+            self.stdout.write("-- FINISH")
