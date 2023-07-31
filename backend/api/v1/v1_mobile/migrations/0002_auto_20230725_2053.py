@@ -9,7 +9,6 @@ def create_mobile_assignment(apps, schema_editor):
     SystemUser = apps.get_model('v1_users', 'SystemUser')
     Access = apps.get_model('v1_profile', 'Access')
     from utils.custom_helper import generate_random_string
-    import datetime
     for user in SystemUser.objects.all():
         access = Access.objects.filter(user=user).first()
         if not access:
