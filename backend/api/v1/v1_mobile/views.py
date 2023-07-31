@@ -85,6 +85,11 @@ def sync_pending_form_data(request, version):
     form = get_object_or_404(Forms, pk=request.data.get("formId"))
     user = request.user
     administration = Access.objects.filter(user=user).first().administration
+    if not request.data.get("answers"):
+        return Response(
+            {"message": "Answers is required."},
+            status=status.HTTP_400_BAD_REQUEST,
+        )
     answers = []
     qna = request.data.get("answers")
     for q in list(qna):
@@ -94,6 +99,8 @@ def sync_pending_form_data(request, version):
             "administration": administration.id,
             "name": request.data.get("name"),
             "geo": request.data.get("geo"),
+            "submitter": request.data.get("submitter"),
+            "duration": request.data.get("duration"),
         },
         "answer": answers,
     }

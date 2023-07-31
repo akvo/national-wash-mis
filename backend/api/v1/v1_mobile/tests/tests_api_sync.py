@@ -51,7 +51,6 @@ class MobileAssignmentApiSyncTest(TestCase):
 
         answers = {}
         for question in questions:
-            print(question["type"])
             if question["type"] == "option":
                 answers[question["id"]] = [question["option"][0]["name"]]
             elif question["type"] == "multiple_option":
@@ -74,7 +73,7 @@ class MobileAssignmentApiSyncTest(TestCase):
             "name": "testing datapoint",
             "duration": 3000,
             "submittedAt": "2021-01-01T00:00:00.000Z",
-            "submitter": "Testing",
+            "submitter": "Test Enumerator",
             "geo": [0, 0],
             "answers": answers,
         }
@@ -97,15 +96,57 @@ class MobileAssignmentApiSyncTest(TestCase):
             pending_data=pending_data[0]
         ).count()
         self.assertEqual(answer_data, len(list(answers)))
-        self.assertTrue(pending_data[0].geo)
+        self.assertTrue(pending_data[0].geo, [0, 0])
+        self.assertEqual(pending_data[0].submitter, "Test Enumerator")
+        self.assertEqual(pending_data[0].duration, 3000)
 
-        # Submit invalid data
+        # Submit with invalid token
+        #
         response = self.client.post(
             "/api/v1/device/sync",
-            {},  # data is empty
+            post_data,
+            follow=True,
+            content_type="application/json",
+            **{"HTTP_AUTHORIZATION": "Bearer eyjsomethinginvalid"},
+        )
+        self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
+
+        # Submit invalid request
+        response = self.client.post(
+            "/api/v1/device/sync",
+            {},  # everything is is empty
             follow=True,
             content_type="application/json",
             **{"HTTP_AUTHORIZATION": f"Bearer {self.token}"},
         )
 
-        self.assertNotEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+
+        response = self.client.post(
+            "/api/v1/device/sync",
+            {"formId": self.form.id},  # required params is incomplete
+            follow=True,
+            content_type="application/json",
+            **{"HTTP_AUTHORIZATION": f"Bearer {self.token}"},
+        )
+
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+
+        # Submit with invalid data
+        response = self.client.post(
+            "/api/v1/device/sync",
+            {
+                "formId": self.form.id,
+                "name": "testing datapoint",
+                "duration": 3000,
+                "submittedAt": "2021-01-01T00:00:00.000Z",
+                "submitter": "Test Enumerator",
+                "geo": [0, 0],
+                "answers": {"1": "testing"},
+            },  # data is empty
+            follow=True,
+            content_type="application/json",
+            **{"HTTP_AUTHORIZATION": f"Bearer {self.token}"},
+        )
+
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
