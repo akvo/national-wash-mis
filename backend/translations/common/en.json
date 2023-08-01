@@ -104,6 +104,7 @@
   "approverStatusCol": "Status",
   "duration": "Duration",
   "submitterName": "Submitter Name",
+  "submittedDate": "Submitted Date",
   "QuestionCol": "Question",
   "responseCol": "Response",
   "selectForm": "Select Form",
