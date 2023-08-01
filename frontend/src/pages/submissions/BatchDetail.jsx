@@ -80,7 +80,7 @@ const BatchDetail = ({ expanded, setReload }) => {
     });
     api
       .put(
-        `form-pending-data/${expanded.form?.id}?pending_data_id=${data.id}`,
+        `form-pending-data/${expanded.form}?pending_data_id=${data.id}`,
         formData
       )
       .then(() => {
