@@ -1,4 +1,5 @@
 import { Row, Col, Tag, Popover } from "antd";
+import { Table } from "antd";
 import {
   FileTextFilled,
   InfoCircleOutlined,
@@ -123,14 +124,13 @@ export const columnsPending = (text) => [
     title: text.pendingNameCol,
     dataIndex: "name",
     key: "name",
-    render: (name, row) => (
+    render: (name) => (
       <Row align="middle">
         <Col>
           <FileTextFilled style={{ color: "#666666", fontSize: 28 }} />
         </Col>
         <Col>
           <div>{name}</div>
-          <div>{row.created}</div>
         </Col>
       </Row>
     ),
@@ -140,6 +140,31 @@ export const columnsPending = (text) => [
     dataIndex: "administration",
     key: "administration",
   },
+  {
+    title: text.submitterName,
+    dataIndex: "submitter",
+    key: "submitter",
+    render: (submitter, dt) => {
+      return submitter || dt.created_by;
+    },
+  },
+  {
+    title: text.submittedDate,
+    dataIndex: "created",
+    key: "created",
+    render: (created) => created || "",
+    align: "center",
+    width: 200,
+  },
+  {
+    title: text.duration,
+    dataIndex: "duration",
+    key: "duration",
+    render: (duration) => duration || "",
+    align: "center",
+    width: 100,
+  },
+  Table.EXPAND_COLUMN,
 ];
 
 export const columnsApprover = (text) => [

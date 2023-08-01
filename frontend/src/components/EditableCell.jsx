@@ -65,6 +65,10 @@ const EditableCell = ({
       ? value
         ? value[0]
         : "-"
+      : record.type === "geo"
+      ? value
+        ? value.join(",")
+        : "-"
       : value;
   };
   const renderAnswerInput = () => {
@@ -178,7 +182,7 @@ EditableCell.propTypes = {
   record: PropTypes.shape({
     id: PropTypes.number.isRequired,
     type: PropTypes.string.isRequired,
-    value: PropTypes.any.isRequired,
+    value: PropTypes.any,
     option: PropTypes.array,
     newValue: PropTypes.any,
   }),
