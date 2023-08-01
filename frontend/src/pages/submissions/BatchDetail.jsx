@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState } from "react";
 import SubmissionEditing from "./SubmissionEditing";
 import { api, store } from "../../lib";
 import { getTranslation } from "../../util";
@@ -104,7 +104,7 @@ const BatchDetail = ({ expanded, setReload }) => {
     const data = rawValue.data.map((rd) => ({
       ...rd,
       question: rd.question.map((rq) => {
-        if (rq.id === key && rI.id === parentId) {
+        if (rq.id === key && expanded.id === parentId) {
           if (isEqual(rq.value, value) && (rq.newValue || rq.newValue === 0)) {
             delete rq.newValue;
           } else {
@@ -139,7 +139,7 @@ const BatchDetail = ({ expanded, setReload }) => {
     const data = prev.data.map((rd) => ({
       ...rd,
       question: rd.question.map((rq) => {
-        if (rq.id === key && rI.id === parentId) {
+        if (rq.id === key && expanded.id === parentId) {
           delete rq.newValue;
           return rq;
         }
