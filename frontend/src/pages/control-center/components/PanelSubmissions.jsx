@@ -148,7 +148,7 @@ const columnsPending = (text) => [
     title: text.pendingNameCol,
     dataIndex: "name",
     key: "name",
-    render: (name, row) => (
+    render: (name) => (
       <Row align="middle">
         <Col>
           <FileTextFilled style={{ color: "#666666", fontSize: 28 }} />
