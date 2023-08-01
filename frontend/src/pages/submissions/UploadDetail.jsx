@@ -1,17 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Table, Tabs, Button, Space, Tag, List, Avatar, Spin } from "antd";
-import {
-  PlusSquareOutlined,
-  CloseSquareOutlined,
-  LoadingOutlined,
-  HistoryOutlined,
-} from "@ant-design/icons";
+import { Table, Tabs, Tag, List, Avatar } from "antd";
+import { PlusSquareOutlined, CloseSquareOutlined } from "@ant-design/icons";
 import { api, store } from "../../lib";
-import { EditableCell } from "../../components";
 import { isEqual, flatten } from "lodash";
 import { useNotification } from "../../util/hooks";
-import { HistoryTable } from "../../components";
 import { columnsApprover } from "./";
+import SubmissionEditing from "./SubmissionEditing";
 import { getTranslation } from "../../util";
 const { TabPane } = Tabs;
 
@@ -376,95 +370,17 @@ const UploadDetail = ({ record, setReload }) => {
                 expandedRowKeys,
                 expandedRowRender: (expanded) => {
                   return (
-                    <>
-                      {expanded.loading ? (
-                        <Space
-                          style={{ paddingTop: 18, color: "#9e9e9e" }}
-                          size="middle"
-                        >
-                          <Spin
-                            indicator={
-                              <LoadingOutlined
-                                style={{ color: "#1b91ff" }}
-                                spin
-                              />
-                            }
-                          />
-                          <span>{text.loading}..</span>
-                        </Space>
-                      ) : (
-                        <div className={`pending-data-outer`}>
-                          {expanded.data?.map((r, rI) => (
-                            <div className="pending-data-wrapper" key={rI}>
-                              <h3>{r.name}</h3>
-                              <Table
-                                pagination={false}
-                                dataSource={r.question}
-                                rowClassName={(row) =>
-                                  (row.newValue || row.newValue === 0) &&
-                                  !isEqual(row.newValue, row.value)
-                                    ? "row-edited"
-                                    : "row-normal"
-                                }
-                                rowKey="id"
-                                columns={[
-                                  {
-                                    title: text?.QuestionCol,
-                                    dataIndex: "name",
-                                  },
-                                  {
-                                    title: text?.responseCol,
-                                    render: (row) => (
-                                      <EditableCell
-                                        record={row}
-                                        parentId={expanded.id}
-                                        updateCell={updateCell}
-                                        resetCell={resetCell}
-                                        disabled={!!dataLoading}
-                                        readonly={!isEditable}
-                                      />
-                                    ),
-                                  },
-                                  Table.EXPAND_COLUMN,
-                                ]}
-                                expandable={{
-                                  expandIcon: ({ onExpand, record }) => {
-                                    if (!record?.history) {
-                                      return "";
-                                    }
-                                    return (
-                                      <HistoryOutlined
-                                        className="expand-icon"
-                                        onClick={(e) => onExpand(record, e)}
-                                      />
-                                    );
-                                  },
-                                  expandedRowRender: (record) => (
-                                    <HistoryTable record={record} />
-                                  ),
-                                  rowExpandable: (record) => record?.history,
-                                }}
-                              />
-                            </div>
-                          ))}
-                        </div>
-                      )}
-                      {isEditable && !expanded.loading && (
-                        <div className="pending-data-actions">
-                          <Button
-                            onClick={() => handleSave(expanded)}
-                            type="primary"
-                            loading={expanded.id === saving}
-                            disabled={
-                              expanded.id === dataLoading ||
-                              isEdited(expanded.id) === false
-                            }
-                          >
-                            Save Edits
-                          </Button>
-                        </div>
-                      )}
-                    </>
+                    <SubmissionEditing
+                      expanded={expanded}
+                      updateCell={updateCell}
+                      resetCell={resetCell}
+                      handleSave={handleSave}
+                      saving={saving}
+                      dataLoading={dataLoading}
+                      isEdited={isEdited}
+                      isEditable={isEditable}
+                      text={text}
+                    />
                   );
                 },
                 expandIcon: ({ expanded, onExpand, record }) =>

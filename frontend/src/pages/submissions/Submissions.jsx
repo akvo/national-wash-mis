@@ -254,7 +254,7 @@ const Submissions = () => {
           expandable={{
             expandedRowRender: (record) => {
               if (dataTab === "pending-submission") {
-                return <BatchDetail record={record} setReload={setReload} />;
+                return <BatchDetail expanded={record} setReload={setReload} />;
               }
               return <UploadDetail record={record} setReload={setReload} />;
             },

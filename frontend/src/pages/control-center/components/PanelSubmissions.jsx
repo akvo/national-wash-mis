@@ -164,6 +164,31 @@ const columnsPending = (text) => [
     dataIndex: "administration",
     key: "administration",
   },
+  {
+    title: text.submittedDate,
+    dataIndex: "created",
+    key: "created",
+    render: (created) => created || "",
+    align: "center",
+    width: 200,
+  },
+  {
+    title: text.submitterName,
+    dataIndex: "submitter",
+    key: "submitter",
+    render: (submitter, dt) => {
+      return submitter || dt.created_by;
+    },
+  },
+  {
+    title: text.duration,
+    dataIndex: "duration",
+    key: "duration",
+    render: (duration) => duration || "",
+    align: "center",
+    width: 100,
+  },
+  Table.EXPAND_COLUMN,
 ];
 
 const columnsApprover = (text) => [
