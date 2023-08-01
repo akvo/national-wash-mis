@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import SubmissionEditing from "./SubmissionEditing";
 import { api, store } from "../../lib";
 import { getTranslation } from "../../util";
@@ -8,73 +8,54 @@ import { useNotification } from "../../util/hooks";
 const BatchDetail = ({ expanded, setReload }) => {
   const [dataLoading, setDataLoading] = useState(null);
   const [saving, setSaving] = useState(null);
-  const [rawValues, setRawValues] = useState([]);
+  const [rawValue, setRawValue] = useState(null);
   const { notify } = useNotification();
   const { language } = store.useState((s) => s);
   const { active: activeLang } = language;
   const text = getTranslation(activeLang, "submission");
 
-  useEffect(() => {
-    api
-      .get(`/form-pending-data-batch/${expanded.id}`)
-      .then((res) => {
-        setRawValues(
-          res.data.map((x) => ({
-            key: x.id,
-            data: [],
-            loading: false,
-            ...x,
-          }))
-        );
-      })
-      .catch((e) => {
-        console.error(e);
-      });
-  }, [expanded]);
+  const questionGroups = window.forms.find((f) => f.id === expanded.form)
+    ?.content?.question_group;
 
-  const fetchData = (recordId, questionGroups) => {
-    setDataLoading(recordId);
-    api
-      .get(`pending-data/${recordId}?lang=${activeLang}`)
-      .then((res) => {
-        const data = questionGroups.map((qg) => {
-          return {
-            ...qg,
-            question: qg.question.map((q) => {
-              const findValue = res.data.find(
-                (d) => d.question === q.id
-              )?.value;
-              const qname =
-                activeLang === "en"
-                  ? q.name
-                  : q?.translations?.find((ts) => ts?.language === activeLang)
-                      ?.name || q?.name;
-              return {
-                ...q,
-                name: qname,
-                value: findValue || findValue === 0 ? findValue : null,
-                history:
-                  res.data.find((d) => d.question === q.id)?.history || false,
-              };
-            }),
-          };
+  useEffect(() => {
+    if (questionGroups) {
+      setDataLoading(expanded.id);
+      api
+        .get(`pending-data/${expanded.id}?lang=${activeLang}`)
+        .then((res) => {
+          const data = questionGroups.map((qg) => {
+            return {
+              ...qg,
+              question: qg.question.map((q) => {
+                const findValue = res.data.find(
+                  (d) => d.question === q.id
+                )?.value;
+                const qname =
+                  activeLang === "en"
+                    ? q.name
+                    : q?.translations?.find((ts) => ts?.language === activeLang)
+                        ?.name || q?.name;
+                return {
+                  ...q,
+                  name: qname,
+                  value: findValue || findValue === 0 ? findValue : null,
+                  history:
+                    res.data.find((d) => d.question === q.id)?.history || false,
+                };
+              }),
+            };
+          });
+          setRawValue({ ...expanded, data, loading: false });
+        })
+        .catch((e) => {
+          console.error(e);
+          setRawValue({ ...expanded, data: [], loading: false });
+        })
+        .finally(() => {
+          setDataLoading(null);
         });
-        setRawValues((rv) =>
-          rv.map((rI) =>
-            rI.id === recordId ? { ...rI, data, loading: false } : rI
-          )
-        );
-      })
-      .catch((e) => {
-        console.error(e);
-        setRawValues((rv) =>
-          rv.map((rI) => (rI.id === recordId ? { ...rI, loading: false } : rI))
-        );
-      })
-      .finally(() => {
-        setDataLoading(null);
-      });
-  };
+    }
+  }, [expanded, activeLang, questionGroups]);
 
   const handleSave = (data) => {
     setSaving(data.id);
@@ -99,11 +80,11 @@ const BatchDetail = ({ expanded, setReload }) => {
     });
     api
       .put(
-        `form-pending-data/${record.form?.id}?pending_data_id=${data.id}`,
+        `form-pending-data/${expanded.form?.id}?pending_data_id=${data.id}`,
         formData
       )
       .then(() => {
-        fetchData(data.id, questionGroups);
+        // fetchData(data.id);
         setReload(data.id);
         notify({
           type: "success",
@@ -119,89 +100,81 @@ const BatchDetail = ({ expanded, setReload }) => {
   };
 
   const updateCell = (key, parentId, value) => {
-    let prev = JSON.parse(JSON.stringify(rawValues));
-    prev = prev.map((rI) => {
-      let hasEdits = false;
-      const data = rI.data.map((rd) => ({
-        ...rd,
-        question: rd.question.map((rq) => {
-          if (rq.id === key && rI.id === parentId) {
-            if (
-              isEqual(rq.value, value) &&
-              (rq.newValue || rq.newValue === 0)
-            ) {
-              delete rq.newValue;
-            } else {
-              rq.newValue = value;
-            }
-            const edited = !isEqual(rq.value, value);
-            if (edited && !hasEdits) {
-              hasEdits = true;
-            }
-            return rq;
+    let hasEdits = false;
+    const data = rawValue.data.map((rd) => ({
+      ...rd,
+      question: rd.question.map((rq) => {
+        if (rq.id === key && rI.id === parentId) {
+          if (isEqual(rq.value, value) && (rq.newValue || rq.newValue === 0)) {
+            delete rq.newValue;
+          } else {
+            rq.newValue = value;
           }
-          if (
-            (rq.newValue || rq.newValue === 0) &&
-            !isEqual(rq.value, rq.newValue) &&
-            !hasEdits
-          ) {
+          const edited = !isEqual(rq.value, value);
+          if (edited && !hasEdits) {
             hasEdits = true;
           }
           return rq;
-        }),
-      }));
-      return {
-        ...rI,
-        data,
-        edited: hasEdits,
-      };
+        }
+        if (
+          (rq.newValue || rq.newValue === 0) &&
+          !isEqual(rq.value, rq.newValue) &&
+          !hasEdits
+        ) {
+          hasEdits = true;
+        }
+        return rq;
+      }),
+    }));
+    setRawValue({
+      ...rawValue,
+      data,
+      edited: hasEdits,
     });
-    setRawValues(prev);
   };
 
   const resetCell = (key, parentId) => {
-    let prev = JSON.parse(JSON.stringify(rawValues));
-    prev = prev.map((rI) => {
-      let hasEdits = false;
-      const data = rI.data.map((rd) => ({
-        ...rd,
-        question: rd.question.map((rq) => {
-          if (rq.id === key && rI.id === parentId) {
-            delete rq.newValue;
-            return rq;
-          }
-          if (
-            (rq.newValue || rq.newValue === 0) &&
-            !isEqual(rq.value, rq.newValue) &&
-            !hasEdits
-          ) {
-            hasEdits = true;
-          }
+    const prev = JSON.parse(JSON.stringify(rawValue));
+    let hasEdits = false;
+    const data = prev.data.map((rd) => ({
+      ...rd,
+      question: rd.question.map((rq) => {
+        if (rq.id === key && rI.id === parentId) {
+          delete rq.newValue;
           return rq;
-        }),
-      }));
-      return {
-        ...rI,
-        data,
-        edited: hasEdits,
-      };
+        }
+        if (
+          (rq.newValue || rq.newValue === 0) &&
+          !isEqual(rq.value, rq.newValue) &&
+          !hasEdits
+        ) {
+          hasEdits = true;
+        }
+        return rq;
+      }),
+    }));
+    setRawValue({
+      ...prev,
+      data,
+      edited: hasEdits,
     });
-    setRawValues(prev);
   };
 
-  const isEdited = (id) => {
+  const isEdited = () => {
     return (
-      !!flatten(
-        rawValues.find((d) => d.id === id)?.data?.map((g) => g.question)
-      )?.filter(
+      !!flatten(rawValue?.data?.map((g) => g.question))?.filter(
         (d) => (d.newValue || d.newValue === 0) && !isEqual(d.value, d.newValue)
       )?.length || false
     );
   };
 
+  if (!rawValue) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <SubmissionEditing
-      expanded={expanded}
+      expanded={rawValue}
       updateCell={updateCell}
       resetCell={resetCell}
       handleSave={handleSave}

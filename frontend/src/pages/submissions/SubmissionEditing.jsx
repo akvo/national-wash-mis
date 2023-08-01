@@ -15,6 +15,7 @@ const SubmissionEditing = ({
   isEditable,
   text,
 }) => {
+  console.log(expanded);
   if (expanded.loading) {
     return (
       <Space style={{ paddingTop: 18, color: "#9e9e9e" }} size="middle">

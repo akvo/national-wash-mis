@@ -101,7 +101,7 @@ const Submissions = () => {
       setSelectedRows([]);
       setSelectedRowKeys([]);
     }
-  }, [selectedForm]);
+  }, [selectedForm, dataTab]);
 
   useEffect(() => {
     if (dataset.length) {
