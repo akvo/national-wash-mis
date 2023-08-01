@@ -140,6 +140,18 @@ export const columnsPending = (text) => [
     dataIndex: "administration",
     key: "administration",
   },
+  {
+    title: text.duration,
+    dataIndex: "duration",
+    key: "duration",
+    render: (duration) => duration || "",
+  },
+  {
+    title: text.submitterName,
+    dataIndex: "submitter",
+    key: "submitter",
+    render: (submitter) => submitter || "",
+  },
 ];
 
 export const columnsApprover = (text) => [
