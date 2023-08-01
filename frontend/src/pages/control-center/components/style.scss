@@ -91,5 +91,34 @@
     .view-all {
       margin-top: 20px;
     }
+
+    tr.ant-table-expanded-row > td > .pending-data-actions {
+      margin-top: 12px;
+    }
+
+    .pending-data-outer {
+      height: 500px;
+      overflow-y: scroll;
+
+      .pending-data-wrapper {
+        border: none;
+        margin-bottom: 20px;
+
+        .ant-table {
+          thead {
+            tr {
+              th {
+                background-color: #f2f2f3;
+                font-weight: 500;
+              }
+            }
+          }
+        }
+      }
+
+      .pending-data-wrapper:last-child {
+        margin-bottom: 0;
+      }
+    }
   }
 }

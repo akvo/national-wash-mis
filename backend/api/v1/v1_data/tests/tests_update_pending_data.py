@@ -77,7 +77,7 @@ class UpdatePendingDataTestCase(TestCase):
         self.assertEqual(data, {"message": "ok"})
         form_data = FormData.objects.filter(form_id=form_id).count()
         self.assertEqual(form_data, 0)
-        pending_form_data = PendingFormData.objects.filter(form_id=form_id).first()
+        pending_form_data = PendingFormData.objects.filter(form_id=form_id).last()
         self.assertEqual(pending_form_data.name, "Testing Data Entry")
         pending_data_id = pending_form_data.id
         pending_answers = PendingAnswers.objects.filter(
@@ -105,7 +105,7 @@ class UpdatePendingDataTestCase(TestCase):
                         "duration": 0,
                         "form": 1,
                         "geo": [6.2088, 106.8456],
-                        "id": 27,
+                        "id": pending_form_data.id,
                         "name": "Testing Data Entry",
                         "pending_answer_history": False,
                         "submitter": None,
