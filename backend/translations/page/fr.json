@@ -199,7 +199,14 @@
     "successExport": "Données exportées avec succès",
     "manageComplainTitle": "Gérer la plainte",
     "manageComplainButton": "Gérer la plainte",
-    "manageComplainCan1": "Afficher la plainte"
+    "manageComplainCan1": "Afficher la plainte",
+    "sendNewRequest": "Aviser l'approbateur",
+    "createNewBatch": "Créer un nouveau lot",
+    "batchHintText": "Vous êtes sur le point de créer un lot de fichier CSV",
+    "batchHintDesc": "Le fonctionnement de fusion des jeux de données ne peut pas être annulé. Cela créera un nouveau lot qui devra être approuvé par votre administrateur.",
+    "batchName": "Nom de lot",
+    "batchNoApproverMessage": "Impossible de créer des données par lots, car il n'y a pas encore d'approbateur.",
+    "batchSelectedDatasets": "Ensembles de données sélectionnés par lots"
   },
   "dashboard": {
     "lastUpdate": "Dernière mise à jour",
@@ -273,20 +280,20 @@
     "pageDescription": "Cette page permet au Super Admin de maintenir les listes principales critiques du système."
   },
   "submission": {
-    "batchSelectedDatasets": "Ensembles de données sélectionnés par lots",
     "uploadsTab1": "Soumission en attente",
     "uploadsTab2": "En attente de validation",
     "uploadsTab3": "Approuvé",
-    "batchName": "Nom de lot",
     "submissionComment": "Commentaire de soumission",
     "sendNewRequest": "Aviser l'approbateur",
-    "createNewBatch": "Créer un nouveau lot",
-    "batchHintText": "Vous êtes sur le point de créer un lot de fichier CSV",
-    "batchHintDesc": "Le fonctionnement de fusion des jeux de données ne peut pas être annulé. Cela créera un nouveau lot qui devra être approuvé par votre administrateur.",
     "uploadTab1": "Résumé des données",
     "uploadTab2": "Données brutes",
     "notesFeedback": "Notes et commentaires",
+    "createNewBatch": "Créer un nouveau lot",
+    "batchHintText": "Vous êtes sur le point de créer un lot de fichier CSV",
+    "batchHintDesc": "Le fonctionnement de fusion des jeux de données ne peut pas être annulé. Cela créera un nouveau lot qui devra être approuvé par votre administrateur.",
+    "batchName": "Nom de lot",
     "batchNoApproverMessage": "Impossible de créer des données par lots, car il n'y a pas encore d'approbateur.",
+    "batchSelectedDatasets": "Ensembles de données sélectionnés par lots",
     "title": "Soumissions"
   },
   "uploadData": {

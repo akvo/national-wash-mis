@@ -28,6 +28,7 @@ import { Link } from "react-router-dom";
 import { useNotification } from "../../../util/hooks";
 import { isEmpty, without, union, xor } from "lodash";
 import { getTranslation } from "../../../util";
+import BatchDetail from "../../submissions/BatchDetail";
 
 const { TabPane } = Tabs;
 const { TextArea } = Input;
@@ -147,14 +148,13 @@ const columnsPending = (text) => [
     title: text.pendingNameCol,
     dataIndex: "name",
     key: "name",
-    render: (name, row) => (
+    render: (name) => (
       <Row align="middle">
         <Col>
           <FileTextFilled style={{ color: "#666666", fontSize: 28 }} />
         </Col>
         <Col>
           <div>{name}</div>
-          <div>{row.created}</div>
         </Col>
       </Row>
     ),
@@ -164,6 +164,31 @@ const columnsPending = (text) => [
     dataIndex: "administration",
     key: "administration",
   },
+  {
+    title: text.submittedDate,
+    dataIndex: "created",
+    key: "created",
+    render: (created) => created || "",
+    align: "center",
+    width: 200,
+  },
+  {
+    title: text.submitterName,
+    dataIndex: "submitter",
+    key: "submitter",
+    render: (submitter, dt) => {
+      return submitter || dt.created_by;
+    },
+  },
+  {
+    title: text.duration,
+    dataIndex: "duration",
+    key: "duration",
+    render: (duration) => duration || "",
+    align: "center",
+    width: 100,
+  },
+  Table.EXPAND_COLUMN,
 ];
 
 const columnsApprover = (text) => [
@@ -363,14 +388,19 @@ const PanelSubmissions = () => {
         setModalVisible(true);
       }
     };
-    if (!!selectedRows.length && modalButton) {
+    if (modalButton) {
       return (
-        <Button type="primary" onClick={handleOnClickBatchSelectedDataset}>
+        <Button
+          type="primary"
+          style={{ marginBottom: 16 }}
+          onClick={handleOnClickBatchSelectedDataset}
+          disabled={!selectedRows.length && modalButton}
+        >
           {text.batchSelectedDatasets}
         </Button>
       );
     }
-    return "";
+    return null;
   }, [
     selectedRows,
     modalButton,
@@ -414,26 +444,32 @@ const PanelSubmissions = () => {
         }}
         rowKey="id"
         expandedRowKeys={expandedKeys}
-        expandable={
-          pane === "pending-data"
-            ? false
-            : {
-                expandedRowRender: (record) => ApproverDetail(record, text),
-                expandIcon: (expand) => {
-                  return expand.expanded ? (
-                    <CloseSquareOutlined
-                      onClick={() => setExpandedKeys([])}
-                      style={{ color: "#e94b4c" }}
-                    />
-                  ) : (
-                    <PlusSquareOutlined
-                      onClick={() => setExpandedKeys([expand.record.id])}
-                      style={{ color: "#7d7d7d" }}
-                    />
-                  );
-                },
-              }
-        }
+        expandable={{
+          expandedRowRender: (record) =>
+            pane === "pending-data" ? (
+              <BatchDetail
+                expanded={record}
+                setReload={(a) => {
+                  console.info(a);
+                }}
+              />
+            ) : (
+              ApproverDetail(record, text)
+            ),
+          expandIcon: (expand) => {
+            return expand.expanded ? (
+              <CloseSquareOutlined
+                onClick={() => setExpandedKeys([])}
+                style={{ color: "#e94b4c" }}
+              />
+            ) : (
+              <PlusSquareOutlined
+                onClick={() => setExpandedKeys([expand.record.id])}
+                style={{ color: "#7d7d7d" }}
+              />
+            );
+          },
+        }}
       />
     );
   };

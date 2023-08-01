@@ -636,6 +636,8 @@ class ListPendingFormDataSerializer(serializers.ModelSerializer):
             "form",
             "administration",
             "geo",
+            "submitter",
+            "duration",
             "created_by",
             "created",
             "pending_answer_history",

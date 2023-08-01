@@ -197,7 +197,14 @@
     "errorExport": "Export failed",
     "manageComplainTitle": "Manage complain",
     "manageComplainButton": "Manage complain",
-    "manageComplainCan1": "View complain"
+    "manageComplainCan1": "View complain",
+    "sendNewRequest": "Notify Approver",
+    "createNewBatch": "Create a new batch",
+    "batchHintText": "You are about to create a Batch CSV File",
+    "batchHintDesc": "The operation of merging datasets cannot be undone, and will Create a new batch that will require approval from you admin",
+    "batchName": "Batch Name",
+    "batchNoApproverMessage": "Can't create batch data, because there's no approver yet.",
+    "batchSelectedDatasets": "Batch Selected Datasets"
   },
   "dashboard": {
     "lastUpdate": "Last Update",
@@ -263,7 +270,7 @@
     "questDescCol": "Questionnaire Description",
     "nationalCol": "National",
     "countryCol": "County",
-    "successUpdated": "Questionnaires updated",
+
     "errorUpdated": "Could not update Questionnaires"
   },
   "settings": {
@@ -271,20 +278,20 @@
     "pageDescription": "This page allows Super Admin to maintain system critical master lists."
   },
   "submission": {
-    "batchSelectedDatasets": "Batch Selected Datasets",
     "uploadsTab1": "Pending Submission",
     "uploadsTab2": "Pending Approval",
     "uploadsTab3": "Approved",
-    "batchName": "Batch Name",
     "submissionComment": "Submission comment",
     "sendNewRequest": "Notify Approver",
-    "createNewBatch": "Create a new batch",
-    "batchHintText": "You are about to create a Batch CSV File",
-    "batchHintDesc": "The operation of merging datasets cannot be undone, and will Create a new batch that will require approval from you admin",
     "uploadTab1": "Data Summary",
     "uploadTab2": "Raw Data",
     "notesFeedback": "Notes & Feedback",
+    "createNewBatch": "Create a new batch",
+    "batchHintText": "You are about to create a Batch CSV File",
+    "batchHintDesc": "The operation of merging datasets cannot be undone, and will Create a new batch that will require approval from you admin",
+    "batchName": "Batch Name",
     "batchNoApproverMessage": "Can't create batch data, because there's no approver yet.",
+    "batchSelectedDatasets": "Batch Selected Datasets",
     "title": "Submissions"
   },
   "uploadData": {
