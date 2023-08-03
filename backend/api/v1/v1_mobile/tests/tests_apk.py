@@ -7,41 +7,49 @@ from api.v1.v1_mobile.models import MobileApk
 
 
 class MobileApkTestCase(TestCase):
-    def setUp(self):
+    @classmethod
+    def setUpClass(cls):
         # Get the path to the APK file and read its content
         file_path = os.path.join(BASE_DIR, "source", "testapp.apk")
 
         with open(file_path, "rb") as file:
-            self.apk_content = file.read()
+            cls.apk_content = file.read()
 
-        self.mock = requests_mock.Mocker()
-        self.mock.start()
+        cls.mock = requests_mock.Mocker()
+        cls.mock.start()
 
         # Mocking the GET request with the actual APK content
-        self.apk_url = "https://expo.dev/artifacts/eas/dpRpygo9iviyK8k3oDUMzn.apk"
-        self.mock.get(self.apk_url, content=self.apk_content)
+        cls.apk_url = "https://expo.dev/artifacts/eas/dpRpygo9iviyK8k3oDUMzn.apk"
+        cls.mock.get(cls.apk_url, content=cls.apk_content)
 
         # Mocking the wrong URL with a 401 status code
-        self.wrong_apk_url = "http://example.com/wrong-url.apk"
-        self.mock.get(self.wrong_apk_url, status_code=401)
+        cls.wrong_apk_url = "http://example.com/wrong-url.apk"
+        cls.mock.get(cls.wrong_apk_url, status_code=401)
 
         # Create the initial APK
-        self.apk_version = "1.0.0"
-        self.mobile_apk = MobileApk.objects.create(
-            apk_url=self.apk_url, apk_version=self.apk_version
+        cls.apk_version = "1.0.0"
+        cls.mobile_apk = MobileApk.objects.create(
+            apk_url=cls.apk_url, apk_version=cls.apk_version
         )
-        self.apk_path = os.path.join(BASE_DIR, MASTER_DATA)
+        cls.apk_path = os.path.join(BASE_DIR, MASTER_DATA)
+
+    @classmethod
+    def tearDownClass(cls):
+        os.remove(f"{cls.apk_path}/{APP_NAME}-{cls.mobile_apk.apk_version}.apk")
+        cls.mock.stop()
 
     def test_if_initial_apk_is_created(self):
         mobile_apk = MobileApk.objects.last()
-        self.assertEqual(mobile_apk.apk_url, self.apk_url)
+        self.assertEqual(mobile_apk.apk_url, MobileApkTestCase.apk_url)
         self.assertEqual(mobile_apk.apk_version, self.apk_version)
 
     def test_if_apk_is_downloadable(self):
-        request = r.get(self.apk_url)
+        request = r.get(MobileApkTestCase.apk_url)
         self.assertEqual(request.status_code, 200)
 
     def test_mobile_apk_download(self):
+        # SUCCESS DOWNLOAD
+        cls = MobileApkTestCase
         download = self.client.get("/api/v1/device/apk/download")
         self.assertEqual(download.status_code, 200)
         self.assertEqual(
@@ -49,32 +57,27 @@ class MobileApkTestCase(TestCase):
         )
         self.assertEqual(
             download["Content-Disposition"],
-            f"attachment; filename={APP_NAME}-{self.mobile_apk.apk_version}.apk",
+            f"attachment; filename={APP_NAME}-{cls.mobile_apk.apk_version}.apk",
         )
         self.assertTrue(download.has_header("Content-Length"))
-        self.assertTrue(
-            os.path.exists(
-                f"{self.apk_path}/{APP_NAME}-{self.mobile_apk.apk_version}.apk"
-            )
-        )
+        apk_file = f"{cls.apk_path}/{APP_NAME}-{cls.mobile_apk.apk_version}.apk"
+        self.assertTrue(os.path.exists(apk_file))
 
     def test_mobile_apk_upload(self):
         # SUCCESS UPLOAD
+        cls = MobileApkTestCase
         new_version = "1.0.1"
         upload = self.client.post(
             "/api/v1/device/apk/upload",
             {
-                "apk_url": self.apk_url,
+                "apk_url": cls.apk_url,
                 "apk_version": new_version,
                 "secret": APK_UPLOAD_SECRET,
             },
         )
         self.assertEqual(upload.status_code, 201)
-        self.assertTrue(
-            os.path.exists(
-                f"{self.apk_path}/{APP_NAME}-{self.mobile_apk.apk_version}.apk"
-            )
-        )
+        new_file = f"{cls.apk_path}/{APP_NAME}-{new_version}.apk"
+        self.assertTrue(os.path.exists(new_file))
 
         # NEW VERSION UPLOAD
         download = self.client.get("/api/v1/device/apk/download")
@@ -91,7 +94,7 @@ class MobileApkTestCase(TestCase):
         upload = self.client.post(
             "/api/v1/device/apk/upload",
             {
-                "apk_url": self.apk_url,
+                "apk_url": cls.apk_url,
                 "apk_version": "1.0.0",
                 "secret": "WRONG_SECRET",
             },
