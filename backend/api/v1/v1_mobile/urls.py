@@ -4,6 +4,8 @@ from .views import (
     get_mobile_form_details,
     sync_pending_form_data,
     download_sqlite_file,
+    upload_apk_file,
+    download_apk_file,
 )
 
 urlpatterns = [
@@ -15,4 +17,6 @@ urlpatterns = [
     re_path(
         r"^(?P<version>(v1))/device/sqlite/(?P<file_name>.*)$", download_sqlite_file
     ),
+    re_path(r"^(?P<version>(v1))/device/apk/upload", upload_apk_file),
+    re_path(r"^(?P<version>(v1))/device/apk/download", download_apk_file),
 ]

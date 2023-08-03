@@ -13,6 +13,9 @@ from datetime import timedelta
 from os import path, environ
 from pathlib import Path
 
+# Application definition
+APP_NAME = "nwmis"
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -148,7 +151,7 @@ REST_FRAMEWORK = {
     "PAGE_SIZE": 10,
 }
 SPECTACULAR_SETTINGS = {
-    "TITLE": "RUSH",
+    "TITLE": "PDHA",
     "DESCRIPTION": "",
     "VERSION": "1.0.0",
     "SORT_OPERATIONS": False,
@@ -228,6 +231,9 @@ MASTER_DATA = f"./source/{INSTANCE}"
 STATIC_URL = "/static-files/"
 
 STATICFILES_DIRS = [f"{MASTER_DATA}/assets/"]
+
+# Apk files
+APK_UPLOAD_SECRET = environ.get("APK_UPLOAD_SECRET")
 
 STATIC_ROOT = path.join(BASE_DIR, "staticfiles")
 

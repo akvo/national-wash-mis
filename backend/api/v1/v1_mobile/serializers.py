@@ -4,7 +4,7 @@ from api.v1.v1_forms.models import Forms, UserForms
 from drf_spectacular.types import OpenApiTypes
 from utils.custom_serializer_fields import CustomCharField
 from api.v1.v1_profile.constants import UserRoleTypes
-from api.v1.v1_mobile.models import MobileAssignment
+from api.v1.v1_mobile.models import MobileAssignment, MobileApk
 from utils.custom_helper import CustomPasscode
 
 
@@ -42,8 +42,21 @@ class MobileAssignmentFormsSerializer(serializers.Serializer):
 
     def to_representation(self, instance):
         data = super().to_representation(instance)
-        data.pop('code', None)
+        data.pop("code", None)
         return data
 
     class Meta:
         fields = ["syncToken", "formsUrl", "code"]
+
+
+class MobileApkSerializer(serializers.Serializer):
+    apk_version = serializers.CharField(max_length=50)
+    apk_url = serializers.CharField(max_length=255)
+    created_at = serializers.DateTimeField(read_only=True)
+
+    def create(self, validated_data):
+        return MobileApk.objects.create(**validated_data)
+
+    class Meta:
+        model = MobileApk
+        fields = ["apk_version", "apk_url", "created_at"]
