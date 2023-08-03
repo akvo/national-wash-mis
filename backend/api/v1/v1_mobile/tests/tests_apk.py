@@ -1,4 +1,5 @@
 import os
+import requests_mock
 import requests as r
 from nwmis.settings import BASE_DIR, APP_NAME, MASTER_DATA, APK_UPLOAD_SECRET
 from django.test import TestCase
@@ -7,7 +8,24 @@ from api.v1.v1_mobile.models import MobileApk
 
 class MobileApkTestCase(TestCase):
     def setUp(self):
+        # Get the path to the APK file and read its content
+        file_path = os.path.join(BASE_DIR, "source", "testapp.apk")
+
+        with open(file_path, "rb") as file:
+            self.apk_content = file.read()
+
+        self.mock = requests_mock.Mocker()
+        self.mock.start()
+
+        # Mocking the GET request with the actual APK content
         self.apk_url = "https://expo.dev/artifacts/eas/dpRpygo9iviyK8k3oDUMzn.apk"
+        self.mock.get(self.apk_url, content=self.apk_content)
+
+        # Mocking the wrong URL with a 401 status code
+        self.wrong_apk_url = "http://example.com/wrong-url.apk"
+        self.mock.get(self.wrong_apk_url, status_code=401)
+
+        # Create the initial APK
         self.apk_version = "1.0.0"
         self.mobile_apk = MobileApk.objects.create(
             apk_url=self.apk_url, apk_version=self.apk_version
@@ -85,7 +103,7 @@ class MobileApkTestCase(TestCase):
         upload = self.client.post(
             "/api/v1/device/apk/upload",
             {
-                "apk_url": "https://expo.dev/artifacts/eas/ggg.apk",
+                "apk_url": self.wrong_apk_url,
                 "apk_version": "1.0.0",
                 "secret": APK_UPLOAD_SECRET,
             },
