@@ -233,7 +233,7 @@ STATIC_URL = "/static-files/"
 STATICFILES_DIRS = [f"{MASTER_DATA}/assets/"]
 
 # Apk files
-APK_UPLOAD_SECRET = environ["APK_UPLOAD_SECRET"]
+APK_UPLOAD_SECRET = environ.get("APK_UPLOAD_SECRET")
 
 STATIC_ROOT = path.join(BASE_DIR, "staticfiles")
 
