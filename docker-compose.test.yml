@@ -16,6 +16,7 @@ services:
       - DB_PASSWORD=password
       - DB_HOST=db
       - DJANGO_SECRET=ci-secret
+      - APK_UPLOAD_SECRET=ci-secret
       # env vars for coveralls
       - COVERALLS_REPO_TOKEN=${COVERALLS_REPO_TOKEN:-}
       - SEMAPHORE=${SEMAPHORE:-}
