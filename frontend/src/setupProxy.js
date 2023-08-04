@@ -19,6 +19,16 @@ module.exports = function (app) {
     })
   );
   app.use(
+    ["/app"],
+    createProxyMiddleware({
+      target: "http://localhost:8000",
+      changeOrigin: true,
+      pathRewrite: {
+        "^/app": "/api/v1/device/apk/download",
+      },
+    })
+  );
+  app.use(
     ["/i18n.js"],
     createProxyMiddleware({
       target: "http://localhost:8000",

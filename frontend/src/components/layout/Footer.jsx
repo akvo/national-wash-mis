@@ -16,7 +16,7 @@ const Footer = ({ className = "footer", ...props }) => {
 
   useEffect(() => {
     if (!qrCode) {
-      QRCode.toDataURL(window.location.origin + "/api/v1/device/apk/download")
+      QRCode.toDataURL(window.location.origin + "/app")
         .then((url) => {
           setQrCode(url);
         })
