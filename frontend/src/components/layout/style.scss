@@ -255,6 +255,12 @@
           margin-top: 30px;
         }
       }
+      span {
+        &.link-inline {
+          padding-right: $padding-small;
+          cursor: pointer;
+        }
+      }
     }
   }
 }
