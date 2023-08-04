@@ -5,6 +5,9 @@
 import "@testing-library/jest-dom";
 import "jest-canvas-mock";
 
+window.location = {
+  origin: "http://localhost:3000",
+};
 window.topojson = { objects: { kenya: { geometries: [{ properties: {} }] } } };
 window.levels = [
   { id: 1, name: "National", level: 0 },

@@ -40,3 +40,4 @@ debugpy==1.5.1
 msgpack==1.0.4
 AkvoDjangoFormGateway==0.0.9
 whitenoise==6.4.0
+requests-mock==1.11.0
