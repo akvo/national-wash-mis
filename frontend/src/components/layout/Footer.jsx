@@ -4,27 +4,14 @@ import { Row, Col, Modal, Image } from "antd";
 import { useLocation } from "react-router-dom";
 import { store } from "../../lib";
 import { getTranslation } from "../../util";
-import QRCode from "qrcode";
+import { QRCodeSVG } from "qrcode.react";
 
 const Footer = ({ className = "footer", ...props }) => {
   const [modalVisible, setModalVisible] = useState(false);
-  const [qrCode, setQrCode] = useState("");
   const location = useLocation();
   const { language } = store.useState((s) => s);
   const { active: activeLang } = language;
   const text = getTranslation(activeLang, "footer");
-
-  useEffect(() => {
-    if (!qrCode) {
-      QRCode.toDataURL(window.location.origin + "/app")
-        .then((url) => {
-          setQrCode(url);
-        })
-        .catch((err) => {
-          console.error(err);
-        });
-    }
-  }, [qrCode]);
 
   if (
     location.pathname.includes("/login") ||
@@ -149,12 +136,11 @@ const Footer = ({ className = "footer", ...props }) => {
             {text?.apkDownloadParagraph}
           </Col>
           <Col span={24} align="center">
-            <Image
-              width={300}
-              alt="App QR Code"
-              align="center"
-              preview={false}
-              src={qrCode}
+            <br />
+            <QRCodeSVG
+              size={300}
+              value={`${window.location.origin}/app`}
+              level="H"
             />
           </Col>
         </Row>
