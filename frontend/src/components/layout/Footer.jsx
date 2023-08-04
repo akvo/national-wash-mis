@@ -1,15 +1,31 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import { Row, Col } from "antd";
+import { Row, Col, Modal, Image } from "antd";
 import { useLocation } from "react-router-dom";
 import { store } from "../../lib";
 import { getTranslation } from "../../util";
+import QRCode from "qrcode";
 
 const Footer = ({ className = "footer", ...props }) => {
+  const [modalVisible, setModalVisible] = useState(false);
+  const [qrCode, setQrCode] = useState("");
   const location = useLocation();
   const { language } = store.useState((s) => s);
   const { active: activeLang } = language;
   const text = getTranslation(activeLang, "footer");
+
+  useEffect(() => {
+    if (!qrCode) {
+      QRCode.toDataURL(window.location.origin + "/api/v1/device/apk/download")
+        .then((url) => {
+          setQrCode(url);
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    }
+  }, [qrCode]);
+
   if (
     location.pathname.includes("/login") ||
     location.pathname.includes("/report/")
@@ -36,6 +52,7 @@ const Footer = ({ className = "footer", ...props }) => {
       url: "/documentation/",
     },
   ];
+
   return (
     <div className={className}>
       <Row align="top" justify="space-between" {...props}>
@@ -53,6 +70,12 @@ const Footer = ({ className = "footer", ...props }) => {
               {x.text}
             </a>
           ))}
+          <span
+            className="link-inline"
+            onClick={() => setModalVisible((modalVisible) => !modalVisible)}
+          >
+            {text?.apkDownloadTitle}
+          </span>
         </Col>
         <Col span={6}>
           <h2>{text?.footerExternalLinkTitle}</h2>
@@ -113,6 +136,29 @@ const Footer = ({ className = "footer", ...props }) => {
           </a>
         </Col>
       </Row>
+      <Modal
+        centered
+        title={text?.apkDownloadTitle}
+        visible={modalVisible}
+        onCancel={() => setModalVisible((modalVisible) => !modalVisible)}
+        width={350}
+        footer={null}
+      >
+        <Row align="middle">
+          <Col span={24} align="center">
+            {text?.apkDownloadParagraph}
+          </Col>
+          <Col span={24} align="center">
+            <Image
+              width={300}
+              alt="App QR Code"
+              align="center"
+              preview={false}
+              src={qrCode}
+            />
+          </Col>
+        </Row>
+      </Modal>
     </div>
   );
 };
