@@ -109,6 +109,11 @@ spec:
                 secretKeyRef:
                   name: ${INSTANCE_NAME}
                   key: google-maps-api-key
+            - name: APK_UPLOAD_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: ${INSTANCE_NAME}
+                  key: apk-upload-secret
             - name: PROD
               value: "TRUE"
             - name: GOOGLE_APPLICATION_CREDENTIALS
