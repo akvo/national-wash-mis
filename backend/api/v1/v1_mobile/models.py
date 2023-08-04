@@ -12,7 +12,7 @@ class MobileAssignmentManager(models.Manager):
         mobile_assignment = self.create(
             user=user,
             token=token.access_token,
-            passcode=CustomPasscode().encode(passcode)
+            passcode=CustomPasscode().encode(passcode),
         )
         return mobile_assignment
 
@@ -40,3 +40,17 @@ class MobileAssignment(models.Model):
         db_table = "mobile_assignments"
         verbose_name = "Mobile Assignment"
         verbose_name_plural = "Mobile Assignments"
+
+
+class MobileApk(models.Model):
+    apk_version = models.CharField(max_length=50)
+    apk_url = models.CharField(max_length=255)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.version}"
+
+    class Meta:
+        db_table = "mobile_apks"
+        verbose_name = "Mobile Apk"
+        verbose_name_plural = "Mobile Apks"

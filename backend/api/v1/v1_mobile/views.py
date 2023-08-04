@@ -1,6 +1,7 @@
 import os
+import requests
 import mimetypes
-from nwmis.settings import MASTER_DATA, BASE_DIR
+from nwmis.settings import MASTER_DATA, BASE_DIR, APP_NAME, APK_UPLOAD_SECRET
 from drf_spectacular.utils import extend_schema
 from django.http import HttpResponse
 from rest_framework import status, serializers
@@ -9,8 +10,11 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.generics import get_object_or_404
 from rest_framework.permissions import IsAuthenticated
 from drf_spectacular.utils import inline_serializer
-from .serializers import MobileAssignmentFormsSerializer
-from .models import MobileAssignment
+from .serializers import (
+    MobileAssignmentFormsSerializer,
+    MobileApkSerializer,
+)
+from .models import MobileAssignment, MobileApk
 from api.v1.v1_forms.models import Forms
 from api.v1.v1_profile.models import Access
 from api.v1.v1_forms.serializers import WebFormDetailSerializer
@@ -18,6 +22,8 @@ from api.v1.v1_data.serializers import SubmitPendingFormSerializer
 from utils.custom_helper import CustomPasscode
 from utils.default_serializers import DefaultResponseSerializer
 from utils.custom_serializer_fields import validate_serializers_message
+
+apk_path = os.path.join(BASE_DIR, MASTER_DATA)
 
 
 @extend_schema(
@@ -142,3 +148,82 @@ def download_sqlite_file(request, version, file_name):
     response["Content-Length"] = os.path.getsize(file_path)
     response["Content-Disposition"] = "attachment; filename=%s" % file_name
     return response
+
+
+@extend_schema(tags=["Mobile APK"], summary="Get APK File")
+@api_view(["GET"])
+def download_apk_file(request, version):
+    apk = MobileApk.objects.last()
+    if not apk:
+        return Response({"message": "APK not found."}, status=status.HTTP_404_NOT_FOUND)
+    file_name = f"{APP_NAME}-{apk.apk_version}.apk"
+    cache_file_name = os.path.join(apk_path, file_name)
+    if os.path.exists(cache_file_name):
+        # Get the file's content type
+        content_type, _ = mimetypes.guess_type(cache_file_name)
+        # Read the file content into a variable
+        with open(cache_file_name, "rb") as file:
+            file_content = file.read()
+        # Create the response and set the appropriate headers
+        response = HttpResponse(file_content, content_type=content_type)
+        response["Content-Length"] = os.path.getsize(cache_file_name)
+        response["Content-Disposition"] = "attachment; filename=%s" % f"{file_name}"
+        return response
+    download = requests.get(apk.apk_url)
+    if download.status_code != 200:
+        return HttpResponse(
+            {"message": "File not found."}, status=status.HTTP_404_NOT_FOUND
+        )
+    file_cache = open(cache_file_name, "wb")
+    file_cache.write(download.content)
+    file_cache.close()
+    # Get the file's content type
+    content_type, _ = mimetypes.guess_type(cache_file_name)
+    # Read the file content into a variable
+    with open(cache_file_name, "rb") as file:
+        file_content = file.read()
+    # Read the file content into a variable
+    response = HttpResponse(file_content, content_type=content_type)
+    response["Content-Length"] = os.path.getsize(cache_file_name)
+    response["Content-Disposition"] = "attachment; filename=%s" % f"{file_name}"
+    return response
+
+
+@extend_schema(
+    request=inline_serializer(
+        name="UploadAPKFile",
+        fields={
+            "apk_url": serializers.FileField(),
+            "apk_version": serializers.CharField(),
+            "secret": serializers.CharField(),
+        },
+    ),
+    tags=["Mobile APK"],
+    summary="Post APK File",
+)
+@api_view(["POST"])
+def upload_apk_file(request, version):
+    if request.data.get("secret") != APK_UPLOAD_SECRET:
+        return Response(
+            {"message": "Secret is required."}, status=status.HTTP_400_BAD_REQUEST
+        )
+    serializer = MobileApkSerializer(data=request.data)
+    if not serializer.is_valid():
+        return Response(
+            {"message": serializer.errors}, status=status.HTTP_400_BAD_REQUEST
+        )
+    apk_version = serializer.validated_data.get("apk_version")
+    download = requests.get(
+        request.data.get("apk_url"), allow_redirects=True, stream=True
+    )
+    if download.status_code != 200:
+        return HttpResponse(
+            {"message": "File not found."}, status=status.HTTP_404_NOT_FOUND
+        )
+    filename = f"{APP_NAME}-{apk_version}.apk"
+    cache_file_name = os.path.join(apk_path, filename)
+    file_cache = open(cache_file_name, "wb")
+    file_cache.write(download.content)
+    file_cache.close()
+    serializer.save()
+    return Response({"message": "ok"}, status=status.HTTP_201_CREATED)
