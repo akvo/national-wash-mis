@@ -126,5 +126,7 @@
   "siteTitle": "PDHA",
   "siteSubTitle": "Hygiene and sanitation data platform",
   "apkDownloadTitle": "Download Application",
-  "apkDownloadParagraph": "The PDHA APK is available for download on Android devices. Scan the QR code below to download the APK."
+  "apkDownloadParagraph": "The PDHA APK is available for download on Android devices. Scan the QR code below to download the APK.",
+  "copyToClipboard": "Copy to clipboard",
+  "copied": "Copied!"
 }

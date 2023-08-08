@@ -4683,6 +4683,13 @@ copy-to-clipboard@^3.2.0:
   dependencies:
     toggle-selection "^1.0.6"
 
+copy-to-clipboard@^3.3.1:
+  version "3.3.3"
+  resolved "https://registry.yarnpkg.com/copy-to-clipboard/-/copy-to-clipboard-3.3.3.tgz#55ac43a1db8ae639a4bd99511c148cdd1b83a1b0"
+  integrity sha512-2KV8NhB5JqC3ky0r9PMCAZKbUHSwtEo4CwCs0KXgruG43gX5PMqDEBbVU4OUzw2MuAWUfsuFmWvEKG5QRfSnJA==
+  dependencies:
+    toggle-selection "^1.0.6"
+
 core-js-compat@^3.20.0, core-js-compat@^3.20.2:
   version "3.20.3"
   resolved "https://registry.yarnpkg.com/core-js-compat/-/core-js-compat-3.20.3.tgz#d71f85f94eb5e4bea3407412e549daa083d23bd6"
@@ -9550,7 +9557,7 @@ prop-types@15.7.2:
     object-assign "^4.1.1"
     react-is "^16.8.1"
 
-prop-types@^15.7.2:
+prop-types@^15.7.2, prop-types@^15.8.1:
   version "15.8.1"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.8.1.tgz#67d87bf1a694f48435cf332c24af10214a3140b5"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
@@ -10391,6 +10398,14 @@ react-cookie@^4.1.1:
     "@types/hoist-non-react-statics" "^3.0.1"
     hoist-non-react-statics "^3.0.0"
     universal-cookie "^4.0.0"
+
+react-copy-to-clipboard@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/react-copy-to-clipboard/-/react-copy-to-clipboard-5.1.0.tgz#09aae5ec4c62750ccb2e6421a58725eabc41255c"
+  integrity sha512-k61RsNgAayIJNoy9yDsYzDe/yAZAzEbEgcz3DZMhF686LEyukcE1hzurxe85JandPUG+yTfGVFzuEw3xt8WP/A==
+  dependencies:
+    copy-to-clipboard "^3.3.1"
+    prop-types "^15.8.1"
 
 react-countdown@^2.3.2:
   version "2.3.2"
