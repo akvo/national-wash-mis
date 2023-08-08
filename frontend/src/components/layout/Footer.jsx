@@ -1,17 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import { Row, Col, Modal } from "antd";
+import { Row, Col, Modal, Button } from "antd";
 import { useLocation } from "react-router-dom";
 import { store } from "../../lib";
 import { getTranslation } from "../../util";
 import { QRCodeSVG } from "qrcode.react";
+import { CopyToClipboard } from "react-copy-to-clipboard";
+import { CopyOutlined, CheckCircleFilled } from "@ant-design/icons";
 
 const Footer = ({ className = "footer", ...props }) => {
   const [modalVisible, setModalVisible] = useState(false);
+  const [copied, setCopied] = useState(false);
   const location = useLocation();
   const { language } = store.useState((s) => s);
   const { active: activeLang } = language;
   const text = getTranslation(activeLang, "footer");
+
+  useEffect(() => {
+    if (copied) {
+      setTimeout(() => {
+        setCopied(false);
+      }, 2000);
+    }
+  }, [copied]);
 
   if (
     location.pathname.includes("/login") ||
@@ -142,6 +153,29 @@ const Footer = ({ className = "footer", ...props }) => {
               value={`${window.location.origin}/app`}
               level="H"
             />
+            <br />
+            <a
+              href={`${window.location.origin}/app`}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: "#000" }}
+            >
+              <b>{window.location.origin}/app</b>
+            </a>
+            <br />
+            <br />
+            <CopyToClipboard
+              text={`${window.location.origin}/app`}
+              onCopy={() => setCopied(true)}
+            >
+              <Button
+                type="secondary"
+                icon={copied ? <CheckCircleFilled /> : <CopyOutlined />}
+                size={"small"}
+              >
+                {copied ? text?.copied : text?.copyToClipboard}
+              </Button>
+            </CopyToClipboard>
           </Col>
         </Row>
       </Modal>

@@ -126,5 +126,7 @@
   "siteTitle": "PDHA",
   "siteSubTitle": "Plateforme des données de l'Hygiène et de l'Assainissement",
   "apkDownloadTitle": "Télécharger l'application",
-  "apkDownloadParagraph": "Le PDHA APK est disponible en téléchargement sur les appareils Android. Scannez le code QR ci-dessous pour télécharger le APK."
+  "apkDownloadParagraph": "Le PDHA APK est disponible en téléchargement sur les appareils Android. Scannez le code QR ci-dessous pour télécharger le APK.",
+  "copyToClipboard": "Copier dans le presse-papiers",
+  "copied": "Copié!"
 }
