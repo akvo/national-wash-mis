@@ -133,6 +133,8 @@ spec:
               mountPath: /secrets/credentials.json
               subPath: nwmis-service-account.json
               readOnly: true
+            - name: nfs-pvc
+              mountPath: "/data/general"
           resources:
             requests:
               cpu: "100m"
@@ -220,6 +222,9 @@ spec:
               mountPath: /secrets/credentials.json
               subPath: nwmis-service-account.json
               readOnly: true
+            - name: nfs-pvc
+              mountPath: "/data/general"
+
           resources:
             requests:
               cpu: "100m"
@@ -231,3 +236,6 @@ spec:
         - name: ${INSTANCE_NAME}-secrets
           secret:
             secretName: ${INSTANCE_NAME}
+        - name: nfs-pvc
+          persistentVolumeClaim:
+            claimName: ${INSTANCE_NAME}

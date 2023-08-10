@@ -37,6 +37,8 @@ prepare_deployment () {
             ci/k8s/template.yml > ci/k8s/deployment-${INSTANCE}.yml
         sed -e "s/\${INSTANCE_NAME}/${INSTANCE}/g;" \
             ci/k8s/service.template.yml > ci/k8s/service-${INSTANCE}.yml
+        sed -e "s/\${INSTANCE_NAME}/${INSTANCE}/g;" \
+            ci/k8s/volume-claim.template.yml > ci/k8s/volume-claim-${INSTANCE}.yml
     done
 }
 
@@ -44,6 +46,7 @@ apply_deployment () {
     for INSTANCE in ${INSTANCES}
     do
         echo "DEPLOYING ${INSTANCE}"
+        kubectl apply -f ci/k8s/volume-claim-${INSTANCE}.yml
         kubectl apply -f ci/k8s/deployment-${INSTANCE}.yml
         kubectl apply -f ci/k8s/service-${INSTANCE}.yml
     done
