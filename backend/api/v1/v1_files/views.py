@@ -11,6 +11,10 @@ from utils.custom_serializer_fields import validate_serializers_message
 from uuid import uuid4
 
 
+def sanitize_filename(filename):
+    return "_".join(filename.strip().split(" "))
+
+
 @extend_schema(
     tags=["Files"],
     summary="Upload Images",
@@ -36,6 +40,7 @@ def upload_images(request, version):
         )
     file = request.FILES["file"]
     original_filename = "-".join(file.name.split(".")[:-1])
+    original_filename = sanitize_filename(original_filename)
     extension = file.name.split(".")[-1]
     filename = f"{original_filename}-{uuid4()}.{extension}"
     temp_file = open(f"./tmp/{filename}", "wb+")
