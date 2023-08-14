@@ -1,13 +1,11 @@
-import uuid
 import os
 from django.test import TestCase
 from django.core.management import call_command
-from uuid import uuid4
 from utils import storage
 
 
 def generate_image(filename: str, extension: str = "jpg"):
-    filename = f"{filename}-{uuid.uuid4().hex}.{extension}"
+    filename = f"{filename}.{extension}"
     f = open(filename, "a")
     f.write("This is a test file!")
     f.close()
@@ -31,19 +29,11 @@ class ImageUploadTest(TestCase):
             HTTP_AUTHORIZATION=f"Bearer {self.token}",
         )
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(list(response.json()), ["task_id"])
-        self.assertFalse(
-            os.path.exists(f"./storage/images/{filename}"),
-            "File exists before job is running",
-        )
-        # run the job
-        storage.upload(
-            filename,
-            "images",
-        )
+        self.assertEqual(list(response.json()), ["message", "file"])
+        uploaded_filename = response.json().get("file")
         self.assertTrue(
-            os.path.exists(f"./storage/images/{filename}"),
-            "File does not exist after job is running",
+            storage.check(f"images/{uploaded_filename}"),
+            "File exists",
         )
-        os.remove(f"./storage/images/{filename}")
+        os.remove(f"./storage/images/{uploaded_filename}")
         os.remove(filename)

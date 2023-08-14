@@ -8,11 +8,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from utils import storage
 from utils.custom_serializer_fields import validate_serializers_message
-from django_q.tasks import async_task
 from uuid import uuid4
-
-
-# Create your views here.
 
 
 @extend_schema(
@@ -39,11 +35,15 @@ def upload_images(request, version):
             status=status.HTTP_400_BAD_REQUEST,
         )
     file = request.FILES["file"]
-    task_id = async_task(
-        storage.upload,
-        file=file,
-        filename=file.name,
-        folder="images",
-        job_id=uuid4(),
+    original_filename = "-".join(file.name.split(".")[:-1])
+    extension = file.name.split(".")[-1]
+    filename = f"{original_filename}-{uuid4()}.{extension}"
+    temp_file = open(f"./tmp/{filename}", "wb+")
+    for chunk in file.chunks():
+        temp_file.write(chunk)
+    temp_file.close()
+    storage.upload(file=f"./tmp/{filename}", filename=filename, folder="images")
+    return Response(
+        {"message": "File uploaded successfully", "file": filename},
+        status=status.HTTP_200_OK,
     )
-    return Response({"task_id": task_id}, status=status.HTTP_200_OK)
