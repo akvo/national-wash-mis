@@ -94,6 +94,7 @@ API_APPS = [
     "api.v1.v1_categories",
     "api.v1.v1_jobs",
     "api.v1.v1_mobile",
+    "api.v1.v1_files",
     "AkvoDjangoFormGateway",
 ]
 
@@ -247,7 +248,6 @@ FORM_GEO_VALUE = {
 }
 
 BUCKET_NAME = "nwmis"
-FAKE_STORAGE = False
 
 EMAIL_BACKEND = "django_mailjet.backends.MailjetBackend"
 MAILJET_API_KEY = environ["MAILJET_APIKEY"]

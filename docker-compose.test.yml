@@ -6,7 +6,7 @@ services:
     working_dir: /app/backend
     volumes:
       - ./:/app:delegated
-      - ${SERVICE_ACCOUNT}:/credentials/:ro
+      - ./storage:/app/storage:delegated
     environment:
       - TWILIO_ACCOUNT_SID=abc
       - TWILIO_AUTH_TOKEN=xyz
@@ -24,7 +24,6 @@ services:
       - SEMAPHORE_WORKFLOW_ID=${SEMAPHORE_WORKFLOW_ID:-}
       - SEMAPHORE_GIT_PR_NUMBER=${SEMAPHORE_GIT_PR_NUMBER:-}
       - DEBUG=True
-      - GOOGLE_APPLICATION_CREDENTIALS=/credentials/nwmis-service-account.json
       - MAILJET_APIKEY=$MAILJET_APIKEY
       - MAILJET_SECRET=$MAILJET_SECRET
       - WEBDOMAIN=notset
