@@ -27,4 +27,8 @@ def check(url: str):
 
 
 def download(url):
+    # copy to tmp folder
+    tmp_file = url.split("/")[-1]
+    tmp_file = f"./tmp/{tmp_file}"
+    shutil.copy2(f"./storage/{url}", tmp_file)
     return f"./storage/{url}"

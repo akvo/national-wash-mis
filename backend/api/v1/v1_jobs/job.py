@@ -356,11 +356,11 @@ def seed_data_job_result(job_id, completed, success, batch):
 
 def validate_excel(job_id):
     job = Jobs.objects.get(pk=job_id)
-    storage.download(f"upload/{job.info.get('file')}")
+    filepath = storage.download(f"upload/{job.info.get('file')}")
     data, total_data = validate(
         job.info.get("form"),
         job.info.get("administration"),
-        f"./tmp/{job.info.get('file')}",
+        filepath,
     )
     # add total rows of data to job
     job.total = total_data
@@ -369,8 +369,7 @@ def validate_excel(job_id):
     if len(data):
         form_id = job.info.get("form")
         form = Forms.objects.filter(pk=int(form_id)).first()
-        file = job.info.get("file")
-        df = pd.read_excel(f"./tmp/{file}", sheet_name="data")
+        df = pd.read_excel(filepath, sheet_name="data")
         error_list = pd.DataFrame(data)
         error_list = error_list[list(filter(lambda x: x != "error", list(error_list)))]
         error_file = f"./tmp/error-{job_id}.csv"
@@ -449,8 +448,8 @@ def org_seed_data_job_result(task):
         form_id = job.info.get("form")
         form = Forms.objects.filter(pk=int(form_id)).first()
         file = job.info.get("file")
-        storage.download(f"upload/{file}")
-        df = pd.read_excel(f"./tmp/{file}", sheet_name="data")
+        filepath = storage.download(f"upload/{file}")
+        df = pd.read_excel(filepath, sheet_name="data")
         subject = (
             "New Data Uploaded"
             if is_super_admin
@@ -479,18 +478,17 @@ def org_seed_data_job_result(task):
 # Original function
 def org_validate_excel(job_id):
     job = Jobs.objects.get(pk=job_id)
-    storage.download(f"upload/{job.info.get('file')}")
+    filepath = storage.download(f"upload/{job.info.get('file')}")
     data, total_data = validate(
         job.info.get("form"),
         job.info.get("administration"),
-        f"./tmp/{job.info.get('file')}",
+        filepath,
     )
 
     if len(data):
         form_id = job.info.get("form")
         form = Forms.objects.filter(pk=int(form_id)).first()
-        file = job.info.get("file")
-        df = pd.read_excel(f"./tmp/{file}", sheet_name="data")
+        df = pd.read_excel(filepath, sheet_name="data")
         error_list = pd.DataFrame(data)
         error_list = error_list[list(filter(lambda x: x != "error", list(error_list)))]
         error_file = f"./tmp/error-{job_id}.csv"
