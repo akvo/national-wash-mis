@@ -17,14 +17,14 @@ def upload(file: str, folder: str = None, filename: str = None):
 
 
 def delete(url: str):
-    os.remove(url)
+    os.remove(f"./storage/{url}")
     return url
 
 
 def check(url: str):
-    path = Path(url)
+    path = Path(f"./storage/{url}")
     return path.is_file()
 
 
 def download(url):
-    return url
+    return f"./storage/{url}"

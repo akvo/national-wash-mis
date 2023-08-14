@@ -21,7 +21,7 @@ class StorageTestCase(TestCase):
         filename = generate_file("test", hex=True)
         uploaded_file = storage.upload(file=filename, folder="test")
         self.assertTrue(os.path.exists(f"./storage/test/{filename}"), "File not exists")
-        self.assertTrue(storage.check(uploaded_file), "File not exists")
+        self.assertTrue(storage.check(f"test/{filename}"), "File not exists")
         self.assertEqual(uploaded_file, f"./storage/test/{filename}")
         os.remove(filename)
 
@@ -31,16 +31,16 @@ class StorageTestCase(TestCase):
         uploaded_file = storage.upload(
             file=filename, filename=custom_filename, folder="test"
         )
-        self.assertTrue(storage.check(uploaded_file), "File not exists")
         self.assertEqual(uploaded_file, f"./storage/test/{custom_filename}")
+        self.assertTrue(storage.check(f"test/{custom_filename}"), "File not exists")
         os.remove(filename)
 
     def test_download(self):
         filename = generate_file("test", hex=True)
         uploaded_file = storage.upload(file=filename, folder="test")
         self.assertEqual(uploaded_file, f"./storage/test/{filename}")
-        downloaded_file = storage.download(uploaded_file)
-        self.assertEqual(downloaded_file, f"./storage/test/{filename}")
+        downloaded_file = storage.download(f"test/{filename}")
+        self.assertEqual(downloaded_file, uploaded_file)
         self.assertTrue(os.path.exists(downloaded_file), "File not exists")
         os.remove(downloaded_file)
         os.remove(filename)
