@@ -37,3 +37,17 @@ class ImageUploadTest(TestCase):
         )
         os.remove(f"./storage/images/{uploaded_filename}")
         os.remove(filename)
+
+    def test_wrong_extension_upload(self):
+        filename = generate_image(filename="test", extension="txt")
+        response = self.client.post(
+            "/api/v1/upload/images/",
+            {"file": open(filename, "rb")},
+            HTTP_AUTHORIZATION=f"Bearer {self.token}",
+        )
+        self.assertEqual(response.status_code, 400)
+        self.assertEqual(
+            response.json(),
+            "File extension “txt” is not allowed. Allowed extensions are: jpg, png, jpeg.",  # noqa
+        )
+        os.remove(filename)
