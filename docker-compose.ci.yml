@@ -26,7 +26,6 @@ services:
     restart: always
     volumes:
       - ./backend:/app:delegated
-      - ${SERVICE_ACCOUNT}:/credentials/:ro
     working_dir: /app
   ci:
     image: alpine:3.14
