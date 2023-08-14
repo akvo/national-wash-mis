@@ -6,20 +6,13 @@ from django.utils import timezone
 from django_q.tasks import async_task
 
 from api.v1.v1_profile.constants import UserRoleTypes
-from api.v1.v1_forms.models import (
-    Forms,
-    Questions,
-    FormApprovalAssignment
-)
+from api.v1.v1_forms.models import Forms, Questions, FormApprovalAssignment
 from api.v1.v1_jobs.constants import JobStatus, JobTypes
 from api.v1.v1_jobs.models import Jobs
 from api.v1.v1_jobs.seed_data import seed_excel_data, org_seed_excel_data
 from api.v1.v1_jobs.validate_upload import validate
 from api.v1.v1_profile.models import Administration, Levels
-from api.v1.v1_data.models import (
-    PendingDataBatch,
-    PendingDataApproval
-)
+from api.v1.v1_data.models import PendingDataBatch, PendingDataApproval
 from utils import storage
 from utils.email_helper import send_email, EmailTypes
 from utils.export_form import generate_definition_sheet
@@ -155,7 +148,7 @@ def job_generate_download(job_id, **kwargs):
     )
     worksheet.merge_range("A1:B1", "Context", merge_format)
     writer.save()
-    url = upload(file=file_path, folder="download", public=True)
+    url = upload(file=file_path, folder="download")
     return url
 
 
@@ -189,8 +182,7 @@ def seed_data_job(job_id, batch=None, completed=0):
             )
         # EOL need to move this
         res, file = seed_excel_data(
-            job=job, batch=batch,
-            completed=completed, chunksize=chunksize
+            job=job, batch=batch, completed=completed, chunksize=chunksize
         )
         res = len(res) if isinstance(res, list) else res
         job.attempt = job.attempt + 1
@@ -207,7 +199,7 @@ def seed_data_job(job_id, batch=None, completed=0):
                 "api.v1.v1_jobs.job.seed_data_job",
                 job_id=job.id,
                 completed=completed,
-                batch=batch
+                batch=batch,
             )
         else:
             logger.error("LOG - False condition")
@@ -231,25 +223,20 @@ def seed_data_job(job_id, batch=None, completed=0):
             "send_to": ["tech.consultancy@akvo.org", "galih@akvo.org"],
             "form": form.name,
             "user": "Akvo Tech Consultancy",
-            "listing": [{
-                "name": "Upload Date",
-                "value": job.created.strftime("%m-%d-%Y, %H:%M:%S"),
-            }, {
-                "name": "Questionnaire",
-                "value": form.name
-            }, {
-                "name": "Number of Records Completed",
-                "value": completed
-            }, {
-                "name": "Total of Records Remaining",
-                "value": job.completed - job.total
-            }, {
-                "name": "Total Rows of Records",
-                "value": job.total
-            }, {
-                "name": "Error detail",
-                "value": e
-            }],
+            "listing": [
+                {
+                    "name": "Upload Date",
+                    "value": job.created.strftime("%m-%d-%Y, %H:%M:%S"),
+                },
+                {"name": "Questionnaire", "value": form.name},
+                {"name": "Number of Records Completed", "value": completed},
+                {
+                    "name": "Total of Records Remaining",
+                    "value": job.completed - job.total,
+                },
+                {"name": "Total Rows of Records", "value": job.total},
+                {"name": "Error detail", "value": e},
+            ],
         }
         send_email(context=context, type=EmailTypes.seed_error)
         async_task(
@@ -275,16 +262,14 @@ def seed_data_job_result(job_id, completed, success, batch):
             "send_to": [job.user.email],
             "form": form.name,
             "user": job.user,
-            "listing": [{
-                "name": "Upload Date",
-                "value": job.created.strftime("%m-%d-%Y, %H:%M:%S"),
-            }, {
-                "name": "Questionnaire",
-                "value": form.name
-            }, {
-                "name": "Number of Records",
-                "value": completed
-            }],
+            "listing": [
+                {
+                    "name": "Upload Date",
+                    "value": job.created.strftime("%m-%d-%Y, %H:%M:%S"),
+                },
+                {"name": "Questionnaire", "value": form.name},
+                {"name": "Number of Records", "value": completed},
+            ],
         }
         send_email(context=context, type=EmailTypes.unchanged_data)
         if not is_super_admin:
@@ -293,13 +278,8 @@ def seed_data_job_result(job_id, completed, success, batch):
         return None
     # email pending batch to approver
     if success and not is_super_admin:
-        path = "{0}{1}".format(
-            batch.administration.path,
-            batch.administration_id
-        )
-        for administration in Administration.objects.filter(
-            id__in=path.split(".")
-        ):
+        path = "{0}{1}".format(batch.administration.path, batch.administration_id)
+        for administration in Administration.objects.filter(id__in=path.split(".")):
             assignment = FormApprovalAssignment.objects.filter(
                 form_id=batch.form_id, administration=administration
             ).first()
@@ -311,24 +291,17 @@ def seed_data_job_result(job_id, completed, success, batch):
                 submitter = f"{job.user.name}, {job.user.designation_name}"
                 context = {
                     "send_to": [assignment.user.email],
-                    "listing": [{
-                        "name": "Batch Name",
-                        "value": batch.name
-                    }, {
-                        "name": "Questionnaire",
-                        "value": batch.form.name
-                    }, {
-                        "name": "Number of Records",
-                        "value": completed
-                    }, {
-                        "name": "Submitter",
-                        "value": submitter,
-                    }],
+                    "listing": [
+                        {"name": "Batch Name", "value": batch.name},
+                        {"name": "Questionnaire", "value": batch.form.name},
+                        {"name": "Number of Records", "value": completed},
+                        {
+                            "name": "Submitter",
+                            "value": submitter,
+                        },
+                    ],
                 }
-                send_email(
-                    context=context,
-                    type=EmailTypes.pending_approval
-                )
+                send_email(context=context, type=EmailTypes.pending_approval)
     # success
     form_id = job.info.get("form")
     form = Forms.objects.filter(pk=int(form_id)).first()
@@ -363,22 +336,19 @@ def seed_data_job_result(job_id, completed, success, batch):
             "send_to": [job.user.email],
             "form": form.name,
             "user": job.user,
-            "listing": [{
-                "name": "Upload Date",
-                "value": job.created.strftime("%m-%d-%Y, %H:%M:%S"),
-            }, {
-                "name": "Questionnaire",
-                "value": form.name
-            }, {
-                "name": "Number of Records Completed",
-                "value": completed
-            }, {
-                "name": "Total of Records Remaining",
-                "value": job.completed - job.total
-            }, {
-                "name": "Total Rows of Records",
-                "value": job.total
-            }],
+            "listing": [
+                {
+                    "name": "Upload Date",
+                    "value": job.created.strftime("%m-%d-%Y, %H:%M:%S"),
+                },
+                {"name": "Questionnaire", "value": form.name},
+                {"name": "Number of Records Completed", "value": completed},
+                {
+                    "name": "Total of Records Remaining",
+                    "value": job.completed - job.total,
+                },
+                {"name": "Total Rows of Records", "value": job.total},
+            ],
         }
         send_email(context=context, type=EmailTypes.seed_error)
     job.save()
@@ -402,9 +372,7 @@ def validate_excel(job_id):
         file = job.info.get("file")
         df = pd.read_excel(f"./tmp/{file}", sheet_name="data")
         error_list = pd.DataFrame(data)
-        error_list = error_list[
-            list(filter(lambda x: x != "error", list(error_list)))
-        ]
+        error_list = error_list[list(filter(lambda x: x != "error", list(error_list)))]
         error_file = f"./tmp/error-{job_id}.csv"
         error_list.to_csv(error_file, index=False)
         data = {
@@ -446,12 +414,8 @@ def validate_excel_result(task):
                 "administration": job.info.get("administration"),
                 "ref_job_id": job.id,
             },
-            total=(
-                task.result
-                if isinstance(task.result, (int))
-                else None
-            ),
-            completed=0
+            total=(task.result if isinstance(task.result, (int)) else None),
+            completed=0,
         )
         task_id = async_task(
             "api.v1.v1_jobs.job.seed_data_job",
