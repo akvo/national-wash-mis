@@ -12,24 +12,24 @@ services:
       - 8888:8888
   frontend:
     network_mode: service:mainnetwork
-  worker:
     volumes:
-      - ../akvo-config/k8s-secrets/test/nwmis-${NWMIS_INSTANCE}:/credentials/:ro
+      - ${STORAGE_PATH}/images:/app/public/images:delegated
+  worker:
     environment:
       - LOG_FILE=worker.log
-      - GOOGLE_APPLICATION_CREDENTIALS=/credentials/nwmis-service-account.json
       - MAILJET_APIKEY=$MAILJET_APIKEY
       - MAILJET_SECRET=$MAILJET_SECRET
       - WEBDOMAIN=https://nwmis.akvotest.org
-  backend:
     volumes:
-      - ../akvo-config/k8s-secrets/test/nwmis-${NWMIS_INSTANCE}:/credentials/:ro
+      - ${STORAGE_PATH}:/app/storage:delegated
+  backend:
     environment:
-      - GOOGLE_APPLICATION_CREDENTIALS=/credentials/nwmis-service-account.json
       - MAILJET_APIKEY=$MAILJET_APIKEY
       - MAILJET_SECRET=$MAILJET_SECRET
       - WEBDOMAIN=https://nwmis.akvotest.org
     network_mode: service:mainnetwork
+    volumes:
+      - ${STORAGE_PATH}:/app/storage:delegated
   pgadmin:
     image: dpage/pgadmin4:5.7
     environment:

@@ -19,6 +19,7 @@ services:
       - DJANGO_SECRET=local-secret
       - NWMIS_INSTANCE
       - APK_UPLOAD_SECRET
+      - STORAGE_PATH
     depends_on:
       - db
   worker:
@@ -37,6 +38,7 @@ services:
       - DEBUG=True
       - DJANGO_SECRET=local-secret
       - NWMIS_INSTANCE
+      - STORAGE_PATH
     depends_on:
       - backend
   frontend:

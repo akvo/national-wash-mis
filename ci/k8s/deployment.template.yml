@@ -34,6 +34,9 @@ spec:
             limits:
               cpu: "200m"
               memory: "64Mi"
+          volumeMounts:
+            - name: nfs-pvc
+              mountPath: "/usr/share/nginx/html/storage"
         - name: backend
           image: eu.gcr.io/akvo-lumen/national-wash-mis/backend:${CI_COMMIT}
           ports:
@@ -109,6 +112,11 @@ spec:
                 secretKeyRef:
                   name: ${INSTANCE_NAME}
                   key: google-maps-api-key
+            - name: STORAGE_PATH
+              valueFrom:
+                secretKeyRef:
+                  name: ${STORAGE_PATH}
+                  key: storage-path
             - name: APK_UPLOAD_SECRET
               valueFrom:
                 secretKeyRef:
@@ -116,8 +124,6 @@ spec:
                   key: apk-upload-secret
             - name: PROD
               value: "TRUE"
-            - name: GOOGLE_APPLICATION_CREDENTIALS
-              value: /secrets/credentials.json
           readinessProbe:
             httpGet:
               path: /api/v1/health/check
@@ -129,12 +135,8 @@ spec:
               port: 8000
             initialDelaySeconds: 30
           volumeMounts:
-            - name: ${INSTANCE_NAME}-secrets
-              mountPath: /secrets/credentials.json
-              subPath: nwmis-service-account.json
-              readOnly: true
             - name: nfs-pvc
-              mountPath: "/data/general"
+              mountPath: "/app/storage"
           resources:
             requests:
               cpu: "100m"
@@ -215,16 +217,14 @@ spec:
                 secretKeyRef:
                   name: ${INSTANCE_NAME}
                   key: google-maps-api-key
-            - name: GOOGLE_APPLICATION_CREDENTIALS
-              value: /secrets/credentials.json
+            - name: STORAGE_PATH
+              valueFrom:
+                secretKeyRef:
+                  name: ${STORAGE_PATH}
+                  key: storage-path
           volumeMounts:
-            - name: ${INSTANCE_NAME}-secrets
-              mountPath: /secrets/credentials.json
-              subPath: nwmis-service-account.json
-              readOnly: true
             - name: nfs-pvc
-              mountPath: "/data/general"
-
+              mountPath: "/app/storage"
           resources:
             requests:
               cpu: "100m"
@@ -233,9 +233,6 @@ spec:
               cpu: "500m"
               memory: "1024Mi"
       volumes:
-        - name: ${INSTANCE_NAME}-secrets
-          secret:
-            secretName: ${INSTANCE_NAME}
         - name: nfs-pvc
           persistentVolumeClaim:
             claimName: ${INSTANCE_NAME}
