@@ -1,4 +1,5 @@
 import os
+from nwmis.settings import STORAGE_PATH
 from django.test import TestCase
 from django.core.management import call_command
 from utils import storage
@@ -32,10 +33,10 @@ class ImageUploadTest(TestCase):
         self.assertEqual(list(response.json()), ["message", "file"])
         uploaded_filename = response.json().get("file")
         self.assertTrue(
-            storage.check(f"images/{uploaded_filename}"),
+            storage.check(uploaded_filename),
             "File exists",
         )
-        os.remove(f"./storage/images/{uploaded_filename}")
+        os.remove(f"{STORAGE_PATH}/{uploaded_filename}")
         os.remove(filename)
 
     def test_wrong_extension_upload(self):
