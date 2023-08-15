@@ -28,6 +28,7 @@ services:
       - MAILJET_SECRET=$MAILJET_SECRET
       - WEBDOMAIN=notset
       - NWMIS_INSTANCE=burkina-faso
+      - STORAGE_PATH="./storage"
     depends_on:
       - db
     command: tail -f /dev/null

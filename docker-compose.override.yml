@@ -12,6 +12,8 @@ services:
       - 8888:8888
   frontend:
     network_mode: service:mainnetwork
+    volumes:
+      - ${STORAGE_PATH}/images:/app/public/images:delegated
   worker:
     environment:
       - LOG_FILE=worker.log
@@ -19,7 +21,7 @@ services:
       - MAILJET_SECRET=$MAILJET_SECRET
       - WEBDOMAIN=https://nwmis.akvotest.org
     volumes:
-      - ./storage:/app/storage:delegated
+      - ${STORAGE_PATH}:/app/storage:delegated
   backend:
     environment:
       - MAILJET_APIKEY=$MAILJET_APIKEY
@@ -27,7 +29,7 @@ services:
       - WEBDOMAIN=https://nwmis.akvotest.org
     network_mode: service:mainnetwork
     volumes:
-      - ./storage:/app/storage:delegated
+      - ${STORAGE_PATH}:/app/storage:delegated
   pgadmin:
     image: dpage/pgadmin4:5.7
     environment:
