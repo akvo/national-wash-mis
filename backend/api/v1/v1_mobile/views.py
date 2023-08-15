@@ -6,9 +6,10 @@ from drf_spectacular.utils import extend_schema
 from django.http import HttpResponse
 from rest_framework import status, serializers
 from rest_framework.response import Response
-from rest_framework.decorators import api_view, permission_classes
+from rest_framework.decorators import api_view, permission_classes, parser_classes
 from rest_framework.generics import get_object_or_404
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.parsers import MultiPartParser
 from drf_spectacular.utils import inline_serializer
 from .serializers import (
     MobileAssignmentFormsSerializer,
@@ -19,6 +20,8 @@ from api.v1.v1_forms.models import Forms
 from api.v1.v1_profile.models import Access
 from api.v1.v1_forms.serializers import WebFormDetailSerializer
 from api.v1.v1_data.serializers import SubmitPendingFormSerializer
+from api.v1.v1_files.serializers import UploadImagesSerializer
+from api.v1.v1_files.functions import process_image
 from utils.custom_helper import CustomPasscode
 from utils.default_serializers import DefaultResponseSerializer
 from utils.custom_serializer_fields import validate_serializers_message
@@ -87,6 +90,7 @@ def get_mobile_form_details(request, version, form_id):
     summary="Submit pending form data",
 )
 @api_view(["POST"])
+@permission_classes([IsAuthenticated])
 def sync_pending_form_data(request, version):
     form = get_object_or_404(Forms, pk=request.data.get("formId"))
     user = request.user
@@ -148,6 +152,33 @@ def download_sqlite_file(request, version, file_name):
     response["Content-Length"] = os.path.getsize(file_path)
     response["Content-Disposition"] = "attachment; filename=%s" % file_name
     return response
+
+
+@extend_schema(
+    tags=["Mobile Device Forms"],
+    summary="Upload Images from Device",
+    request=UploadImagesSerializer,
+    responses={
+        (200, "application/json"): inline_serializer(
+            "UploadImagesFromDevice", fields={"task_id": serializers.CharField()}
+        )
+    },
+)
+@api_view(["POST"])
+@permission_classes([IsAuthenticated])
+@parser_classes([MultiPartParser])
+def upload_image_form_device(request, version):
+    serializer = UploadImagesSerializer(data=request.data)
+    if not serializer.is_valid():
+        return Response(
+            validate_serializers_message(serializer.errors),
+            status=status.HTTP_400_BAD_REQUEST,
+        )
+    filename = process_image(request)
+    return Response(
+        {"message": "File uploaded successfully", "file": f"/images/{filename}"},
+        status=status.HTTP_200_OK,
+    )
 
 
 @extend_schema(tags=["Mobile APK"], summary="Get APK File")
