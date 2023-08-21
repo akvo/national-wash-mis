@@ -891,7 +891,7 @@
           "order": 9,
           "questionGroupId": 1681078454619,
           "question": "Photo of the main source of water supply from the health center",
-          "type": "text",
+          "type": "photo",
           "required": false,
           "meta": false,
           "translations": [
@@ -1716,7 +1716,7 @@
           "order": 15,
           "questionGroupId": 1681078512667,
           "question": "Photo of the sanitation work (toilet) used in the health center",
-          "type": "text",
+          "type": "photo",
           "required": false,
           "meta": false,
           "dependency": [
@@ -1737,7 +1737,7 @@
           "order": 16,
           "questionGroupId": 1681078512667,
           "question": "Photo of the sanitation work (toilet) used by the staff",
-          "type": "text",
+          "type": "photo",
           "required": false,
           "meta": false,
           "dependency": [
@@ -1758,7 +1758,7 @@
           "order": 17,
           "questionGroupId": 1681078512667,
           "question": "Photo of the sanitation work (toilet) used by patients",
-          "type": "text",
+          "type": "photo",
           "required": false,
           "meta": false,
           "dependency": [
@@ -2141,7 +2141,7 @@
           "order": 10,
           "questionGroupId": 1681078526083,
           "question": "Photo of the hand washing facility",
-          "type": "text",
+          "type": "photo",
           "required": false,
           "meta": false,
           "dependency": [
