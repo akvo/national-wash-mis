@@ -115,7 +115,7 @@ spec:
             - name: STORAGE_PATH
               valueFrom:
                 secretKeyRef:
-                  name: ${STORAGE_PATH}
+                  name: ${INSTANCE_NAME}
                   key: storage-path
             - name: APK_UPLOAD_SECRET
               valueFrom:
@@ -220,7 +220,7 @@ spec:
             - name: STORAGE_PATH
               valueFrom:
                 secretKeyRef:
-                  name: ${STORAGE_PATH}
+                  name: ${INSTANCE_NAME}
                   key: storage-path
           volumeMounts:
             - name: nfs-pvc
